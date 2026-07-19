@@ -20,7 +20,6 @@ import Container from '@/components/layout/container';
 import { Logo } from '@/components/shared/logo';
 import { ModeSwitcher } from '@/components/theme/mode-switcher';
 import { NavbarMobile } from '@/components/layout/navbar-mobile';
-import { LocaleSwitcher } from '@/components/layout/locale-switcher';
 import { UserButton } from '@/components/shared/user-button';
 import { LoginWrapper } from '@/components/auth/login-wrapper';
 import { IconArrowUpRight } from '@tabler/icons-react';
@@ -161,7 +160,6 @@ export function Navbar({ scroll = true }: NavbarProps) {
             </NavigationMenu>
 
             <div className="flex items-center gap-4 shrink-0">
-              <LocaleSwitcher />
               <ModeSwitcher />
               {websiteConfig.auth?.enable &&
                 (!mounted || isPending ? (

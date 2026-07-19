@@ -2,6 +2,11 @@ export const Routes = {
   Root: '/',
 
   // Marketing routes
+  Challenge: '/challenge',
+  Categories: '/categories',
+  Timer: '/timer',
+  Men: '/men',
+  Answers: '/answers',
   Features: '/#features',
   Faqs: '/#faqs',
   Pricing: '/pricing',

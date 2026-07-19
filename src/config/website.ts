@@ -38,15 +38,11 @@ export const websiteConfig: WebsiteConfig = {
     },
   },
   metadata: {
-    get name() {
-      return m.site_name();
-    },
-    get title() {
-      return m.site_title();
-    },
-    get description() {
-      return m.site_description();
-    },
+    name: 'Name100Challenge',
+    title:
+      'Name 100 Women Challenge – Can You Name 100 Famous Women in 12 Minutes?',
+    description:
+      'Play the free Name 100 Women Challenge online. 12 minutes to name 100 famous women — actresses, scientists, athletes, musicians. How many can you get?',
     images: {
       ogImage: '/og.png',
       logoLight: '/logo.png',
@@ -54,38 +50,38 @@ export const websiteConfig: WebsiteConfig = {
     },
   },
   social: {
-    github: 'https://github.com/MkFastHQ',
-    discord: 'https://mksaas.link/discord',
-    twitter: 'https://x.com/TanStarter',
-    youtube: 'https://www.youtube.com/@TanStarter',
+    github: 'https://github.com/bikai9289/100game',
+    discord: '',
+    twitter: '',
+    youtube: '',
   },
   auth: {
-    enable: true,
+    enable: false,
     enableGoogleLogin: true,
     enableCredentialLogin: true,
     enableDeleteAccount: true,
   },
   blog: {
-    enable: true,
+    enable: false,
     paginationSize: 6,
   },
   mail: {
-    enable: true,
+    enable: false,
     provider: 'cloudflare',
-    fromEmail: 'TanStarter <support@tanstarter.dev>',
-    supportEmail: 'TanStarter <support@tanstarter.dev>',
+    fromEmail: '',
+    supportEmail: '',
   },
   newsletter: {
-    enable: true,
+    enable: false,
     provider: 'resend',
     autoSubscribeAfterSignUp: true,
   },
   notification: {
-    enable: true,
+    enable: false,
     provider: 'discord',
   },
   storage: {
-    enable: true,
+    enable: false,
     provider: 'r2',
     maxFileSize: DEFAULT_MAX_FILE_SIZE,
     allowedTypes: DEFAULT_ALLOWED_TYPES,

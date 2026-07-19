@@ -17,7 +17,6 @@ import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Logo } from '@/components/shared/logo';
 import { ModeSwitcherHorizontal } from '@/components/theme/mode-switcher-horizontal';
-import { LocaleSwitcher } from '@/components/layout/locale-switcher';
 import { UserButtonMobile } from '@/components/shared/user-button-mobile';
 import { LoginWrapper } from '@/components/auth/login-wrapper';
 import { websiteConfig } from '@/config/website';
@@ -184,7 +183,6 @@ export function NavbarMobile({ className, ...props }: NavbarMobileProps) {
             </ul>
 
             <div className="mt-auto w-full border-t border-border/50 p-4 flex items-center justify-end gap-2">
-              <LocaleSwitcher onLocaleChange={() => setOpen(false)} />
               <ModeSwitcherHorizontal />
             </div>
           </div>

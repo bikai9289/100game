@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project Rules
+
+1. This is a game site for name100challenge.com, not a SaaS site. Remove or replace all "TanStarter", "Ship Faster", "Pricing", and "SaaS" marketing copy.
+2. All pages must output complete SSR HTML. SEO content must not be rendered only on the client.
+3. Game page copy should be hard-coded in English for phase one. Do not route new game copy through the inlang i18n system.
+4. After every UI change, verify mobile at 375px wide. The first viewport must be playable, and the input must not be blocked.
+5. Primary keywords are "name 100 women" and "name 100 challenge". Title and H1 must include them where relevant.
+6. The first viewport must let users play without scrolling.
+7. After adding routes, update `src/routes/sitemap[.]xml.ts`.
+
 ## Project Overview
 
 **TanStarter** (mkfast-template) — a full-stack SaaS boilerplate built with TanStack Start + React 19, deployed on Cloudflare Workers. Includes auth (Better Auth), payments (Stripe / Creem), email (Resend / Cloudflare Email), storage (Cloudflare R2), database (Cloudflare D1 via Drizzle ORM), blog (Content Collections), and admin dashboard.

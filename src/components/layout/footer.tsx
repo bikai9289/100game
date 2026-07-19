@@ -1,11 +1,9 @@
-import { m } from '@/locale/paraglide/messages';
 import { getFooterLinks } from '@/config/footer-config';
 import { getSocialLinks } from '@/config/social-config';
 import { isLinkActive } from '@/lib/urls';
 import { cn } from '@/lib/utils';
 import Container from '@/components/layout/container';
 import { Logo } from '@/components/shared/logo';
-import BuiltWithButton from '@/components/shared/built-with-button';
 import { Link, useLocation } from '@tanstack/react-router';
 import { websiteConfig } from '@/config/website';
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
@@ -24,10 +22,11 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
               </span>
             </div>
             <p className="text-muted-foreground text-base py-2 md:pr-12">
-              {m.footer_tagline()}
+              Play the free Name 100 Women Challenge online. Type famous women,
+              beat the 12-minute timer, and challenge your friends.
             </p>
             <nav
-              aria-label={m.common_social_links()}
+              aria-label="Social links"
               className="flex items-center gap-4 pt-6"
             >
               {socialLinks?.map((link) => {
@@ -98,9 +97,8 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
         <Container className="px-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <span className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} {websiteConfig.metadata?.name}.{' '}
-            {m.footer_rights_reserved()}
+            All rights reserved.
           </span>
-          <BuiltWithButton />
         </Container>
       </div>
     </footer>
