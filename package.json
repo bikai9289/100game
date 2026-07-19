@@ -4,7 +4,7 @@
   "packageManager": "pnpm@10.30.3",
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "pnpm locale:compile && vite dev --port 3000",
     "build": "vite build",
     "knip": "knip",
     "check": "biome check",

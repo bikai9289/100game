@@ -7,7 +7,6 @@ import { fileURLToPath, URL } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import { cloudflare } from '@cloudflare/vite-plugin';
 import contentCollections from '@content-collections/vite';
-import { paraglideVitePlugin } from '@inlang/paraglide-js';
 
 /**
  * Vite configuration
@@ -30,19 +29,6 @@ const config = defineConfig({
     }),
     tailwindcss(),
     contentCollections(),
-    paraglideVitePlugin({
-      project: './project.inlang',
-      outdir: './src/locale/paraglide',
-      strategy: ['url', 'cookie', 'baseLocale'],
-      routeStrategies: [
-        { match: '/api/:path(.*)?', exclude: true },
-        { match: '/robots.txt', exclude: true },
-        { match: '/sitemap.xml', exclude: true },
-        { match: '/manifest.json', exclude: true },
-      ],
-      emitTsDeclarations: true,
-      isServer: 'import.meta.env.SSR',
-    }),
     // this is the plugin that enables path aliases
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],

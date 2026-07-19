@@ -1,0 +1,3244 @@
+[
+  {
+    "name": "Michael Jackson",
+    "aliases": ["michael jackson", "jackson"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Elvis Presley",
+    "aliases": ["elvis presley", "presley"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Prince",
+    "aliases": ["prince", "prince"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Bob Dylan",
+    "aliases": ["bob dylan", "dylan"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Paul McCartney",
+    "aliases": ["paul mccartney", "mccartney"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "John Lennon",
+    "aliases": ["john lennon", "lennon"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Freddie Mercury",
+    "aliases": ["freddie mercury", "mercury"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "David Bowie",
+    "aliases": ["david bowie", "bowie"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Stevie Wonder",
+    "aliases": ["stevie wonder", "wonder"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Marvin Gaye",
+    "aliases": ["marvin gaye", "gaye"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "James Brown",
+    "aliases": ["james brown", "brown"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Ray Charles",
+    "aliases": ["ray charles", "charles"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Frank Sinatra",
+    "aliases": ["frank sinatra", "sinatra"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Louis Armstrong",
+    "aliases": ["louis armstrong", "armstrong"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Miles Davis",
+    "aliases": ["miles davis", "davis"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Jimi Hendrix",
+    "aliases": ["jimi hendrix", "hendrix"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Kurt Cobain",
+    "aliases": ["kurt cobain", "cobain"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Bruce Springsteen",
+    "aliases": ["bruce springsteen", "springsteen"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Elton John",
+    "aliases": ["elton john", "john"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Billy Joel",
+    "aliases": ["billy joel", "joel"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Bob Marley",
+    "aliases": ["bob marley", "marley"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Tupac Shakur",
+    "aliases": ["tupac shakur", "shakur"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Jay-Z",
+    "aliases": ["jay-z", "jayz"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Kanye West",
+    "aliases": ["kanye west", "west"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Drake",
+    "aliases": ["drake", "drake"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Eminem",
+    "aliases": ["eminem", "eminem"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Kendrick Lamar",
+    "aliases": ["kendrick lamar", "lamar"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "The Weeknd",
+    "aliases": ["the weeknd", "weeknd"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Bruno Mars",
+    "aliases": ["bruno mars", "mars"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Justin Bieber",
+    "aliases": ["justin bieber", "bieber"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Ed Sheeran",
+    "aliases": ["ed sheeran", "sheeran"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Harry Styles",
+    "aliases": ["harry styles", "styles"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sam Smith",
+    "aliases": ["sam smith", "smith"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "George Michael",
+    "aliases": ["george michael", "michael"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sting",
+    "aliases": ["sting", "sting"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Phil Collins",
+    "aliases": ["phil collins", "collins"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lionel Richie",
+    "aliases": ["lionel richie", "richie"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Otis Redding",
+    "aliases": ["otis redding", "redding"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sam Cooke",
+    "aliases": ["sam cooke", "cooke"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Little Richard",
+    "aliases": ["little richard", "richard"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Chuck Berry",
+    "aliases": ["chuck berry", "berry"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Buddy Holly",
+    "aliases": ["buddy holly", "holly"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Johnny Cash",
+    "aliases": ["johnny cash", "cash"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Willie Nelson",
+    "aliases": ["willie nelson", "nelson"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Garth Brooks",
+    "aliases": ["garth brooks", "brooks"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Kenny Rogers",
+    "aliases": ["kenny rogers", "rogers"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Andrea Bocelli",
+    "aliases": ["andrea bocelli", "bocelli"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Luciano Pavarotti",
+    "aliases": ["luciano pavarotti", "pavarotti"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Placido Domingo",
+    "aliases": ["placido domingo", "domingo"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Yo-Yo Ma",
+    "aliases": ["yo-yo ma", "yoyo ma", "ma"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lang Lang",
+    "aliases": ["lang lang", "lang"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Herbie Hancock",
+    "aliases": ["herbie hancock", "hancock"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Duke Ellington",
+    "aliases": ["duke ellington", "ellington"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "John Coltrane",
+    "aliases": ["john coltrane", "coltrane"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Nat King Cole",
+    "aliases": ["nat king cole", "cole", "nat cole"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Neil Young",
+    "aliases": ["neil young", "young"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Leonard Cohen",
+    "aliases": ["leonard cohen", "cohen"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Paul Simon",
+    "aliases": ["paul simon", "simon"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Bono",
+    "aliases": ["bono", "bono"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Mick Jagger",
+    "aliases": ["mick jagger", "jagger"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Tom Hanks",
+    "aliases": ["tom hanks", "hanks"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Leonardo DiCaprio",
+    "aliases": ["leonardo dicaprio", "dicaprio"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Brad Pitt",
+    "aliases": ["brad pitt", "pitt"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Denzel Washington",
+    "aliases": ["denzel washington", "washington"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Morgan Freeman",
+    "aliases": ["morgan freeman", "freeman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Robert De Niro",
+    "aliases": ["robert de niro", "niro", "robert niro"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Al Pacino",
+    "aliases": ["al pacino", "pacino"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Marlon Brando",
+    "aliases": ["marlon brando", "brando"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jack Nicholson",
+    "aliases": ["jack nicholson", "nicholson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Daniel Day-Lewis",
+    "aliases": ["daniel day-lewis", "daniel daylewis", "daylewis"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Anthony Hopkins",
+    "aliases": ["anthony hopkins", "hopkins"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Christian Bale",
+    "aliases": ["christian bale", "bale"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Johnny Depp",
+    "aliases": ["johnny depp", "depp"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Keanu Reeves",
+    "aliases": ["keanu reeves", "reeves"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Will Smith",
+    "aliases": ["will smith", "smith"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Samuel L. Jackson",
+    "aliases": [
+      "samuel l. jackson",
+      "samuel l jackson",
+      "jackson",
+      "samuel jackson"
+    ],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Harrison Ford",
+    "aliases": ["harrison ford", "ford"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Clint Eastwood",
+    "aliases": ["clint eastwood", "eastwood"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "George Clooney",
+    "aliases": ["george clooney", "clooney"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Matt Damon",
+    "aliases": ["matt damon", "damon"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ben Affleck",
+    "aliases": ["ben affleck", "affleck"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ryan Reynolds",
+    "aliases": ["ryan reynolds", "reynolds"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ryan Gosling",
+    "aliases": ["ryan gosling", "gosling"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Chris Hemsworth",
+    "aliases": ["chris hemsworth", "hemsworth"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Chris Evans",
+    "aliases": ["chris evans", "evans"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Robert Downey Jr.",
+    "aliases": ["robert downey jr.", "robert downey jr", "jr", "robert jr"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Tom Cruise",
+    "aliases": ["tom cruise", "cruise"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Hugh Jackman",
+    "aliases": ["hugh jackman", "jackman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Joaquin Phoenix",
+    "aliases": ["joaquin phoenix", "phoenix"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Heath Ledger",
+    "aliases": ["heath ledger", "ledger"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Russell Crowe",
+    "aliases": ["russell crowe", "crowe"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Liam Neeson",
+    "aliases": ["liam neeson", "neeson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Gary Oldman",
+    "aliases": ["gary oldman", "oldman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Idris Elba",
+    "aliases": ["idris elba", "elba"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Chadwick Boseman",
+    "aliases": ["chadwick boseman", "boseman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Michael B. Jordan",
+    "aliases": [
+      "michael b. jordan",
+      "michael b jordan",
+      "jordan",
+      "michael jordan"
+    ],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Mahershala Ali",
+    "aliases": ["mahershala ali", "ali"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Forest Whitaker",
+    "aliases": ["forest whitaker", "whitaker"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Sidney Poitier",
+    "aliases": ["sidney poitier", "poitier"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Laurence Fishburne",
+    "aliases": ["laurence fishburne", "fishburne"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Eddie Murphy",
+    "aliases": ["eddie murphy", "murphy"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jim Carrey",
+    "aliases": ["jim carrey", "carrey"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Robin Williams",
+    "aliases": ["robin williams", "williams"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Steve Carell",
+    "aliases": ["steve carell", "carell"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Adam Sandler",
+    "aliases": ["adam sandler", "sandler"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Bill Murray",
+    "aliases": ["bill murray", "murray"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Seth Rogen",
+    "aliases": ["seth rogen", "rogen"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ben Stiller",
+    "aliases": ["ben stiller", "stiller"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Owen Wilson",
+    "aliases": ["owen wilson", "wilson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jackie Chan",
+    "aliases": ["jackie chan", "chan"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jet Li",
+    "aliases": ["jet li", "li"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Bruce Lee",
+    "aliases": ["bruce lee", "lee"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Shah Rukh Khan",
+    "aliases": ["shah rukh khan", "khan", "shah khan"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Amitabh Bachchan",
+    "aliases": ["amitabh bachchan", "bachchan"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Irrfan Khan",
+    "aliases": ["irrfan khan", "khan"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Dev Patel",
+    "aliases": ["dev patel", "patel"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Rami Malek",
+    "aliases": ["rami malek", "malek"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Pedro Pascal",
+    "aliases": ["pedro pascal", "pascal"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Oscar Isaac",
+    "aliases": ["oscar isaac", "isaac"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Mads Mikkelsen",
+    "aliases": ["mads mikkelsen", "mikkelsen"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Michael Jordan",
+    "aliases": ["michael jordan", "jordan"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "LeBron James",
+    "aliases": ["lebron james", "james"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kobe Bryant",
+    "aliases": ["kobe bryant", "bryant"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Shaquille O’Neal",
+    "aliases": ["shaquille o’neal", "shaquille oneal", "oneal"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Stephen Curry",
+    "aliases": ["stephen curry", "curry"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Magic Johnson",
+    "aliases": ["magic johnson", "johnson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Larry Bird",
+    "aliases": ["larry bird", "bird"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Tiger Woods",
+    "aliases": ["tiger woods", "woods"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Muhammad Ali",
+    "aliases": ["muhammad ali", "ali"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Mike Tyson",
+    "aliases": ["mike tyson", "tyson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Floyd Mayweather",
+    "aliases": ["floyd mayweather", "mayweather"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Usain Bolt",
+    "aliases": ["usain bolt", "bolt"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Michael Phelps",
+    "aliases": ["michael phelps", "phelps"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Tom Brady",
+    "aliases": ["tom brady", "brady"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Peyton Manning",
+    "aliases": ["peyton manning", "manning"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Patrick Mahomes",
+    "aliases": ["patrick mahomes", "mahomes"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lionel Messi",
+    "aliases": ["lionel messi", "messi"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "aliases": ["cristiano ronaldo", "ronaldo"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Pele",
+    "aliases": ["pele", "pele"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Diego Maradona",
+    "aliases": ["diego maradona", "maradona"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Neymar",
+    "aliases": ["neymar", "neymar"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kylian Mbappe",
+    "aliases": ["kylian mbappe", "mbappe"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Zinedine Zidane",
+    "aliases": ["zinedine zidane", "zidane"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "David Beckham",
+    "aliases": ["david beckham", "beckham"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Roger Federer",
+    "aliases": ["roger federer", "federer"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Rafael Nadal",
+    "aliases": ["rafael nadal", "nadal"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Novak Djokovic",
+    "aliases": ["novak djokovic", "djokovic"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Andy Murray",
+    "aliases": ["andy murray", "murray"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Wayne Gretzky",
+    "aliases": ["wayne gretzky", "gretzky"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Babe Ruth",
+    "aliases": ["babe ruth", "ruth"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Jackie Robinson",
+    "aliases": ["jackie robinson", "robinson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Derek Jeter",
+    "aliases": ["derek jeter", "jeter"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Michael Johnson",
+    "aliases": ["michael johnson", "johnson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Carl Lewis",
+    "aliases": ["carl lewis", "lewis"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Jesse Owens",
+    "aliases": ["jesse owens", "owens"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Simone Manuel",
+    "aliases": ["simone manuel", "manuel"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Bo Jackson",
+    "aliases": ["bo jackson", "jackson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Deion Sanders",
+    "aliases": ["deion sanders", "sanders"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Conor McGregor",
+    "aliases": ["conor mcgregor", "mcgregor"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Manny Pacquiao",
+    "aliases": ["manny pacquiao", "pacquiao"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lewis Hamilton",
+    "aliases": ["lewis hamilton", "hamilton"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Ayrton Senna",
+    "aliases": ["ayrton senna", "senna"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Michael Schumacher",
+    "aliases": ["michael schumacher", "schumacher"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Max Verstappen",
+    "aliases": ["max verstappen", "verstappen"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Tony Hawk",
+    "aliases": ["tony hawk", "hawk"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Shaun White",
+    "aliases": ["shaun white", "white"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kelly Slater",
+    "aliases": ["kelly slater", "slater"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Sachin Tendulkar",
+    "aliases": ["sachin tendulkar", "tendulkar"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Virat Kohli",
+    "aliases": ["virat kohli", "kohli"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "MS Dhoni",
+    "aliases": ["ms dhoni", "dhoni"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Don Bradman",
+    "aliases": ["don bradman", "bradman"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Yao Ming",
+    "aliases": ["yao ming", "ming"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Luka Doncic",
+    "aliases": ["luka doncic", "doncic"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "aliases": ["giannis antetokounmpo", "antetokounmpo"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kevin Durant",
+    "aliases": ["kevin durant", "durant"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kareem Abdul-Jabbar",
+    "aliases": ["kareem abdul-jabbar", "kareem abduljabbar", "abduljabbar"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Wilt Chamberlain",
+    "aliases": ["wilt chamberlain", "chamberlain"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Oscar Robertson",
+    "aliases": ["oscar robertson", "robertson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Jerry Rice",
+    "aliases": ["jerry rice", "rice"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Albert Einstein",
+    "aliases": ["albert einstein", "einstein"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Isaac Newton",
+    "aliases": ["isaac newton", "newton"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Charles Darwin",
+    "aliases": ["charles darwin", "darwin"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Nikola Tesla",
+    "aliases": ["nikola tesla", "tesla"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Thomas Edison",
+    "aliases": ["thomas edison", "edison"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Stephen Hawking",
+    "aliases": ["stephen hawking", "hawking"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Alan Turing",
+    "aliases": ["alan turing", "turing"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Galileo Galilei",
+    "aliases": ["galileo galilei", "galilei"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Carl Sagan",
+    "aliases": ["carl sagan", "sagan"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Richard Feynman",
+    "aliases": ["richard feynman", "feynman"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Niels Bohr",
+    "aliases": ["niels bohr", "bohr"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Max Planck",
+    "aliases": ["max planck", "planck"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "James Clerk Maxwell",
+    "aliases": ["james clerk maxwell", "maxwell", "james maxwell"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Michael Faraday",
+    "aliases": ["michael faraday", "faraday"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Dmitri Mendeleev",
+    "aliases": ["dmitri mendeleev", "mendeleev"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Louis Pasteur",
+    "aliases": ["louis pasteur", "pasteur"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Alexander Fleming",
+    "aliases": ["alexander fleming", "fleming"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Jonas Salk",
+    "aliases": ["jonas salk", "salk"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Gregor Mendel",
+    "aliases": ["gregor mendel", "mendel"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Antoine Lavoisier",
+    "aliases": ["antoine lavoisier", "lavoisier"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Robert Oppenheimer",
+    "aliases": ["robert oppenheimer", "oppenheimer"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Enrico Fermi",
+    "aliases": ["enrico fermi", "fermi"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Werner Heisenberg",
+    "aliases": ["werner heisenberg", "heisenberg"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Erwin Schrodinger",
+    "aliases": ["erwin schrodinger", "schrodinger"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Paul Dirac",
+    "aliases": ["paul dirac", "dirac"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Edwin Hubble",
+    "aliases": ["edwin hubble", "hubble"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Johannes Kepler",
+    "aliases": ["johannes kepler", "kepler"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Copernicus",
+    "aliases": ["copernicus", "copernicus"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Blaise Pascal",
+    "aliases": ["blaise pascal", "pascal"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Rene Descartes",
+    "aliases": ["rene descartes", "descartes"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Leonhard Euler",
+    "aliases": ["leonhard euler", "euler"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Carl Friedrich Gauss",
+    "aliases": ["carl friedrich gauss", "gauss", "carl gauss"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Euclid",
+    "aliases": ["euclid", "euclid"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Archimedes",
+    "aliases": ["archimedes", "archimedes"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Pythagoras",
+    "aliases": ["pythagoras", "pythagoras"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Aristotle",
+    "aliases": ["aristotle", "aristotle"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Hippocrates",
+    "aliases": ["hippocrates", "hippocrates"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Avicenna",
+    "aliases": ["avicenna", "avicenna"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ibn al-Haytham",
+    "aliases": ["ibn al-haytham", "ibn alhaytham", "alhaytham"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Al-Khwarizmi",
+    "aliases": ["al-khwarizmi", "alkhwarizmi"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Tim Berners-Lee",
+    "aliases": ["tim berners-lee", "tim bernerslee", "bernerslee"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Vint Cerf",
+    "aliases": ["vint cerf", "cerf"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Dennis Ritchie",
+    "aliases": ["dennis ritchie", "ritchie"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ken Thompson",
+    "aliases": ["ken thompson", "thompson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Linus Torvalds",
+    "aliases": ["linus torvalds", "torvalds"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Donald Knuth",
+    "aliases": ["donald knuth", "knuth"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Claude Shannon",
+    "aliases": ["claude shannon", "shannon"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "John von Neumann",
+    "aliases": ["john von neumann", "neumann", "john neumann"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Norbert Wiener",
+    "aliases": ["norbert wiener", "wiener"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Francis Crick",
+    "aliases": ["francis crick", "crick"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "James Watson",
+    "aliases": ["james watson", "watson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Frederick Banting",
+    "aliases": ["frederick banting", "banting"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Robert Koch",
+    "aliases": ["robert koch", "koch"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Joseph Lister",
+    "aliases": ["joseph lister", "lister"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Edmund Halley",
+    "aliases": ["edmund halley", "halley"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Christiaan Huygens",
+    "aliases": ["christiaan huygens", "huygens"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Benjamin Franklin",
+    "aliases": ["benjamin franklin", "franklin"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "George Washington Carver",
+    "aliases": ["george washington carver", "carver", "george carver"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Neil deGrasse Tyson",
+    "aliases": ["neil degrasse tyson", "tyson", "neil tyson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Brian Cox",
+    "aliases": ["brian cox", "cox"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Barack Obama",
+    "aliases": ["barack obama", "obama"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Joe Biden",
+    "aliases": ["joe biden", "biden"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Donald Trump",
+    "aliases": ["donald trump", "trump"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "George Washington",
+    "aliases": ["george washington", "washington"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Abraham Lincoln",
+    "aliases": ["abraham lincoln", "lincoln"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Thomas Jefferson",
+    "aliases": ["thomas jefferson", "jefferson"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Franklin D. Roosevelt",
+    "aliases": [
+      "franklin d. roosevelt",
+      "franklin d roosevelt",
+      "roosevelt",
+      "franklin roosevelt"
+    ],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "John F. Kennedy",
+    "aliases": ["john f. kennedy", "john f kennedy", "kennedy", "john kennedy"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Ronald Reagan",
+    "aliases": ["ronald reagan", "reagan"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Bill Clinton",
+    "aliases": ["bill clinton", "clinton"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "George W. Bush",
+    "aliases": ["george w. bush", "george w bush", "bush", "george bush"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Nelson Mandela",
+    "aliases": ["nelson mandela", "mandela"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Winston Churchill",
+    "aliases": ["winston churchill", "churchill"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mahatma Gandhi",
+    "aliases": ["mahatma gandhi", "gandhi"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Martin Luther King Jr.",
+    "aliases": [
+      "martin luther king jr.",
+      "martin luther king jr",
+      "jr",
+      "martin jr"
+    ],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Malcolm X",
+    "aliases": ["malcolm x", "x"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Vladimir Putin",
+    "aliases": ["vladimir putin", "putin"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Volodymyr Zelenskyy",
+    "aliases": ["volodymyr zelenskyy", "zelenskyy"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Xi Jinping",
+    "aliases": ["xi jinping", "jinping"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mao Zedong",
+    "aliases": ["mao zedong", "zedong"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Deng Xiaoping",
+    "aliases": ["deng xiaoping", "xiaoping"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Jawaharlal Nehru",
+    "aliases": ["jawaharlal nehru", "nehru"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Narendra Modi",
+    "aliases": ["narendra modi", "modi"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Lee Kuan Yew",
+    "aliases": ["lee kuan yew", "yew", "lee yew"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Justin Trudeau",
+    "aliases": ["justin trudeau", "trudeau"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Pierre Trudeau",
+    "aliases": ["pierre trudeau", "trudeau"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Emmanuel Macron",
+    "aliases": ["emmanuel macron", "macron"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Charles de Gaulle",
+    "aliases": ["charles de gaulle", "gaulle", "charles gaulle"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Napoleon Bonaparte",
+    "aliases": ["napoleon bonaparte", "bonaparte"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Julius Caesar",
+    "aliases": ["julius caesar", "caesar"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Augustus",
+    "aliases": ["augustus", "augustus"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Alexander the Great",
+    "aliases": ["alexander the great", "great", "alexander great"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Genghis Khan",
+    "aliases": ["genghis khan", "khan"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Kublai Khan",
+    "aliases": ["kublai khan", "khan"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Suleiman the Magnificent",
+    "aliases": [
+      "suleiman the magnificent",
+      "magnificent",
+      "suleiman magnificent"
+    ],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mustafa Kemal Ataturk",
+    "aliases": ["mustafa kemal ataturk", "ataturk", "mustafa ataturk"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "David Ben-Gurion",
+    "aliases": ["david ben-gurion", "david bengurion", "bengurion"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Yitzhak Rabin",
+    "aliases": ["yitzhak rabin", "rabin"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Benjamin Netanyahu",
+    "aliases": ["benjamin netanyahu", "netanyahu"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Tony Blair",
+    "aliases": ["tony blair", "blair"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Boris Johnson",
+    "aliases": ["boris johnson", "johnson"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Rishi Sunak",
+    "aliases": ["rishi sunak", "sunak"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Clement Attlee",
+    "aliases": ["clement attlee", "attlee"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mikhail Gorbachev",
+    "aliases": ["mikhail gorbachev", "gorbachev"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Joseph Stalin",
+    "aliases": ["joseph stalin", "stalin"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Vladimir Lenin",
+    "aliases": ["vladimir lenin", "lenin"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Fidel Castro",
+    "aliases": ["fidel castro", "castro"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Che Guevara",
+    "aliases": ["che guevara", "guevara"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Ho Chi Minh",
+    "aliases": ["ho chi minh", "minh", "ho minh"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Kim Jong Un",
+    "aliases": ["kim jong un", "un", "kim un"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "King Charles III",
+    "aliases": ["king charles iii", "iii", "king iii"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Prince William",
+    "aliases": ["prince william", "william"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Prince Harry",
+    "aliases": ["prince harry", "harry"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Pope Francis",
+    "aliases": ["pope francis", "francis"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Pope John Paul II",
+    "aliases": ["pope john paul ii", "ii", "pope ii"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Dalai Lama",
+    "aliases": ["dalai lama", "lama"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Desmond Tutu",
+    "aliases": ["desmond tutu", "tutu"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Kofi Annan",
+    "aliases": ["kofi annan", "annan"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Ban Ki-moon",
+    "aliases": ["ban ki-moon", "ban kimoon", "kimoon"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Antonio Guterres",
+    "aliases": ["antonio guterres", "guterres"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "William Shakespeare",
+    "aliases": ["william shakespeare", "shakespeare"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Leonardo da Vinci",
+    "aliases": ["leonardo da vinci", "vinci", "leonardo vinci"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Michelangelo",
+    "aliases": ["michelangelo", "michelangelo"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Vincent van Gogh",
+    "aliases": ["vincent van gogh", "gogh", "vincent gogh"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Pablo Picasso",
+    "aliases": ["pablo picasso", "picasso"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Claude Monet",
+    "aliases": ["claude monet", "monet"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Salvador Dali",
+    "aliases": ["salvador dali", "dali"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Rembrandt",
+    "aliases": ["rembrandt", "rembrandt"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Andy Warhol",
+    "aliases": ["andy warhol", "warhol"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Frida Kahlo",
+    "aliases": ["frida kahlo", "kahlo"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "aliases": ["wolfgang amadeus mozart", "mozart", "wolfgang mozart"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Ludwig van Beethoven",
+    "aliases": ["ludwig van beethoven", "beethoven", "ludwig beethoven"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Johann Sebastian Bach",
+    "aliases": ["johann sebastian bach", "bach", "johann bach"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Pyotr Ilyich Tchaikovsky",
+    "aliases": ["pyotr ilyich tchaikovsky", "tchaikovsky", "pyotr tchaikovsky"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Frederic Chopin",
+    "aliases": ["frederic chopin", "chopin"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "George Orwell",
+    "aliases": ["george orwell", "orwell"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Mark Twain",
+    "aliases": ["mark twain", "twain"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Charles Dickens",
+    "aliases": ["charles dickens", "dickens"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Leo Tolstoy",
+    "aliases": ["leo tolstoy", "tolstoy"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Fyodor Dostoevsky",
+    "aliases": ["fyodor dostoevsky", "dostoevsky"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Ernest Hemingway",
+    "aliases": ["ernest hemingway", "hemingway"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "F. Scott Fitzgerald",
+    "aliases": [
+      "f. scott fitzgerald",
+      "f scott fitzgerald",
+      "fitzgerald",
+      "f fitzgerald"
+    ],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "J. R. R. Tolkien",
+    "aliases": ["j. r. r. tolkien", "j r r tolkien", "tolkien", "j tolkien"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "C. S. Lewis",
+    "aliases": ["c. s. lewis", "c s lewis", "lewis", "c lewis"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Homer",
+    "aliases": ["homer", "homer"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Plato",
+    "aliases": ["plato", "plato"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Socrates",
+    "aliases": ["socrates", "socrates"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Confucius",
+    "aliases": ["confucius", "confucius"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Laozi",
+    "aliases": ["laozi", "laozi"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Buddha",
+    "aliases": ["buddha", "buddha"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Jesus Christ",
+    "aliases": ["jesus christ", "christ"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Muhammad",
+    "aliases": ["muhammad", "muhammad"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Moses",
+    "aliases": ["moses", "moses"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "King David",
+    "aliases": ["king david", "david"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "King Solomon",
+    "aliases": ["king solomon", "solomon"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Christopher Columbus",
+    "aliases": ["christopher columbus", "columbus"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Ferdinand Magellan",
+    "aliases": ["ferdinand magellan", "magellan"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Marco Polo",
+    "aliases": ["marco polo", "polo"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Vasco da Gama",
+    "aliases": ["vasco da gama", "gama", "vasco gama"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Johannes Gutenberg",
+    "aliases": ["johannes gutenberg", "gutenberg"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Martin Luther",
+    "aliases": ["martin luther", "luther"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "John Locke",
+    "aliases": ["john locke", "locke"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Jean-Jacques Rousseau",
+    "aliases": ["jean-jacques rousseau", "jeanjacques rousseau", "rousseau"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Voltaire",
+    "aliases": ["voltaire", "voltaire"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Adam Smith",
+    "aliases": ["adam smith", "smith"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Karl Marx",
+    "aliases": ["karl marx", "marx"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Sigmund Freud",
+    "aliases": ["sigmund freud", "freud"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Carl Jung",
+    "aliases": ["carl jung", "jung"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "aliases": ["friedrich nietzsche", "nietzsche"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Sun Tzu",
+    "aliases": ["sun tzu", "tzu"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Hannibal",
+    "aliases": ["hannibal", "hannibal"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Charlemagne",
+    "aliases": ["charlemagne", "charlemagne"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Richard the Lionheart",
+    "aliases": ["richard the lionheart", "lionheart", "richard lionheart"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Saladin",
+    "aliases": ["saladin", "saladin"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Attila the Hun",
+    "aliases": ["attila the hun", "hun", "attila hun"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "King Arthur",
+    "aliases": ["king arthur", "arthur"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Robin Hood",
+    "aliases": ["robin hood", "hood"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Dante Alighieri",
+    "aliases": ["dante alighieri", "alighieri"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Geoffrey Chaucer",
+    "aliases": ["geoffrey chaucer", "chaucer"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Steve Jobs",
+    "aliases": ["steve jobs", "jobs"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Bill Gates",
+    "aliases": ["bill gates", "gates"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Elon Musk",
+    "aliases": ["elon musk", "musk"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jeff Bezos",
+    "aliases": ["jeff bezos", "bezos"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Mark Zuckerberg",
+    "aliases": ["mark zuckerberg", "zuckerberg"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Warren Buffett",
+    "aliases": ["warren buffett", "buffett"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Larry Page",
+    "aliases": ["larry page", "page"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sergey Brin",
+    "aliases": ["sergey brin", "brin"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Tim Cook",
+    "aliases": ["tim cook", "cook"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Satya Nadella",
+    "aliases": ["satya nadella", "nadella"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sundar Pichai",
+    "aliases": ["sundar pichai", "pichai"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jack Ma",
+    "aliases": ["jack ma", "ma"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Mukesh Ambani",
+    "aliases": ["mukesh ambani", "ambani"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Richard Branson",
+    "aliases": ["richard branson", "branson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Howard Schultz",
+    "aliases": ["howard schultz", "schultz"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Phil Knight",
+    "aliases": ["phil knight", "knight"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Michael Bloomberg",
+    "aliases": ["michael bloomberg", "bloomberg"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Rupert Murdoch",
+    "aliases": ["rupert murdoch", "murdoch"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "George Soros",
+    "aliases": ["george soros", "soros"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ray Dalio",
+    "aliases": ["ray dalio", "dalio"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Peter Thiel",
+    "aliases": ["peter thiel", "thiel"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Marc Andreessen",
+    "aliases": ["marc andreessen", "andreessen"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Reed Hastings",
+    "aliases": ["reed hastings", "hastings"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Daniel Ek",
+    "aliases": ["daniel ek", "ek"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Evan Spiegel",
+    "aliases": ["evan spiegel", "spiegel"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Travis Kalanick",
+    "aliases": ["travis kalanick", "kalanick"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Brian Chesky",
+    "aliases": ["brian chesky", "chesky"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sam Altman",
+    "aliases": ["sam altman", "altman"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jensen Huang",
+    "aliases": ["jensen huang", "huang"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Michael Dell",
+    "aliases": ["michael dell", "dell"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Larry Ellison",
+    "aliases": ["larry ellison", "ellison"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Masayoshi Son",
+    "aliases": ["masayoshi son", "son"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Bernard Arnault",
+    "aliases": ["bernard arnault", "arnault"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Amancio Ortega",
+    "aliases": ["amancio ortega", "ortega"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Carlos Slim",
+    "aliases": ["carlos slim", "slim"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ratan Tata",
+    "aliases": ["ratan tata", "tata"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Henry Ford",
+    "aliases": ["henry ford", "ford"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "John D. Rockefeller",
+    "aliases": [
+      "john d. rockefeller",
+      "john d rockefeller",
+      "rockefeller",
+      "john rockefeller"
+    ],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Andrew Carnegie",
+    "aliases": ["andrew carnegie", "carnegie"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "J. P. Morgan",
+    "aliases": ["j. p. morgan", "j p morgan", "morgan", "j morgan"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Walt Disney",
+    "aliases": ["walt disney", "disney"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ray Kroc",
+    "aliases": ["ray kroc", "kroc"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sam Walton",
+    "aliases": ["sam walton", "walton"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Conrad Hilton",
+    "aliases": ["conrad hilton", "hilton"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Aristotle Onassis",
+    "aliases": ["aristotle onassis", "onassis"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ted Turner",
+    "aliases": ["ted turner", "turner"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "David Geffen",
+    "aliases": ["david geffen", "geffen"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jerry Yang",
+    "aliases": ["jerry yang", "yang"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Steve Wozniak",
+    "aliases": ["steve wozniak", "wozniak"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Paul Allen",
+    "aliases": ["paul allen", "allen"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jack Dorsey",
+    "aliases": ["jack dorsey", "dorsey"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Evan Williams",
+    "aliases": ["evan williams", "williams"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Kevin Systrom",
+    "aliases": ["kevin systrom", "systrom"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Drew Houston",
+    "aliases": ["drew houston", "houston"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ben Silbermann",
+    "aliases": ["ben silbermann", "silbermann"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Tony Hsieh",
+    "aliases": ["tony hsieh", "hsieh"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Daymond John",
+    "aliases": ["daymond john", "john"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Mark Cuban",
+    "aliases": ["mark cuban", "cuban"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Kevin O’Leary",
+    "aliases": ["kevin o’leary", "kevin oleary", "oleary"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Robert Herjavec",
+    "aliases": ["robert herjavec", "herjavec"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Frederick Douglass",
+    "aliases": ["frederick douglass", "douglass"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "W. E. B. Du Bois",
+    "aliases": ["w. e. b. du bois", "w e b du bois", "bois", "w bois"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Booker T. Washington",
+    "aliases": [
+      "booker t. washington",
+      "booker t washington",
+      "washington",
+      "booker washington"
+    ],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Thurgood Marshall",
+    "aliases": ["thurgood marshall", "marshall"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Cesar Chavez",
+    "aliases": ["cesar chavez", "chavez"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Harvey Milk",
+    "aliases": ["harvey milk", "milk"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Bayard Rustin",
+    "aliases": ["bayard rustin", "rustin"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "John Lewis",
+    "aliases": ["john lewis", "lewis"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Medgar Evers",
+    "aliases": ["medgar evers", "evers"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Marcus Garvey",
+    "aliases": ["marcus garvey", "garvey"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Steve Biko",
+    "aliases": ["steve biko", "biko"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "B. R. Ambedkar",
+    "aliases": ["b. r. ambedkar", "b r ambedkar", "ambedkar", "b ambedkar"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Julian Assange",
+    "aliases": ["julian assange", "assange"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Edward Snowden",
+    "aliases": ["edward snowden", "snowden"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ai Weiwei",
+    "aliases": ["ai weiwei", "weiwei"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Liu Xiaobo",
+    "aliases": ["liu xiaobo", "xiaobo"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Joshua Wong",
+    "aliases": ["joshua wong", "wong"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Alexei Navalny",
+    "aliases": ["alexei navalny", "navalny"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Vaclav Havel",
+    "aliases": ["vaclav havel", "havel"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Lech Walesa",
+    "aliases": ["lech walesa", "walesa"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Andrei Sakharov",
+    "aliases": ["andrei sakharov", "sakharov"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Aung San",
+    "aliases": ["aung san", "san"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jose Rizal",
+    "aliases": ["jose rizal", "rizal"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Dietrich Bonhoeffer",
+    "aliases": ["dietrich bonhoeffer", "bonhoeffer"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Oscar Romero",
+    "aliases": ["oscar romero", "romero"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ralph Nader",
+    "aliases": ["ralph nader", "nader"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Noam Chomsky",
+    "aliases": ["noam chomsky", "chomsky"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Cornel West",
+    "aliases": ["cornel west", "west"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ta-Nehisi Coates",
+    "aliases": ["ta-nehisi coates", "tanehisi coates", "coates"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ibram X. Kendi",
+    "aliases": ["ibram x. kendi", "ibram x kendi", "kendi", "ibram kendi"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "James Baldwin",
+    "aliases": ["james baldwin", "baldwin"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Langston Hughes",
+    "aliases": ["langston hughes", "hughes"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Chinua Achebe",
+    "aliases": ["chinua achebe", "achebe"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Elie Wiesel",
+    "aliases": ["elie wiesel", "wiesel"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Viktor Frankl",
+    "aliases": ["viktor frankl", "frankl"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Edward Said",
+    "aliases": ["edward said", "said"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Christopher Hitchens",
+    "aliases": ["christopher hitchens", "hitchens"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Janez Jansa",
+    "aliases": ["janez jansa", "jansa"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Lenny Bruce",
+    "aliases": ["lenny bruce", "bruce"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jon Stewart",
+    "aliases": ["jon stewart", "stewart"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Trevor Noah",
+    "aliases": ["trevor noah", "noah"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Hasan Minhaj",
+    "aliases": ["hasan minhaj", "minhaj"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "John Oliver",
+    "aliases": ["john oliver", "oliver"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Greta Thunberg",
+    "aliases": ["greta thunberg", "thunberg"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "David Attenborough",
+    "aliases": ["david attenborough", "attenborough"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Al Gore",
+    "aliases": ["al gore", "gore"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Paul Watson",
+    "aliases": ["paul watson", "watson"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Wangari Maathai",
+    "aliases": ["wangari maathai", "maathai"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Muhammad Yunus",
+    "aliases": ["muhammad yunus", "yunus"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Mikhail Khodorkovsky",
+    "aliases": ["mikhail khodorkovsky", "khodorkovsky"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Natan Sharansky",
+    "aliases": ["natan sharansky", "sharansky"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Abbie Hoffman",
+    "aliases": ["abbie hoffman", "hoffman"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jerry Rubin",
+    "aliases": ["jerry rubin", "rubin"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Bobby Seale",
+    "aliases": ["bobby seale", "seale"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Huey P. Newton",
+    "aliases": ["huey p. newton", "huey p newton", "newton", "huey newton"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Stokely Carmichael",
+    "aliases": ["stokely carmichael", "carmichael"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Tom Hayden",
+    "aliases": ["tom hayden", "hayden"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Stephen King",
+    "aliases": ["stephen king", "king"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "George R. R. Martin",
+    "aliases": [
+      "george r. r. martin",
+      "george r r martin",
+      "martin",
+      "george martin"
+    ],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Stan Lee",
+    "aliases": ["stan lee", "lee"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Neil Gaiman",
+    "aliases": ["neil gaiman", "gaiman"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Dr. Seuss",
+    "aliases": ["dr. seuss", "dr seuss", "seuss"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Roald Dahl",
+    "aliases": ["roald dahl", "dahl"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Stephen Colbert",
+    "aliases": ["stephen colbert", "colbert"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jimmy Fallon",
+    "aliases": ["jimmy fallon", "fallon"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jimmy Kimmel",
+    "aliases": ["jimmy kimmel", "kimmel"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "David Letterman",
+    "aliases": ["david letterman", "letterman"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Conan O’Brien",
+    "aliases": ["conan o’brien", "conan obrien", "obrien"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Howard Stern",
+    "aliases": ["howard stern", "stern"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Joe Rogan",
+    "aliases": ["joe rogan", "rogan"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Gordon Ramsay",
+    "aliases": ["gordon ramsay", "ramsay"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Anthony Bourdain",
+    "aliases": ["anthony bourdain", "bourdain"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jamie Oliver",
+    "aliases": ["jamie oliver", "oliver"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Guy Fieri",
+    "aliases": ["guy fieri", "fieri"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "David Chang",
+    "aliases": ["david chang", "chang"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "MrBeast",
+    "aliases": ["mrbeast", "mrbeast"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "PewDiePie",
+    "aliases": ["pewdiepie", "pewdiepie"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Logan Paul",
+    "aliases": ["logan paul", "paul"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jake Paul",
+    "aliases": ["jake paul", "paul"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Markiplier",
+    "aliases": ["markiplier", "markiplier"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jacksepticeye",
+    "aliases": ["jacksepticeye", "jacksepticeye"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Ninja",
+    "aliases": ["ninja", "ninja"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "TimTheTatman",
+    "aliases": ["timthetatman", "timthetatman"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Dr Disrespect",
+    "aliases": ["dr disrespect", "disrespect"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Casey Neistat",
+    "aliases": ["casey neistat", "neistat"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Marques Brownlee",
+    "aliases": ["marques brownlee", "brownlee"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Bill Nye",
+    "aliases": ["bill nye", "nye"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "David Blaine",
+    "aliases": ["david blaine", "blaine"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Penn Jillette",
+    "aliases": ["penn jillette", "jillette"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Teller",
+    "aliases": ["teller", "teller"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Derren Brown",
+    "aliases": ["derren brown", "brown"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Bear Grylls",
+    "aliases": ["bear grylls", "grylls"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Steve Irwin",
+    "aliases": ["steve irwin", "irwin"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jacques Cousteau",
+    "aliases": ["jacques cousteau", "cousteau"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Bob Ross",
+    "aliases": ["bob ross", "ross"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Banksy",
+    "aliases": ["banksy", "banksy"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Virgil Abloh",
+    "aliases": ["virgil abloh", "abloh"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Ralph Lauren",
+    "aliases": ["ralph lauren", "lauren"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Giorgio Armani",
+    "aliases": ["giorgio armani", "armani"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Calvin Klein",
+    "aliases": ["calvin klein", "klein"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Karl Lagerfeld",
+    "aliases": ["karl lagerfeld", "lagerfeld"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Tom Ford",
+    "aliases": ["tom ford", "ford"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Yves Saint Laurent",
+    "aliases": ["yves saint laurent", "laurent", "yves laurent"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Christian Dior",
+    "aliases": ["christian dior", "dior"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Alexander McQueen",
+    "aliases": ["alexander mcqueen", "mcqueen"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Marc Jacobs",
+    "aliases": ["marc jacobs", "jacobs"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Le Corbusier",
+    "aliases": ["le corbusier", "corbusier"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Frank Lloyd Wright",
+    "aliases": ["frank lloyd wright", "wright", "frank wright"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Frank Gehry",
+    "aliases": ["frank gehry", "gehry"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Zaha Hadid",
+    "aliases": ["zaha hadid", "hadid"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "I. M. Pei",
+    "aliases": ["i. m. pei", "i m pei", "pei", "i pei"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Norman Foster",
+    "aliases": ["norman foster", "foster"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jeff Koons",
+    "aliases": ["jeff koons", "koons"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Damien Hirst",
+    "aliases": ["damien hirst", "hirst"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Takashi Murakami",
+    "aliases": ["takashi murakami", "murakami"],
+    "category": "other",
+    "hint": "Famous public figure"
+  }
+]

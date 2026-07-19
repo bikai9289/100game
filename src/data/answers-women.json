@@ -1,0 +1,3279 @@
+[
+  {
+    "name": "Taylor Swift",
+    "aliases": ["taylor swift", "swift"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Beyoncé",
+    "aliases": ["beyoncé", "beyonce"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Adele",
+    "aliases": ["adele", "adele"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Madonna",
+    "aliases": ["madonna", "madonna"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lady Gaga",
+    "aliases": ["lady gaga", "gaga"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Rihanna",
+    "aliases": ["rihanna", "rihanna"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Whitney Houston",
+    "aliases": ["whitney houston", "houston"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Mariah Carey",
+    "aliases": ["mariah carey", "carey"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Aretha Franklin",
+    "aliases": ["aretha franklin", "franklin"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Diana Ross",
+    "aliases": ["diana ross", "ross"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Cher",
+    "aliases": ["cher", "cher"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Madam C. J. Walker",
+    "aliases": [
+      "madam c. j. walker",
+      "madam c j walker",
+      "walker",
+      "madam walker"
+    ],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "PinkPantheress",
+    "aliases": ["pinkpantheress", "pinkpantheress"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Dolly Parton",
+    "aliases": ["dolly parton", "parton"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Ella Fitzgerald",
+    "aliases": ["ella fitzgerald", "fitzgerald"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Nina Simone",
+    "aliases": ["nina simone", "simone"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Billie Holiday",
+    "aliases": ["billie holiday", "holiday"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Tina Turner",
+    "aliases": ["tina turner", "turner"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Celine Dion",
+    "aliases": ["celine dion", "dion"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Pink",
+    "aliases": ["pink", "pink"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "RAYE",
+    "aliases": ["raye", "raye"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Pokimane",
+    "aliases": ["pokimane", "pokimane"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Doechii",
+    "aliases": ["doechii", "doechii"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "beabadoobee",
+    "aliases": ["beabadoobee", "beabadoobee"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Christina Aguilera",
+    "aliases": ["christina aguilera", "aguilera"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Britney Spears",
+    "aliases": ["britney spears", "spears"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Jennifer Lopez",
+    "aliases": ["jennifer lopez", "lopez"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Shakira",
+    "aliases": ["shakira", "shakira"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Alicia Keys",
+    "aliases": ["alicia keys", "keys"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Kelly Clarkson",
+    "aliases": ["kelly clarkson", "clarkson"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Carrie Underwood",
+    "aliases": ["carrie underwood", "underwood"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Janet Jackson",
+    "aliases": ["janet jackson", "jackson"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Katy Perry",
+    "aliases": ["katy perry", "perry"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lady Antebellum",
+    "aliases": ["lady antebellum", "antebellum"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Miley Cyrus",
+    "aliases": ["miley cyrus", "cyrus"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Ariana Grande",
+    "aliases": ["ariana grande", "grande"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Dua Lipa",
+    "aliases": ["dua lipa", "lipa"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Olivia Rodrigo",
+    "aliases": ["olivia rodrigo", "rodrigo"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "SZA",
+    "aliases": ["sza", "sza"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lorde",
+    "aliases": ["lorde", "lorde"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sia",
+    "aliases": ["sia", "sia"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Lana Del Rey",
+    "aliases": ["lana del rey", "rey", "lana rey"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Amy Winehouse",
+    "aliases": ["amy winehouse", "winehouse"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Florence Welch",
+    "aliases": ["florence welch", "welch"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Stevie Nicks",
+    "aliases": ["stevie nicks", "nicks"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Janis Joplin",
+    "aliases": ["janis joplin", "joplin"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Joni Mitchell",
+    "aliases": ["joni mitchell", "mitchell"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Carole King",
+    "aliases": ["carole king", "king"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Loretta Lynn",
+    "aliases": ["loretta lynn", "lynn"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Patsy Cline",
+    "aliases": ["patsy cline", "cline"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Shania Twain",
+    "aliases": ["shania twain", "twain"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Faith Hill",
+    "aliases": ["faith hill", "hill"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Miranda Lambert",
+    "aliases": ["miranda lambert", "lambert"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Reba McEntire",
+    "aliases": ["reba mcentire", "mcentire"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Tammy Wynette",
+    "aliases": ["tammy wynette", "wynette"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Norah Jones",
+    "aliases": ["norah jones", "jones"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Diana Krall",
+    "aliases": ["diana krall", "krall"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sarah McLachlan",
+    "aliases": ["sarah mclachlan", "mclachlan"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Sheryl Crow",
+    "aliases": ["sheryl crow", "crow"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Alanis Morissette",
+    "aliases": ["alanis morissette", "morissette"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
+  },
+  {
+    "name": "Gail Greenwood",
+    "aliases": ["gail greenwood", "greenwood"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "D'arcy Wretzky",
+    "aliases": ["d'arcy wretzky", "darcy wretzky", "wretzky"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Melissa Auf der Maur",
+    "aliases": ["melissa auf der maur", "maur", "melissa maur"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Paz Lenchantin",
+    "aliases": ["paz lenchantin", "lenchantin"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Emma Richardson",
+    "aliases": ["emma richardson", "richardson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Radie Peat",
+    "aliases": ["radie peat", "peat"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Rachel Goswell",
+    "aliases": ["rachel goswell", "goswell"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ruth Radelet",
+    "aliases": ["ruth radelet", "radelet"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Victoria Legrand",
+    "aliases": ["victoria legrand", "legrand"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Elizabeth Stokes",
+    "aliases": ["elizabeth stokes", "stokes"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Romy Madley Croft",
+    "aliases": ["romy madley croft", "croft", "romy croft"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Meryl Streep",
+    "aliases": ["meryl streep", "streep"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Julia Roberts",
+    "aliases": ["julia roberts", "roberts"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Angelina Jolie",
+    "aliases": ["angelina jolie", "jolie"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Nicole Kidman",
+    "aliases": ["nicole kidman", "kidman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jennifer Aniston",
+    "aliases": ["jennifer aniston", "aniston"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Sandra Bullock",
+    "aliases": ["sandra bullock", "bullock"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Emma Stone",
+    "aliases": ["emma stone", "stone"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Scarlett Johansson",
+    "aliases": ["scarlett johansson", "johansson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Anne Hathaway",
+    "aliases": ["anne hathaway", "hathaway"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Emma Watson",
+    "aliases": ["emma watson", "watson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Cate Blanchett",
+    "aliases": ["cate blanchett", "blanchett"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Viola Davis",
+    "aliases": ["viola davis", "davis"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Helen Mirren",
+    "aliases": ["helen mirren", "mirren"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Judi Dench",
+    "aliases": ["judi dench", "dench"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Kate Winslet",
+    "aliases": ["kate winslet", "winslet"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Charlize Theron",
+    "aliases": ["charlize theron", "theron"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Natalie Portman",
+    "aliases": ["natalie portman", "portman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jennifer Lawrence",
+    "aliases": ["jennifer lawrence", "lawrence"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Reese Witherspoon",
+    "aliases": ["reese witherspoon", "witherspoon"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Amy Adams",
+    "aliases": ["amy adams", "adams"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Michelle Williams",
+    "aliases": ["michelle williams", "williams"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jessica Chastain",
+    "aliases": ["jessica chastain", "chastain"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Glenn Close",
+    "aliases": ["glenn close", "close"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Emma Thompson",
+    "aliases": ["emma thompson", "thompson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Julie Andrews",
+    "aliases": ["julie andrews", "andrews"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Audrey Hepburn",
+    "aliases": ["audrey hepburn", "hepburn"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Ingrid Bergman",
+    "aliases": ["ingrid bergman", "bergman"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Grace Kelly",
+    "aliases": ["grace kelly", "kelly"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Marilyn Monroe",
+    "aliases": ["marilyn monroe", "monroe"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Elizabeth Taylor",
+    "aliases": ["elizabeth taylor", "taylor"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Katharine Hepburn",
+    "aliases": ["katharine hepburn", "hepburn"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Sophia Loren",
+    "aliases": ["sophia loren", "loren"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Michelle Pfeiffer",
+    "aliases": ["michelle pfeiffer", "pfeiffer"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Susan Sarandon",
+    "aliases": ["susan sarandon", "sarandon"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jodie Foster",
+    "aliases": ["jodie foster", "foster"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Holly Hunter",
+    "aliases": ["holly hunter", "hunter"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jessica Lange",
+    "aliases": ["jessica lange", "lange"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Diane Keaton",
+    "aliases": ["diane keaton", "keaton"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Sally Field",
+    "aliases": ["sally field", "field"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Jane Fonda",
+    "aliases": ["jane fonda", "fonda"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Sissy Spacek",
+    "aliases": ["sissy spacek", "spacek"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Whoopi Goldberg",
+    "aliases": ["whoopi goldberg", "goldberg"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Angela Bassett",
+    "aliases": ["angela bassett", "bassett"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Halle Berry",
+    "aliases": ["halle berry", "berry"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Octavia Spencer",
+    "aliases": ["octavia spencer", "spencer"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Regina King",
+    "aliases": ["regina king", "king"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Lupita Nyong'o",
+    "aliases": ["lupita nyong'o", "lupita nyongo", "nyongo"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Brie Larson",
+    "aliases": ["brie larson", "larson"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Rachel McAdams",
+    "aliases": ["rachel mcadams", "mcadams"],
+    "category": "actresses",
+    "hint": "Film or television performer"
+  },
+  {
+    "name": "Empress Dowager Cixi",
+    "aliases": ["empress dowager cixi", "cixi", "empress cixi"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Princess Margaret",
+    "aliases": ["princess margaret", "margaret"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Sarah Palin",
+    "aliases": ["sarah palin", "palin"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Martha Washington",
+    "aliases": ["martha washington", "washington"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Abigail Adams",
+    "aliases": ["abigail adams", "adams"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Todd Lincoln",
+    "aliases": ["mary todd lincoln", "lincoln", "mary lincoln"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Sojourner Truth",
+    "aliases": ["sojourner truth", "truth"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Elizabeth Cady Stanton",
+    "aliases": ["elizabeth cady stanton", "stanton", "elizabeth stanton"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Lucy Stone",
+    "aliases": ["lucy stone", "stone"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Victoria Woodhull",
+    "aliases": ["victoria woodhull", "woodhull"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Carry Nation",
+    "aliases": ["carry nation", "nation"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Jane Addams",
+    "aliases": ["jane addams", "addams"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Florence Nightingale",
+    "aliases": ["florence nightingale", "nightingale"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Dorothea Dix",
+    "aliases": ["dorothea dix", "dix"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Elizabeth Blackwell",
+    "aliases": ["elizabeth blackwell", "blackwell"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Edwards Walker",
+    "aliases": ["mary edwards walker", "walker", "mary walker"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Seacole",
+    "aliases": ["mary seacole", "seacole"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Dorothy Height",
+    "aliases": ["dorothy height", "height"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Shirley Chisholm",
+    "aliases": ["shirley chisholm", "chisholm"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Barbara Jordan",
+    "aliases": ["barbara jordan", "jordan"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Geraldine Ferraro",
+    "aliases": ["geraldine ferraro", "ferraro"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Sandra Day O'Connor",
+    "aliases": [
+      "sandra day o'connor",
+      "sandra day oconnor",
+      "oconnor",
+      "sandra oconnor"
+    ],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Janet Reno",
+    "aliases": ["janet reno", "reno"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Elizabeth Dole",
+    "aliases": ["elizabeth dole", "dole"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Carol Moseley Braun",
+    "aliases": ["carol moseley braun", "braun", "carol braun"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Dianne Feinstein",
+    "aliases": ["dianne feinstein", "feinstein"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Barbara Mikulski",
+    "aliases": ["barbara mikulski", "mikulski"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Olympia Snowe",
+    "aliases": ["olympia snowe", "snowe"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Kay Bailey Hutchison",
+    "aliases": ["kay bailey hutchison", "hutchison", "kay hutchison"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Nancy Kassebaum",
+    "aliases": ["nancy kassebaum", "kassebaum"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Jennifer Granholm",
+    "aliases": ["jennifer granholm", "granholm"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Christine Todd Whitman",
+    "aliases": ["christine todd whitman", "whitman", "christine whitman"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Jeane Kirkpatrick",
+    "aliases": ["jeane kirkpatrick", "kirkpatrick"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Patricia Roberts Harris",
+    "aliases": ["patricia roberts harris", "harris", "patricia harris"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Carla Hills",
+    "aliases": ["carla hills", "hills"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Elizabeth Holtzman",
+    "aliases": ["elizabeth holtzman", "holtzman"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Bella Abzug",
+    "aliases": ["bella abzug", "abzug"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Martha Griffiths",
+    "aliases": ["martha griffiths", "griffiths"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Frances Perkins",
+    "aliases": ["frances perkins", "perkins"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Anderson",
+    "aliases": ["mary anderson", "anderson"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Norton",
+    "aliases": ["mary norton", "norton"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Clare Boothe Luce",
+    "aliases": ["clare boothe luce", "luce", "clare luce"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Margaret Chase Smith",
+    "aliases": ["margaret chase smith", "smith", "margaret smith"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Patsy Mink",
+    "aliases": ["patsy mink", "mink"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Leonor K. Sullivan",
+    "aliases": [
+      "leonor k. sullivan",
+      "leonor k sullivan",
+      "sullivan",
+      "leonor sullivan"
+    ],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Edith Green",
+    "aliases": ["edith green", "green"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Julia Butler Hansen",
+    "aliases": ["julia butler hansen", "hansen", "julia hansen"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Catherine Dean May",
+    "aliases": ["catherine dean may", "may", "catherine may"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Charlotte Reid",
+    "aliases": ["charlotte reid", "reid"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Margaret Heckler",
+    "aliases": ["margaret heckler", "heckler"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Millicent Fenwick",
+    "aliases": ["millicent fenwick", "fenwick"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Patricia Schroeder",
+    "aliases": ["patricia schroeder", "schroeder"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Barbara Boxer",
+    "aliases": ["barbara boxer", "boxer"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Susan Collins",
+    "aliases": ["susan collins", "collins"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Mary Landrieu",
+    "aliases": ["mary landrieu", "landrieu"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Blanche Lincoln",
+    "aliases": ["blanche lincoln", "lincoln"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Patty Murray",
+    "aliases": ["patty murray", "murray"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Lisa Murkowski",
+    "aliases": ["lisa murkowski", "murkowski"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Claire McCaskill",
+    "aliases": ["claire mccaskill", "mccaskill"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Amy Klobuchar",
+    "aliases": ["amy klobuchar", "klobuchar"],
+    "category": "politicians",
+    "hint": "Political leader or public official"
+  },
+  {
+    "name": "Megan Rapinoe",
+    "aliases": ["megan rapinoe", "rapinoe"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Alex Morgan",
+    "aliases": ["alex morgan", "morgan"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Maria Sharapova",
+    "aliases": ["maria sharapova", "sharapova"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Naomi Osaka",
+    "aliases": ["naomi osaka", "osaka"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lindsey Vonn",
+    "aliases": ["lindsey vonn", "vonn"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Martina Navratilova",
+    "aliases": ["martina navratilova", "navratilova"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Steffi Graf",
+    "aliases": ["steffi graf", "graf"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Billie Jean King",
+    "aliases": ["billie jean king", "king", "billie king"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Chris Evert",
+    "aliases": ["chris evert", "evert"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Monica Seles",
+    "aliases": ["monica seles", "seles"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Nadia Comăneci",
+    "aliases": ["nadia comăneci", "nadia comaneci", "comaneci"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Mary Lou Retton",
+    "aliases": ["mary lou retton", "retton", "mary retton"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Jackie Joyner-Kersee",
+    "aliases": ["jackie joyner-kersee", "jackie joynerkersee", "joynerkersee"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Florence Griffith Joyner",
+    "aliases": ["florence griffith joyner", "joyner", "florence joyner"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Wilma Rudolph",
+    "aliases": ["wilma rudolph", "rudolph"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Mia Hamm",
+    "aliases": ["mia hamm", "hamm"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Abby Wambach",
+    "aliases": ["abby wambach", "wambach"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Hope Solo",
+    "aliases": ["hope solo", "solo"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Carli Lloyd",
+    "aliases": ["carli lloyd", "lloyd"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Diana Taurasi",
+    "aliases": ["diana taurasi", "taurasi"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lisa Leslie",
+    "aliases": ["lisa leslie", "leslie"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Sheryl Swoopes",
+    "aliases": ["sheryl swoopes", "swoopes"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Candace Parker",
+    "aliases": ["candace parker", "parker"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Maya Moore",
+    "aliases": ["maya moore", "moore"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kerri Walsh Jennings",
+    "aliases": ["kerri walsh jennings", "jennings", "kerri jennings"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Misty May-Treanor",
+    "aliases": ["misty may-treanor", "misty maytreanor", "maytreanor"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Katie Ledecky",
+    "aliases": ["katie ledecky", "ledecky"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Simone Manuel",
+    "aliases": ["simone manuel", "manuel"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Aly Raisman",
+    "aliases": ["aly raisman", "raisman"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Gabby Douglas",
+    "aliases": ["gabby douglas", "douglas"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "McKayla Maroney",
+    "aliases": ["mckayla maroney", "maroney"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Dominique Dawes",
+    "aliases": ["dominique dawes", "dawes"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Shannon Miller",
+    "aliases": ["shannon miller", "miller"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Nastia Liukin",
+    "aliases": ["nastia liukin", "liukin"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Shawn Johnson",
+    "aliases": ["shawn johnson", "johnson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Carly Patterson",
+    "aliases": ["carly patterson", "patterson"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Ronda Rousey",
+    "aliases": ["ronda rousey", "rousey"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Danica Patrick",
+    "aliases": ["danica patrick", "patrick"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Anna Kournikova",
+    "aliases": ["anna kournikova", "kournikova"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Martina Hingis",
+    "aliases": ["martina hingis", "hingis"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Justine Henin",
+    "aliases": ["justine henin", "henin"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Kim Clijsters",
+    "aliases": ["kim clijsters", "clijsters"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lindsay Davenport",
+    "aliases": ["lindsay davenport", "davenport"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Evonne Goolagong",
+    "aliases": ["evonne goolagong", "goolagong"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Margaret Court",
+    "aliases": ["margaret court", "court"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Tracy Austin",
+    "aliases": ["tracy austin", "austin"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Arantxa Sánchez Vicario",
+    "aliases": [
+      "arantxa sánchez vicario",
+      "arantxa sanchez vicario",
+      "vicario",
+      "arantxa vicario"
+    ],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Gabriela Sabatini",
+    "aliases": ["gabriela sabatini", "sabatini"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Jennifer Capriati",
+    "aliases": ["jennifer capriati", "capriati"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Pam Shriver",
+    "aliases": ["pam shriver", "shriver"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Helena Sukova",
+    "aliases": ["helena sukova", "sukova"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Hana Mandlikova",
+    "aliases": ["hana mandlikova", "mandlikova"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Virginia Wade",
+    "aliases": ["virginia wade", "wade"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Nancy Lopez",
+    "aliases": ["nancy lopez", "lopez"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Annika Sörenstam",
+    "aliases": ["annika sörenstam", "annika sorenstam", "sorenstam"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Michelle Wie",
+    "aliases": ["michelle wie", "wie"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Paula Creamer",
+    "aliases": ["paula creamer", "creamer"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Lorena Ochoa",
+    "aliases": ["lorena ochoa", "ochoa"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Se Ri Pak",
+    "aliases": ["se ri pak", "pak", "se pak"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "Karrie Webb",
+    "aliases": ["karrie webb", "webb"],
+    "category": "athletes",
+    "hint": "Athlete or sports figure"
+  },
+  {
+    "name": "George Eliot",
+    "aliases": ["george eliot", "eliot"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Louisa May Alcott",
+    "aliases": ["louisa may alcott", "alcott", "louisa alcott"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Edith Wharton",
+    "aliases": ["edith wharton", "wharton"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Willa Cather",
+    "aliases": ["willa cather", "cather"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Flannery O'Connor",
+    "aliases": ["flannery o'connor", "flannery oconnor", "oconnor"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Dorothy Parker",
+    "aliases": ["dorothy parker", "parker"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Ursula K. Le Guin",
+    "aliases": ["ursula k. le guin", "ursula k le guin", "guin", "ursula guin"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Anne Rice",
+    "aliases": ["anne rice", "rice"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "J.K. Rowling",
+    "aliases": ["j.k. rowling", "jk rowling", "rowling"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Danielle Steel",
+    "aliases": ["danielle steel", "steel"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Nora Roberts",
+    "aliases": ["nora roberts", "roberts"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Mary Higgins Clark",
+    "aliases": ["mary higgins clark", "clark", "mary clark"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Amy Tan",
+    "aliases": ["amy tan", "tan"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Isabel Allende",
+    "aliases": ["isabel allende", "allende"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Jane Goodall",
+    "aliases": ["jane goodall", "goodall"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Daphne du Maurier",
+    "aliases": ["daphne du maurier", "maurier", "daphne maurier"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Judy Blume",
+    "aliases": ["judy blume", "blume"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Beverly Cleary",
+    "aliases": ["beverly cleary", "cleary"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Beatrix Potter",
+    "aliases": ["beatrix potter", "potter"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Laura Ingalls Wilder",
+    "aliases": ["laura ingalls wilder", "wilder", "laura wilder"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "E. Annie Proulx",
+    "aliases": ["e. annie proulx", "e annie proulx", "proulx", "e proulx"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Joyce Carol Oates",
+    "aliases": ["joyce carol oates", "oates", "joyce oates"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Alice Munro",
+    "aliases": ["alice munro", "munro"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Anne Frank",
+    "aliases": ["anne frank", "frank"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Audre Lorde",
+    "aliases": ["audre lorde", "lorde"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Bell Hooks",
+    "aliases": ["bell hooks", "hooks"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Gloria Steinem",
+    "aliases": ["gloria steinem", "steinem"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Betty Friedan",
+    "aliases": ["betty friedan", "friedan"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Simone de Beauvoir",
+    "aliases": ["simone de beauvoir", "beauvoir", "simone beauvoir"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Susan Sontag",
+    "aliases": ["susan sontag", "sontag"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Annie Dillard",
+    "aliases": ["annie dillard", "dillard"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Joan Didion",
+    "aliases": ["joan didion", "didion"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Mary McCarthy",
+    "aliases": ["mary mccarthy", "mccarthy"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Gertrude Stein",
+    "aliases": ["gertrude stein", "stein"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Pearl S. Buck",
+    "aliases": ["pearl s. buck", "pearl s buck", "buck", "pearl buck"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Edna St. Vincent Millay",
+    "aliases": [
+      "edna st. vincent millay",
+      "edna st vincent millay",
+      "millay",
+      "edna millay"
+    ],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Elizabeth Barrett Browning",
+    "aliases": ["elizabeth barrett browning", "browning", "elizabeth browning"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Christina Rossetti",
+    "aliases": ["christina rossetti", "rossetti"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Dorothy Sayers",
+    "aliases": ["dorothy sayers", "sayers"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Patricia Highsmith",
+    "aliases": ["patricia highsmith", "highsmith"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Shirley Jackson",
+    "aliases": ["shirley jackson", "jackson"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Carson McCullers",
+    "aliases": ["carson mccullers", "mccullers"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Eudora Welty",
+    "aliases": ["eudora welty", "welty"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Katherine Anne Porter",
+    "aliases": ["katherine anne porter", "porter", "katherine porter"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Rebecca West",
+    "aliases": ["rebecca west", "west"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Iris Murdoch",
+    "aliases": ["iris murdoch", "murdoch"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Doris Lessing",
+    "aliases": ["doris lessing", "lessing"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Muriel Spark",
+    "aliases": ["muriel spark", "spark"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Nadine Gordimer",
+    "aliases": ["nadine gordimer", "gordimer"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Alice Adams",
+    "aliases": ["alice adams", "adams"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Anne Tyler",
+    "aliases": ["anne tyler", "tyler"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Barbara Kingsolver",
+    "aliases": ["barbara kingsolver", "kingsolver"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Sue Grafton",
+    "aliases": ["sue grafton", "grafton"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Patricia Cornwell",
+    "aliases": ["patricia cornwell", "cornwell"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Mary Stewart",
+    "aliases": ["mary stewart", "stewart"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Elizabeth Gaskell",
+    "aliases": ["elizabeth gaskell", "gaskell"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "George Sand",
+    "aliases": ["george sand", "sand"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Colette",
+    "aliases": ["colette", "colette"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Marguerite Duras",
+    "aliases": ["marguerite duras", "duras"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Anaïs Nin",
+    "aliases": ["anaïs nin", "anais nin", "nin"],
+    "category": "historical",
+    "hint": "Historical, literary, royal, or cultural figure"
+  },
+  {
+    "name": "Simone Weil",
+    "aliases": ["simone weil", "weil"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Hannah Arendt",
+    "aliases": ["hannah arendt", "arendt"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Mary Wollstonecraft",
+    "aliases": ["mary wollstonecraft", "wollstonecraft"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Angela Carter",
+    "aliases": ["angela carter", "carter"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jeanette Winterson",
+    "aliases": ["jeanette winterson", "winterson"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "A.S. Byatt",
+    "aliases": ["a.s. byatt", "as byatt", "byatt"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Zadie Smith",
+    "aliases": ["zadie smith", "smith"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Chimamanda Ngozi Adichie",
+    "aliases": ["chimamanda ngozi adichie", "adichie", "chimamanda adichie"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Alice Hoffman",
+    "aliases": ["alice hoffman", "hoffman"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Anne McCaffrey",
+    "aliases": ["anne mccaffrey", "mccaffrey"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Marion Zimmer Bradley",
+    "aliases": ["marion zimmer bradley", "bradley", "marion bradley"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Diana Gabaldon",
+    "aliases": ["diana gabaldon", "gabaldon"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Octavia Butler",
+    "aliases": ["octavia butler", "butler"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Mary Renault",
+    "aliases": ["mary renault", "renault"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Philippa Gregory",
+    "aliases": ["philippa gregory", "gregory"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Alice Sebold",
+    "aliases": ["alice sebold", "sebold"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ann Patchett",
+    "aliases": ["ann patchett", "patchett"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Marilynne Robinson",
+    "aliases": ["marilynne robinson", "robinson"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Louise Erdrich",
+    "aliases": ["louise erdrich", "erdrich"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Sandra Cisneros",
+    "aliases": ["sandra cisneros", "cisneros"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Julia Alvarez",
+    "aliases": ["julia alvarez", "alvarez"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Maxine Hong Kingston",
+    "aliases": ["maxine hong kingston", "kingston", "maxine kingston"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Anchee Min",
+    "aliases": ["anchee min", "min"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Arundhati Roy",
+    "aliases": ["arundhati roy", "roy"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jhumpa Lahiri",
+    "aliases": ["jhumpa lahiri", "lahiri"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Banana Yoshimoto",
+    "aliases": ["banana yoshimoto", "yoshimoto"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Han Kang",
+    "aliases": ["han kang", "kang"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Clarice Lispector",
+    "aliases": ["clarice lispector", "lispector"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Elena Ferrante",
+    "aliases": ["elena ferrante", "ferrante"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Elfriede Jelinek",
+    "aliases": ["elfriede jelinek", "jelinek"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Herta Müller",
+    "aliases": ["herta müller", "herta muller", "muller"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Wisława Szymborska",
+    "aliases": ["wisława szymborska", "wisawa szymborska", "szymborska"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Anne Sexton",
+    "aliases": ["anne sexton", "sexton"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Adrienne Rich",
+    "aliases": ["adrienne rich", "rich"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Mary Oliver",
+    "aliases": ["mary oliver", "oliver"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Sharon Olds",
+    "aliases": ["sharon olds", "olds"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Louise Glück",
+    "aliases": ["louise glück", "louise gluck", "gluck"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Rita Dove",
+    "aliases": ["rita dove", "dove"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Carol Ann Duffy",
+    "aliases": ["carol ann duffy", "duffy", "carol duffy"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Sappho",
+    "aliases": ["sappho", "sappho"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Dorothy Wordsworth",
+    "aliases": ["dorothy wordsworth", "wordsworth"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Elizabeth Bishop",
+    "aliases": ["elizabeth bishop", "bishop"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Marianne Moore",
+    "aliases": ["marianne moore", "moore"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "H.D.",
+    "aliases": ["h.d.", "hd"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Xuxa",
+    "aliases": ["xuxa", "xuxa"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Stevie Smith",
+    "aliases": ["stevie smith", "smith"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Anne Bradstreet",
+    "aliases": ["anne bradstreet", "bradstreet"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Phillis Wheatley",
+    "aliases": ["phillis wheatley", "wheatley"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Aphra Behn",
+    "aliases": ["aphra behn", "behn"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Frances Burney",
+    "aliases": ["frances burney", "burney"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Maria Edgeworth",
+    "aliases": ["maria edgeworth", "edgeworth"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Mary Webb",
+    "aliases": ["mary webb", "webb"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Radclyffe Hall",
+    "aliases": ["radclyffe hall", "hall"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Rosamond Lehmann",
+    "aliases": ["rosamond lehmann", "lehmann"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Elizabeth Bowen",
+    "aliases": ["elizabeth bowen", "bowen"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Jean Rhys",
+    "aliases": ["jean rhys", "rhys"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Storm Jameson",
+    "aliases": ["storm jameson", "jameson"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Ivy Compton-Burnett",
+    "aliases": ["ivy compton-burnett", "ivy comptonburnett", "comptonburnett"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Penelope Fitzgerald",
+    "aliases": ["penelope fitzgerald", "fitzgerald"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Beryl Bainbridge",
+    "aliases": ["beryl bainbridge", "bainbridge"],
+    "category": "activists",
+    "hint": "Activist, reformer, writer, or public intellectual"
+  },
+  {
+    "name": "Alice Ball",
+    "aliases": ["alice ball", "ball"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Annie Jump Cannon",
+    "aliases": ["annie jump cannon", "cannon", "annie cannon"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Henrietta Swan Leavitt",
+    "aliases": ["henrietta swan leavitt", "leavitt", "henrietta leavitt"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Maria Mitchell",
+    "aliases": ["maria mitchell", "mitchell"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Jocelyn Bell Burnell",
+    "aliases": ["jocelyn bell burnell", "burnell", "jocelyn burnell"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Vera Rubin",
+    "aliases": ["vera rubin", "rubin"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Mae Jemison",
+    "aliases": ["mae jemison", "jemison"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Sally Ride",
+    "aliases": ["sally ride", "ride"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Margaret Hamilton",
+    "aliases": ["margaret hamilton", "hamilton"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Katherine Johnson",
+    "aliases": ["katherine johnson", "johnson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Dorothy Vaughan",
+    "aliases": ["dorothy vaughan", "vaughan"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Mary Jackson",
+    "aliases": ["mary jackson", "jackson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Annie Easley",
+    "aliases": ["annie easley", "easley"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Flossie Wong-Staal",
+    "aliases": ["flossie wong-staal", "flossie wongstaal", "wongstaal"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Jennifer Doudna",
+    "aliases": ["jennifer doudna", "doudna"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Frances Arnold",
+    "aliases": ["frances arnold", "arnold"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Tu Youyou",
+    "aliases": ["tu youyou", "youyou"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Linda Buck",
+    "aliases": ["linda buck", "buck"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Jane Cooke Wright",
+    "aliases": ["jane cooke wright", "wright", "jane wright"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Virginia Apgar",
+    "aliases": ["virginia apgar", "apgar"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Helen Taussig",
+    "aliases": ["helen taussig", "taussig"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Gerty Cori",
+    "aliases": ["gerty cori", "cori"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Rosalyn Yalow",
+    "aliases": ["rosalyn yalow", "yalow"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Maria Goeppert Mayer",
+    "aliases": ["maria goeppert mayer", "mayer", "maria mayer"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "May-Britt Moser",
+    "aliases": ["may-britt moser", "maybritt moser", "moser"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Elizabeth Blackburn",
+    "aliases": ["elizabeth blackburn", "blackburn"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Carol Greider",
+    "aliases": ["carol greider", "greider"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Françoise Barré-Sinoussi",
+    "aliases": [
+      "françoise barré-sinoussi",
+      "francoise barresinoussi",
+      "barresinoussi"
+    ],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Christiane Nüsslein-Volhard",
+    "aliases": [
+      "christiane nüsslein-volhard",
+      "christiane nussleinvolhard",
+      "nussleinvolhard"
+    ],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Dorothy Crowfoot Hodgkin",
+    "aliases": ["dorothy crowfoot hodgkin", "hodgkin", "dorothy hodgkin"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Gertrude Belle Elion",
+    "aliases": ["gertrude belle elion", "elion", "gertrude elion"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ada Yonath",
+    "aliases": ["ada yonath", "yonath"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Youyou Tu",
+    "aliases": ["youyou tu", "tu"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Emmanuelle Charpentier",
+    "aliases": ["emmanuelle charpentier", "charpentier"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Andrea Ghez",
+    "aliases": ["andrea ghez", "ghez"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Carolyn Bertozzi",
+    "aliases": ["carolyn bertozzi", "bertozzi"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Patricia Bath",
+    "aliases": ["patricia bath", "bath"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Shirley Ann Jackson",
+    "aliases": ["shirley ann jackson", "jackson", "shirley jackson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ellen Ochoa",
+    "aliases": ["ellen ochoa", "ochoa"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Stephanie Kwolek",
+    "aliases": ["stephanie kwolek", "kwolek"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Hedy Lamarr",
+    "aliases": ["hedy lamarr", "lamarr"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Temple Grandin",
+    "aliases": ["temple grandin", "grandin"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Melba Roy Mouton",
+    "aliases": ["melba roy mouton", "mouton", "melba mouton"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Mary Sherman Morgan",
+    "aliases": ["mary sherman morgan", "morgan", "mary morgan"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Alice Catherine Evans",
+    "aliases": ["alice catherine evans", "evans", "alice evans"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Mary Engle Pennington",
+    "aliases": ["mary engle pennington", "pennington", "mary pennington"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Rachel Fuller Brown",
+    "aliases": ["rachel fuller brown", "brown", "rachel brown"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Gladys West",
+    "aliases": ["gladys west", "west"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Marian Croak",
+    "aliases": ["marian croak", "croak"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Patricia Era Bath",
+    "aliases": ["patricia era bath", "bath", "patricia bath"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ruth Rogan Benerito",
+    "aliases": ["ruth rogan benerito", "benerito", "ruth benerito"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Erna Schneider Hoover",
+    "aliases": ["erna schneider hoover", "hoover", "erna hoover"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Helen Free",
+    "aliases": ["helen free", "free"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Ke$ha",
+    "aliases": ["ke$ha", "keha"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Kesha",
+    "aliases": ["kesha", "kesha"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Sade",
+    "aliases": ["sade", "sade"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Beulah Louise Henry",
+    "aliases": ["beulah louise henry", "henry", "beulah henry"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Margaret Knight",
+    "aliases": ["margaret knight", "knight"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Melitta Bentz",
+    "aliases": ["melitta bentz", "bentz"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Maria Beasley",
+    "aliases": ["maria beasley", "beasley"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
+  },
+  {
+    "name": "Kalpana Chawla",
+    "aliases": ["kalpana chawla", "chawla"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Laurel Clark",
+    "aliases": ["laurel clark", "clark"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Stephanie Wilson",
+    "aliases": ["stephanie wilson", "wilson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Barbara Morgan",
+    "aliases": ["barbara morgan", "morgan"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Dorothy Metcalf-Lindenburger",
+    "aliases": [
+      "dorothy metcalf-lindenburger",
+      "dorothy metcalflindenburger",
+      "metcalflindenburger"
+    ],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Karen Nyberg",
+    "aliases": ["karen nyberg", "nyberg"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Tracy Caldwell Dyson",
+    "aliases": ["tracy caldwell dyson", "dyson", "tracy dyson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Shannon Walker",
+    "aliases": ["shannon walker", "walker"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Catherine Coleman",
+    "aliases": ["catherine coleman", "coleman"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sunita Williams",
+    "aliases": ["sunita williams", "williams"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Anne McClain",
+    "aliases": ["anne mcclain", "mcclain"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Christina Koch",
+    "aliases": ["christina koch", "koch"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jessica Meir",
+    "aliases": ["jessica meir", "meir"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jasmin Moghbeli",
+    "aliases": ["jasmin moghbeli", "moghbeli"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Nicole Mann",
+    "aliases": ["nicole mann", "mann"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Oprah Winfrey",
+    "aliases": ["oprah winfrey", "winfrey"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ellen DeGeneres",
+    "aliases": ["ellen degeneres", "degeneres"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Martha Stewart",
+    "aliases": ["martha stewart", "stewart"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Barbara Walters",
+    "aliases": ["barbara walters", "walters"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Anna Wintour",
+    "aliases": ["anna wintour", "wintour"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Tyra Banks",
+    "aliases": ["tyra banks", "banks"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "RuPaul",
+    "aliases": ["rupaul", "rupaul"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Iman",
+    "aliases": ["iman", "iman"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Naomi Campbell",
+    "aliases": ["naomi campbell", "campbell"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Cindy Crawford",
+    "aliases": ["cindy crawford", "crawford"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Twiggy",
+    "aliases": ["twiggy", "twiggy"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Kate Moss",
+    "aliases": ["kate moss", "moss"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Heidi Klum",
+    "aliases": ["heidi klum", "klum"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Gisele Bündchen",
+    "aliases": ["gisele bündchen", "gisele bundchen", "bundchen"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Linda Evangelista",
+    "aliases": ["linda evangelista", "evangelista"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Christy Turlington",
+    "aliases": ["christy turlington", "turlington"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Claudia Schiffer",
+    "aliases": ["claudia schiffer", "schiffer"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Elle Macpherson",
+    "aliases": ["elle macpherson", "macpherson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Beverly Johnson",
+    "aliases": ["beverly johnson", "johnson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Lauren Hutton",
+    "aliases": ["lauren hutton", "hutton"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Isabella Rossellini",
+    "aliases": ["isabella rossellini", "rossellini"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Jerry Hall",
+    "aliases": ["jerry hall", "hall"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Janice Dickinson",
+    "aliases": ["janice dickinson", "dickinson"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Christie Brinkley",
+    "aliases": ["christie brinkley", "brinkley"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Paulina Porizkova",
+    "aliases": ["paulina porizkova", "porizkova"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Rachel Hunter",
+    "aliases": ["rachel hunter", "hunter"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Helena Christensen",
+    "aliases": ["helena christensen", "christensen"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Stephanie Seymour",
+    "aliases": ["stephanie seymour", "seymour"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Amber Valletta",
+    "aliases": ["amber valletta", "valletta"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Adriana Lima",
+    "aliases": ["adriana lima", "lima"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Alessandra Ambrosio",
+    "aliases": ["alessandra ambrosio", "ambrosio"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Miranda Kerr",
+    "aliases": ["miranda kerr", "kerr"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Karlie Kloss",
+    "aliases": ["karlie kloss", "kloss"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Cara Delevingne",
+    "aliases": ["cara delevingne", "delevingne"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Kendall Jenner",
+    "aliases": ["kendall jenner", "jenner"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Gigi Hadid",
+    "aliases": ["gigi hadid", "hadid"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Bella Hadid",
+    "aliases": ["bella hadid", "hadid"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Ashley Graham",
+    "aliases": ["ashley graham", "graham"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Joan Rivers",
+    "aliases": ["joan rivers", "rivers"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Phyllis Diller",
+    "aliases": ["phyllis diller", "diller"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Sophia Petrillo",
+    "aliases": ["sophia petrillo", "petrillo"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Rose Nylund",
+    "aliases": ["rose nylund", "nylund"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Dorothy Zbornak",
+    "aliases": ["dorothy zbornak", "zbornak"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Blanche Devereaux",
+    "aliases": ["blanche devereaux", "devereaux"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Bea Arthur",
+    "aliases": ["bea arthur", "arthur"],
+    "category": "business",
+    "hint": "Business, media, fashion, or entrepreneurship figure"
+  },
+  {
+    "name": "Joan Lunden",
+    "aliases": ["joan lunden", "lunden"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Paula Zahn",
+    "aliases": ["paula zahn", "zahn"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Soledad O'Brien",
+    "aliases": ["soledad o'brien", "soledad obrien", "obrien"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Ann Curry",
+    "aliases": ["ann curry", "curry"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Natalie Morales",
+    "aliases": ["natalie morales", "morales"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Tamron Hall",
+    "aliases": ["tamron hall", "hall"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Melissa Harris-Perry",
+    "aliases": ["melissa harris-perry", "melissa harrisperry", "harrisperry"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Rachel Maddow",
+    "aliases": ["rachel maddow", "maddow"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Ana Navarro",
+    "aliases": ["ana navarro", "navarro"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Joy Reid",
+    "aliases": ["joy reid", "reid"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Sunny Hostin",
+    "aliases": ["sunny hostin", "hostin"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Sara Haines",
+    "aliases": ["sara haines", "haines"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jedediah Bila",
+    "aliases": ["jedediah bila", "bila"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Paula Faris",
+    "aliases": ["paula faris", "faris"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Candace Cameron Bure",
+    "aliases": ["candace cameron bure", "bure", "candace bure"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Elisabeth Hasselbeck",
+    "aliases": ["elisabeth hasselbeck", "hasselbeck"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jenny McCarthy",
+    "aliases": ["jenny mccarthy", "mccarthy"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Sherri Shepherd",
+    "aliases": ["sherri shepherd", "shepherd"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Debbie Matenopoulos",
+    "aliases": ["debbie matenopoulos", "matenopoulos"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Lisa Ling",
+    "aliases": ["lisa ling", "ling"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Diana Vreeland",
+    "aliases": ["diana vreeland", "vreeland"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Coco Chanel",
+    "aliases": ["coco chanel", "chanel"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Donna Karan",
+    "aliases": ["donna karan", "karan"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Vera Wang",
+    "aliases": ["vera wang", "wang"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Betsey Johnson",
+    "aliases": ["betsey johnson", "johnson"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Carolina Herrera",
+    "aliases": ["carolina herrera", "herrera"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Diane von Furstenberg",
+    "aliases": ["diane von furstenberg", "furstenberg", "diane furstenberg"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Mary Quant",
+    "aliases": ["mary quant", "quant"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Vivienne Westwood",
+    "aliases": ["vivienne westwood", "westwood"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Donatella Versace",
+    "aliases": ["donatella versace", "versace"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Miuccia Prada",
+    "aliases": ["miuccia prada", "prada"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Stella McCartney",
+    "aliases": ["stella mccartney", "mccartney"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Kate Spade",
+    "aliases": ["kate spade", "spade"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Tory Burch",
+    "aliases": ["tory burch", "burch"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Rachel Zoe",
+    "aliases": ["rachel zoe", "zoe"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Victoria Beckham",
+    "aliases": ["victoria beckham", "beckham"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Jackie Kennedy",
+    "aliases": ["jackie kennedy", "kennedy"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Brigitte Bardot",
+    "aliases": ["brigitte bardot", "bardot"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Raquel Welch",
+    "aliases": ["raquel welch", "welch"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Bo Derek",
+    "aliases": ["bo derek", "derek"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Kim Kardashian",
+    "aliases": ["kim kardashian", "kardashian"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Paris Hilton",
+    "aliases": ["paris hilton", "hilton"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Nicole Richie",
+    "aliases": ["nicole richie", "richie"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Lauren Conrad",
+    "aliases": ["lauren conrad", "conrad"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Heidi Montag",
+    "aliases": ["heidi montag", "montag"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Audrina Patridge",
+    "aliases": ["audrina patridge", "patridge"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Whitney Port",
+    "aliases": ["whitney port", "port"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Kristin Cavallari",
+    "aliases": ["kristin cavallari", "cavallari"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Snooki",
+    "aliases": ["snooki", "snooki"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "JWoww",
+    "aliases": ["jwoww", "jwoww"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Teresa Giudice",
+    "aliases": ["teresa giudice", "giudice"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "NeNe Leakes",
+    "aliases": ["nene leakes", "leakes"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Bethenny Frankel",
+    "aliases": ["bethenny frankel", "frankel"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Lisa Vanderpump",
+    "aliases": ["lisa vanderpump", "vanderpump"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Kyle Richards",
+    "aliases": ["kyle richards", "richards"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Yolanda Hadid",
+    "aliases": ["yolanda hadid", "hadid"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Ramona Singer",
+    "aliases": ["ramona singer", "singer"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Luann de Lesseps",
+    "aliases": ["luann de lesseps", "lesseps", "luann lesseps"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Sonja Morgan",
+    "aliases": ["sonja morgan", "morgan"],
+    "category": "other",
+    "hint": "Famous public figure"
+  },
+  {
+    "name": "Kandi Burruss",
+    "aliases": ["kandi burruss", "burruss"],
+    "category": "other",
+    "hint": "Famous public figure"
+  }
+]
