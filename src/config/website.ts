@@ -1,4 +1,4 @@
-import { getMessageList } from '@/lib/locale';
+﻿import { getMessageList } from '@/lib/locale';
 import { m } from '@/locale/paraglide/messages';
 import { clientEnv } from '@/env/client';
 import type { WebsiteConfig } from '../types';

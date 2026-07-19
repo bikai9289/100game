@@ -1,7 +1,7 @@
 import { HomePage } from '@/components/blocks/homepage';
+import { getLocale, localeConfig } from '@/lib/locale';
 import { seo } from '@/lib/seo';
 import { getCanonicalUrl } from '@/lib/urls';
-import { getLocale, localeConfig } from '@/lib/locale';
 import { createFileRoute } from '@tanstack/react-router';
 
 const title =
@@ -33,7 +33,7 @@ const faqItems = [
   {
     question: 'Will there be new categories?',
     answer:
-      'Yes. Category pages, daily challenge mode, a timer tool, and a men’s version are planned as separate pages so each mode can have focused rules and SEO content.',
+      "Yes. Category pages, daily challenge mode, a timer tool, and a men's version are separate pages so each mode can have focused rules and useful practice content.",
   },
 ];
 

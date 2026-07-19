@@ -39,19 +39,25 @@ import { Route as AdminUsersRouteImport } from './routes/admin/users'
 import { Route as testsTestErrorRouteImport } from './routes/(tests)/test-error'
 import { Route as testsTest404RouteImport } from './routes/(tests)/test-404'
 import { Route as pagesWaitlistRouteImport } from './routes/(pages)/waitlist'
+import { Route as pagesTimerRouteImport } from './routes/(pages)/timer'
 import { Route as pagesRoadmapRouteImport } from './routes/(pages)/roadmap'
 import { Route as pagesPricingRouteImport } from './routes/(pages)/pricing'
+import { Route as pagesMenRouteImport } from './routes/(pages)/men'
 import { Route as pagesContactRouteImport } from './routes/(pages)/contact'
 import { Route as pagesChangelogRouteImport } from './routes/(pages)/changelog'
+import { Route as pagesChallengeRouteImport } from './routes/(pages)/challenge'
+import { Route as pagesAnswersRouteImport } from './routes/(pages)/answers'
 import { Route as pagesAiRouteImport } from './routes/(pages)/ai'
 import { Route as pagesAboutRouteImport } from './routes/(pages)/about'
 import { Route as legalsTermsRouteImport } from './routes/(legals)/terms'
 import { Route as legalsPrivacyRouteImport } from './routes/(legals)/privacy'
 import { Route as legalsCookieRouteImport } from './routes/(legals)/cookie'
+import { Route as pagesCategoriesIndexRouteImport } from './routes/(pages)/categories/index'
 import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/stripe'
 import { Route as ApiWebhooksCreemRouteImport } from './routes/api/webhooks/creem'
 import { Route as ApiStorageFileRouteImport } from './routes/api/storage/file'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as pagesCategoriesSlugRouteImport } from './routes/(pages)/categories/$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -203,6 +209,11 @@ const pagesWaitlistRoute = pagesWaitlistRouteImport.update({
   path: '/waitlist',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesTimerRoute = pagesTimerRouteImport.update({
+  id: '/(pages)/timer',
+  path: '/timer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const pagesRoadmapRoute = pagesRoadmapRouteImport.update({
   id: '/(pages)/roadmap',
   path: '/roadmap',
@@ -213,6 +224,11 @@ const pagesPricingRoute = pagesPricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesMenRoute = pagesMenRouteImport.update({
+  id: '/(pages)/men',
+  path: '/men',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const pagesContactRoute = pagesContactRouteImport.update({
   id: '/(pages)/contact',
   path: '/contact',
@@ -221,6 +237,16 @@ const pagesContactRoute = pagesContactRouteImport.update({
 const pagesChangelogRoute = pagesChangelogRouteImport.update({
   id: '/(pages)/changelog',
   path: '/changelog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const pagesChallengeRoute = pagesChallengeRouteImport.update({
+  id: '/(pages)/challenge',
+  path: '/challenge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const pagesAnswersRoute = pagesAnswersRouteImport.update({
+  id: '/(pages)/answers',
+  path: '/answers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const pagesAiRoute = pagesAiRouteImport.update({
@@ -248,6 +274,11 @@ const legalsCookieRoute = legalsCookieRouteImport.update({
   path: '/cookie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesCategoriesIndexRoute = pagesCategoriesIndexRouteImport.update({
+  id: '/(pages)/categories/',
+  path: '/categories/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiWebhooksStripeRoute = ApiWebhooksStripeRouteImport.update({
   id: '/api/webhooks/stripe',
   path: '/api/webhooks/stripe',
@@ -268,6 +299,11 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesCategoriesSlugRoute = pagesCategoriesSlugRouteImport.update({
+  id: '/(pages)/categories/$slug',
+  path: '/categories/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -283,10 +319,14 @@ export interface FileRoutesByFullPath {
   '/terms': typeof legalsTermsRoute
   '/about': typeof pagesAboutRoute
   '/ai': typeof pagesAiRoute
+  '/answers': typeof pagesAnswersRoute
+  '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
+  '/men': typeof pagesMenRoute
   '/pricing': typeof pagesPricingRoute
   '/roadmap': typeof pagesRoadmapRoute
+  '/timer': typeof pagesTimerRoute
   '/waitlist': typeof pagesWaitlistRoute
   '/test-404': typeof testsTest404Route
   '/test-error': typeof testsTestErrorRoute
@@ -309,10 +349,12 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/settings/': typeof SettingsIndexRoute
+  '/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
+  '/categories/': typeof pagesCategoriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -325,10 +367,14 @@ export interface FileRoutesByTo {
   '/terms': typeof legalsTermsRoute
   '/about': typeof pagesAboutRoute
   '/ai': typeof pagesAiRoute
+  '/answers': typeof pagesAnswersRoute
+  '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
+  '/men': typeof pagesMenRoute
   '/pricing': typeof pagesPricingRoute
   '/roadmap': typeof pagesRoadmapRoute
+  '/timer': typeof pagesTimerRoute
   '/waitlist': typeof pagesWaitlistRoute
   '/test-404': typeof testsTest404Route
   '/test-error': typeof testsTestErrorRoute
@@ -351,10 +397,12 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/settings': typeof SettingsIndexRoute
+  '/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
+  '/categories': typeof pagesCategoriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -371,10 +419,14 @@ export interface FileRoutesById {
   '/(legals)/terms': typeof legalsTermsRoute
   '/(pages)/about': typeof pagesAboutRoute
   '/(pages)/ai': typeof pagesAiRoute
+  '/(pages)/answers': typeof pagesAnswersRoute
+  '/(pages)/challenge': typeof pagesChallengeRoute
   '/(pages)/changelog': typeof pagesChangelogRoute
   '/(pages)/contact': typeof pagesContactRoute
+  '/(pages)/men': typeof pagesMenRoute
   '/(pages)/pricing': typeof pagesPricingRoute
   '/(pages)/roadmap': typeof pagesRoadmapRoute
+  '/(pages)/timer': typeof pagesTimerRoute
   '/(pages)/waitlist': typeof pagesWaitlistRoute
   '/(tests)/test-404': typeof testsTest404Route
   '/(tests)/test-error': typeof testsTestErrorRoute
@@ -397,10 +449,12 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/settings/': typeof SettingsIndexRoute
+  '/(pages)/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
+  '/(pages)/categories/': typeof pagesCategoriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -418,10 +472,14 @@ export interface FileRouteTypes {
     | '/terms'
     | '/about'
     | '/ai'
+    | '/answers'
+    | '/challenge'
     | '/changelog'
     | '/contact'
+    | '/men'
     | '/pricing'
     | '/roadmap'
+    | '/timer'
     | '/waitlist'
     | '/test-404'
     | '/test-error'
@@ -444,10 +502,12 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/dashboard/'
     | '/settings/'
+    | '/categories/$slug'
     | '/api/auth/$'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
+    | '/categories/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -460,10 +520,14 @@ export interface FileRouteTypes {
     | '/terms'
     | '/about'
     | '/ai'
+    | '/answers'
+    | '/challenge'
     | '/changelog'
     | '/contact'
+    | '/men'
     | '/pricing'
     | '/roadmap'
+    | '/timer'
     | '/waitlist'
     | '/test-404'
     | '/test-error'
@@ -486,10 +550,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/dashboard'
     | '/settings'
+    | '/categories/$slug'
     | '/api/auth/$'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
+    | '/categories'
   id:
     | '__root__'
     | '/'
@@ -505,10 +571,14 @@ export interface FileRouteTypes {
     | '/(legals)/terms'
     | '/(pages)/about'
     | '/(pages)/ai'
+    | '/(pages)/answers'
+    | '/(pages)/challenge'
     | '/(pages)/changelog'
     | '/(pages)/contact'
+    | '/(pages)/men'
     | '/(pages)/pricing'
     | '/(pages)/roadmap'
+    | '/(pages)/timer'
     | '/(pages)/waitlist'
     | '/(tests)/test-404'
     | '/(tests)/test-error'
@@ -531,10 +601,12 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/dashboard/'
     | '/settings/'
+    | '/(pages)/categories/$slug'
     | '/api/auth/$'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
+    | '/(pages)/categories/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -551,20 +623,26 @@ export interface RootRouteChildren {
   legalsTermsRoute: typeof legalsTermsRoute
   pagesAboutRoute: typeof pagesAboutRoute
   pagesAiRoute: typeof pagesAiRoute
+  pagesAnswersRoute: typeof pagesAnswersRoute
+  pagesChallengeRoute: typeof pagesChallengeRoute
   pagesChangelogRoute: typeof pagesChangelogRoute
   pagesContactRoute: typeof pagesContactRoute
+  pagesMenRoute: typeof pagesMenRoute
   pagesPricingRoute: typeof pagesPricingRoute
   pagesRoadmapRoute: typeof pagesRoadmapRoute
+  pagesTimerRoute: typeof pagesTimerRoute
   pagesWaitlistRoute: typeof pagesWaitlistRoute
   testsTest404Route: typeof testsTest404Route
   testsTestErrorRoute: typeof testsTestErrorRoute
   ApiPingRoute: typeof ApiPingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  pagesCategoriesSlugRoute: typeof pagesCategoriesSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiStorageFileRoute: typeof ApiStorageFileRoute
   ApiWebhooksCreemRoute: typeof ApiWebhooksCreemRoute
   ApiWebhooksStripeRoute: typeof ApiWebhooksStripeRoute
+  pagesCategoriesIndexRoute: typeof pagesCategoriesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -779,6 +857,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesWaitlistRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/timer': {
+      id: '/(pages)/timer'
+      path: '/timer'
+      fullPath: '/timer'
+      preLoaderRoute: typeof pagesTimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(pages)/roadmap': {
       id: '/(pages)/roadmap'
       path: '/roadmap'
@@ -793,6 +878,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesPricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/men': {
+      id: '/(pages)/men'
+      path: '/men'
+      fullPath: '/men'
+      preLoaderRoute: typeof pagesMenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(pages)/contact': {
       id: '/(pages)/contact'
       path: '/contact'
@@ -805,6 +897,20 @@ declare module '@tanstack/react-router' {
       path: '/changelog'
       fullPath: '/changelog'
       preLoaderRoute: typeof pagesChangelogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(pages)/challenge': {
+      id: '/(pages)/challenge'
+      path: '/challenge'
+      fullPath: '/challenge'
+      preLoaderRoute: typeof pagesChallengeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(pages)/answers': {
+      id: '/(pages)/answers'
+      path: '/answers'
+      fullPath: '/answers'
+      preLoaderRoute: typeof pagesAnswersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(pages)/ai': {
@@ -842,6 +948,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof legalsCookieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/categories/': {
+      id: '/(pages)/categories/'
+      path: '/categories'
+      fullPath: '/categories/'
+      preLoaderRoute: typeof pagesCategoriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/webhooks/stripe': {
       id: '/api/webhooks/stripe'
       path: '/api/webhooks/stripe'
@@ -868,6 +981,13 @@ declare module '@tanstack/react-router' {
       path: '/api/auth/$'
       fullPath: '/api/auth/$'
       preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(pages)/categories/$slug': {
+      id: '/(pages)/categories/$slug'
+      path: '/categories/$slug'
+      fullPath: '/categories/$slug'
+      preLoaderRoute: typeof pagesCategoriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -955,20 +1075,26 @@ const rootRouteChildren: RootRouteChildren = {
   legalsTermsRoute: legalsTermsRoute,
   pagesAboutRoute: pagesAboutRoute,
   pagesAiRoute: pagesAiRoute,
+  pagesAnswersRoute: pagesAnswersRoute,
+  pagesChallengeRoute: pagesChallengeRoute,
   pagesChangelogRoute: pagesChangelogRoute,
   pagesContactRoute: pagesContactRoute,
+  pagesMenRoute: pagesMenRoute,
   pagesPricingRoute: pagesPricingRoute,
   pagesRoadmapRoute: pagesRoadmapRoute,
+  pagesTimerRoute: pagesTimerRoute,
   pagesWaitlistRoute: pagesWaitlistRoute,
   testsTest404Route: testsTest404Route,
   testsTestErrorRoute: testsTestErrorRoute,
   ApiPingRoute: ApiPingRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  pagesCategoriesSlugRoute: pagesCategoriesSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiStorageFileRoute: ApiStorageFileRoute,
   ApiWebhooksCreemRoute: ApiWebhooksCreemRoute,
   ApiWebhooksStripeRoute: ApiWebhooksStripeRoute,
+  pagesCategoriesIndexRoute: pagesCategoriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

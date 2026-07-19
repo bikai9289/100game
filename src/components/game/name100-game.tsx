@@ -1,6 +1,6 @@
 'use client';
 
-import answersData from '@/data/answers-women.json';
+import defaultAnswersData from '@/data/answers-women.json';
 import {
   initGame,
   normalizeInput,
@@ -13,10 +13,7 @@ import { IconRefresh, IconTrophy } from '@tabler/icons-react';
 import type { FormEvent } from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-const TARGET_SCORE = 100;
-const STORAGE_KEY = 'name100:women:v1';
-const STORAGE_COOKIE = 'name100_women_v1';
-const answers = answersData as Answer[];
+const defaultAnswers = defaultAnswersData as Answer[];
 
 const categoryStyles: Record<string, string> = {
   actresses:
@@ -46,9 +43,23 @@ type StoredGame = {
   isStarted: boolean;
 };
 
-function readStoredGame(): StoredGame | null {
+type Name100GameProps = {
+  answers?: Answer[];
+  targetScore?: number;
+  durationSeconds?: number;
+  storageKey?: string;
+  storageCookie?: string;
+  ariaLabel?: string;
+  placeholder?: string;
+  emptyTagsText?: string;
+  activeHint?: string;
+  idleHint?: string;
+  missText?: string;
+};
+
+function readStoredGame(storageKey: string, storageCookie: string) {
   try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored = window.localStorage.getItem(storageKey);
     if (stored) return JSON.parse(stored) as StoredGame;
   } catch {
     // Try cookie fallback below.
@@ -57,18 +68,23 @@ function readStoredGame(): StoredGame | null {
   try {
     const cookie = document.cookie
       .split('; ')
-      .find((item) => item.startsWith(`${STORAGE_COOKIE}=`));
+      .find((item) => item.startsWith(`${storageCookie}=`));
     if (!cookie) return null;
 
     return JSON.parse(
-      decodeURIComponent(cookie.slice(STORAGE_COOKIE.length + 1))
+      decodeURIComponent(cookie.slice(storageCookie.length + 1))
     ) as StoredGame;
   } catch {
     return null;
   }
 }
 
-function persistGame(state: GameState, started: boolean) {
+function persistGame(
+  state: GameState,
+  started: boolean,
+  storageKey: string,
+  storageCookie: string
+) {
   const stored: StoredGame = {
     guessedNames: state.guessedAnswers.map((answer) => answer.name),
     remainingTime: state.remainingTime,
@@ -78,7 +94,7 @@ function persistGame(state: GameState, started: boolean) {
   const serialized = JSON.stringify(stored);
 
   try {
-    window.localStorage.setItem(STORAGE_KEY, serialized);
+    window.localStorage.setItem(storageKey, serialized);
     return;
   } catch {
     // Fall back to a first-party cookie when localStorage is blocked.
@@ -86,7 +102,7 @@ function persistGame(state: GameState, started: boolean) {
 
   try {
     // biome-ignore lint/suspicious/noDocumentCookie: fallback only when localStorage is unavailable.
-    document.cookie = `${STORAGE_COOKIE}=${encodeURIComponent(
+    document.cookie = `${storageCookie}=${encodeURIComponent(
       serialized
     )}; path=/; max-age=2592000; SameSite=Lax`;
   } catch {
@@ -94,25 +110,37 @@ function persistGame(state: GameState, started: boolean) {
   }
 }
 
-function clearStoredGame() {
+function clearStoredGame(storageKey: string, storageCookie: string) {
   try {
-    window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(storageKey);
   } catch {
     // Ignore unavailable storage APIs.
   }
 
   try {
     // biome-ignore lint/suspicious/noDocumentCookie: clears the fallback cookie.
-    document.cookie = `${STORAGE_COOKIE}=; path=/; max-age=0; SameSite=Lax`;
+    document.cookie = `${storageCookie}=; path=/; max-age=0; SameSite=Lax`;
   } catch {
     // Ignore unavailable cookie APIs.
   }
 }
 
-export function Name100Game() {
+export function Name100Game({
+  answers = defaultAnswers,
+  targetScore = 100,
+  durationSeconds = 720,
+  storageKey = 'name100:women:v1',
+  storageCookie = 'name100_women_v1',
+  ariaLabel = 'Name 100 Women game',
+  placeholder = "Type a famous woman's name...",
+  emptyTagsText = 'Correct answers will appear here as colorful category tags.',
+  activeHint = 'Keep going. Think by category.',
+  idleHint = 'Press Enter after each name. Your timer starts on the first guess.',
+  missText = 'Not in the answer list yet. Try another famous person.',
+}: Name100GameProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [gameState, setGameState] = useState<GameState>(() =>
-    initGame(answers)
+    initGame(answers, { durationSeconds })
   );
   const [input, setInput] = useState('');
   const [message, setMessage] = useState('');
@@ -129,8 +157,8 @@ export function Name100Game() {
     () =>
       answers
         .filter((answer) => !guessedKeys.has(normalizeInput(answer.name)))
-        .slice(0, TARGET_SCORE),
-    [guessedKeys]
+        .slice(0, targetScore),
+    [answers, guessedKeys, targetScore]
   );
 
   useEffect(() => {
@@ -139,7 +167,7 @@ export function Name100Game() {
 
   useEffect(() => {
     try {
-      const parsed = readStoredGame();
+      const parsed = readStoredGame(storageKey, storageCookie);
       if (!parsed) {
         setHasRestoredGame(true);
         return;
@@ -154,7 +182,7 @@ export function Name100Game() {
         .filter((answer): answer is Answer => Boolean(answer));
 
       setGameState({
-        ...initGame(answers),
+        ...initGame(answers, { durationSeconds }),
         score: guessedAnswers.length,
         guessedAnswers,
         remainingTime: Math.max(0, parsed.remainingTime),
@@ -162,17 +190,17 @@ export function Name100Game() {
       });
       setIsStarted(parsed.isStarted && !parsed.isGameOver);
     } catch {
-      clearStoredGame();
+      clearStoredGame(storageKey, storageCookie);
     } finally {
       setHasRestoredGame(true);
     }
-  }, []);
+  }, [answers, durationSeconds, storageCookie, storageKey]);
 
   useEffect(() => {
     if (!hasRestoredGame) return;
 
-    persistGame(gameState, isStarted);
-  }, [gameState, hasRestoredGame, isStarted]);
+    persistGame(gameState, isStarted, storageKey, storageCookie);
+  }, [gameState, hasRestoredGame, isStarted, storageCookie, storageKey]);
 
   useEffect(() => {
     if (!isStarted || gameState.isGameOver) return;
@@ -194,7 +222,7 @@ export function Name100Game() {
     .toString()
     .padStart(2, '0');
   const seconds = (gameState.remainingTime % 60).toString().padStart(2, '0');
-  const progress = Math.min(100, (gameState.score / TARGET_SCORE) * 100);
+  const progress = Math.min(100, (gameState.score / targetScore) * 100);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -209,9 +237,9 @@ export function Name100Game() {
     }
 
     setIsStarted(true);
-    const result = submitAnswer(value, gameState, answers);
+    const result = submitAnswer(value, gameState, answers, { targetScore });
     const nextState =
-      result.newState.score >= TARGET_SCORE
+      result.newState.score >= targetScore
         ? { ...result.newState, isGameOver: true }
         : result.newState;
 
@@ -221,45 +249,45 @@ export function Name100Game() {
       setMessage(`${result.newState.guessedAnswers.at(-1)?.name} counts.`);
       setInput('');
     } else {
-      setMessage('Not in the answer list yet. Try another famous woman.');
+      setMessage(missText);
     }
 
     setGameState(nextState);
-    persistGame(nextState, true);
+    persistGame(nextState, true, storageKey, storageCookie);
   }
 
   function resetGame() {
-    const nextState = initGame(answers);
+    const nextState = initGame(answers, { durationSeconds });
     setGameState(nextState);
     setInput('');
     setMessage('');
     setIsStarted(false);
-    clearStoredGame();
+    clearStoredGame(storageKey, storageCookie);
     window.setTimeout(() => inputRef.current?.focus(), 0);
   }
 
   return (
     <section
-      aria-label="Name 100 Women game"
-      className="mx-auto w-full max-w-4xl rounded-lg border bg-card p-4 shadow-sm sm:p-5"
+      aria-label={ariaLabel}
+      className="mx-auto w-full max-w-4xl overflow-hidden rounded-lg border bg-card p-3 shadow-sm sm:p-5"
     >
       <div className="sticky top-16 z-10 -mx-4 -mt-4 border-b bg-card/95 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:mt-0 sm:border-0 sm:bg-transparent sm:p-0">
-        <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-          <div className="rounded-md border bg-background px-3 py-2">
+        <div className="grid min-w-0 grid-cols-2 gap-2 text-center sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-3">
+          <div className="min-w-0 rounded-md border bg-background px-2 py-2 sm:px-3">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               Time
             </div>
-            <div className="font-mono text-2xl font-bold tabular-nums">
+            <div className="font-mono text-xl font-bold tabular-nums sm:text-2xl">
               {minutes}:{seconds}
             </div>
           </div>
           <div className="hidden h-10 w-px bg-border sm:block" />
-          <div className="rounded-md border bg-background px-3 py-2">
+          <div className="min-w-0 rounded-md border bg-background px-2 py-2 sm:px-3">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               Score
             </div>
-            <div className="font-mono text-2xl font-bold tabular-nums">
-              {gameState.score} / {TARGET_SCORE}
+            <div className="font-mono text-xl font-bold tabular-nums sm:text-2xl">
+              {gameState.score} / {targetScore}
             </div>
           </div>
         </div>
@@ -276,21 +304,21 @@ export function Name100Game() {
       </div>
 
       <form onSubmit={handleSubmit} className="mt-4">
-        <label htmlFor="name100-input" className="sr-only">
-          Type a famous woman's name
+        <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
+          Type a famous person's name
         </label>
         <input
           ref={inputRef}
-          id="name100-input"
+          id={`name100-input-${storageKey}`}
           name="answer"
           value={input}
           disabled={gameState.isGameOver}
           autoComplete="off"
           autoCapitalize="words"
           spellCheck={false}
-          placeholder="Type a famous woman's name..."
+          placeholder={placeholder}
           onChange={(event) => setInput(event.target.value)}
-          className="h-14 w-full rounded-lg border border-input bg-background px-4 text-lg font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-14 w-full rounded-lg border border-input bg-background px-3 text-base font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-lg"
         />
       </form>
 
@@ -298,10 +326,7 @@ export function Name100Game() {
         aria-live="polite"
         className="mt-3 min-h-6 text-sm font-medium text-muted-foreground"
       >
-        {message ||
-          (isStarted
-            ? 'Keep going. Think by category.'
-            : 'Press Enter after each name. Your timer starts on the first guess.')}
+        {message || (isStarted ? activeHint : idleHint)}
       </div>
 
       <div className="mt-4 max-h-52 overflow-y-auto rounded-lg border bg-background/70 p-3">
@@ -320,9 +345,7 @@ export function Name100Game() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">
-            Correct answers will appear here as colorful category tags.
-          </p>
+          <p className="text-sm text-muted-foreground">{emptyTagsText}</p>
         )}
       </div>
 
@@ -330,7 +353,7 @@ export function Name100Game() {
         <div className="mt-4 rounded-lg border border-primary/30 bg-primary/5 p-4">
           <div className="flex items-center gap-2 text-lg font-bold">
             <IconTrophy className="size-5 text-primary" />
-            Final score: {gameState.score} / {TARGET_SCORE}
+            Final score: {gameState.score} / {targetScore}
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
             Nice run. Review a few names you missed, then start again and try to

@@ -65,12 +65,15 @@ export function checkAnswer(input: string, answers: Answer[]): Answer | null {
   );
 }
 
-export function initGame(answers: Answer[]): GameState {
+export function initGame(
+  answers: Answer[],
+  options: { durationSeconds?: number } = {}
+): GameState {
   return {
     score: 0,
     totalAnswers: answers.length,
     guessedAnswers: [],
-    remainingTime: 720,
+    remainingTime: options.durationSeconds ?? 720,
     isGameOver: false,
   };
 }
@@ -78,7 +81,8 @@ export function initGame(answers: Answer[]): GameState {
 export function submitAnswer(
   input: string,
   state: GameState,
-  allAnswers: Answer[]
+  allAnswers: Answer[],
+  options: { targetScore?: number } = {}
 ): { newState: GameState; isCorrect: boolean; isDuplicate: boolean } {
   if (state.isGameOver) {
     return { newState: state, isCorrect: false, isDuplicate: false };
@@ -99,7 +103,9 @@ export function submitAnswer(
   }
 
   const guessedAnswers = [...state.guessedAnswers, match];
-  const isGameOver = guessedAnswers.length >= 100 || state.remainingTime <= 0;
+  const isGameOver =
+    guessedAnswers.length >= (options.targetScore ?? 100) ||
+    state.remainingTime <= 0;
 
   return {
     newState: {

@@ -1,3 +1,4 @@
+import { MoreChallenges } from '@/components/blocks/more-challenges';
 import { Name100Game } from '@/components/game/name100-game';
 import Container from '@/components/layout/container';
 import {
@@ -6,42 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Link } from '@tanstack/react-router';
-
-const challengeLinks = [
-  {
-    title: 'Daily Challenge Mode',
-    href: '/challenge',
-    description: 'Play the same seeded challenge as everyone else today.',
-  },
-  {
-    title: 'Name 100 Women by Category',
-    href: '/categories',
-    description: 'Practice actresses, scientists, athletes, history, and more.',
-  },
-  {
-    title: 'Practice with the Timer Tool',
-    href: '/timer',
-    description: 'Set a 3, 5, or 12 minute timer for quick practice rounds.',
-  },
-  {
-    title: 'Try Name 100 Men',
-    href: '/men',
-    description: 'Switch to the men’s version with a separate answer list.',
-  },
-  {
-    title: 'Full Answer List',
-    href: '/answers',
-    description: 'Browse accepted answers and aliases for study or SEO.',
-  },
-];
 
 const faqs = [
   {
@@ -67,7 +32,7 @@ const faqs = [
   {
     question: 'Will there be new categories?',
     answer:
-      'Yes. Category pages, daily challenge mode, a timer tool, and a men’s version are planned as separate pages so each mode can have focused rules and SEO content.',
+      "Yes. Category pages, daily challenge mode, a timer tool, and a men's version are separate pages so each mode can have focused rules and useful practice content.",
   },
 ];
 
@@ -77,7 +42,7 @@ export function HomePage() {
       <section className="border-b bg-background">
         <Container className="px-4 pb-8 pt-6 sm:pb-12 sm:pt-10">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-balance text-4xl font-bold tracking-normal sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-3xl font-bold tracking-normal sm:text-5xl lg:text-6xl">
               Name 100 Women Challenge
             </h1>
             <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg">
@@ -135,27 +100,7 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="px-4 py-12 lg:py-16">
-          <h2 className="text-3xl font-bold tracking-normal">
-            More Challenges
-          </h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {challengeLinks.map((item) => (
-              <Link key={item.href} to={item.href}>
-                <Card className="h-full rounded-lg transition hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md">
-                  <CardHeader>
-                    <CardTitle>{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{item.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <MoreChallenges currentPage="home" />
 
       <section className="border-t bg-muted/30">
         <Container className="px-4 py-12 lg:py-16">

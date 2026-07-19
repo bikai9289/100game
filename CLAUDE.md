@@ -12,6 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 6. The first viewport must let users play without scrolling.
 7. After adding routes, update `src/routes/sitemap[.]xml.ts`.
 
+## Launch TODOs
+
+- Replace the placeholder favicon with a timer + "100" mark before launch.
+- Generate a 1200x630 OG image for social previews before launch.
+
 ## Project Overview
 
 **TanStarter** (mkfast-template) — a full-stack SaaS boilerplate built with TanStack Start + React 19, deployed on Cloudflare Workers. Includes auth (Better Auth), payments (Stripe / Creem), email (Resend / Cloudflare Email), storage (Cloudflare R2), database (Cloudflare D1 via Drizzle ORM), blog (Content Collections), and admin dashboard.

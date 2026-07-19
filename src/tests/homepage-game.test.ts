@@ -26,6 +26,9 @@ describe('game homepage source', () => {
     assert.match(game, /name="answer"/);
     assert.match(game, /new FormData\(event\.currentTarget\)/);
     assert.match(game, /window\.localStorage\.setItem/);
-    assert.match(game, /persistGame\(nextState, true\)/);
+    assert.match(
+      game,
+      /persistGame\(nextState, true, storageKey, storageCookie\)/
+    );
   });
 });
