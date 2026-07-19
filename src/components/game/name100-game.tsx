@@ -17,23 +17,23 @@ const defaultAnswers = defaultAnswersData as Answer[];
 
 const categoryStyles: Record<string, string> = {
   actresses:
-    'border-rose-300 bg-rose-100 text-rose-950 dark:border-rose-500/40 dark:bg-rose-500/15 dark:text-rose-100',
+    'border-white/25 bg-[#FF6B9D] text-white shadow-[0_0_18px_rgba(255,107,157,0.35)]',
   musicians:
-    'border-violet-300 bg-violet-100 text-violet-950 dark:border-violet-500/40 dark:bg-violet-500/15 dark:text-violet-100',
+    'border-white/25 bg-[#C77DFF] text-white shadow-[0_0_18px_rgba(199,125,255,0.35)]',
   athletes:
-    'border-emerald-300 bg-emerald-100 text-emerald-950 dark:border-emerald-500/40 dark:bg-emerald-500/15 dark:text-emerald-100',
+    'border-white/25 bg-[#06FFA5] text-slate-950 shadow-[0_0_18px_rgba(6,255,165,0.32)]',
   scientists:
-    'border-sky-300 bg-sky-100 text-sky-950 dark:border-sky-500/40 dark:bg-sky-500/15 dark:text-sky-100',
+    'border-white/25 bg-[#4ECDC4] text-slate-950 shadow-[0_0_18px_rgba(78,205,196,0.32)]',
   politicians:
-    'border-amber-300 bg-amber-100 text-amber-950 dark:border-amber-500/40 dark:bg-amber-500/15 dark:text-amber-100',
+    'border-white/25 bg-[#FFE66D] text-slate-950 shadow-[0_0_18px_rgba(255,230,109,0.28)]',
   historical:
-    'border-fuchsia-300 bg-fuchsia-100 text-fuchsia-950 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/15 dark:text-fuchsia-100',
+    'border-white/25 bg-[#FF8C42] text-white shadow-[0_0_18px_rgba(255,140,66,0.32)]',
   business:
-    'border-cyan-300 bg-cyan-100 text-cyan-950 dark:border-cyan-500/40 dark:bg-cyan-500/15 dark:text-cyan-100',
+    'border-white/25 bg-[#A8DADC] text-slate-950 shadow-[0_0_18px_rgba(168,218,220,0.28)]',
   activists:
-    'border-lime-300 bg-lime-100 text-lime-950 dark:border-lime-500/40 dark:bg-lime-500/15 dark:text-lime-100',
+    'border-white/25 bg-[#F1FA8C] text-slate-950 shadow-[0_0_18px_rgba(241,250,140,0.28)]',
   other:
-    'border-zinc-300 bg-zinc-100 text-zinc-950 dark:border-zinc-500/40 dark:bg-zinc-500/15 dark:text-zinc-100',
+    'border-white/25 bg-[#BD93F9] text-white shadow-[0_0_18px_rgba(189,147,249,0.32)]',
 };
 
 type StoredGame = {
@@ -269,114 +269,131 @@ export function Name100Game({
   return (
     <section
       aria-label={ariaLabel}
-      className="mx-auto w-full max-w-4xl overflow-hidden rounded-lg border bg-card p-3 shadow-sm sm:p-5"
+      className="relative mx-auto w-full max-w-full overflow-hidden rounded-[2rem] border border-white/20 bg-[linear-gradient(135deg,#667eea_0%,#764ba2_100%)] p-4 text-white shadow-2xl shadow-indigo-950/35 sm:max-w-4xl sm:p-6"
     >
-      <div className="sticky top-16 z-10 -mx-4 -mt-4 border-b bg-card/95 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:mt-0 sm:border-0 sm:bg-transparent sm:p-0">
-        <div className="grid min-w-0 grid-cols-2 gap-2 text-center sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-3">
-          <div className="min-w-0 rounded-md border bg-background px-2 py-2 sm:px-3">
-            <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              Time
-            </div>
-            <div className="font-mono text-xl font-bold tabular-nums sm:text-2xl">
-              {minutes}:{seconds}
-            </div>
-          </div>
-          <div className="hidden h-10 w-px bg-border sm:block" />
-          <div className="min-w-0 rounded-md border bg-background px-2 py-2 sm:px-3">
-            <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              Score
-            </div>
-            <div className="font-mono text-xl font-bold tabular-nums sm:text-2xl">
-              {gameState.score} / {targetScore}
-            </div>
-          </div>
-        </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-28 h-64 w-64 rounded-full bg-white/20 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-300/25 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18)_0,transparent_28%),radial-gradient(circle_at_80%_0%,rgba(6,255,165,0.13)_0,transparent_26%)]"
+      />
+
+      <div className="relative">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
+            Type a famous person's name
+          </label>
+          <input
+            ref={inputRef}
+            id={`name100-input-${storageKey}`}
+            name="answer"
+            value={input}
+            disabled={gameState.isGameOver}
+            autoComplete="off"
+            autoCapitalize="words"
+            spellCheck={false}
+            placeholder={placeholder}
+            onChange={(event) => setInput(event.target.value)}
+            className="h-16 w-full rounded-2xl border-2 border-white/60 bg-white/95 px-4 text-lg font-black text-slate-950 shadow-[0_0_34px_rgba(255,255,255,0.28)] outline-none transition placeholder:text-slate-500 focus:border-white focus:ring-4 focus:ring-white/35 disabled:cursor-not-allowed disabled:opacity-70 min-[420px]:text-xl sm:h-[72px] sm:px-6 sm:text-2xl"
+          />
+        </form>
 
         <div
-          aria-hidden="true"
-          className="mt-3 h-2 overflow-hidden rounded-full bg-muted"
+          aria-live="polite"
+          className="mt-3 min-h-6 text-center text-sm font-semibold text-white/85"
         >
-          <div
-            className="h-full rounded-full bg-primary transition-all"
-            style={{ width: `${progress}%` }}
-          />
+          {message || (isStarted ? activeHint : idleHint)}
         </div>
-      </div>
 
-      <form onSubmit={handleSubmit} className="mt-4">
-        <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
-          Type a famous person's name
-        </label>
-        <input
-          ref={inputRef}
-          id={`name100-input-${storageKey}`}
-          name="answer"
-          value={input}
-          disabled={gameState.isGameOver}
-          autoComplete="off"
-          autoCapitalize="words"
-          spellCheck={false}
-          placeholder={placeholder}
-          onChange={(event) => setInput(event.target.value)}
-          className="h-14 w-full rounded-lg border border-input bg-background px-3 text-base font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-lg"
-        />
-      </form>
-
-      <div
-        aria-live="polite"
-        className="mt-3 min-h-6 text-sm font-medium text-muted-foreground"
-      >
-        {message || (isStarted ? activeHint : idleHint)}
-      </div>
-
-      <div className="mt-4 max-h-52 overflow-y-auto rounded-lg border bg-background/70 p-3">
-        {gameState.guessedAnswers.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {gameState.guessedAnswers.map((answer) => (
-              <span
-                key={answer.name}
-                className={cn(
-                  'rounded-full border px-3 py-1 text-sm font-semibold',
-                  categoryStyles[answer.category] ?? categoryStyles.other
-                )}
-              >
-                {answer.name}
-              </span>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-muted-foreground">{emptyTagsText}</p>
-        )}
-      </div>
-
-      {gameState.isGameOver ? (
-        <div className="mt-4 rounded-lg border border-primary/30 bg-primary/5 p-4">
-          <div className="flex items-center gap-2 text-lg font-bold">
-            <IconTrophy className="size-5 text-primary" />
-            Final score: {gameState.score} / {targetScore}
-          </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Nice run. Review a few names you missed, then start again and try to
-            beat your score.
-          </p>
-          <details className="mt-3">
-            <summary className="cursor-pointer text-sm font-semibold">
-              Show missed answer examples
-            </summary>
-            <div className="mt-3 max-h-40 overflow-y-auto text-sm text-muted-foreground">
-              {missedAnswers.map((answer) => answer.name).join(', ')}
+        <div className="sticky top-16 z-10 -mx-4 mt-3 border-y border-white/15 bg-indigo-950/35 px-4 py-3 backdrop-blur-md sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
+          <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2 text-center sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-4">
+            <div className="min-w-0 rounded-2xl border border-white/20 bg-black/20 px-3 py-3 shadow-inner shadow-white/5 backdrop-blur-sm">
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/65">
+                Time
+              </div>
+              <div className="font-mono text-2xl font-black leading-none tabular-nums drop-shadow min-[420px]:text-3xl sm:text-5xl">
+                {minutes}:{seconds}
+              </div>
             </div>
-          </details>
-          <button
-            type="button"
-            onClick={resetGame}
-            className="mt-4 inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+            <div className="hidden h-12 w-px bg-white/25 sm:block" />
+            <div className="min-w-0 rounded-2xl border border-white/20 bg-black/20 px-3 py-3 shadow-inner shadow-white/5 backdrop-blur-sm">
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/65">
+                Score
+              </div>
+              <div className="whitespace-nowrap font-mono text-2xl font-black leading-none tabular-nums text-[#06FFA5] drop-shadow min-[420px]:text-3xl sm:text-5xl">
+                {gameState.score} / {targetScore}
+              </div>
+            </div>
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="mt-3 h-3 overflow-hidden rounded-full bg-black/25 shadow-inner"
           >
-            <IconRefresh className="size-4" />
-            Play Again
-          </button>
+            <div
+              className="h-full rounded-full bg-[linear-gradient(90deg,#06FFA5_0%,#4ECDC4_52%,#FFE66D_100%)] shadow-[0_0_18px_rgba(6,255,165,0.55)] transition-all"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
-      ) : null}
+
+        <div className="mt-4 max-h-52 overflow-y-auto rounded-2xl border border-white/20 bg-black/20 p-3 shadow-inner shadow-black/20 backdrop-blur-sm sm:p-4">
+          {gameState.guessedAnswers.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {gameState.guessedAnswers.map((answer) => (
+                <span
+                  key={answer.name}
+                  className={cn(
+                    'rounded-full border px-3 py-1.5 text-sm font-black tracking-tight',
+                    categoryStyles[answer.category] ?? categoryStyles.other
+                  )}
+                >
+                  {answer.name}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="break-words text-sm font-medium text-white/75">
+              {emptyTagsText}
+            </p>
+          )}
+        </div>
+
+        {gameState.isGameOver ? (
+          <div className="mt-4 rounded-2xl border border-white/25 bg-white/12 p-4 shadow-xl shadow-indigo-950/20 backdrop-blur-md">
+            <div className="flex items-center gap-2 text-lg font-black">
+              <IconTrophy className="size-5 text-[#FFE66D]" />
+              Final score: {gameState.score} / {targetScore}
+            </div>
+            <p className="mt-2 text-sm text-white/75">
+              Nice run. Review a few names you missed, then start again and try
+              to beat your score.
+            </p>
+            <details className="mt-3">
+              <summary className="cursor-pointer text-sm font-bold">
+                Show missed answer examples
+              </summary>
+              <div className="mt-3 max-h-40 overflow-y-auto text-sm text-white/75">
+                {missedAnswers.map((answer) => answer.name).join(', ')}
+              </div>
+            </details>
+            <button
+              type="button"
+              onClick={resetGame}
+              className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-white px-5 text-sm font-black text-indigo-950 shadow-lg shadow-indigo-950/20 transition hover:bg-white/90"
+            >
+              <IconRefresh className="size-4" />
+              Play Again
+            </button>
+          </div>
+        ) : null}
+      </div>
     </section>
   );
 }

@@ -39,13 +39,13 @@ const faqs = [
 export function HomePage() {
   return (
     <div className="flex flex-col">
-      <section className="border-b bg-background">
+      <section className="overflow-x-hidden border-b bg-background">
         <Container className="px-4 pb-8 pt-6 sm:pb-12 sm:pt-10">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-balance text-3xl font-bold tracking-normal sm:text-5xl lg:text-6xl">
+            <h1 className="mx-auto max-w-[22rem] text-balance text-3xl font-bold leading-tight tracking-normal sm:max-w-4xl sm:text-5xl lg:text-6xl">
               Name 100 Women Challenge
             </h1>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-3 max-w-[20rem] text-base text-muted-foreground sm:max-w-2xl sm:text-lg">
               You have 12 minutes. How many famous women can you name?
             </p>
           </div>
