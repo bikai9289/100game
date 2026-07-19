@@ -40,11 +40,11 @@ export const websiteConfig: WebsiteConfig = {
   metadata: {
     name: 'Name100Challenge',
     title:
-      'Name 100 Women Challenge – Can You Name 100 Famous Women in 12 Minutes?',
+      'Name 100 Women Challenge - Can You Name 100 Famous Women in 12 Minutes?',
     description:
-      'Play the free Name 100 Women Challenge online. 12 minutes to name 100 famous women — actresses, scientists, athletes, musicians. How many can you get?',
+      'Play the free Name 100 Women Challenge online. 12 minutes to name 100 famous women - actresses, scientists, athletes, musicians. How many can you get?',
     images: {
-      ogImage: '/og.png',
+      ogImage: '/og-image.png',
       logoLight: '/logo.png',
       logoDark: '/logo-dark.png',
     },

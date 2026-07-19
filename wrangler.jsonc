@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mkfast-template",
+  "name": "name100challenge",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": [
     // Enable Node.js API
@@ -23,11 +23,12 @@
   // The path to the entrypoint of your Worker that will be executed
   "main": "./src/server.ts",
 
-  // Enables Workers Trace Events Logpush for a Worker
-  "logpush": true,
-
   // Whether Wrangler should keep variables configured in the dashboard on deploy
   "keep_vars": true,
+
+  "vars": {
+    "VITE_BASE_URL": "https://name100challenge.com"
+  },
 
   // Enables automatically ingest, store, filter, and analyze logging data emitted from Cloudflare Workers
   "observability": {
@@ -40,41 +41,12 @@
       "persist": true,
       "head_sampling_rate": 1
     }
-  },
-
-  // Custom domains
-  // https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
-  "routes": [
-    {
-      "pattern": "demo.tanstarter.dev",
-      "custom_domain": true
-    }
-  ],
+  }
 
   /**
-   * Bindings
-   * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-   * databases, object storage, AI inference, real-time communication and more.
-   * https://developers.cloudflare.com/workers/runtime-apis/bindings/
+   * First version is a static-answer game with SSR pages only.
+   * No D1/R2 bindings are required until leaderboard or uploads are enabled.
+   * Add custom domains from the Cloudflare dashboard after the first
+   * workers.dev deployment is verified.
    */
-  /**
-   * D1: create database with `npx wrangler d1 create mkfast-template`
-   */
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "mkfast-template",
-      "database_id": "dc34f04a-3445-4b5c-bf61-c4ec2328e239",
-      "migrations_dir": "./src/db/migrations"
-    }
-  ],
-  /**
-   * R2: create bucket with `npx wrangler r2 bucket create mkfast-template`
-   */
-  "r2_buckets": [
-    {
-      "bucket_name": "mkfast-template",
-      "binding": "BUCKET"
-    }
-  ]
 }
