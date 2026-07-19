@@ -19,6 +19,7 @@
       "!node_modules",
       "!dist",
       "!build",
+      "!artifacts",
       "!.wrangler",
       "!.content-collections",
       "!project.inlang/.meta.json",

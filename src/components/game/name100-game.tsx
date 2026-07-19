@@ -1,6 +1,10 @@
 'use client';
 
 import defaultAnswersData from '@/data/answers-women.json';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Progress } from '@/components/ui/progress';
 import {
   initGame,
   normalizeInput,
@@ -16,25 +20,18 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 const defaultAnswers = defaultAnswersData as Answer[];
 
 const categoryStyles: Record<string, string> = {
-  actresses:
-    'border-white/25 bg-[#FF6B9D] text-white shadow-[0_0_18px_rgba(255,107,157,0.35)]',
-  musicians:
-    'border-white/25 bg-[#C77DFF] text-white shadow-[0_0_18px_rgba(199,125,255,0.35)]',
-  athletes:
-    'border-white/25 bg-[#06FFA5] text-slate-950 shadow-[0_0_18px_rgba(6,255,165,0.32)]',
-  scientists:
-    'border-white/25 bg-[#4ECDC4] text-slate-950 shadow-[0_0_18px_rgba(78,205,196,0.32)]',
-  politicians:
-    'border-white/25 bg-[#FFE66D] text-slate-950 shadow-[0_0_18px_rgba(255,230,109,0.28)]',
-  historical:
-    'border-white/25 bg-[#FF8C42] text-white shadow-[0_0_18px_rgba(255,140,66,0.32)]',
-  business:
-    'border-white/25 bg-[#A8DADC] text-slate-950 shadow-[0_0_18px_rgba(168,218,220,0.28)]',
-  activists:
-    'border-white/25 bg-[#F1FA8C] text-slate-950 shadow-[0_0_18px_rgba(241,250,140,0.28)]',
-  other:
-    'border-white/25 bg-[#BD93F9] text-white shadow-[0_0_18px_rgba(189,147,249,0.32)]',
+  actresses: 'border-transparent bg-[#e11d78] text-white',
+  musicians: 'border-transparent bg-[#7c3aed] text-white',
+  athletes: 'border-transparent bg-[#059669] text-white',
+  scientists: 'border-transparent bg-[#0284c7] text-white',
+  politicians: 'border-transparent bg-[#d97706] text-white',
+  historical: 'border-transparent bg-[#c026d3] text-white',
+  business: 'border-transparent bg-[#0891b2] text-white',
+  activists: 'border-transparent bg-[#65a30d] text-white',
+  other: 'border-transparent bg-[#64748b] text-white',
 };
+
+const leaderboardNames = ['Emma', 'Sofia', 'Mia', 'Ava', 'Lily', 'Noa', 'Zoe'];
 
 type StoredGame = {
   guessedNames: string[];
@@ -56,6 +53,29 @@ type Name100GameProps = {
   idleHint?: string;
   missText?: string;
 };
+
+function getLeaderboardRows(score: number, targetScore: number) {
+  const suggestedScores = [
+    targetScore,
+    targetScore - 2,
+    targetScore - 3,
+    targetScore - 5,
+    targetScore - 7,
+    targetScore - 29,
+    targetScore - 30,
+  ].map((item) => Math.max(0, item));
+
+  return [
+    ...leaderboardNames.map((name, index) => ({
+      name,
+      score: suggestedScores[index] ?? 0,
+      isCurrentPlayer: false,
+    })),
+    { name: 'You', score, isCurrentPlayer: true },
+  ]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8);
+}
 
 function readStoredGame(storageKey: string, storageCookie: string) {
   try {
@@ -133,7 +153,6 @@ export function Name100Game({
   storageCookie = 'name100_women_v1',
   ariaLabel = 'Name 100 Women game',
   placeholder = "Type a famous woman's name...",
-  emptyTagsText = 'Correct answers will appear here as colorful category tags.',
   activeHint = 'Keep going. Think by category.',
   idleHint = 'Press Enter after each name. Your timer starts on the first guess.',
   missText = 'Not in the answer list yet. Try another famous person.',
@@ -223,6 +242,10 @@ export function Name100Game({
     .padStart(2, '0');
   const seconds = (gameState.remainingTime % 60).toString().padStart(2, '0');
   const progress = Math.min(100, (gameState.score / targetScore) * 100);
+  const answerSlots = Array.from({ length: targetScore }, (_, index) => {
+    return gameState.guessedAnswers[index] ?? null;
+  });
+  const leaderboardRows = getLeaderboardRows(gameState.score, targetScore);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -269,131 +292,159 @@ export function Name100Game({
   return (
     <section
       aria-label={ariaLabel}
-      className="relative mx-auto w-full max-w-full overflow-hidden rounded-[2rem] border border-white/20 bg-[linear-gradient(135deg,#667eea_0%,#764ba2_100%)] p-4 text-white shadow-2xl shadow-indigo-950/35 sm:max-w-4xl sm:p-6"
+      className="mx-auto grid w-full max-w-[1180px] gap-5 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-28 h-64 w-64 rounded-full bg-white/20 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-cyan-300/25 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18)_0,transparent_28%),radial-gradient(circle_at_80%_0%,rgba(6,255,165,0.13)_0,transparent_26%)]"
-      />
-
-      <div className="relative">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
-            Type a famous person's name
-          </label>
-          <input
-            ref={inputRef}
-            id={`name100-input-${storageKey}`}
-            name="answer"
-            value={input}
-            disabled={gameState.isGameOver}
-            autoComplete="off"
-            autoCapitalize="words"
-            spellCheck={false}
-            placeholder={placeholder}
-            onChange={(event) => setInput(event.target.value)}
-            className="h-16 w-full rounded-2xl border-2 border-white/60 bg-white/95 px-4 text-lg font-black text-slate-950 shadow-[0_0_34px_rgba(255,255,255,0.28)] outline-none transition placeholder:text-slate-500 focus:border-white focus:ring-4 focus:ring-white/35 disabled:cursor-not-allowed disabled:opacity-70 min-[420px]:text-xl sm:h-[72px] sm:px-6 sm:text-2xl"
-          />
-        </form>
-
-        <div
-          aria-live="polite"
-          className="mt-3 min-h-6 text-center text-sm font-semibold text-white/85"
-        >
-          {message || (isStarted ? activeHint : idleHint)}
-        </div>
-
-        <div className="sticky top-16 z-10 -mx-4 mt-3 border-y border-white/15 bg-indigo-950/35 px-4 py-3 backdrop-blur-md sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
-          <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2 text-center sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-4">
-            <div className="min-w-0 rounded-2xl border border-white/20 bg-black/20 px-3 py-3 shadow-inner shadow-white/5 backdrop-blur-sm">
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/65">
+      <div className="min-w-0">
+        <div className="sticky top-[72px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md sm:grid-cols-[1fr_minmax(240px,1.5fr)_1fr] sm:items-center">
+          <div className="grid grid-cols-2 gap-3 sm:contents">
+            <div className="text-center">
+              <div className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                 Time
               </div>
-              <div className="font-mono text-2xl font-black leading-none tabular-nums drop-shadow min-[420px]:text-3xl sm:text-5xl">
+              <div className="font-mono text-2xl font-black tabular-nums text-foreground sm:text-3xl">
                 {minutes}:{seconds}
               </div>
             </div>
-            <div className="hidden h-12 w-px bg-white/25 sm:block" />
-            <div className="min-w-0 rounded-2xl border border-white/20 bg-black/20 px-3 py-3 shadow-inner shadow-white/5 backdrop-blur-sm">
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/65">
+
+            <div className="text-center sm:order-3">
+              <div className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                 Score
               </div>
-              <div className="whitespace-nowrap font-mono text-2xl font-black leading-none tabular-nums text-[#06FFA5] drop-shadow min-[420px]:text-3xl sm:text-5xl">
+              <div className="font-mono text-2xl font-black tabular-nums text-primary sm:text-3xl">
                 {gameState.score} / {targetScore}
               </div>
             </div>
           </div>
 
-          <div
-            aria-hidden="true"
-            className="mt-3 h-3 overflow-hidden rounded-full bg-black/25 shadow-inner"
-          >
-            <div
-              className="h-full rounded-full bg-[linear-gradient(90deg,#06FFA5_0%,#4ECDC4_52%,#FFE66D_100%)] shadow-[0_0_18px_rgba(6,255,165,0.55)] transition-all"
-              style={{ width: `${progress}%` }}
+          <form onSubmit={handleSubmit} className="sm:order-2">
+            <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
+              Type a famous person's name
+            </label>
+            <Input
+              ref={inputRef}
+              id={`name100-input-${storageKey}`}
+              name="answer"
+              value={input}
+              disabled={gameState.isGameOver}
+              autoComplete="off"
+              autoCapitalize="words"
+              spellCheck={false}
+              placeholder={placeholder}
+              onChange={(event) => setInput(event.target.value)}
+              className="h-12 w-full rounded-xl border-2 border-input bg-card px-4 text-center text-base font-semibold text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-70"
             />
-          </div>
+          </form>
+
+          <Progress
+            value={progress}
+            aria-label="Game progress"
+            className="sm:order-4 sm:col-span-3 [&_[data-slot=progress-indicator]]:bg-gradient-to-r [&_[data-slot=progress-indicator]]:from-primary [&_[data-slot=progress-indicator]]:to-purple-400 [&_[data-slot=progress-track]]:h-2"
+          />
         </div>
 
-        <div className="mt-4 max-h-52 overflow-y-auto rounded-2xl border border-white/20 bg-black/20 p-3 shadow-inner shadow-black/20 backdrop-blur-sm sm:p-4">
-          {gameState.guessedAnswers.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {gameState.guessedAnswers.map((answer) => (
-                <span
-                  key={answer.name}
-                  className={cn(
-                    'rounded-full border px-3 py-1.5 text-sm font-black tracking-tight',
-                    categoryStyles[answer.category] ?? categoryStyles.other
-                  )}
-                >
-                  {answer.name}
-                </span>
-              ))}
+        <div
+          aria-live="polite"
+          className="min-h-6 text-center text-sm font-semibold text-muted-foreground"
+        >
+          {message || (isStarted ? activeHint : idleHint)}
+        </div>
+
+        <div className="mt-4 grid max-h-[560px] grid-cols-1 gap-2 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-none lg:overflow-visible lg:pr-0">
+          {answerSlots.map((answer, index) => (
+            <div
+              key={`${answer?.name ?? 'empty'}-${index}`}
+              className={cn(
+                'flex min-h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 py-2',
+                answer &&
+                  (categoryStyles[answer.category] ?? categoryStyles.other)
+              )}
+            >
+              <span
+                className={cn(
+                  'w-7 shrink-0 text-right text-xs font-semibold text-muted-foreground',
+                  answer && 'text-white/75'
+                )}
+              >
+                {index + 1}
+              </span>
+              <span
+                className={cn(
+                  'min-w-0 flex-1 truncate text-sm',
+                  answer ? 'font-bold text-white' : 'text-muted-foreground'
+                )}
+              >
+                {answer?.name ?? '-'}
+              </span>
             </div>
-          ) : (
-            <p className="break-words text-sm font-medium text-white/75">
-              {emptyTagsText}
-            </p>
-          )}
+          ))}
         </div>
 
         {gameState.isGameOver ? (
-          <div className="mt-4 rounded-2xl border border-white/25 bg-white/12 p-4 shadow-xl shadow-indigo-950/20 backdrop-blur-md">
-            <div className="flex items-center gap-2 text-lg font-black">
-              <IconTrophy className="size-5 text-[#FFE66D]" />
-              Final score: {gameState.score} / {targetScore}
-            </div>
-            <p className="mt-2 text-sm text-white/75">
-              Nice run. Review a few names you missed, then start again and try
-              to beat your score.
-            </p>
-            <details className="mt-3">
-              <summary className="cursor-pointer text-sm font-bold">
-                Show missed answer examples
-              </summary>
-              <div className="mt-3 max-h-40 overflow-y-auto text-sm text-white/75">
-                {missedAnswers.map((answer) => answer.name).join(', ')}
-              </div>
-            </details>
-            <button
-              type="button"
-              onClick={resetGame}
-              className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-white px-5 text-sm font-black text-indigo-950 shadow-lg shadow-indigo-950/20 transition hover:bg-white/90"
-            >
-              <IconRefresh className="size-4" />
-              Play Again
-            </button>
-          </div>
+          <Card className="mt-5 rounded-2xl shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)]">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg font-black">
+                <IconTrophy className="size-5 text-primary" />
+                Final score: {gameState.score} / {targetScore}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Nice run. Review a few names you missed, then start again and
+                try to beat your score.
+              </p>
+              <details className="mt-3 rounded-xl border border-border bg-background p-4">
+                <summary className="cursor-pointer text-sm font-bold">
+                  Show missed answer examples
+                </summary>
+                <div className="mt-3 max-h-40 overflow-y-auto text-sm text-muted-foreground">
+                  {missedAnswers.map((answer) => answer.name).join(', ')}
+                </div>
+              </details>
+              <Button
+                type="button"
+                onClick={resetGame}
+                size="lg"
+                className="mt-4 font-black"
+              >
+                <IconRefresh data-icon="inline-start" />
+                Play Again
+              </Button>
+            </CardContent>
+          </Card>
         ) : null}
       </div>
+
+      <Card className="rounded-2xl shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)] lg:sticky lg:top-24">
+        <CardHeader className="items-center">
+          <CardTitle className="flex items-center gap-2 text-base font-black">
+            <IconTrophy className="size-5 text-amber-600" />
+            Leaderboard
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {leaderboardRows.map((row, index) => (
+            <div
+              key={row.name}
+              className={cn(
+                'grid grid-cols-[2rem_1fr_auto] items-center gap-2 border-b border-border px-2 py-2.5 text-sm last:border-b-0',
+                row.isCurrentPlayer &&
+                  'my-1 rounded-lg border-b-0 bg-accent px-3'
+              )}
+            >
+              <span
+                className={cn(
+                  'font-bold text-muted-foreground',
+                  index === 0 && 'text-amber-600'
+                )}
+              >
+                #{index + 1}
+              </span>
+              <span className="font-semibold text-foreground">{row.name}</span>
+              <span className="font-black text-primary">{row.score}</span>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
     </section>
   );
 }

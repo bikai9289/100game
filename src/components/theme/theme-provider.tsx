@@ -21,23 +21,28 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: 'system',
+  theme: 'light',
   setTheme: () => null,
-  resolvedTheme: 'dark',
+  resolvedTheme: 'light',
   systemTheme: undefined,
 };
 
 const ThemeProviderContext =
   React.createContext<ThemeProviderState>(initialState);
 
+const FORCED_THEME: Extract<Theme, 'light'> = 'light';
+const isThemeSwitchEnabled = websiteConfig.ui?.mode?.enableSwitch ?? false;
+
 const themeScript = `(function() {
   try {
-    var theme = localStorage.getItem('theme') || '${websiteConfig.ui?.mode?.defaultMode ?? 'dark'}';
-    var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    var resolved = theme === 'system' ? systemTheme : theme;
-    document.documentElement.classList.add(resolved);
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
+    document.documentElement.style.colorScheme = 'light';
+    localStorage.setItem('theme', 'light');
   } catch (e) {
-    document.documentElement.classList.add('${websiteConfig.ui?.mode?.defaultMode ?? 'dark'}');
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
+    document.documentElement.style.colorScheme = 'light';
   }
 })();`;
 
@@ -47,14 +52,18 @@ const themeScript = `(function() {
  */
 export function ThemeProvider({
   children,
-  defaultTheme = websiteConfig.ui?.mode?.defaultMode ?? 'system',
+  defaultTheme = FORCED_THEME,
   storageKey = 'theme',
   attribute = 'class',
-  enableSystem = true,
+  enableSystem = false,
   disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(() => {
+    if (!isThemeSwitchEnabled) {
+      return FORCED_THEME;
+    }
+
     // During SSR, always return the default theme to avoid hydration mismatch
     if (typeof window === 'undefined') {
       return defaultTheme;
@@ -72,6 +81,10 @@ export function ThemeProvider({
   const [systemTheme, setSystemTheme] = React.useState<
     'light' | 'dark' | undefined
   >(() => {
+    if (!isThemeSwitchEnabled || !enableSystem) {
+      return FORCED_THEME;
+    }
+
     // During SSR, return undefined
     if (typeof window === 'undefined') {
       return undefined;
@@ -89,12 +102,13 @@ export function ThemeProvider({
 
   const setTheme = React.useCallback(
     (newTheme: Theme) => {
+      const nextTheme = isThemeSwitchEnabled ? newTheme : FORCED_THEME;
       try {
-        localStorage.setItem(storageKey, newTheme);
+        localStorage.setItem(storageKey, nextTheme);
       } catch {
         // Ignore localStorage errors
       }
-      setThemeState(newTheme);
+      setThemeState(nextTheme);
     },
     [storageKey]
   );
@@ -124,10 +138,14 @@ export function ThemeProvider({
 
       if (attribute === 'class') {
         root.classList.remove('light', 'dark');
-        root.classList.add(targetTheme);
+        root.classList.add(isThemeSwitchEnabled ? targetTheme : FORCED_THEME);
       } else {
-        root.setAttribute(attribute, targetTheme);
+        root.setAttribute(
+          attribute,
+          isThemeSwitchEnabled ? targetTheme : FORCED_THEME
+        );
       }
+      root.style.colorScheme = FORCED_THEME;
     },
     [attribute, disableTransitionOnChange]
   );
@@ -141,7 +159,8 @@ export function ThemeProvider({
 
   // Handle system theme changes
   React.useEffect(() => {
-    if (!enableSystem || typeof window === 'undefined') return;
+    if (!isThemeSwitchEnabled || !enableSystem || typeof window === 'undefined')
+      return;
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -161,17 +180,24 @@ export function ThemeProvider({
     setIsMounted(true);
 
     // Immediately apply the correct theme on hydration
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+    const currentTheme = !isThemeSwitchEnabled
+      ? FORCED_THEME
+      : theme === 'system'
+        ? systemTheme
+        : theme;
     applyTheme(currentTheme);
   }, [theme, systemTheme, applyTheme]);
 
   const value = React.useMemo(
     () => ({
-      theme,
+      theme: isThemeSwitchEnabled ? theme : FORCED_THEME,
       setTheme,
-      resolvedTheme:
-        isMounted && resolvedTheme ? resolvedTheme : systemTheme || 'dark',
-      systemTheme: isMounted ? systemTheme : undefined,
+      resolvedTheme: isThemeSwitchEnabled
+        ? isMounted && resolvedTheme
+          ? resolvedTheme
+          : systemTheme || FORCED_THEME
+        : FORCED_THEME,
+      systemTheme: isThemeSwitchEnabled && isMounted ? systemTheme : undefined,
     }),
     [theme, setTheme, resolvedTheme, systemTheme, isMounted]
   );

@@ -11,7 +11,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   const footerLinks = getFooterLinks();
   const socialLinks = getSocialLinks();
   return (
-    <footer className={cn('border-t', className)}>
+    <footer className={cn('border-t bg-background', className)}>
       <Container className="px-4">
         <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-6">
           <div className="col-span-full flex flex-col items-start md:col-span-2">
@@ -93,7 +93,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
         </div>
       </Container>
 
-      <div className="border-t py-8">
+      <div className="border-t bg-muted/40 py-8">
         <Container className="px-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <span className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} {websiteConfig.metadata?.name}.{' '}

@@ -46,13 +46,13 @@ export function Navbar({ scroll = true }: NavbarProps) {
   return (
     <header
       className={cn(
-        'sticky inset-x-0 top-0 z-40 py-4 transition-all duration-300',
+        'sticky inset-x-0 top-0 z-40 border-border bg-background/95 py-4 backdrop-blur transition-all duration-300',
         showBarBg && 'border-b'
       )}
     >
       {showBarBg && (
         <div
-          className="absolute inset-0 z-0 bg-muted/50 backdrop-blur-md"
+          className="absolute inset-0 z-0 bg-background/80 backdrop-blur-md"
           aria-hidden="true"
         />
       )}
