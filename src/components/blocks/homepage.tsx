@@ -80,12 +80,12 @@ export function HomePage() {
   return (
     <div className="flex flex-col bg-background">
       <section className="bg-background">
-        <Container className="px-4 pb-8 pt-5">
+        <Container className="px-[18px] pb-8 pt-5">
           <div className="mx-auto max-w-[1180px] text-center">
-            <h1 className="text-balance text-[2rem] font-black leading-tight tracking-tight">
+            <h1 className="text-balance text-[2rem] font-extrabold leading-tight tracking-normal">
               Name 100 Women Challenge
             </h1>
-            <p className="mx-auto mb-6 mt-1 max-w-2xl text-base text-muted-foreground">
+            <p className="mx-auto mb-[22px] mt-1 max-w-2xl text-[0.9375rem] text-muted-foreground">
               You have 12 minutes. How many famous women can you name?
             </p>
           </div>
@@ -93,17 +93,13 @@ export function HomePage() {
         </Container>
       </section>
 
-      <Container className="px-4 py-8">
-        <div id="ad-slot-1" className="min-h-[90px]">
-          {/* AdSense slot */}
-        </div>
-      </Container>
-
-      <section className="border-t border-border bg-background py-12">
-        <Container className="px-4">
+      <section className="border-t border-border bg-background py-[52px]">
+        <Container className="px-[18px]">
           <div className="mx-auto max-w-[1180px]">
-            <h2 className="text-3xl font-black tracking-tight">How to Play</h2>
-            <p className="mt-2 text-muted-foreground">
+            <h2 className="text-[1.75rem] font-extrabold tracking-normal">
+              How to Play
+            </h2>
+            <p className="mt-1.5 text-muted-foreground">
               Three simple steps. No sign-up, free to play.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -113,18 +109,18 @@ export function HomePage() {
                 return (
                   <Card
                     key={step.title}
-                    className="rounded-2xl border border-border bg-card p-5"
+                    className="rounded-[14px] border border-border bg-card p-5 ring-0"
                   >
                     <CardHeader className="px-0">
                       <div className="grid size-10 place-items-center rounded-full bg-accent text-primary">
                         <Icon className="size-5" />
                       </div>
-                      <CardTitle className="mt-3 text-lg font-bold">
+                      <CardTitle className="mt-3.5 text-[1.0625rem] font-bold">
                         {step.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="px-0">
-                      <CardDescription className="text-sm leading-6">
+                      <CardDescription className="mt-1.5 text-sm leading-6">
                         {step.body}
                       </CardDescription>
                     </CardContent>
@@ -136,16 +132,16 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted py-12">
-        <Container className="px-4">
+      <section className="border-y border-border bg-muted py-[52px]">
+        <Container className="px-[18px]">
           <div className="mx-auto max-w-[1180px]">
-            <h2 className="text-3xl font-black tracking-tight">
+            <h2 className="text-[1.75rem] font-extrabold tracking-normal">
               Tips to Reach 100
             </h2>
-            <div className="mt-5 grid gap-3">
+            <div className="mt-5 grid gap-2.5">
               {tips.map((tip) => (
-                <div key={tip} className="flex gap-3">
-                  <IconCheck className="mt-1 size-5 shrink-0 text-primary" />
+                <div key={tip} className="flex gap-2.5">
+                  <IconCheck className="mt-1 size-4 shrink-0 stroke-[3] text-primary" />
                   <span className="text-muted-foreground">{tip}</span>
                 </div>
               ))}
@@ -156,11 +152,13 @@ export function HomePage() {
 
       <MoreChallenges currentPage="home" />
 
-      <section className="border-y border-border bg-muted py-12">
-        <Container className="px-4">
+      <section id="faqs" className="border-y border-border bg-muted py-[52px]">
+        <Container className="px-[18px]">
           <div className="mx-auto max-w-[1180px]">
-            <h2 className="text-3xl font-black tracking-tight">FAQ</h2>
-            <Accordion className="mt-5 grid gap-3">
+            <h2 className="text-[1.75rem] font-extrabold tracking-normal">
+              FAQ
+            </h2>
+            <Accordion className="mt-5 grid gap-2.5" defaultValue={['faq-1']}>
               {faqs.map((item, index) => (
                 <AccordionItem
                   key={item.question}

@@ -165,6 +165,7 @@ export function Name100Game({
   const [message, setMessage] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [hasRestoredGame, setHasRestoredGame] = useState(false);
+  const inputId = `name100-input-${storageKey}`;
   const guessedKeys = useMemo(
     () =>
       new Set(
@@ -247,20 +248,17 @@ export function Name100Game({
   });
   const leaderboardRows = getLeaderboardRows(gameState.score, targetScore);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
+  function submitGuess(value: string) {
     if (gameState.isGameOver) return;
 
-    const formData = new FormData(event.currentTarget);
-    const value = String(formData.get('answer') ?? input).trim();
-    if (!value) {
+    const guess = value.trim();
+    if (!guess) {
       setMessage('Type a name to make a guess.');
       return;
     }
 
     setIsStarted(true);
-    const result = submitAnswer(value, gameState, answers, { targetScore });
+    const result = submitAnswer(guess, gameState, answers, { targetScore });
     const nextState =
       result.newState.score >= targetScore
         ? { ...result.newState, isGameOver: true }
@@ -279,6 +277,13 @@ export function Name100Game({
     persistGame(nextState, true, storageKey, storageCookie);
   }
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    submitGuess(String(formData.get('answer') ?? input));
+  }
+
   function resetGame() {
     const nextState = initGame(answers, { durationSeconds });
     setGameState(nextState);
@@ -289,40 +294,60 @@ export function Name100Game({
     window.setTimeout(() => inputRef.current?.focus(), 0);
   }
 
+  useEffect(() => {
+    const inputElement = document.getElementById(
+      inputId
+    ) as HTMLInputElement | null;
+    if (!inputElement) return;
+
+    function handleNativeKeyDown(event: KeyboardEvent) {
+      if (event.key !== 'Enter') return;
+
+      event.preventDefault();
+      submitGuess(inputElement?.value ?? '');
+    }
+
+    inputElement.addEventListener('keydown', handleNativeKeyDown);
+
+    return () => {
+      inputElement.removeEventListener('keydown', handleNativeKeyDown);
+    };
+  });
+
   return (
     <section
       aria-label={ariaLabel}
-      className="mx-auto grid w-full max-w-[1180px] gap-5 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start"
+      className="mx-auto grid w-full max-w-[1180px] gap-[22px] lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start"
     >
       <div className="min-w-0">
-        <div className="sticky top-[72px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md sm:grid-cols-[1fr_minmax(240px,1.5fr)_1fr] sm:items-center">
+        <div className="sticky top-[64px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md sm:grid-cols-[1fr_minmax(240px,1.6fr)_1fr] sm:items-center">
           <div className="grid grid-cols-2 gap-3 sm:contents">
             <div className="text-center">
-              <div className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+              <div className="text-[0.625rem] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                 Time
               </div>
-              <div className="font-mono text-2xl font-black tabular-nums text-foreground sm:text-3xl">
+              <div className="font-mono text-2xl font-extrabold tabular-nums text-foreground">
                 {minutes}:{seconds}
               </div>
             </div>
 
             <div className="text-center sm:order-3">
-              <div className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+              <div className="text-[0.625rem] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                 Score
               </div>
-              <div className="font-mono text-2xl font-black tabular-nums text-primary sm:text-3xl">
+              <div className="font-mono text-2xl font-extrabold tabular-nums text-primary">
                 {gameState.score} / {targetScore}
               </div>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="sm:order-2">
-            <label htmlFor={`name100-input-${storageKey}`} className="sr-only">
+            <label htmlFor={inputId} className="sr-only">
               Type a famous person's name
             </label>
             <Input
               ref={inputRef}
-              id={`name100-input-${storageKey}`}
+              id={inputId}
               name="answer"
               value={input}
               disabled={gameState.isGameOver}
@@ -331,37 +356,46 @@ export function Name100Game({
               spellCheck={false}
               placeholder={placeholder}
               onChange={(event) => setInput(event.target.value)}
-              className="h-12 w-full rounded-xl border-2 border-input bg-card px-4 text-center text-base font-semibold text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-[46px] w-full rounded-xl border-2 border-input bg-card px-3.5 text-center text-[0.9375rem] font-medium text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-70"
             />
           </form>
 
           <Progress
             value={progress}
             aria-label="Game progress"
-            className="sm:order-4 sm:col-span-3 [&_[data-slot=progress-indicator]]:bg-gradient-to-r [&_[data-slot=progress-indicator]]:from-primary [&_[data-slot=progress-indicator]]:to-purple-400 [&_[data-slot=progress-track]]:h-2"
+            className="gap-0 sm:order-4 sm:col-span-3 [&_[data-slot=progress-indicator]]:bg-gradient-to-r [&_[data-slot=progress-indicator]]:from-primary [&_[data-slot=progress-indicator]]:to-purple-500 [&_[data-slot=progress-track]]:h-2"
           />
         </div>
 
-        <div
-          aria-live="polite"
-          className="min-h-6 text-center text-sm font-semibold text-muted-foreground"
-        >
-          {message || (isStarted ? activeHint : idleHint)}
-        </div>
+        {message ? (
+          <div
+            aria-live="polite"
+            className="mt-1 text-center text-sm font-semibold text-muted-foreground"
+          >
+            {message}
+          </div>
+        ) : (
+          <span className="hidden" aria-live="polite">
+            {isStarted ? activeHint : idleHint}
+          </span>
+        )}
 
-        <div className="mt-4 grid max-h-[560px] grid-cols-1 gap-2 overflow-y-auto pr-1 sm:grid-cols-2 lg:max-h-none lg:overflow-visible lg:pr-0">
+        <div className="mt-[18px] grid grid-cols-1 gap-[7px] min-[380px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {answerSlots.map((answer, index) => (
             <div
               key={`${answer?.name ?? 'empty'}-${index}`}
               className={cn(
-                'flex min-h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 py-2',
+                'flex min-h-[38px] items-center gap-1.5 rounded-[9px] border border-border bg-card px-2.5 py-1.5 transition duration-150',
                 answer &&
-                  (categoryStyles[answer.category] ?? categoryStyles.other)
+                  cn(
+                    'animate-in zoom-in-95 fade-in',
+                    categoryStyles[answer.category] ?? categoryStyles.other
+                  )
               )}
             >
               <span
                 className={cn(
-                  'w-7 shrink-0 text-right text-xs font-semibold text-muted-foreground',
+                  'w-5 shrink-0 text-right text-[0.6875rem] text-muted-foreground',
                   answer && 'text-white/75'
                 )}
               >
@@ -369,8 +403,8 @@ export function Name100Game({
               </span>
               <span
                 className={cn(
-                  'min-w-0 flex-1 truncate text-sm',
-                  answer ? 'font-bold text-white' : 'text-muted-foreground'
+                  'min-w-0 flex-1 truncate text-[0.8125rem]',
+                  answer ? 'font-semibold text-white' : 'text-muted-foreground'
                 )}
               >
                 {answer?.name ?? '-'}
@@ -380,7 +414,7 @@ export function Name100Game({
         </div>
 
         {gameState.isGameOver ? (
-          <Card className="mt-5 rounded-2xl shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)]">
+          <Card className="mt-5 rounded-2xl border border-border py-4 shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)] ring-0">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg font-black">
                 <IconTrophy className="size-5 text-primary" />
@@ -414,21 +448,21 @@ export function Name100Game({
         ) : null}
       </div>
 
-      <Card className="rounded-2xl shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)] lg:sticky lg:top-24">
-        <CardHeader className="items-center">
-          <CardTitle className="flex items-center gap-2 text-base font-black">
+      <Card className="rounded-2xl border border-border px-4 py-4 shadow-[0_10px_40px_-16px_rgba(124,58,237,0.16)] ring-0 lg:sticky lg:top-[76px]">
+        <CardHeader className="items-center px-0">
+          <CardTitle className="flex items-center gap-2 text-[0.9375rem] font-extrabold">
             <IconTrophy className="size-5 text-amber-600" />
             Leaderboard
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-0">
           {leaderboardRows.map((row, index) => (
             <div
               key={row.name}
               className={cn(
-                'grid grid-cols-[2rem_1fr_auto] items-center gap-2 border-b border-border px-2 py-2.5 text-sm last:border-b-0',
+                'grid grid-cols-[30px_1fr_auto] items-center gap-2 border-b border-border px-1.5 py-2 text-[0.8125rem] last:border-b-0',
                 row.isCurrentPlayer &&
-                  'my-1 rounded-lg border-b-0 bg-accent px-3'
+                  'my-0 rounded-lg border-b-0 bg-accent px-3'
               )}
             >
               <span

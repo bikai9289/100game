@@ -83,13 +83,13 @@ export function MoreChallenges({
   const links = challengeLinks.filter((item) => item.key !== currentPage);
 
   return (
-    <section className="border-t border-border bg-background py-12">
-      <Container className="px-4">
+    <section className="border-t border-border bg-background py-[52px]">
+      <Container className="px-[18px]">
         <div className="mx-auto max-w-[1180px]">
-          <h2 className="text-3xl font-black tracking-tight">
+          <h2 className="text-[1.75rem] font-extrabold tracking-normal">
             More Challenges
           </h2>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-1.5 text-muted-foreground">
             Different ways to test yourself.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -98,15 +98,15 @@ export function MoreChallenges({
 
               return (
                 <Link key={item.href} to={item.href}>
-                  <Card className="h-full rounded-2xl transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md">
-                    <CardHeader>
-                      <Icon className="size-6 text-primary" />
-                      <CardTitle className="mt-2 text-base font-bold">
+                  <Card className="h-full rounded-[14px] border border-border px-[18px] py-[18px] transition duration-150 ring-0 hover:-translate-y-0.5 hover:border-primary">
+                    <CardHeader className="px-0">
+                      <Icon className="size-5 text-primary" />
+                      <CardTitle className="mt-2.5 text-[0.9375rem] font-bold">
                         {item.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <CardDescription className="leading-6">
+                    <CardContent className="px-0">
+                      <CardDescription className="mt-1 text-[0.8125rem] leading-5">
                         {item.description}
                       </CardDescription>
                     </CardContent>
