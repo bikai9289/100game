@@ -52,17 +52,30 @@ export function checkAnswer(input: string, answers: Answer[]): Answer | null {
     return null;
   }
 
-  return (
-    answers.find((answer) =>
-      answer.aliases.some((alias) => normalizeInput(alias) === normalized)
-    ) ??
-    answers.find((answer) =>
-      [answer.name, ...answer.aliases].some((alias) =>
-        fuzzyMatch(normalized, alias)
-      )
-    ) ??
-    null
+  const exactMatches = answers.filter((answer) =>
+    [answer.name, ...answer.aliases].some(
+      (alias) => normalizeInput(alias) === normalized
+    )
   );
+
+  if (exactMatches.length > 0) {
+    return exactMatches.length === 1 ? exactMatches[0] : null;
+  }
+
+  const fuzzyMatches = answers.filter((answer) =>
+    [answer.name, ...answer.aliases].some((alias) =>
+      fuzzyMatch(normalized, alias)
+    )
+  );
+
+  return fuzzyMatches.length === 1 ? fuzzyMatches[0] : null;
+}
+
+export function remainingTimeFromDeadline(
+  deadlineMs: number,
+  nowMs = Date.now()
+): number {
+  return Math.max(0, Math.ceil((deadlineMs - nowMs) / 1000));
 }
 
 export function initGame(

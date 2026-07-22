@@ -1,5 +1,7 @@
 import { MoreChallenges } from '@/components/blocks/more-challenges';
 import { Name100Game } from '@/components/game/name100-game';
+import womenAnswersData from '@/data/answers-women.json';
+import type { Answer } from '@/lib/gameEngine';
 import Container from '@/components/layout/container';
 import {
   Accordion,
@@ -89,7 +91,7 @@ export function HomePage() {
               You have 12 minutes. How many famous women can you name?
             </p>
           </div>
-          <Name100Game />
+          <Name100Game answers={womenAnswersData as Answer[]} />
         </Container>
       </section>
 

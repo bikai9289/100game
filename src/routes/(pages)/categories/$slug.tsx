@@ -58,6 +58,7 @@ function CategoryPage() {
           <div className="mt-8">
             <Name100Game
               answers={answers}
+              gameId={`category:${slug}`}
               targetScore={30}
               durationSeconds={300}
               storageKey={`name100:category:${slug}`}

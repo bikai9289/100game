@@ -1,7 +1,14 @@
 import { apikey, user } from "./auth.schema";
-import { userFiles, payment } from "./app.schema";
+import {
+  gameComments,
+  gameScores,
+  payment,
+  userFiles,
+} from "./app.schema";
 
 export type User = typeof user.$inferSelect;
 export type ApiKey = typeof apikey.$inferSelect;
 export type UserFiles = typeof userFiles.$inferSelect;
 export type Payment = typeof payment.$inferSelect;
+export type GameScore = typeof gameScores.$inferSelect;
+export type GameComment = typeof gameComments.$inferSelect;

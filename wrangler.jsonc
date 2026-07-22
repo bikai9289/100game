@@ -30,6 +30,14 @@
     "VITE_BASE_URL": "https://name100challenge.com"
   },
 
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "name100challenge-db",
+      "migrations_dir": "src/db/migrations"
+    }
+  ],
+
   // Enables automatically ingest, store, filter, and analyze logging data emitted from Cloudflare Workers
   "observability": {
     "logs": {
@@ -42,11 +50,4 @@
       "head_sampling_rate": 1
     }
   }
-
-  /**
-   * First version is a static-answer game with SSR pages only.
-   * No D1/R2 bindings are required until leaderboard or uploads are enabled.
-   * Add custom domains from the Cloudflare dashboard after the first
-   * workers.dev deployment is verified.
-   */
 }

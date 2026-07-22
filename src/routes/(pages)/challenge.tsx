@@ -92,6 +92,7 @@ function ChallengePage() {
           <div className="mt-8">
             <Name100Game
               answers={answers}
+              gameId={`daily:${today}`}
               targetScore={30}
               durationSeconds={300}
               storageKey={`name100:daily:${today}`}

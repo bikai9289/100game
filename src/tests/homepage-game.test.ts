@@ -20,15 +20,16 @@ describe('game homepage source', () => {
     assert.match(route, /Can You Name 100 Famous Women/);
   });
 
-  it('submits from form data and persists browser progress', () => {
+  it('submits the controlled input and persists browser progress', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
 
     assert.match(game, /name="answer"/);
-    assert.match(game, /new FormData\(event\.currentTarget\)/);
+    assert.match(game, /value=\{input\}/);
+    assert.match(game, /submitGuess\(input\)/);
     assert.match(game, /window\.localStorage\.setItem/);
     assert.match(
       game,
-      /persistGame\(nextState, true, storageKey, storageCookie\)/
+      /persistGame\(\s*gameState,\s*isStarted,\s*deadlineRef\.current,\s*startedAtRef\.current,\s*storageKey,\s*storageCookie\s*\)/
     );
   });
 });

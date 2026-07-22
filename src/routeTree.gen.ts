@@ -56,6 +56,7 @@ import { Route as pagesCategoriesIndexRouteImport } from './routes/(pages)/categ
 import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/stripe'
 import { Route as ApiWebhooksCreemRouteImport } from './routes/api/webhooks/creem'
 import { Route as ApiStorageFileRouteImport } from './routes/api/storage/file'
+import { Route as ApiGameCommunityRouteImport } from './routes/api/game/community'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as pagesCategoriesSlugRouteImport } from './routes/(pages)/categories/$slug'
 
@@ -294,6 +295,11 @@ const ApiStorageFileRoute = ApiStorageFileRouteImport.update({
   path: '/api/storage/file',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGameCommunityRoute = ApiGameCommunityRouteImport.update({
+  id: '/api/game/community',
+  path: '/api/game/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -351,6 +357,7 @@ export interface FileRoutesByFullPath {
   '/settings/': typeof SettingsIndexRoute
   '/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/game/community': typeof ApiGameCommunityRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
@@ -399,6 +406,7 @@ export interface FileRoutesByTo {
   '/settings': typeof SettingsIndexRoute
   '/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/game/community': typeof ApiGameCommunityRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
@@ -451,6 +459,7 @@ export interface FileRoutesById {
   '/settings/': typeof SettingsIndexRoute
   '/(pages)/categories/$slug': typeof pagesCategoriesSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/game/community': typeof ApiGameCommunityRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
@@ -504,6 +513,7 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/categories/$slug'
     | '/api/auth/$'
+    | '/api/game/community'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
@@ -552,6 +562,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/categories/$slug'
     | '/api/auth/$'
+    | '/api/game/community'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
@@ -603,6 +614,7 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/(pages)/categories/$slug'
     | '/api/auth/$'
+    | '/api/game/community'
     | '/api/storage/file'
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
@@ -639,6 +651,7 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   pagesCategoriesSlugRoute: typeof pagesCategoriesSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiGameCommunityRoute: typeof ApiGameCommunityRoute
   ApiStorageFileRoute: typeof ApiStorageFileRoute
   ApiWebhooksCreemRoute: typeof ApiWebhooksCreemRoute
   ApiWebhooksStripeRoute: typeof ApiWebhooksStripeRoute
@@ -976,6 +989,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageFileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/game/community': {
+      id: '/api/game/community'
+      path: '/api/game/community'
+      fullPath: '/api/game/community'
+      preLoaderRoute: typeof ApiGameCommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -1091,6 +1111,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   pagesCategoriesSlugRoute: pagesCategoriesSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiGameCommunityRoute: ApiGameCommunityRoute,
   ApiStorageFileRoute: ApiStorageFileRoute,
   ApiWebhooksCreemRoute: ApiWebhooksCreemRoute,
   ApiWebhooksStripeRoute: ApiWebhooksStripeRoute,

@@ -35,6 +35,7 @@ function MenPage() {
           <div className="mt-5 sm:mt-8">
             <Name100Game
               answers={menAnswers}
+              gameId="men"
               storageKey="name100:men:v1"
               storageCookie="name100_men_v1"
               ariaLabel="Name 100 Men game"

@@ -4,6 +4,7 @@ import {
   checkAnswer,
   fuzzyMatch,
   initGame,
+  remainingTimeFromDeadline,
   submitAnswer,
   type Answer,
 } from './gameEngine';
@@ -51,5 +52,32 @@ describe('gameEngine', () => {
     assert.equal(second.isCorrect, false);
     assert.equal(second.isDuplicate, true);
     assert.equal(second.newState.score, 1);
+  });
+
+  it('rejects an alias shared by multiple answers', () => {
+    const ambiguousAnswers: Answer[] = [
+      {
+        name: 'Alex Morgan',
+        aliases: ['alex', 'alex morgan'],
+        category: 'athletes',
+      },
+      {
+        name: 'Alex Scott',
+        aliases: ['alex', 'alex scott'],
+        category: 'athletes',
+      },
+    ];
+
+    assert.equal(checkAnswer('alex', ambiguousAnswers), null);
+    assert.equal(
+      checkAnswer('alex morgan', ambiguousAnswers)?.name,
+      'Alex Morgan'
+    );
+  });
+
+  it('derives remaining time from a wall-clock deadline', () => {
+    assert.equal(remainingTimeFromDeadline(70_000, 10_000), 60);
+    assert.equal(remainingTimeFromDeadline(10_001, 10_000), 1);
+    assert.equal(remainingTimeFromDeadline(9_999, 10_000), 0);
   });
 });

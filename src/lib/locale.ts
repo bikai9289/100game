@@ -29,11 +29,6 @@ export const localeConfig = {
     name: 'English',
     hreflang: 'en',
   },
-  zh: {
-    flag: '🇨🇳',
-    name: '中文',
-    hreflang: 'zh-CN',
-  },
 } satisfies Record<Locale, LocaleConfig>;
 
 export function parseMessageJson<T>(value: string, fallback: T): T {
@@ -106,7 +101,7 @@ export const LOCALIZED_PATHS = new Set([
 
 /**
  * True for any user-visible path that exists in every locale and therefore
- * needs hreflang alternates (English ↔ Chinese, x-default). Used by both
+ * needs hreflang alternates. Used by both
  * `seo()` metadata and the dynamic sitemap.
  */
 export function isLocalizedPath(path: string): boolean {

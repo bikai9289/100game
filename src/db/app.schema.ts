@@ -4,7 +4,13 @@
  */
 
 import { relations } from 'drizzle-orm';
-import { integer, sqliteTable, text, index } from 'drizzle-orm/sqlite-core';
+import {
+  index,
+  integer,
+  sqliteTable,
+  text,
+  uniqueIndex,
+} from 'drizzle-orm/sqlite-core';
 import { user } from './auth.schema';
 import type { PaymentScene, PaymentStatus, PaymentType, PlanInterval } from '@/payment/types';
 
@@ -86,3 +92,63 @@ export const userFilesRelations = relations(userFiles, ({ one }) => ({
     references: [user.id],
   }),
 }));
+
+export const gameScores = sqliteTable(
+  'game_scores',
+  {
+    id: text('id').primaryKey(),
+    gameId: text('game_id').notNull(),
+    playerName: text('player_name').notNull(),
+    score: integer('score').notNull(),
+    acceptedNames: text('accepted_names').notNull(),
+    durationMs: integer('duration_ms').notNull(),
+    fingerprint: text('fingerprint').notNull(),
+    ipHash: text('ip_hash').notNull(),
+    createdAt: integer('created_at', { mode: 'timestamp_ms' }).notNull(),
+  },
+  (table) => [
+    uniqueIndex('game_scores_fingerprint_idx').on(table.fingerprint),
+    index('game_scores_game_score_idx').on(
+      table.gameId,
+      table.score,
+      table.durationMs
+    ),
+    index('game_scores_ip_created_idx').on(table.ipHash, table.createdAt),
+    index('game_scores_created_idx').on(table.createdAt),
+  ]
+);
+
+export const gameComments = sqliteTable(
+  'game_comments',
+  {
+    id: text('id').primaryKey(),
+    gameId: text('game_id').notNull(),
+    displayName: text('display_name').notNull(),
+    message: text('message').notNull(),
+    score: integer('score'),
+    ipHash: text('ip_hash').notNull(),
+    status: text('status').notNull().default('approved'),
+    createdAt: integer('created_at', { mode: 'timestamp_ms' }).notNull(),
+  },
+  (table) => [
+    index('game_comments_game_created_idx').on(table.gameId, table.createdAt),
+    index('game_comments_ip_created_idx').on(table.ipHash, table.createdAt),
+    index('game_comments_status_created_idx').on(table.status, table.createdAt),
+  ]
+);
+
+export const gameBlocks = sqliteTable(
+  'game_blocks',
+  {
+    id: text('id').primaryKey(),
+    kind: text('kind').notNull(),
+    value: text('value').notNull(),
+    reason: text('reason'),
+    active: integer('active', { mode: 'boolean' }).notNull().default(true),
+    createdAt: integer('created_at', { mode: 'timestamp_ms' }).notNull(),
+  },
+  (table) => [
+    uniqueIndex('game_blocks_kind_value_idx').on(table.kind, table.value),
+    index('game_blocks_active_idx').on(table.active),
+  ]
+);

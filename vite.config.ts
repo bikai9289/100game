@@ -13,6 +13,20 @@ import contentCollections from '@content-collections/vite';
  * https://vite.dev/config/
  */
 const config = defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return;
+          if (
+            /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)
+          ) {
+            return 'vendor-react';
+          }
+        },
+      },
+    },
+  },
   server: {
     allowedHosts: ['.trycloudflare.com', '.tanstarter.dev'],
   },
