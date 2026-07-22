@@ -3,6 +3,7 @@
 import handler from '@tanstack/react-start/server-entry';
 import { localeMiddleware } from '@/locale/middleware';
 import { getLegacyLocaleRedirect } from '@/lib/legacy-locale';
+import { getRetiredTemplateRedirect } from '@/lib/retired-template-route';
 
 /**
  * TanStack Start server entry
@@ -12,6 +13,12 @@ console.log("[server-entry]: using custom server entry in 'src/server.ts'");
 
 export default {
   fetch(request: Request) {
+    const retiredTemplateRedirect = getRetiredTemplateRedirect(request.url);
+
+    if (retiredTemplateRedirect) {
+      return Response.redirect(retiredTemplateRedirect, 301);
+    }
+
     const legacyLocaleRedirect = getLegacyLocaleRedirect(request.url);
 
     if (legacyLocaleRedirect) {
