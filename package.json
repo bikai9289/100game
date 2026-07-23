@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm locale:compile && vite dev --port 3000",
-    "build": "vite build",
+    "build": "pnpm locale:compile && vite build",
     "knip": "knip",
     "check": "biome check",
     "lint": "biome check --write .",
