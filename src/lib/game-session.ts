@@ -2,14 +2,21 @@ import { z } from 'zod';
 
 const SUBMISSION_GRACE_MS = 5 * 60 * 1000;
 
-const gameSessionPayloadSchema = z.object({
-  v: z.literal(1),
-  sessionId: z.uuid(),
-  gameId: z.string().min(1).max(80),
-  durationSeconds: z.number().int().min(60).max(900),
-  startedAt: z.number().int().positive(),
-  expiresAt: z.number().int().positive(),
-});
+const gameSessionPayloadSchema = z
+  .object({
+    v: z.literal(1),
+    sessionId: z.uuid(),
+    gameId: z.string().min(1).max(80),
+    durationSeconds: z.number().int().min(60).max(900),
+    startedAt: z.number().int().positive(),
+    expiresAt: z.number().int().positive(),
+  })
+  .refine(
+    (payload) =>
+      payload.expiresAt ===
+      payload.startedAt + payload.durationSeconds * 1000 + SUBMISSION_GRACE_MS,
+    { path: ['expiresAt'], message: 'Invalid game session expiration' }
+  );
 
 export const gameSessionRequestSchema = z.object({
   gameId: z.string().min(1).max(80),

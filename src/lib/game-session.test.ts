@@ -214,6 +214,26 @@ test('rejects correctly signed payloads with invalid content', async (t) => {
   }
 });
 
+test('rejects a correctly signed payload with inconsistent expiration', async () => {
+  const token = await createSignedTestToken(
+    new TextEncoder().encode(
+      JSON.stringify({
+        v: 1,
+        sessionId,
+        gameId: 'women',
+        durationSeconds: 720,
+        startedAt: now,
+        expiresAt: now + 720_000 + 300_001,
+      })
+    )
+  );
+
+  assert.deepEqual(await verifyGameSession(token, secret, now), {
+    ok: false,
+    code: 'SESSION_INVALID',
+  });
+});
+
 test('rejects a malformed game session token', async () => {
   assert.deepEqual(await verifyGameSession('bad-token', secret, now), {
     ok: false,
@@ -223,6 +243,13 @@ test('rejects a malformed game session token', async () => {
 
 test('rejects a game session token after its expiration', async () => {
   const issued = await issueGameSession(input, secret, { now, sessionId });
+
+  const atExpiration = await verifyGameSession(
+    issued.sessionToken,
+    secret,
+    issued.expiresAt
+  );
+  assert.equal(atExpiration.ok, true);
 
   assert.deepEqual(
     await verifyGameSession(issued.sessionToken, secret, issued.expiresAt + 1),
