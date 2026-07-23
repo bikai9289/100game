@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import {
+  commentSubmissionSchema,
+  isDuplicateScoreInsertError,
   moderateComment,
   recomputeSubmittedScore,
   scoreSubmissionSchema,
@@ -36,14 +38,20 @@ describe('game community validation', () => {
       gameId: 'women',
       playerName: 'Player One',
       guessedNames: ['Taylor Swift'],
-      startedAt: 10_000,
-      finishedAt: 20_000,
       durationSeconds: 720,
+      sessionToken: 'signed-session-token-that-is-long-enough',
+      turnstileToken: 'turnstile-score-token',
     };
 
     assert.equal(scoreSubmissionSchema.safeParse(base).success, true);
     assert.equal(
-      scoreSubmissionSchema.safeParse({ ...base, finishedAt: 9_000 }).success,
+      scoreSubmissionSchema.safeParse({ ...base, sessionToken: undefined })
+        .success,
+      false
+    );
+    assert.equal(
+      scoreSubmissionSchema.safeParse({ ...base, turnstileToken: undefined })
+        .success,
       false
     );
     assert.equal(
@@ -51,6 +59,41 @@ describe('game community validation', () => {
         ...base,
         guessedNames: new Array(101).fill('x'),
       }).success,
+      false
+    );
+  });
+
+  it('requires a Turnstile token for comments', () => {
+    const base = {
+      gameId: 'women',
+      displayName: 'Player One',
+      message: 'Great challenge!',
+      turnstileToken: 'turnstile-comment-token',
+    };
+
+    assert.equal(commentSubmissionSchema.safeParse(base).success, true);
+    assert.equal(
+      commentSubmissionSchema.safeParse({ ...base, turnstileToken: undefined })
+        .success,
+      false
+    );
+  });
+
+  it('recognizes duplicate score insert errors', () => {
+    assert.equal(
+      isDuplicateScoreInsertError(
+        new Error('UNIQUE constraint failed: game_scores.session_id')
+      ),
+      true
+    );
+    assert.equal(
+      isDuplicateScoreInsertError(
+        new Error('UNIQUE constraint failed: game_scores.fingerprint')
+      ),
+      true
+    );
+    assert.equal(
+      isDuplicateScoreInsertError(new Error('D1 unavailable')),
       false
     );
   });

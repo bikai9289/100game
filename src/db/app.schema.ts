@@ -102,11 +102,13 @@ export const gameScores = sqliteTable(
     score: integer('score').notNull(),
     acceptedNames: text('accepted_names').notNull(),
     durationMs: integer('duration_ms').notNull(),
+    sessionId: text('session_id'),
     fingerprint: text('fingerprint').notNull(),
     ipHash: text('ip_hash').notNull(),
     createdAt: integer('created_at', { mode: 'timestamp_ms' }).notNull(),
   },
   (table) => [
+    uniqueIndex('game_scores_session_idx').on(table.sessionId),
     uniqueIndex('game_scores_fingerprint_idx').on(table.fingerprint),
     index('game_scores_game_score_idx').on(
       table.gameId,

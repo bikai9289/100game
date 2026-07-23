@@ -3,35 +3,31 @@ import { z } from 'zod';
 
 const gameIdPattern = /^(women|men|daily:\d{4}-\d{2}-\d{2}|category:[a-z-]+)$/;
 
-export const scoreSubmissionSchema = z
-  .object({
-    gameId: z.string().regex(gameIdPattern),
-    playerName: z.string().trim().min(2).max(24),
-    guessedNames: z.array(z.string().trim().min(1).max(80)).max(100),
-    startedAt: z.number().int().positive(),
-    finishedAt: z.number().int().positive(),
-    durationSeconds: z.number().int().min(60).max(900),
-  })
-  .refine((value) => value.finishedAt >= value.startedAt, {
-    message: 'Finish time must be after start time.',
-    path: ['finishedAt'],
-  })
-  .refine(
-    (value) =>
-      value.finishedAt - value.startedAt <=
-      value.durationSeconds * 1000 + 15_000,
-    {
-      message: 'The submitted round exceeded its allowed duration.',
-      path: ['finishedAt'],
-    }
-  );
+export const scoreSubmissionSchema = z.object({
+  gameId: z.string().regex(gameIdPattern),
+  playerName: z.string().trim().min(2).max(24),
+  guessedNames: z.array(z.string().trim().min(1).max(80)).max(100),
+  durationSeconds: z.number().int().min(60).max(900),
+  sessionToken: z.string().min(20).max(4_096),
+  turnstileToken: z.string().min(1).max(2_048),
+});
 
 export const commentSubmissionSchema = z.object({
   gameId: z.string().regex(gameIdPattern),
   displayName: z.string().trim().min(2).max(24),
   message: z.string().trim().min(3).max(280),
   score: z.number().int().min(0).max(100).optional(),
+  turnstileToken: z.string().min(1).max(2_048),
 });
+
+export function isDuplicateScoreInsertError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes('UNIQUE constraint failed') &&
+    (message.includes('game_scores.session_id') ||
+      message.includes('game_scores.fingerprint'))
+  );
+}
 
 export function recomputeSubmittedScore(
   guessedNames: string[],
