@@ -20,7 +20,7 @@ export type GameSessionPostDependencies = {
   clock: () => number;
   getSessionSecret: () => string | undefined;
   issueSession: typeof issueGameSession;
-  logger: { error: (prefix: string, error: unknown) => void };
+  logger: { error: (message: string) => void };
 };
 
 export async function handleGameSessionPost(
@@ -34,6 +34,16 @@ export async function handleGameSessionPost(
   const logger = dependencies.logger ?? console;
 
   try {
+    const contentType = request.headers.get('content-type');
+    const mediaType = contentType?.split(';', 1)[0]?.trim().toLowerCase();
+    if (mediaType !== 'application/json') {
+      return errorResponse(
+        'INVALID_REQUEST',
+        'Expected an application/json request body.',
+        400
+      );
+    }
+
     const contentLengthHeader = request.headers.get('content-length');
     if (contentLengthHeader !== null && !/^\d+$/.test(contentLengthHeader)) {
       return errorResponse(
@@ -120,8 +130,8 @@ export async function handleGameSessionPost(
       },
       { status: 201 }
     );
-  } catch (error) {
-    logger.error('[game-session:post]', error);
+  } catch {
+    logger.error('[game-session:post] unexpected error');
     return errorResponse(
       'SERVER_ERROR',
       'The game session could not be created.',

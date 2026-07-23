@@ -175,11 +175,10 @@ test('counts multibyte UTF-8 bytes instead of JavaScript string length', async (
   assert.equal(response.status, 413);
 });
 
-test('accepts valid JSON without a content-type header', async () => {
+test('accepts application/json with MIME parameters case-insensitively', async () => {
   const response = await handleGameSessionPost(
-    new Request('https://example.test/api/game/session', {
-      method: 'POST',
-      body: validBody(),
+    createRequest(validBody(), {
+      'content-type': 'Application/JSON; Charset=UTF-8',
     }),
     makeDependencies()
   );
@@ -189,6 +188,36 @@ test('accepts valid JSON without a content-type header', async () => {
     ok: true,
     data: ISSUED_SESSION,
   });
+});
+
+test('rejects missing and non-JSON content types', async (t) => {
+  const cases = [
+    { name: 'missing', contentType: undefined },
+    { name: 'text/plain', contentType: 'text/plain' },
+    { name: 'application/xml', contentType: 'application/xml' },
+  ];
+
+  for (const fixture of cases) {
+    await t.test(fixture.name, async () => {
+      const request = new Request('https://example.test/api/game/session', {
+        method: 'POST',
+        headers: fixture.contentType
+          ? { 'content-type': fixture.contentType }
+          : undefined,
+        body: validBody(),
+      });
+      const response = await handleGameSessionPost(request, makeDependencies());
+
+      assert.equal(response.status, 400);
+      assert.deepEqual(await readJson(response), {
+        ok: false,
+        error: {
+          code: 'INVALID_REQUEST',
+          message: 'Expected an application/json request body.',
+        },
+      });
+    });
+  }
 });
 
 test('rejects malformed JSON', async () => {
@@ -333,11 +362,14 @@ test('issues an exact public response using one clock reading', async () => {
   });
 });
 
-test('logs only the error when the issuer throws', async () => {
-  const failure = new Error('issuer failed');
-  const logs: [string, unknown][] = [];
+test('logs only a fixed safe message when the issuer throws', async () => {
   const bodyMarker = 'private-request-body-marker';
   const secretMarker = `${SECRET}-private`;
+  const tokenMarker = ISSUED_SESSION.sessionToken;
+  const failure = new Error(
+    `issuer failed ${bodyMarker} ${secretMarker} ${tokenMarker}`
+  );
+  const logs: string[] = [];
   const response = await handleGameSessionPost(
     createRequest(validBody({ padding: bodyMarker })),
     makeDependencies({
@@ -346,7 +378,7 @@ test('logs only the error when the issuer throws', async () => {
         throw failure;
       },
       logger: {
-        error: (prefix, error) => logs.push([prefix, error]),
+        error: (message) => logs.push(message),
       },
     })
   );
@@ -359,9 +391,9 @@ test('logs only the error when the issuer throws', async () => {
       message: 'The game session could not be created.',
     },
   });
-  assert.deepEqual(logs, [['[game-session:post]', failure]]);
-  const renderedLogs = logs.flat().map(String).join(' ');
+  assert.deepEqual(logs, ['[game-session:post] unexpected error']);
+  const renderedLogs = logs.join(' ');
   assert.equal(renderedLogs.includes(bodyMarker), false);
   assert.equal(renderedLogs.includes(secretMarker), false);
-  assert.equal(renderedLogs.includes(ISSUED_SESSION.sessionToken), false);
+  assert.equal(renderedLogs.includes(tokenMarker), false);
 });
