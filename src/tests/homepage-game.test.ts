@@ -29,7 +29,29 @@ describe('game homepage source', () => {
     assert.match(game, /window\.localStorage\.setItem/);
     assert.match(
       game,
-      /persistGame\(\s*gameState,\s*isStarted,\s*deadlineRef\.current,\s*startedAtRef\.current,\s*storageKey,\s*storageCookie\s*\)/
+      /persistGame\(\s*gameState,\s*isStarted,\s*deadlineRef\.current,\s*startedAtRef\.current,\s*sessionToken,\s*sessionExpiresAt,\s*storageKey,\s*storageCookie\s*\)/
     );
+  });
+
+  it('uses explicit Turnstile widgets for protected community writes', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const widget = readFileSync(
+      'src/components/game/turnstile-widget.tsx',
+      'utf8'
+    );
+
+    assert.match(game, /TurnstileWidget/);
+    assert.match(game, /action="score"/);
+    assert.match(game, /action="comment"/);
+    assert.match(game, /turnstileToken/);
+    assert.match(
+      widget,
+      /https:\/\/challenges\.cloudflare\.com\/turnstile\/v0\/api\.js\?render=explicit/
+    );
+    assert.match(widget, /turnstile\.render/);
+    assert.match(widget, /'expired-callback'/);
+    assert.match(widget, /'error-callback'/);
+    assert.match(widget, /\.reset\(/);
+    assert.match(widget, /\.remove\(/);
   });
 });

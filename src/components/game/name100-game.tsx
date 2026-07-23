@@ -1,10 +1,15 @@
 'use client';
 
+import {
+  TurnstileWidget,
+  type TurnstileWidgetHandle,
+} from '@/components/game/turnstile-widget';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { Textarea } from '@/components/ui/textarea';
+import { clientEnv } from '@/env/client';
 import {
   initGame,
   normalizeInput,
@@ -41,6 +46,8 @@ type StoredGame = {
   remainingTime: number;
   deadlineMs?: number;
   startedAt?: number;
+  sessionToken?: string;
+  sessionExpiresAt?: number;
   isGameOver: boolean;
   isStarted: boolean;
 };
@@ -108,6 +115,8 @@ function persistGame(
   started: boolean,
   deadlineMs: number | null,
   startedAt: number | null,
+  sessionToken: string,
+  sessionExpiresAt: number | null,
   storageKey: string,
   storageCookie: string
 ) {
@@ -116,6 +125,8 @@ function persistGame(
     remainingTime: state.remainingTime,
     deadlineMs: deadlineMs ?? undefined,
     startedAt: startedAt ?? undefined,
+    sessionToken: sessionToken || undefined,
+    sessionExpiresAt: sessionExpiresAt ?? undefined,
     isGameOver: state.isGameOver,
     isStarted: started,
   };
@@ -169,7 +180,10 @@ export function Name100Game({
   const inputRef = useRef<HTMLInputElement>(null);
   const deadlineRef = useRef<number | null>(null);
   const startedAtRef = useRef<number | null>(null);
-  const finishedAtRef = useRef<number | null>(null);
+  const sessionRequestRef = useRef<Promise<string> | null>(null);
+  const sessionAbortRef = useRef<AbortController | null>(null);
+  const scoreTurnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const commentTurnstileRef = useRef<TurnstileWidgetHandle>(null);
   const [gameState, setGameState] = useState<GameState>(() =>
     initGame(answers, { durationSeconds })
   );
@@ -189,6 +203,12 @@ export function Name100Game({
   const [commentMessage, setCommentMessage] = useState('');
   const [scoreSubmitStatus, setScoreSubmitStatus] = useState('');
   const [commentSubmitStatus, setCommentSubmitStatus] = useState('');
+  const [sessionToken, setSessionToken] = useState('');
+  const [sessionExpiresAt, setSessionExpiresAt] = useState<number | null>(null);
+  const [scoreTurnstileToken, setScoreTurnstileToken] = useState('');
+  const [commentTurnstileToken, setCommentTurnstileToken] = useState('');
+  const turnstileSiteKey = clientEnv.VITE_TURNSTILE_SITE_KEY ?? '';
+  const communitySubmissionConfigured = Boolean(turnstileSiteKey);
   const inputId = `name100-input-${storageKey}`;
   const playerNameId = `name100-player-${storageKey}`;
   const commentId = `name100-comment-${storageKey}`;
@@ -265,7 +285,14 @@ export function Name100Game({
       deadlineRef.current = deadlineMs;
       startedAtRef.current =
         parsed.startedAt ?? deadlineMs - durationSeconds * 1000;
-      if (isGameOver) finishedAtRef.current = Math.min(Date.now(), deadlineMs);
+      if (
+        parsed.sessionToken &&
+        parsed.sessionExpiresAt &&
+        parsed.sessionExpiresAt >= Date.now()
+      ) {
+        setSessionToken(parsed.sessionToken);
+        setSessionExpiresAt(parsed.sessionExpiresAt);
+      }
       setGameState({
         ...initGame(answers, { durationSeconds }),
         score: guessedAnswers.length,
@@ -289,10 +316,27 @@ export function Name100Game({
       isStarted,
       deadlineRef.current,
       startedAtRef.current,
+      sessionToken,
+      sessionExpiresAt,
       storageKey,
       storageCookie
     );
-  }, [gameState, hasRestoredGame, isStarted, storageCookie, storageKey]);
+  }, [
+    gameState,
+    hasRestoredGame,
+    isStarted,
+    sessionExpiresAt,
+    sessionToken,
+    storageCookie,
+    storageKey,
+  ]);
+
+  useEffect(
+    () => () => {
+      sessionAbortRef.current?.abort();
+    },
+    []
+  );
 
   useEffect(() => {
     if (!isStarted || gameState.isGameOver || !deadlineRef.current) return;
@@ -303,7 +347,6 @@ export function Name100Game({
           deadlineRef.current ?? Date.now()
         );
         if (remainingTime === 0) {
-          finishedAtRef.current = Date.now();
           return { ...current, remainingTime, isGameOver: true };
         }
 
@@ -324,6 +367,56 @@ export function Name100Game({
     (_, index) => gameState.guessedAnswers[index] ?? null
   );
 
+  function requestGameSession(startedAt: number) {
+    if (sessionRequestRef.current) return sessionRequestRef.current;
+
+    const controller = new AbortController();
+    sessionAbortRef.current = controller;
+    const request = (async () => {
+      const response = await fetch('/api/game/session', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ gameId, durationSeconds, startedAt }),
+        signal: controller.signal,
+      });
+      const result = (await response.json()) as {
+        ok: boolean;
+        data?: { sessionToken?: unknown; expiresAt?: unknown };
+      };
+      if (
+        !response.ok ||
+        !result.ok ||
+        typeof result.data?.sessionToken !== 'string' ||
+        typeof result.data.expiresAt !== 'number'
+      ) {
+        throw new Error('Game session could not be created.');
+      }
+
+      setSessionToken(result.data.sessionToken);
+      setSessionExpiresAt(result.data.expiresAt);
+      return result.data.sessionToken;
+    })()
+      .catch((error: unknown) => {
+        if (!controller.signal.aborted) {
+          setScoreSubmitStatus(
+            'This round can be played, but it cannot be submitted.'
+          );
+        }
+        throw error;
+      })
+      .finally(() => {
+        if (sessionAbortRef.current === controller) {
+          sessionAbortRef.current = null;
+        }
+        if (sessionRequestRef.current === request) {
+          sessionRequestRef.current = null;
+        }
+      });
+
+    sessionRequestRef.current = request;
+    return request;
+  }
+
   function submitGuess(value: string) {
     if (gameState.isGameOver) return;
 
@@ -333,19 +426,18 @@ export function Name100Game({
       return;
     }
 
-    if (!isStarted) {
+    const result = submitAnswer(guess, gameState, answers, { targetScore });
+    if (!isStarted && result.isCorrect) {
       const now = Date.now();
       startedAtRef.current = now;
       deadlineRef.current = now + durationSeconds * 1000;
       setIsStarted(true);
+      void requestGameSession(now).catch(() => undefined);
     }
-    const result = submitAnswer(guess, gameState, answers, { targetScore });
     const nextState =
       result.newState.score >= targetScore
         ? { ...result.newState, isGameOver: true }
         : result.newState;
-    if (nextState.isGameOver) finishedAtRef.current = Date.now();
-
     if (result.isDuplicate) {
       setMessage('Already guessed!');
     } else if (result.isCorrect) {
@@ -367,7 +459,13 @@ export function Name100Game({
     const nextState = initGame(answers, { durationSeconds });
     deadlineRef.current = null;
     startedAtRef.current = null;
-    finishedAtRef.current = null;
+    sessionAbortRef.current?.abort();
+    sessionAbortRef.current = null;
+    sessionRequestRef.current = null;
+    setSessionToken('');
+    setSessionExpiresAt(null);
+    setScoreTurnstileToken('');
+    scoreTurnstileRef.current?.reset();
     setGameState(nextState);
     setInput('');
     setMessage('');
@@ -399,14 +497,30 @@ export function Name100Game({
 
   async function submitScore(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const cleanName = playerName.trim();
-    if (cleanName.length < 2) {
-      setScoreSubmitStatus('Enter a name with at least 2 characters.');
-      return;
-    }
-
     setScoreSubmitStatus('Saving...');
     try {
+      const cleanName = playerName.trim();
+      if (!communitySubmissionConfigured) {
+        throw new Error('Community submissions are not configured.');
+      }
+      if (cleanName.length < 2) {
+        throw new Error('Enter a name with at least 2 characters.');
+      }
+
+      let signedSession = sessionToken;
+      if (!signedSession && sessionRequestRef.current) {
+        signedSession = await sessionRequestRef.current;
+      }
+      if (
+        !signedSession ||
+        (sessionExpiresAt !== null && sessionExpiresAt < Date.now())
+      ) {
+        throw new Error('Start a new round before submitting a score.');
+      }
+      if (!scoreTurnstileToken) {
+        throw new Error('Complete human verification before saving.');
+      }
+
       const response = await fetch('/api/game/community', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -415,10 +529,9 @@ export function Name100Game({
           gameId,
           playerName: cleanName,
           guessedNames: gameState.guessedAnswers.map((answer) => answer.name),
-          startedAt:
-            startedAtRef.current ?? Date.now() - durationSeconds * 1000,
-          finishedAt: finishedAtRef.current ?? Date.now(),
           durationSeconds,
+          sessionToken: signedSession,
+          turnstileToken: scoreTurnstileToken,
         }),
       });
       const result = (await response.json()) as {
@@ -439,6 +552,9 @@ export function Name100Game({
       setScoreSubmitStatus(
         error instanceof Error ? error.message : 'Score could not be saved.'
       );
+    } finally {
+      setScoreTurnstileToken('');
+      scoreTurnstileRef.current?.reset();
     }
   }
 
@@ -446,6 +562,16 @@ export function Name100Game({
     event.preventDefault();
     setCommentSubmitStatus('Posting...');
     try {
+      if (!communitySubmissionConfigured) {
+        throw new Error('Community submissions are not configured.');
+      }
+      if (playerName.trim().length < 2) {
+        throw new Error('Enter a display name with at least 2 characters.');
+      }
+      if (!commentTurnstileToken) {
+        throw new Error('Complete human verification before posting.');
+      }
+
       const response = await fetch('/api/game/community', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -454,6 +580,7 @@ export function Name100Game({
           gameId,
           displayName: playerName.trim(),
           message: commentMessage,
+          turnstileToken: commentTurnstileToken,
         }),
       });
       const result = (await response.json()) as {
@@ -472,6 +599,9 @@ export function Name100Game({
       setCommentSubmitStatus(
         error instanceof Error ? error.message : 'Comment could not be posted.'
       );
+    } finally {
+      setCommentTurnstileToken('');
+      commentTurnstileRef.current?.reset();
     }
   }
 
@@ -678,30 +808,49 @@ export function Name100Game({
           <CardContent>
             <form
               onSubmit={(event) => void submitScore(event)}
-              className="grid gap-3 sm:grid-cols-[1fr_auto]"
+              className="grid gap-3"
             >
-              <div>
-                <label htmlFor={playerNameId} className="sr-only">
-                  Leaderboard name
-                </label>
-                <Input
-                  id={playerNameId}
-                  value={playerName}
-                  maxLength={24}
-                  placeholder="Leaderboard name"
-                  onChange={(event) => setPlayerName(event.target.value)}
-                />
+              <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                <div>
+                  <label htmlFor={playerNameId} className="sr-only">
+                    Leaderboard name
+                  </label>
+                  <Input
+                    id={playerNameId}
+                    value={playerName}
+                    maxLength={24}
+                    placeholder="Leaderboard name"
+                    onChange={(event) => setPlayerName(event.target.value)}
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="font-bold"
+                  disabled={
+                    !communitySubmissionConfigured || !scoreTurnstileToken
+                  }
+                >
+                  <IconSend data-icon="inline-start" />
+                  Save score
+                </Button>
               </div>
-              <Button type="submit" className="font-bold">
-                <IconSend data-icon="inline-start" />
-                Save score
-              </Button>
+              {turnstileSiteKey ? (
+                <TurnstileWidget
+                  ref={scoreTurnstileRef}
+                  siteKey={turnstileSiteKey}
+                  action="score"
+                  onToken={setScoreTurnstileToken}
+                />
+              ) : null}
             </form>
             <p
               className="mt-2 min-h-5 text-sm text-muted-foreground"
               aria-live="polite"
             >
-              {scoreSubmitStatus}
+              {scoreSubmitStatus ||
+                (!communitySubmissionConfigured
+                  ? 'Community submissions are not configured.'
+                  : '')}
             </p>
             <details className="mt-2 rounded-lg border border-border bg-background p-4">
               <summary className="cursor-pointer text-sm font-bold">
@@ -761,6 +910,14 @@ export function Name100Game({
                 placeholder="Leave a short note about your run"
                 onChange={(event) => setCommentMessage(event.target.value)}
               />
+              {turnstileSiteKey ? (
+                <TurnstileWidget
+                  ref={commentTurnstileRef}
+                  siteKey={turnstileSiteKey}
+                  action="comment"
+                  onToken={setCommentTurnstileToken}
+                />
+              ) : null}
               <div className="flex items-center justify-between gap-3">
                 <span className="text-xs text-muted-foreground">
                   {commentMessage.length}/280
@@ -768,7 +925,11 @@ export function Name100Game({
                 <Button
                   type="submit"
                   size="sm"
-                  disabled={!commentMessage.trim()}
+                  disabled={
+                    !commentMessage.trim() ||
+                    !communitySubmissionConfigured ||
+                    !commentTurnstileToken
+                  }
                 >
                   <IconSend data-icon="inline-start" />
                   Post
@@ -778,7 +939,10 @@ export function Name100Game({
                 className="min-h-5 text-sm text-muted-foreground"
                 aria-live="polite"
               >
-                {commentSubmitStatus}
+                {commentSubmitStatus ||
+                  (!communitySubmissionConfigured
+                    ? 'Community submissions are not configured.'
+                    : '')}
               </p>
             </form>
           </div>
