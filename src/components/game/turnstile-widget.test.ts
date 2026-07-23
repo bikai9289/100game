@@ -4,6 +4,11 @@ import { describe, it } from 'node:test';
 type TurnstileWidgetModule = {
   getTurnstileSize?: (width: number) => 'compact' | 'flexible';
   loadTurnstileScript?: () => Promise<void>;
+  loadTurnstileScriptWithRetry?: (options: {
+    load: () => Promise<void>;
+    attempts?: number;
+    sleep?: () => Promise<void>;
+  }) => Promise<void>;
 };
 
 class FakeScript {
@@ -100,5 +105,45 @@ describe('Turnstile widget helpers', () => {
         Reflect.deleteProperty(globalThis, 'document');
       }
     }
+  });
+
+  it('retries script loading twice before succeeding', async () => {
+    const widget = (await import(
+      './turnstile-widget'
+    )) as TurnstileWidgetModule;
+    assert.equal(typeof widget.loadTurnstileScriptWithRetry, 'function');
+
+    let calls = 0;
+    await widget.loadTurnstileScriptWithRetry?.({
+      load: async () => {
+        calls += 1;
+        if (calls < 3) throw new Error('temporary failure');
+      },
+      attempts: 3,
+      sleep: async () => undefined,
+    });
+
+    assert.equal(calls, 3);
+  });
+
+  it('stops retrying after the configured attempt limit', async () => {
+    const widget = (await import(
+      './turnstile-widget'
+    )) as TurnstileWidgetModule;
+    assert.equal(typeof widget.loadTurnstileScriptWithRetry, 'function');
+
+    let calls = 0;
+    await assert.rejects(
+      widget.loadTurnstileScriptWithRetry?.({
+        load: async () => {
+          calls += 1;
+          throw new Error('still unavailable');
+        },
+        attempts: 3,
+        sleep: async () => undefined,
+      }),
+      /still unavailable/
+    );
+    assert.equal(calls, 3);
   });
 });

@@ -56,6 +56,25 @@ describe('game homepage source', () => {
     );
   });
 
+  it('retries sessions only for the current round generation', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+
+    assert.match(game, /const roundGenerationRef = useRef\(0\)/);
+    assert.match(game, /retryWithPolicy/);
+    assert.match(
+      game,
+      /isCurrent: \(\) => generation === roundGenerationRef\.current/
+    );
+    assert.match(
+      game,
+      /if \(\s*controller\.signal\.aborted \|\|\s*generation !== roundGenerationRef\.current\s*\)\s*return/
+    );
+    assert.match(
+      game,
+      /roundGenerationRef\.current \+= 1;\s*sessionAbortRef\.current\?\.abort\(\)/
+    );
+  });
+
   it('uses explicit Turnstile widgets for protected community writes', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const widget = readFileSync(

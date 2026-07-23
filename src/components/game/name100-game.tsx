@@ -4,6 +4,7 @@ import {
   TurnstileWidget,
   type TurnstileWidgetHandle,
 } from '@/components/game/turnstile-widget';
+import { retryWithPolicy } from '@/components/game/retry';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -40,6 +41,19 @@ const categoryStyles: Record<string, string> = {
   activists: 'border-transparent bg-[#65a30d] text-white',
   other: 'border-transparent bg-[#64748b] text-white',
 };
+
+const SESSION_RETRY_ATTEMPTS = 3;
+const SESSION_RETRY_DELAY_MS = 150;
+const SESSION_START_WINDOW_MS = 5_000;
+
+class GameSessionRequestError extends Error {
+  constructor(
+    message: string,
+    readonly retryable: boolean
+  ) {
+    super(message);
+  }
+}
 
 type StoredGame = {
   guessedNames: string[];
@@ -181,6 +195,7 @@ export function Name100Game({
   const deadlineRef = useRef<number | null>(null);
   const startedAtRef = useRef<number | null>(null);
   const isStartedRef = useRef(false);
+  const roundGenerationRef = useRef(0);
   const sessionRequestRef = useRef<Promise<string> | null>(null);
   const sessionAbortRef = useRef<AbortController | null>(null);
   const scoreTurnstileRef = useRef<TurnstileWidgetHandle>(null);
@@ -337,6 +352,7 @@ export function Name100Game({
 
   useEffect(
     () => () => {
+      roundGenerationRef.current += 1;
       sessionAbortRef.current?.abort();
     },
     []
@@ -374,34 +390,72 @@ export function Name100Game({
   function requestGameSession(startedAt: number) {
     if (sessionRequestRef.current) return sessionRequestRef.current;
 
+    const generation = roundGenerationRef.current;
     const controller = new AbortController();
     sessionAbortRef.current = controller;
     const request = (async () => {
-      const response = await fetch('/api/game/session', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ gameId, durationSeconds, startedAt }),
-        signal: controller.signal,
-      });
-      const result = (await response.json()) as {
-        ok: boolean;
-        data?: { sessionToken?: unknown; expiresAt?: unknown };
-      };
-      if (
-        !response.ok ||
-        !result.ok ||
-        typeof result.data?.sessionToken !== 'string' ||
-        typeof result.data.expiresAt !== 'number'
-      ) {
-        throw new Error('Game session could not be created.');
-      }
+      const result = await retryWithPolicy(
+        async () => {
+          if (Date.now() >= startedAt + SESSION_START_WINDOW_MS) {
+            throw new GameSessionRequestError(
+              'The game session start window has expired.',
+              false
+            );
+          }
 
-      setSessionToken(result.data.sessionToken);
-      setSessionExpiresAt(result.data.expiresAt);
-      return result.data.sessionToken;
+          const response = await fetch('/api/game/session', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ gameId, durationSeconds, startedAt }),
+            signal: controller.signal,
+          });
+          const body = (await response.json()) as {
+            ok: boolean;
+            data?: { sessionToken?: unknown; expiresAt?: unknown };
+          };
+          if (
+            !response.ok ||
+            !body.ok ||
+            typeof body.data?.sessionToken !== 'string' ||
+            typeof body.data.expiresAt !== 'number'
+          ) {
+            throw new GameSessionRequestError(
+              'Game session could not be created.',
+              response.status === 429 || response.status >= 500
+            );
+          }
+          return {
+            sessionToken: body.data.sessionToken,
+            expiresAt: body.data.expiresAt,
+          };
+        },
+        {
+          attempts: SESSION_RETRY_ATTEMPTS,
+          delayMs: SESSION_RETRY_DELAY_MS,
+          signal: controller.signal,
+          isCurrent: () => generation === roundGenerationRef.current,
+          shouldRetry: (error) =>
+            (!(error instanceof GameSessionRequestError) || error.retryable) &&
+            Date.now() + SESSION_RETRY_DELAY_MS <
+              startedAt + SESSION_START_WINDOW_MS,
+        }
+      );
+
+      if (
+        controller.signal.aborted ||
+        generation !== roundGenerationRef.current
+      )
+        return result.sessionToken;
+
+      setSessionToken(result.sessionToken);
+      setSessionExpiresAt(result.expiresAt);
+      return result.sessionToken;
     })()
       .catch((error: unknown) => {
-        if (!controller.signal.aborted) {
+        if (
+          !controller.signal.aborted &&
+          generation === roundGenerationRef.current
+        ) {
           setScoreSubmitStatus(
             'This round can be played, but it cannot be submitted.'
           );
@@ -409,6 +463,7 @@ export function Name100Game({
         throw error;
       })
       .finally(() => {
+        if (generation !== roundGenerationRef.current) return;
         if (sessionAbortRef.current === controller) {
           sessionAbortRef.current = null;
         }
@@ -465,6 +520,7 @@ export function Name100Game({
     deadlineRef.current = null;
     startedAtRef.current = null;
     isStartedRef.current = false;
+    roundGenerationRef.current += 1;
     sessionAbortRef.current?.abort();
     sessionAbortRef.current = null;
     sessionRequestRef.current = null;

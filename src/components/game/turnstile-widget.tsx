@@ -1,5 +1,6 @@
 'use client';
 
+import { retryWithPolicy } from '@/components/game/retry';
 import {
   forwardRef,
   useEffect,
@@ -75,6 +76,27 @@ export function loadTurnstileScript() {
   return scriptPromise;
 }
 
+export function loadTurnstileScriptWithRetry({
+  load = loadTurnstileScript,
+  attempts = 3,
+  delayMs = 150,
+  signal,
+  sleep,
+}: {
+  load?: () => Promise<void>;
+  attempts?: number;
+  delayMs?: number;
+  signal?: AbortSignal;
+  sleep?: (delayMs: number, signal?: AbortSignal) => Promise<void>;
+} = {}) {
+  return retryWithPolicy(() => load(), {
+    attempts,
+    delayMs,
+    signal,
+    sleep,
+  });
+}
+
 export type TurnstileWidgetHandle = { reset: () => void };
 
 export const TurnstileWidget = forwardRef<
@@ -108,6 +130,8 @@ export const TurnstileWidget = forwardRef<
     };
     updateSize(container.getBoundingClientRect().width);
 
+    if (typeof ResizeObserver === 'undefined') return;
+
     const observer = new ResizeObserver((entries) => {
       const width = entries[0]?.contentRect.width;
       updateSize(width ?? container.getBoundingClientRect().width);
@@ -122,9 +146,10 @@ export const TurnstileWidget = forwardRef<
 
     let cancelled = false;
     let widgetId: string | null = null;
+    const controller = new AbortController();
     onToken('');
 
-    void loadTurnstileScript()
+    void loadTurnstileScriptWithRetry({ signal: controller.signal })
       .then(() => {
         if (cancelled || !containerRef.current || !window.turnstile) return;
 
@@ -138,10 +163,13 @@ export const TurnstileWidget = forwardRef<
         });
         widgetIdRef.current = widgetId;
       })
-      .catch(() => onToken(''));
+      .catch(() => {
+        if (!cancelled && !controller.signal.aborted) onToken('');
+      });
 
     return () => {
       cancelled = true;
+      controller.abort();
       if (widgetId) {
         window.turnstile?.remove(widgetId);
       }
@@ -155,7 +183,7 @@ export const TurnstileWidget = forwardRef<
     <div
       ref={containerRef}
       className="w-full min-w-0"
-      style={{ minHeight: size === 'flexible' ? 65 : 120 }}
+      style={{ minHeight: size === 'flexible' ? 65 : 140 }}
     />
   );
 });
