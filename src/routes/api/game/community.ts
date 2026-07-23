@@ -1,10 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { env } from 'cloudflare:workers';
 import { and, asc, count, desc, eq, gte } from 'drizzle-orm';
 
 import { getDb } from '@/db';
 import { gameBlocks, gameComments, gameScores } from '@/db/app.schema';
 import {
+  GameRateLimitError,
+  insertCommentWithinIpLimit,
+  insertScoreWithinIpLimit,
+} from '@/lib/game-community-d1';
+import {
+  COMMENT_LIMIT_PER_TEN_MINUTES,
+  COMMENT_RATE_LIMIT_WINDOW_MS,
   handleCommunityPost,
+  SCORE_LIMIT_PER_HOUR,
+  SCORE_RATE_LIMIT_WINDOW_MS,
   type CommunityPostDependencies,
 } from '@/lib/game-community-handler';
 import { getGameDefinition } from '@/lib/game-definition';
@@ -26,12 +36,24 @@ const communityPostDependencies: CommunityPostDependencies = {
   countRecentScores,
   findDuplicateScore,
   insertScore: async (value) => {
-    await getDb().insert(gameScores).values(value);
+    const inserted = await insertScoreWithinIpLimit(
+      env.DB,
+      value,
+      new Date(value.createdAt.getTime() - SCORE_RATE_LIMIT_WINDOW_MS),
+      SCORE_LIMIT_PER_HOUR
+    );
+    if (!inserted) throw new GameRateLimitError();
   },
   countRecentComments,
   findLatestScore,
   insertComment: async (value) => {
-    await getDb().insert(gameComments).values(value);
+    const inserted = await insertCommentWithinIpLimit(
+      env.DB,
+      value,
+      new Date(value.createdAt.getTime() - COMMENT_RATE_LIMIT_WINDOW_MS),
+      COMMENT_LIMIT_PER_TEN_MINUTES
+    );
+    if (!inserted) throw new GameRateLimitError();
   },
   now: Date.now,
   randomUUID: crypto.randomUUID.bind(crypto),

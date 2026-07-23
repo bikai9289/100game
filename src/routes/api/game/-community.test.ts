@@ -154,6 +154,10 @@ describe('protected game community writes', () => {
           databaseReads += 1;
           return 0;
         },
+        findBlock: async () => {
+          databaseReads += 1;
+          return false;
+        },
       })
     );
     const body = (await json(response)) as { error: { code: string } };
@@ -305,6 +309,68 @@ describe('protected game community writes', () => {
     }
   });
 
+  it('rejects an implausibly fast completed game before D1 access', async () => {
+    let databaseReads = 0;
+    const response = await handleCommunityPost(
+      request(scoreBody()),
+      makeDependencies({
+        verifySession: async () => ({
+          ok: true,
+          payload: { ...SESSION, startedAt: NOW - 4_999 },
+        }),
+        getDefinition: () => ({
+          durationSeconds: 720,
+          targetScore: 1,
+          answers: [
+            {
+              name: 'Taylor Swift',
+              aliases: ['taylor', 'swift'],
+              category: 'musicians',
+            },
+          ],
+        }),
+        countRecentScores: async () => {
+          databaseReads += 1;
+          return 0;
+        },
+        findBlock: async () => {
+          databaseReads += 1;
+          return false;
+        },
+      })
+    );
+    const body = (await json(response)) as { error: { code: string } };
+
+    assert.equal(response.status, 422);
+    assert.equal(body.error.code, 'SCORE_TOO_FAST');
+    assert.equal(databaseReads, 0);
+  });
+
+  it('accepts a completed game at the minimum server elapsed time', async () => {
+    const response = await handleCommunityPost(
+      request(scoreBody()),
+      makeDependencies({
+        verifySession: async () => ({
+          ok: true,
+          payload: { ...SESSION, startedAt: NOW - 5_000 },
+        }),
+        getDefinition: () => ({
+          durationSeconds: 720,
+          targetScore: 1,
+          answers: [
+            {
+              name: 'Taylor Swift',
+              aliases: ['taylor', 'swift'],
+              category: 'musicians',
+            },
+          ],
+        }),
+      })
+    );
+
+    assert.equal(response.status, 201);
+  });
+
   it('stores server-derived duration, session ID and salted IP hash', async () => {
     let inserted: ScoreInsert | undefined;
     const response = await handleCommunityPost(
@@ -336,6 +402,38 @@ describe('protected game community writes', () => {
 
     assert.equal(response.status, 409);
     assert.equal(body.error.code, 'DUPLICATE_SUBMISSION');
+  });
+
+  it('maps a score insert rate-limit race to a stable response', async () => {
+    const response = await handleCommunityPost(
+      request(scoreBody()),
+      makeDependencies({
+        countRecentScores: async () => 7,
+        insertScore: async () => {
+          throw { code: 'GAME_RATE_LIMITED' };
+        },
+      })
+    );
+    const body = (await json(response)) as { error: { code: string } };
+
+    assert.equal(response.status, 429);
+    assert.equal(body.error.code, 'RATE_LIMITED');
+  });
+
+  it('maps a comment insert rate-limit race to a stable response', async () => {
+    const response = await handleCommunityPost(
+      request(commentBody()),
+      makeDependencies({
+        countRecentComments: async () => 2,
+        insertComment: async () => {
+          throw { code: 'GAME_RATE_LIMITED' };
+        },
+      })
+    );
+    const body = (await json(response)) as { error: { code: string } };
+
+    assert.equal(response.status, 429);
+    assert.equal(body.error.code, 'RATE_LIMITED');
   });
 
   it('verifies comment Turnstile and salts the IP before every D1 read', async () => {

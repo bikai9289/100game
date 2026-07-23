@@ -8,10 +8,14 @@ import {
 import type { GameSessionPayload } from './game-session';
 import type { Answer } from './gameEngine';
 
-const SCORE_LIMIT_PER_HOUR = 8;
-const COMMENT_LIMIT_PER_TEN_MINUTES = 3;
+export const SCORE_LIMIT_PER_HOUR = 8;
+export const COMMENT_LIMIT_PER_TEN_MINUTES = 3;
+export const SCORE_RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+export const COMMENT_RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const SUBMISSION_GRACE_MS = 5 * 60 * 1000;
 const MAX_REQUEST_BODY_BYTES = 20_000;
+const MIN_COMPLETED_GAME_MS = 5_000;
+const MIN_MS_PER_TARGET_NAME = 500;
 
 export type ApiErrorCode =
   | 'BLOCKED'
@@ -24,6 +28,7 @@ export type ApiErrorCode =
   | 'INVALID_GAME'
   | 'INVALID_REQUEST'
   | 'RATE_LIMITED'
+  | 'SCORE_TOO_FAST'
   | 'SERVER_ERROR'
   | 'SESSION_EXPIRED'
   | 'SESSION_INVALID'
@@ -265,6 +270,33 @@ async function handleScore(
     );
   }
 
+  const recomputed = recomputeSubmittedScore(
+    parsed.data.guessedNames,
+    definition.answers
+  );
+  if (recomputed.score === 0) {
+    return errorResponse(
+      'EMPTY_SCORE',
+      'No valid answers were submitted.',
+      400
+    );
+  }
+  const elapsedMs = now - session.payload.startedAt;
+  const minimumCompletedGameMs = Math.max(
+    MIN_COMPLETED_GAME_MS,
+    definition.targetScore * MIN_MS_PER_TARGET_NAME
+  );
+  if (
+    recomputed.score >= definition.targetScore &&
+    elapsedMs < minimumCompletedGameMs
+  ) {
+    return errorResponse(
+      'SCORE_TOO_FAST',
+      'This completed game was submitted too quickly.',
+      422
+    );
+  }
+
   const clientIp = dependencies.getClientIp(request);
   const turnstile = await dependencies.verifyHuman({
     token: parsed.data.turnstileToken,
@@ -292,18 +324,6 @@ async function handleScore(
     );
   }
 
-  const recomputed = recomputeSubmittedScore(
-    parsed.data.guessedNames,
-    definition.answers
-  );
-  if (recomputed.score === 0) {
-    return errorResponse(
-      'EMPTY_SCORE',
-      'No valid answers were submitted.',
-      400
-    );
-  }
-
   const fingerprint = await dependencies.hashValue(
     JSON.stringify({
       gameId: parsed.data.gameId,
@@ -319,7 +339,7 @@ async function handleScore(
   const createdAt = new Date(now);
   const score = Math.min(recomputed.score, definition.targetScore);
   const durationMs = Math.min(
-    now - session.payload.startedAt,
+    elapsedMs,
     parsed.data.durationSeconds * 1000 + SUBMISSION_GRACE_MS
   );
   const id = dependencies.randomUUID();
@@ -339,6 +359,7 @@ async function handleScore(
     });
   } catch (error) {
     if (isDuplicateScoreInsertError(error)) return duplicateResponse();
+    if (isRateLimitedInsertError(error)) return scoreRateLimitResponse();
     throw error;
   }
 
@@ -423,16 +444,21 @@ async function handleComment(
   );
   const id = dependencies.randomUUID();
   const createdAt = new Date(dependencies.now());
-  await dependencies.insertComment({
-    id,
-    gameId: parsed.data.gameId,
-    displayName: parsed.data.displayName,
-    message: moderated.text,
-    score: latestScore,
-    ipHash,
-    status: 'approved',
-    createdAt,
-  });
+  try {
+    await dependencies.insertComment({
+      id,
+      gameId: parsed.data.gameId,
+      displayName: parsed.data.displayName,
+      message: moderated.text,
+      score: latestScore,
+      ipHash,
+      status: 'approved',
+      createdAt,
+    });
+  } catch (error) {
+    if (isRateLimitedInsertError(error)) return commentRateLimitResponse();
+    throw error;
+  }
 
   return Response.json(
     {
@@ -454,6 +480,31 @@ function duplicateResponse() {
     'DUPLICATE_SUBMISSION',
     'This score was already submitted.',
     409
+  );
+}
+
+function scoreRateLimitResponse() {
+  return errorResponse(
+    'RATE_LIMITED',
+    'Too many score submissions. Try again later.',
+    429
+  );
+}
+
+function commentRateLimitResponse() {
+  return errorResponse(
+    'RATE_LIMITED',
+    'Too many comments. Try again in a few minutes.',
+    429
+  );
+}
+
+function isRateLimitedInsertError(error: unknown) {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'code' in error &&
+    error.code === 'GAME_RATE_LIMITED'
   );
 }
 
