@@ -25,8 +25,10 @@ export function readCommunitySecurityConfig(
 
   return {
     ok: true,
-    turnstileSecretKey: result.data.TURNSTILE_SECRET_KEY,
-    gameSessionSecret: result.data.GAME_SESSION_SECRET,
-    ipHashSalt: result.data.GAME_IP_HASH_SALT,
+    data: {
+      turnstileSecretKey: result.data.TURNSTILE_SECRET_KEY,
+      gameSessionSecret: result.data.GAME_SESSION_SECRET,
+      ipHashSalt: result.data.GAME_IP_HASH_SALT,
+    },
   } as const;
 }

@@ -27,9 +27,11 @@ describe('readCommunitySecurityConfig', () => {
       }),
       {
         ok: true,
-        turnstileSecretKey: 't'.repeat(32),
-        gameSessionSecret: 's'.repeat(32),
-        ipHashSalt: 'i'.repeat(32),
+        data: {
+          turnstileSecretKey: 't'.repeat(32),
+          gameSessionSecret: 's'.repeat(32),
+          ipHashSalt: 'i'.repeat(32),
+        },
       }
     );
   });
