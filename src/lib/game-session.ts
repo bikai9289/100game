@@ -108,6 +108,10 @@ export async function verifyGameSession(
   | { ok: true; payload: GameSessionPayload }
   | { ok: false; code: 'SESSION_INVALID' | 'SESSION_EXPIRED' }
 > {
+  if (!Number.isSafeInteger(now) || now <= 0) {
+    return { ok: false, code: 'SESSION_INVALID' };
+  }
+
   try {
     const parts = token.split('.');
 
