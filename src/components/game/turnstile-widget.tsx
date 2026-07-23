@@ -42,7 +42,16 @@ export function getTurnstileSize(width: number): TurnstileSize {
   return width < 300 ? 'compact' : 'flexible';
 }
 
-export function loadTurnstileScript() {
+export function loadTurnstileScript({
+  timeoutMs = 5_000,
+  setTimeoutFn = (callback, delayMs) => setTimeout(callback, delayMs),
+  clearTimeoutFn = (timeout) =>
+    clearTimeout(timeout as ReturnType<typeof setTimeout>),
+}: {
+  timeoutMs?: number;
+  setTimeoutFn?: (callback: () => void, delayMs: number) => unknown;
+  clearTimeoutFn?: (timeout: unknown) => void;
+} = {}) {
   if (window.turnstile) return Promise.resolve();
   if (scriptPromise) return scriptPromise;
 
@@ -51,16 +60,30 @@ export function loadTurnstileScript() {
       `script[src="${SCRIPT_SRC}"]`
     );
     const script = existing ?? document.createElement('script');
+    let timeout: unknown;
+    const cleanup = () => {
+      script.removeEventListener('load', handleLoad);
+      script.removeEventListener('error', handleError);
+      if (timeout !== undefined) clearTimeoutFn(timeout);
+    };
+    const handleLoad = () => {
+      cleanup();
+      resolve();
+    };
+    const handleError = () => {
+      cleanup();
+      script.remove();
+      reject(new Error('Turnstile failed to load.'));
+    };
+    const handleTimeout = () => {
+      cleanup();
+      script.remove();
+      reject(new Error('Turnstile script load timed out.'));
+    };
 
-    script.addEventListener('load', () => resolve(), { once: true });
-    script.addEventListener(
-      'error',
-      () => {
-        script.remove();
-        reject(new Error('Turnstile failed to load.'));
-      },
-      { once: true }
-    );
+    script.addEventListener('load', handleLoad, { once: true });
+    script.addEventListener('error', handleError, { once: true });
+    timeout = setTimeoutFn(handleTimeout, timeoutMs);
 
     if (!existing) {
       script.src = SCRIPT_SRC;
@@ -95,6 +118,24 @@ export function loadTurnstileScriptWithRetry({
     signal,
     sleep,
   });
+}
+
+export function createActiveTurnstileCallbacks({
+  onToken,
+  isActive,
+}: {
+  onToken: (token: string) => void;
+  isActive: () => boolean;
+}) {
+  const writeToken = (token: string) => {
+    if (isActive()) onToken(token);
+  };
+
+  return {
+    callback: writeToken,
+    'expired-callback': () => writeToken(''),
+    'error-callback': () => writeToken(''),
+  };
 }
 
 export type TurnstileWidgetHandle = { reset: () => void };
@@ -147,24 +188,28 @@ export const TurnstileWidget = forwardRef<
     let cancelled = false;
     let widgetId: string | null = null;
     const controller = new AbortController();
+    const isActive = () => !cancelled && !controller.signal.aborted;
     onToken('');
 
     void loadTurnstileScriptWithRetry({ signal: controller.signal })
       .then(() => {
-        if (cancelled || !containerRef.current || !window.turnstile) return;
+        if (!isActive() || !containerRef.current || !window.turnstile) return;
+
+        const callbacks = createActiveTurnstileCallbacks({
+          onToken,
+          isActive,
+        });
 
         widgetId = window.turnstile.render(containerRef.current, {
           sitekey: siteKey,
           action,
           size,
-          callback: onToken,
-          'expired-callback': () => onToken(''),
-          'error-callback': () => onToken(''),
+          ...callbacks,
         });
         widgetIdRef.current = widgetId;
       })
       .catch(() => {
-        if (!cancelled && !controller.signal.aborted) onToken('');
+        if (isActive()) onToken('');
       });
 
     return () => {

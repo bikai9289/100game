@@ -3,12 +3,24 @@ import { describe, it } from 'node:test';
 
 type TurnstileWidgetModule = {
   getTurnstileSize?: (width: number) => 'compact' | 'flexible';
-  loadTurnstileScript?: () => Promise<void>;
+  loadTurnstileScript?: (options?: {
+    timeoutMs?: number;
+    setTimeoutFn?: (callback: () => void, delayMs: number) => number;
+    clearTimeoutFn?: (timeout: number) => void;
+  }) => Promise<void>;
   loadTurnstileScriptWithRetry?: (options: {
     load: () => Promise<void>;
     attempts?: number;
     sleep?: () => Promise<void>;
   }) => Promise<void>;
+  createActiveTurnstileCallbacks?: (options: {
+    onToken: (token: string) => void;
+    isActive: () => boolean;
+  }) => {
+    callback: (token: string) => void;
+    'expired-callback': () => void;
+    'error-callback': () => void;
+  };
 };
 
 class FakeScript {
@@ -20,6 +32,10 @@ class FakeScript {
 
   addEventListener(type: string, listener: () => void) {
     this.listeners.set(type, listener);
+  }
+
+  removeEventListener(type: string, listener: () => void) {
+    if (this.listeners.get(type) === listener) this.listeners.delete(type);
   }
 
   emit(type: string) {
@@ -40,6 +56,73 @@ describe('Turnstile widget helpers', () => {
     assert.equal(typeof widget.getTurnstileSize, 'function');
     assert.equal(widget.getTurnstileSize?.(299), 'compact');
     assert.equal(widget.getTurnstileSize?.(300), 'flexible');
+  });
+
+  it('times out a stalled script and clears it for a fresh attempt', async () => {
+    const widget = (await import(
+      './turnstile-widget'
+    )) as TurnstileWidgetModule;
+    const scripts: FakeScript[] = [];
+    const timeouts: Array<() => void> = [];
+    const fakeDocument = {
+      querySelector: () => scripts.find((script) => !script.removed) ?? null,
+      createElement: () => {
+        const script = new FakeScript();
+        scripts.push(script);
+        return script;
+      },
+      head: { append: () => undefined },
+    };
+    const windowDescriptor = Object.getOwnPropertyDescriptor(
+      globalThis,
+      'window'
+    );
+    const documentDescriptor = Object.getOwnPropertyDescriptor(
+      globalThis,
+      'document'
+    );
+    Object.defineProperty(globalThis, 'window', {
+      configurable: true,
+      value: { turnstile: undefined },
+    });
+    Object.defineProperty(globalThis, 'document', {
+      configurable: true,
+      value: fakeDocument,
+    });
+
+    const options = {
+      timeoutMs: 5_000,
+      setTimeoutFn: (callback: () => void) => {
+        timeouts.push(callback);
+        return timeouts.length;
+      },
+      clearTimeoutFn: () => undefined,
+    };
+    try {
+      const stalled = widget.loadTurnstileScript?.(options);
+      assert.ok(stalled);
+      assert.equal(timeouts.length, 1);
+      timeouts[0]?.();
+      await assert.rejects(stalled, /timed out/i);
+      assert.equal(scripts[0]?.removed, true);
+
+      const freshAttempt = widget.loadTurnstileScript?.(options);
+      assert.ok(freshAttempt);
+      assert.equal(scripts.length, 2);
+      scripts[1]?.emit('error');
+      await assert.rejects(freshAttempt, /failed to load/i);
+    } finally {
+      if (windowDescriptor) {
+        Object.defineProperty(globalThis, 'window', windowDescriptor);
+      } else {
+        Reflect.deleteProperty(globalThis, 'window');
+      }
+      if (documentDescriptor) {
+        Object.defineProperty(globalThis, 'document', documentDescriptor);
+      } else {
+        Reflect.deleteProperty(globalThis, 'document');
+      }
+    }
   });
 
   it('removes a failed script and permits a fresh retry', async () => {
@@ -145,5 +228,28 @@ describe('Turnstile widget helpers', () => {
       /still unavailable/
     );
     assert.equal(calls, 3);
+  });
+
+  it('guards every callback after its widget becomes inactive', async () => {
+    const widget = (await import(
+      './turnstile-widget'
+    )) as TurnstileWidgetModule;
+    assert.equal(typeof widget.createActiveTurnstileCallbacks, 'function');
+
+    let active = true;
+    const tokens: string[] = [];
+    const callbacks = widget.createActiveTurnstileCallbacks?.({
+      onToken: (token) => tokens.push(token),
+      isActive: () => active,
+    });
+    assert.ok(callbacks);
+    callbacks.callback('fresh-token');
+
+    active = false;
+    callbacks.callback('stale-token');
+    callbacks['expired-callback']();
+    callbacks['error-callback']();
+
+    assert.deepEqual(tokens, ['fresh-token']);
   });
 });

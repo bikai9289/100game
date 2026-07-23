@@ -67,7 +67,7 @@ describe('game homepage source', () => {
     );
     assert.match(
       game,
-      /if \(\s*controller\.signal\.aborted \|\|\s*generation !== roundGenerationRef\.current\s*\)\s*return/
+      /throwIfRetryCancelled\(\s*controller\.signal,\s*\(\) => generation === roundGenerationRef\.current\s*\)/
     );
     assert.match(
       game,

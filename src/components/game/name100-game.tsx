@@ -4,7 +4,11 @@ import {
   TurnstileWidget,
   type TurnstileWidgetHandle,
 } from '@/components/game/turnstile-widget';
-import { retryWithPolicy } from '@/components/game/retry';
+import {
+  retryWithPolicy,
+  runWithAbortTimeout,
+  throwIfRetryCancelled,
+} from '@/components/game/retry';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -403,16 +407,27 @@ export function Name100Game({
             );
           }
 
-          const response = await fetch('/api/game/session', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ gameId, durationSeconds, startedAt }),
-            signal: controller.signal,
-          });
-          const body = (await response.json()) as {
-            ok: boolean;
-            data?: { sessionToken?: unknown; expiresAt?: unknown };
-          };
+          const remainingWindowMs =
+            startedAt + SESSION_START_WINDOW_MS - Date.now();
+          const { response, body } = await runWithAbortTimeout(
+            async (attemptSignal) => {
+              const response = await fetch('/api/game/session', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ gameId, durationSeconds, startedAt }),
+                signal: attemptSignal,
+              });
+              const body = (await response.json()) as {
+                ok: boolean;
+                data?: { sessionToken?: unknown; expiresAt?: unknown };
+              };
+              return { response, body };
+            },
+            {
+              timeoutMs: remainingWindowMs,
+              parentSignal: controller.signal,
+            }
+          );
           if (
             !response.ok ||
             !body.ok ||
@@ -441,11 +456,10 @@ export function Name100Game({
         }
       );
 
-      if (
-        controller.signal.aborted ||
-        generation !== roundGenerationRef.current
-      )
-        return result.sessionToken;
+      throwIfRetryCancelled(
+        controller.signal,
+        () => generation === roundGenerationRef.current
+      );
 
       setSessionToken(result.sessionToken);
       setSessionExpiresAt(result.expiresAt);

@@ -11,6 +11,10 @@ type RetryModule = {
       sleep?: () => Promise<void>;
     }
   ) => Promise<T>;
+  runWithAbortTimeout?: <T>(
+    operation: (signal: AbortSignal) => Promise<T>,
+    options: { timeoutMs: number; parentSignal?: AbortSignal }
+  ) => Promise<T>;
 };
 
 async function getRetryModule() {
@@ -117,5 +121,42 @@ describe('retryWithPolicy', () => {
       ),
       { name: 'AbortError' }
     );
+  });
+
+  it('aborts an operation when its attempt timeout expires', async () => {
+    const retry = await getRetryModule();
+    assert.equal(typeof retry.runWithAbortTimeout, 'function');
+
+    await assert.rejects(
+      retry.runWithAbortTimeout?.(
+        (signal) =>
+          new Promise((_resolve, reject) => {
+            signal.addEventListener('abort', () => reject(signal.reason), {
+              once: true,
+            });
+          }),
+        { timeoutMs: 5 }
+      ),
+      { name: 'TimeoutError' }
+    );
+  });
+
+  it('propagates parent cancellation to an active attempt', async () => {
+    const retry = await getRetryModule();
+    assert.equal(typeof retry.runWithAbortTimeout, 'function');
+
+    const parent = new AbortController();
+    const pending = retry.runWithAbortTimeout?.(
+      (signal) =>
+        new Promise((_resolve, reject) => {
+          signal.addEventListener('abort', () => reject(signal.reason), {
+            once: true,
+          });
+        }),
+      { timeoutMs: 1_000, parentSignal: parent.signal }
+    );
+    parent.abort();
+
+    await assert.rejects(pending, { name: 'AbortError' });
   });
 });
