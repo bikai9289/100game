@@ -45,6 +45,38 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Validate deployment secrets
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_TURNSTILE_SITE_KEY: ${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+          GAME_SESSION_SECRET: ${{ secrets.GAME_SESSION_SECRET }}
+          GAME_IP_HASH_SALT: ${{ secrets.GAME_IP_HASH_SALT }}
+        run: |
+          required=(
+            CLOUDFLARE_ACCOUNT_ID
+            CLOUDFLARE_API_TOKEN
+            CLOUDFLARE_DATABASE_ID
+            VITE_BASE_URL
+            VITE_TURNSTILE_SITE_KEY
+            TURNSTILE_SECRET_KEY
+            GAME_SESSION_SECRET
+            GAME_IP_HASH_SALT
+          )
+          missing=()
+          for name in "${required[@]}"; do
+            if [[ -z "${!name:-}" ]]; then
+              missing+=("$name")
+            fi
+          done
+          if (( ${#missing[@]} > 0 )); then
+            printf 'Missing required deployment secret: %s\n' "${missing[@]}" >&2
+            exit 1
+          fi
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
 
