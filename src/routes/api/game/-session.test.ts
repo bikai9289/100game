@@ -175,19 +175,19 @@ test('counts multibyte UTF-8 bytes instead of JavaScript string length', async (
   assert.equal(response.status, 413);
 });
 
-test('rejects a non-JSON content type', async () => {
+test('accepts valid JSON without a content-type header', async () => {
   const response = await handleGameSessionPost(
-    createRequest(validBody(), { 'content-type': 'text/plain' }),
+    new Request('https://example.test/api/game/session', {
+      method: 'POST',
+      body: validBody(),
+    }),
     makeDependencies()
   );
 
-  assert.equal(response.status, 400);
+  assert.equal(response.status, 201);
   assert.deepEqual(await readJson(response), {
-    ok: false,
-    error: {
-      code: 'INVALID_REQUEST',
-      message: 'Expected an application/json request body.',
-    },
+    ok: true,
+    data: ISSUED_SESSION,
   });
 });
 

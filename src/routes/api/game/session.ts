@@ -49,17 +49,6 @@ export async function handleGameSessionPost(
       return requestBodyTooLargeResponse();
     }
 
-    const contentType = request.headers.get('content-type');
-    if (
-      contentType?.split(';', 1)[0]?.trim().toLowerCase() !== 'application/json'
-    ) {
-      return errorResponse(
-        'INVALID_REQUEST',
-        'Expected an application/json request body.',
-        400
-      );
-    }
-
     const bodyResult = await readRequestBody(request);
     if (!bodyResult.ok) return requestBodyTooLargeResponse();
 
