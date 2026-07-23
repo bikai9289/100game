@@ -688,7 +688,7 @@ export function Name100Game({
     >
       <div className="min-w-0 lg:col-start-1 lg:row-start-1">
         <div className="sticky top-[64px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md">
-          <div className="grid grid-cols-[1fr_1fr_auto_auto] items-center gap-2">
+          <div className="grid grid-cols-2 items-center gap-2 min-[360px]:grid-cols-[auto_auto_auto_auto] min-[360px]:justify-between">
             <div className="text-center">
               <div className="text-[0.625rem] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                 Time
@@ -701,7 +701,7 @@ export function Name100Game({
               <div className="text-[0.625rem] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                 Score
               </div>
-              <div className="font-mono text-2xl font-extrabold tabular-nums text-primary">
+              <div className="font-mono whitespace-nowrap text-2xl font-extrabold tabular-nums text-primary">
                 {gameState.score} / {targetScore}
               </div>
             </div>
@@ -709,6 +709,7 @@ export function Name100Game({
               type="button"
               variant="outline"
               size="icon"
+              className="justify-self-end min-[360px]:justify-self-auto"
               onClick={resetGame}
               aria-label="Restart game"
               title="Restart game"
@@ -718,12 +719,14 @@ export function Name100Game({
             <Button
               type="button"
               variant="outline"
-              size="icon"
+              size="sm"
+              className="justify-self-start min-[360px]:justify-self-auto"
               onClick={() => void shareGame()}
               aria-label="Share challenge"
               title="Share challenge"
             >
               <IconShare />
+              Share
             </Button>
           </div>
 
@@ -840,6 +843,104 @@ export function Name100Game({
         </CardContent>
       </Card>
 
+      <section className="border-t border-border pt-8 lg:col-span-2">
+        <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
+          <div>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <IconMessage className="size-5 text-primary" />
+              Community Wall
+            </h2>
+            <form
+              onSubmit={(event) => void submitComment(event)}
+              className="mt-4 grid gap-3"
+            >
+              <label htmlFor={`${playerNameId}-comment`} className="sr-only">
+                Display name
+              </label>
+              <Input
+                id={`${playerNameId}-comment`}
+                value={playerName}
+                maxLength={24}
+                placeholder="Display name"
+                onChange={(event) => setPlayerName(event.target.value)}
+              />
+              <label htmlFor={commentId} className="sr-only">
+                Comment
+              </label>
+              <Textarea
+                id={commentId}
+                value={commentMessage}
+                maxLength={280}
+                placeholder="Leave a short note about your run"
+                onChange={(event) => setCommentMessage(event.target.value)}
+              />
+              {turnstileSiteKey ? (
+                <TurnstileWidget
+                  ref={commentTurnstileRef}
+                  siteKey={turnstileSiteKey}
+                  action="comment"
+                  onToken={setCommentTurnstileToken}
+                />
+              ) : null}
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs text-muted-foreground">
+                  {commentMessage.length}/280
+                </span>
+                <Button
+                  type="submit"
+                  size="sm"
+                  disabled={
+                    !commentMessage.trim() ||
+                    !communitySubmissionConfigured ||
+                    !commentTurnstileToken
+                  }
+                >
+                  <IconSend data-icon="inline-start" />
+                  Post
+                </Button>
+              </div>
+              <p
+                className="min-h-5 text-sm text-muted-foreground"
+                aria-live="polite"
+              >
+                {commentSubmitStatus ||
+                  (!communitySubmissionConfigured
+                    ? 'Community submissions are not configured.'
+                    : '')}
+              </p>
+            </form>
+          </div>
+
+          <div className="divide-y divide-border">
+            {communityStatus === 'ready' && community.comments.length === 0 ? (
+              <p className="py-8 text-center text-sm text-muted-foreground">
+                No notes yet.
+              </p>
+            ) : null}
+            {community.comments.map((comment) => (
+              <article key={comment.id} className="py-4 first:pt-0">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <p className="font-bold text-foreground">
+                    {comment.displayName}
+                    {comment.score !== null ? (
+                      <span className="ml-2 text-xs font-semibold text-primary">
+                        Score {comment.score}
+                      </span>
+                    ) : null}
+                  </p>
+                  <time className="text-xs text-muted-foreground">
+                    {new Date(comment.createdAt).toLocaleDateString()}
+                  </time>
+                </div>
+                <p className="mt-1 break-words text-sm leading-6 text-muted-foreground">
+                  {comment.message}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="grid grid-cols-1 gap-[7px] min-[380px]:grid-cols-2 md:grid-cols-3 lg:col-start-1 lg:grid-cols-4">
         {answerSlots.map((answer, index) => (
           <div
@@ -954,104 +1055,6 @@ export function Name100Game({
           </CardContent>
         </Card>
       ) : null}
-
-      <section className="border-t border-border pt-8 lg:col-span-2">
-        <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
-          <div>
-            <h2 className="flex items-center gap-2 text-xl font-bold">
-              <IconMessage className="size-5 text-primary" />
-              Player notes
-            </h2>
-            <form
-              onSubmit={(event) => void submitComment(event)}
-              className="mt-4 grid gap-3"
-            >
-              <label htmlFor={`${playerNameId}-comment`} className="sr-only">
-                Display name
-              </label>
-              <Input
-                id={`${playerNameId}-comment`}
-                value={playerName}
-                maxLength={24}
-                placeholder="Display name"
-                onChange={(event) => setPlayerName(event.target.value)}
-              />
-              <label htmlFor={commentId} className="sr-only">
-                Comment
-              </label>
-              <Textarea
-                id={commentId}
-                value={commentMessage}
-                maxLength={280}
-                placeholder="Leave a short note about your run"
-                onChange={(event) => setCommentMessage(event.target.value)}
-              />
-              {turnstileSiteKey ? (
-                <TurnstileWidget
-                  ref={commentTurnstileRef}
-                  siteKey={turnstileSiteKey}
-                  action="comment"
-                  onToken={setCommentTurnstileToken}
-                />
-              ) : null}
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-xs text-muted-foreground">
-                  {commentMessage.length}/280
-                </span>
-                <Button
-                  type="submit"
-                  size="sm"
-                  disabled={
-                    !commentMessage.trim() ||
-                    !communitySubmissionConfigured ||
-                    !commentTurnstileToken
-                  }
-                >
-                  <IconSend data-icon="inline-start" />
-                  Post
-                </Button>
-              </div>
-              <p
-                className="min-h-5 text-sm text-muted-foreground"
-                aria-live="polite"
-              >
-                {commentSubmitStatus ||
-                  (!communitySubmissionConfigured
-                    ? 'Community submissions are not configured.'
-                    : '')}
-              </p>
-            </form>
-          </div>
-
-          <div className="divide-y divide-border">
-            {communityStatus === 'ready' && community.comments.length === 0 ? (
-              <p className="py-8 text-center text-sm text-muted-foreground">
-                No notes yet.
-              </p>
-            ) : null}
-            {community.comments.map((comment) => (
-              <article key={comment.id} className="py-4 first:pt-0">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-bold text-foreground">
-                    {comment.displayName}
-                    {comment.score !== null ? (
-                      <span className="ml-2 text-xs font-semibold text-primary">
-                        Score {comment.score}
-                      </span>
-                    ) : null}
-                  </p>
-                  <time className="text-xs text-muted-foreground">
-                    {new Date(comment.createdAt).toLocaleDateString()}
-                  </time>
-                </div>
-                <p className="mt-1 break-words text-sm leading-6 text-muted-foreground">
-                  {comment.message}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </section>
   );
 }

@@ -96,4 +96,46 @@ describe('game homepage source', () => {
     assert.match(widget, /\.reset\(/);
     assert.match(widget, /\.remove\(/);
   });
+
+  it('shows a labeled share button throughout the round', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const shareButtonIndex = renderedGame.indexOf(
+      'aria-label="Share challenge"'
+    );
+    const shareButton = renderedGame.slice(
+      shareButtonIndex,
+      shareButtonIndex + 240
+    );
+
+    assert.ok(shareButtonIndex >= 0);
+    assert.match(shareButton, /<IconShare \/>\s*Share/);
+    assert.doesNotMatch(shareButton, /size="icon"/);
+  });
+
+  it('keeps the score on one line beside the labeled share button', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+
+    assert.match(renderedGame, /grid-cols-2/);
+    assert.match(
+      renderedGame,
+      /min-\[360px\]:grid-cols-\[auto_auto_auto_auto\]/
+    );
+    assert.match(
+      renderedGame,
+      /font-mono[^"']*whitespace-nowrap[^"']*text-primary/
+    );
+  });
+
+  it('places the community wall before the answer grid', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const communityIndex = renderedGame.indexOf('Community Wall');
+    const answersIndex = renderedGame.indexOf('answerSlots.map');
+
+    assert.doesNotMatch(renderedGame, /Player notes/);
+    assert.ok(communityIndex >= 0);
+    assert.ok(answersIndex > communityIndex);
+  });
 });
