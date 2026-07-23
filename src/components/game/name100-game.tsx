@@ -180,6 +180,7 @@ export function Name100Game({
   const inputRef = useRef<HTMLInputElement>(null);
   const deadlineRef = useRef<number | null>(null);
   const startedAtRef = useRef<number | null>(null);
+  const isStartedRef = useRef(false);
   const sessionRequestRef = useRef<Promise<string> | null>(null);
   const sessionAbortRef = useRef<AbortController | null>(null);
   const scoreTurnstileRef = useRef<TurnstileWidgetHandle>(null);
@@ -300,8 +301,11 @@ export function Name100Game({
         remainingTime,
         isGameOver,
       });
-      setIsStarted(parsed.isStarted && !isGameOver);
+      const restoredIsStarted = parsed.isStarted && !isGameOver;
+      isStartedRef.current = restoredIsStarted;
+      setIsStarted(restoredIsStarted);
     } catch {
+      isStartedRef.current = false;
       clearStoredGame(storageKey, storageCookie);
     } finally {
       setHasRestoredGame(true);
@@ -426,14 +430,15 @@ export function Name100Game({
       return;
     }
 
-    const result = submitAnswer(guess, gameState, answers, { targetScore });
-    if (!isStarted && result.isCorrect) {
+    if (!isStartedRef.current) {
       const now = Date.now();
+      isStartedRef.current = true;
       startedAtRef.current = now;
       deadlineRef.current = now + durationSeconds * 1000;
       setIsStarted(true);
       void requestGameSession(now).catch(() => undefined);
     }
+    const result = submitAnswer(guess, gameState, answers, { targetScore });
     const nextState =
       result.newState.score >= targetScore
         ? { ...result.newState, isGameOver: true }
@@ -459,6 +464,7 @@ export function Name100Game({
     const nextState = initGame(answers, { durationSeconds });
     deadlineRef.current = null;
     startedAtRef.current = null;
+    isStartedRef.current = false;
     sessionAbortRef.current?.abort();
     sessionAbortRef.current = null;
     sessionRequestRef.current = null;

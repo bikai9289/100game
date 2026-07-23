@@ -33,6 +33,29 @@ describe('game homepage source', () => {
     );
   });
 
+  it('starts the round and requests its session before evaluating the first guess', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const submitGuess = game.slice(
+      game.indexOf('function submitGuess'),
+      game.indexOf('function handleSubmit')
+    );
+    const trimIndex = submitGuess.indexOf('value.trim()');
+    const emptyGuardIndex = submitGuess.indexOf('if (!guess)');
+    const startIndex = submitGuess.indexOf('if (!isStartedRef.current)');
+    const sessionIndex = submitGuess.indexOf('requestGameSession(now)');
+    const answerIndex = submitGuess.indexOf('submitAnswer(');
+
+    assert.ok(trimIndex >= 0);
+    assert.ok(emptyGuardIndex > trimIndex);
+    assert.ok(startIndex > emptyGuardIndex);
+    assert.ok(sessionIndex > startIndex);
+    assert.ok(answerIndex > sessionIndex);
+    assert.doesNotMatch(
+      submitGuess.slice(startIndex, answerIndex),
+      /result\.isCorrect/
+    );
+  });
+
   it('uses explicit Turnstile widgets for protected community writes', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const widget = readFileSync(
