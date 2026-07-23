@@ -28,10 +28,6 @@ export type GameSessionPayload = z.infer<typeof gameSessionPayloadSchema>;
 
 type GameSessionRequest = z.infer<typeof gameSessionRequestSchema>;
 
-export function validateGameSessionStart(startedAt: number, now: number) {
-  return startedAt >= now - 5_000 && startedAt <= now + 1_000;
-}
-
 function encodeBase64Url(bytes: Uint8Array) {
   let binary = '';
 

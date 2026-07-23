@@ -2,11 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { getGameDefinition } from '@/lib/game-definition';
 import { readGameSessionSecret } from '@/lib/game-security';
-import {
-  gameSessionRequestSchema,
-  issueGameSession,
-  validateGameSessionStart,
-} from '@/lib/game-session';
+import { gameSessionRequestSchema, issueGameSession } from '@/lib/game-session';
 
 const MAX_REQUEST_BODY_BYTES = 4_096;
 
@@ -108,15 +104,11 @@ export async function handleGameSessionPost(
     }
 
     const now = clock();
-    if (!validateGameSessionStart(parsed.data.startedAt, now)) {
-      return errorResponse(
-        'INVALID_REQUEST',
-        'Game start time is invalid.',
-        400
-      );
-    }
-
-    const issued = await issueSession(parsed.data, secret.secret, { now });
+    const issued = await issueSession(
+      { ...parsed.data, startedAt: now },
+      secret.secret,
+      { now }
+    );
 
     return Response.json(
       {

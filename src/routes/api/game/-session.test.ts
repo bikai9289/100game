@@ -319,20 +319,20 @@ test('rejects a duration that does not match the game definition', async () => {
   });
 });
 
-test('rejects a start time outside the allowed window', async () => {
+test('uses server time when the client clock is skewed', async () => {
+  let issuerStartedAt: number | undefined;
   const response = await handleGameSessionPost(
-    createRequest(validBody({ startedAt: NOW - 5_001 })),
-    makeDependencies()
+    createRequest(validBody({ startedAt: NOW - 60_000 })),
+    makeDependencies({
+      issueSession: async (input) => {
+        issuerStartedAt = input.startedAt;
+        return ISSUED_SESSION;
+      },
+    })
   );
 
-  assert.equal(response.status, 400);
-  assert.deepEqual(await readJson(response), {
-    ok: false,
-    error: {
-      code: 'INVALID_REQUEST',
-      message: 'Game start time is invalid.',
-    },
-  });
+  assert.equal(response.status, 201);
+  assert.equal(issuerStartedAt, NOW);
 });
 
 test('issues an exact public response using one clock reading', async () => {

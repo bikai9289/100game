@@ -4,7 +4,6 @@ import { test } from 'node:test';
 import {
   gameSessionRequestSchema,
   issueGameSession,
-  validateGameSessionStart,
   verifyGameSession,
 } from './game-session';
 
@@ -55,14 +54,6 @@ test('validates game session requests', () => {
     gameSessionRequestSchema.safeParse({ ...input, startedAt: 'now' }).success,
     false
   );
-});
-
-test('validates game session start times within the allowed window', () => {
-  assert.equal(validateGameSessionStart(now, now), true);
-  assert.equal(validateGameSessionStart(now - 5_000, now), true);
-  assert.equal(validateGameSessionStart(now + 1_000, now), true);
-  assert.equal(validateGameSessionStart(now - 5_001, now), false);
-  assert.equal(validateGameSessionStart(now + 1_001, now), false);
 });
 
 test('issues a signed game session token with the expected payload', async () => {
