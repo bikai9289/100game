@@ -13,18 +13,12 @@ const request = {
 
 const failedResult = {
   ok: false,
-  error: {
-    code: 'TURNSTILE_FAILED',
-    message: 'Verification failed.',
-  },
+  code: 'TURNSTILE_FAILED',
 } as const;
 
 const unavailableResult = {
   ok: false,
-  error: {
-    code: 'TURNSTILE_UNAVAILABLE',
-    message: 'Verification is temporarily unavailable.',
-  },
+  code: 'TURNSTILE_UNAVAILABLE',
 } as const;
 
 describe('verifyTurnstile', () => {

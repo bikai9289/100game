@@ -15,28 +15,17 @@ type TurnstileResult =
   | { ok: true }
   | {
       ok: false;
-      error: {
-        code: 'TURNSTILE_FAILED' | 'TURNSTILE_UNAVAILABLE';
-        message:
-          | 'Verification failed.'
-          | 'Verification is temporarily unavailable.';
-      };
+      code: 'TURNSTILE_FAILED' | 'TURNSTILE_UNAVAILABLE';
     };
 
 const TURNSTILE_FAILED = {
   ok: false,
-  error: {
-    code: 'TURNSTILE_FAILED',
-    message: 'Verification failed.',
-  },
+  code: 'TURNSTILE_FAILED',
 } as const;
 
 const TURNSTILE_UNAVAILABLE = {
   ok: false,
-  error: {
-    code: 'TURNSTILE_UNAVAILABLE',
-    message: 'Verification is temporarily unavailable.',
-  },
+  code: 'TURNSTILE_UNAVAILABLE',
 } as const;
 
 export async function verifyTurnstile({
