@@ -16,3 +16,10 @@ test('does not redirect requests already using the canonical host', () => {
     null
   );
 });
+
+test('redirects insecure requests to the HTTPS canonical URL', () => {
+  assert.equal(
+    getCanonicalHostRedirect('http://name100challenge.com/timer?minutes=12'),
+    'https://name100challenge.com/timer?minutes=12'
+  );
+});

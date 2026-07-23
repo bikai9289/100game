@@ -3,9 +3,19 @@ const WWW_HOST = `www.${CANONICAL_HOST}`;
 
 export function getCanonicalHostRedirect(url: string) {
   const parsedUrl = new URL(url);
+  const isProductionHost =
+    parsedUrl.hostname === CANONICAL_HOST || parsedUrl.hostname === WWW_HOST;
 
-  if (parsedUrl.hostname !== WWW_HOST) return null;
+  if (!isProductionHost) return null;
+  if (
+    parsedUrl.protocol === 'https:' &&
+    parsedUrl.hostname === CANONICAL_HOST
+  ) {
+    return null;
+  }
 
+  parsedUrl.protocol = 'https:';
   parsedUrl.hostname = CANONICAL_HOST;
+  parsedUrl.port = '';
   return parsedUrl.toString();
 }
