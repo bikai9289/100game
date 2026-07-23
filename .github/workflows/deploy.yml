@@ -60,5 +60,18 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Create Wrangler deploy config
+        run: pnpm exec tsx scripts/write-wrangler-deploy-config.ts
+
       - name: Deploy to Cloudflare Workers
-        run: pnpx wrangler deploy
+        run: pnpm exec wrangler deploy --config dist/server/wrangler.deploy.json
+
+      - name: Configure Worker secrets
+        env:
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+          GAME_SESSION_SECRET: ${{ secrets.GAME_SESSION_SECRET }}
+          GAME_IP_HASH_SALT: ${{ secrets.GAME_IP_HASH_SALT }}
+        run: |
+          printf '%s' "$TURNSTILE_SECRET_KEY" | pnpm exec wrangler secret put TURNSTILE_SECRET_KEY --config dist/server/wrangler.deploy.json
+          printf '%s' "$GAME_SESSION_SECRET" | pnpm exec wrangler secret put GAME_SESSION_SECRET --config dist/server/wrangler.deploy.json
+          printf '%s' "$GAME_IP_HASH_SALT" | pnpm exec wrangler secret put GAME_IP_HASH_SALT --config dist/server/wrangler.deploy.json

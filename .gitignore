@@ -12,6 +12,7 @@ count.txt
 .nitro
 .tanstack
 .wrangler
+.pnpm-store/
 .output
 .vinxi
 .content-collections
