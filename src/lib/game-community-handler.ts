@@ -14,8 +14,8 @@ export const SCORE_RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 export const COMMENT_RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const SUBMISSION_GRACE_MS = 5 * 60 * 1000;
 const MAX_REQUEST_BODY_BYTES = 20_000;
-const MIN_COMPLETED_GAME_MS = 5_000;
-const MIN_MS_PER_TARGET_NAME = 500;
+const MIN_SCORE_SUBMISSION_MS = 5_000;
+const MIN_MS_PER_ACCEPTED_NAME = 500;
 
 export type ApiErrorCode =
   | 'BLOCKED'
@@ -282,17 +282,14 @@ async function handleScore(
     );
   }
   const elapsedMs = now - session.payload.startedAt;
-  const minimumCompletedGameMs = Math.max(
-    MIN_COMPLETED_GAME_MS,
-    definition.targetScore * MIN_MS_PER_TARGET_NAME
+  const minimumScoreSubmissionMs = Math.max(
+    MIN_SCORE_SUBMISSION_MS,
+    recomputed.score * MIN_MS_PER_ACCEPTED_NAME
   );
-  if (
-    recomputed.score >= definition.targetScore &&
-    elapsedMs < minimumCompletedGameMs
-  ) {
+  if (elapsedMs < minimumScoreSubmissionMs) {
     return errorResponse(
       'SCORE_TOO_FAST',
-      'This completed game was submitted too quickly.',
+      'This score was submitted too quickly.',
       422
     );
   }

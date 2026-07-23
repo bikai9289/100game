@@ -27,6 +27,14 @@ const SESSION: GameSessionPayload = {
   expiresAt: NOW - 100_000 + 720_000 + 300_000,
 };
 
+function answers(count: number) {
+  return Array.from({ length: count }, (_, index) => ({
+    name: `Person ${index + 1}`,
+    aliases: [],
+    category: 'musicians',
+  }));
+}
+
 function scoreBody(overrides: Record<string, unknown> = {}) {
   return {
     action: 'score',
@@ -309,7 +317,7 @@ describe('protected game community writes', () => {
     }
   });
 
-  it('rejects an implausibly fast completed game before D1 access', async () => {
+  it('rejects an implausibly fast low score before D1 access', async () => {
     let databaseReads = 0;
     const response = await handleCommunityPost(
       request(scoreBody()),
@@ -346,7 +354,7 @@ describe('protected game community writes', () => {
     assert.equal(databaseReads, 0);
   });
 
-  it('accepts a completed game at the minimum server elapsed time', async () => {
+  it('accepts a low score at the minimum server elapsed time', async () => {
     const response = await handleCommunityPost(
       request(scoreBody()),
       makeDependencies({
@@ -369,6 +377,86 @@ describe('protected game community writes', () => {
     );
 
     assert.equal(response.status, 201);
+  });
+
+  it('rejects near-target scores below their scaled minimum time', async (t) => {
+    const cases = [
+      { name: '99 of 100', score: 99, targetScore: 100, elapsedMs: 49_499 },
+      { name: '29 of 30', score: 29, targetScore: 30, elapsedMs: 14_499 },
+    ];
+
+    for (const fixture of cases) {
+      await t.test(fixture.name, async () => {
+        const gameAnswers = answers(fixture.score);
+        let databaseReads = 0;
+        const response = await handleCommunityPost(
+          request(
+            scoreBody({
+              guessedNames: gameAnswers.map((answer) => answer.name),
+            })
+          ),
+          makeDependencies({
+            verifySession: async () => ({
+              ok: true,
+              payload: {
+                ...SESSION,
+                startedAt: NOW - fixture.elapsedMs,
+              },
+            }),
+            getDefinition: () => ({
+              durationSeconds: 720,
+              targetScore: fixture.targetScore,
+              answers: gameAnswers,
+            }),
+            findBlock: async () => {
+              databaseReads += 1;
+              return false;
+            },
+          })
+        );
+        const body = (await json(response)) as { error: { code: string } };
+
+        assert.equal(response.status, 422);
+        assert.equal(body.error.code, 'SCORE_TOO_FAST');
+        assert.equal(databaseReads, 0);
+      });
+    }
+  });
+
+  it('accepts near-target scores at their scaled minimum time', async (t) => {
+    const cases = [
+      { name: '99 of 100', score: 99, targetScore: 100, elapsedMs: 49_500 },
+      { name: '29 of 30', score: 29, targetScore: 30, elapsedMs: 14_500 },
+    ];
+
+    for (const fixture of cases) {
+      await t.test(fixture.name, async () => {
+        const gameAnswers = answers(fixture.score);
+        const response = await handleCommunityPost(
+          request(
+            scoreBody({
+              guessedNames: gameAnswers.map((answer) => answer.name),
+            })
+          ),
+          makeDependencies({
+            verifySession: async () => ({
+              ok: true,
+              payload: {
+                ...SESSION,
+                startedAt: NOW - fixture.elapsedMs,
+              },
+            }),
+            getDefinition: () => ({
+              durationSeconds: 720,
+              targetScore: fixture.targetScore,
+              answers: gameAnswers,
+            }),
+          })
+        );
+
+        assert.equal(response.status, 201);
+      });
+    }
   });
 
   it('stores server-derived duration, session ID and salted IP hash', async () => {
