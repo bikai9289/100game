@@ -89,6 +89,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check code quality
+        run: pnpm check
+
+      - name: Check locale keys
+        run: pnpm locale:check
+
+      - name: Run tests
+        run: |
+          mapfile -t test_files < <(find src scripts -type f -name '*.test.ts' -print)
+          if (( ${#test_files[@]} == 0 )); then
+            echo 'No test files found' >&2
+            exit 1
+          fi
+          pnpm exec tsx --test "${test_files[@]}"
+
       - name: Build
         run: pnpm build
 
@@ -96,14 +111,13 @@ jobs:
         run: pnpm exec tsx scripts/write-wrangler-deploy-config.ts
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm exec wrangler deploy --config dist/server/wrangler.deploy.json
-
-      - name: Configure Worker secrets
         env:
           TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
           GAME_SESSION_SECRET: ${{ secrets.GAME_SESSION_SECRET }}
           GAME_IP_HASH_SALT: ${{ secrets.GAME_IP_HASH_SALT }}
         run: |
-          printf '%s' "$TURNSTILE_SECRET_KEY" | pnpm exec wrangler secret put TURNSTILE_SECRET_KEY --config dist/server/wrangler.deploy.json
-          printf '%s' "$GAME_SESSION_SECRET" | pnpm exec wrangler secret put GAME_SESSION_SECRET --config dist/server/wrangler.deploy.json
-          printf '%s' "$GAME_IP_HASH_SALT" | pnpm exec wrangler secret put GAME_IP_HASH_SALT --config dist/server/wrangler.deploy.json
+          WORKER_SECRETS_FILE="$RUNNER_TEMP/name100challenge-worker-secrets.json"
+          export WORKER_SECRETS_FILE
+          trap 'rm -f "$WORKER_SECRETS_FILE"' EXIT
+          pnpm exec tsx scripts/write-worker-secrets-file.ts "$WORKER_SECRETS_FILE"
+          pnpm exec wrangler deploy --config dist/server/wrangler.deploy.json --secrets-file "$WORKER_SECRETS_FILE"
