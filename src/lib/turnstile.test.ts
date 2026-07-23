@@ -58,6 +58,41 @@ describe('verifyTurnstile', () => {
     assert.deepEqual(result, failedResult);
   });
 
+  it('accepts the documented test action only with the always-pass secret', async () => {
+    const fetchImpl = async () =>
+      Response.json({ success: true, action: 'test' });
+
+    assert.deepEqual(
+      await verifyTurnstile({
+        ...request,
+        secret: '1x0000000000000000000000000000000AA',
+        fetchImpl,
+      }),
+      { ok: true }
+    );
+    assert.deepEqual(
+      await verifyTurnstile({ ...request, fetchImpl }),
+      failedResult
+    );
+  });
+
+  it('accepts an omitted action only with the always-pass secret', async () => {
+    const fetchImpl = async () => Response.json({ success: true });
+
+    assert.deepEqual(
+      await verifyTurnstile({
+        ...request,
+        secret: '1x0000000000000000000000000000000AA',
+        fetchImpl,
+      }),
+      { ok: true }
+    );
+    assert.deepEqual(
+      await verifyTurnstile({ ...request, fetchImpl }),
+      failedResult
+    );
+  });
+
   it('maps thrown fetch errors to unavailable without leaking inputs', async () => {
     const result = await verifyTurnstile({
       ...request,

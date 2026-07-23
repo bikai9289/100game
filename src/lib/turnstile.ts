@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const SITEVERIFY_URL =
   'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+const ALWAYS_PASS_TEST_SECRET = '1x0000000000000000000000000000000AA';
 
 const turnstileResponseSchema = z.object({
   success: z.boolean(),
@@ -61,7 +62,12 @@ export async function verifyTurnstile({
     const parsed = turnstileResponseSchema.safeParse(await response.json());
     if (!parsed.success) return TURNSTILE_UNAVAILABLE;
 
-    if (!parsed.data.success || parsed.data.action !== expectedAction) {
+    const isAlwaysPassTestResponse =
+      secret === ALWAYS_PASS_TEST_SECRET &&
+      (parsed.data.action === 'test' || parsed.data.action === undefined);
+    const actionMatches =
+      parsed.data.action === expectedAction || isAlwaysPassTestResponse;
+    if (!parsed.data.success || !actionMatches) {
       return TURNSTILE_FAILED;
     }
 
