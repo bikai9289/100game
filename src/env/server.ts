@@ -14,6 +14,11 @@ export const serverEnv = createEnv({
     GOOGLE_CLIENT_ID: z.string().optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),
 
+    // Game security (Cloudflare Turnstile and signed sessions)
+    TURNSTILE_SECRET_KEY: z.string().optional(),
+    GAME_SESSION_SECRET: z.string().optional(),
+    GAME_IP_HASH_SALT: z.string().optional(),
+
     // Mail and Newsletter (Resend)
     RESEND_API_KEY: z.string().optional(),
 

@@ -31,6 +31,9 @@ export const clientEnv = createEnv({
 
     // Chatbot (Crisp Chat)
     VITE_CRISP_WEBSITE_ID: z.string().optional(),
+
+    // Game security (Cloudflare Turnstile)
+    VITE_TURNSTILE_SITE_KEY: z.string().optional(),
   },
   runtimeEnv: import.meta.env,
 });
