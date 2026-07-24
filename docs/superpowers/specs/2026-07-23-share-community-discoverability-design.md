@@ -18,10 +18,11 @@ their data flow, security controls, or backend APIs.
 
 ## Responsive Behavior
 
-The toolbar keeps its stable four-column layout. The share column grows to fit
-the short text label, while the score and restart controls retain their current
-behavior. The community wall remains a single column on small screens and the
-existing two-column form/list layout on large screens.
+At 360px and wider, the toolbar keeps a stable four-column layout. Below 360px,
+time and score stay on the first row while restart and the labeled share button
+move to a second row, preventing crowding without hiding either action. The
+score remains on one line. The community wall remains a single column on small
+screens and the existing two-column form/list layout on large screens.
 
 ## Error Handling
 
