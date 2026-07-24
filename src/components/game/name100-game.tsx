@@ -23,6 +23,7 @@ import {
   type Answer,
   type GameState,
 } from '@/lib/gameEngine';
+import { shareChallenge } from '@/lib/share';
 import { cn } from '@/lib/utils';
 import {
   IconMessage,
@@ -552,23 +553,13 @@ export function Name100Game({
   }
 
   async function shareGame() {
-    const text = `I named ${gameState.score} of ${targetScore} in the Name 100 Challenge. Can you beat me?`;
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: 'Name 100 Challenge',
-          text,
-          url: location.href,
-        });
-      } else {
-        await navigator.clipboard.writeText(`${text} ${location.href}`);
-        setMessage('Challenge link copied.');
-      }
-    } catch (error) {
-      if ((error as DOMException).name !== 'AbortError') {
-        setMessage('Sharing is unavailable in this browser.');
-      }
-    }
+    await shareChallenge({
+      score: gameState.score,
+      targetScore,
+      href: location.href,
+      shareNavigator: navigator,
+      onMessage: setMessage,
+    });
   }
 
   async function submitScore(event: FormEvent<HTMLFormElement>) {
