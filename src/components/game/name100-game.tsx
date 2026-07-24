@@ -23,7 +23,7 @@ import {
   type Answer,
   type GameState,
 } from '@/lib/gameEngine';
-import { shareChallenge } from '@/lib/share';
+import { shareChallenge, shouldPreferNativeShare } from '@/lib/share';
 import { cn } from '@/lib/utils';
 import {
   IconMessage,
@@ -553,12 +553,19 @@ export function Name100Game({
   }
 
   async function shareGame() {
+    const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches;
     await shareChallenge({
       score: gameState.score,
       targetScore,
       href: location.href,
       shareNavigator: navigator,
       onMessage: setMessage,
+      preferNativeShare: shouldPreferNativeShare({
+        coarsePointer,
+        maxTouchPoints: navigator.maxTouchPoints,
+        userAgent: navigator.userAgent,
+      }),
+      logger: console,
     });
   }
 
