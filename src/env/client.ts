@@ -24,6 +24,7 @@ export const clientEnv = createEnv({
 
     // Analytics
     VITE_GOOGLE_ANALYTICS_ID: z.string().optional(),
+    VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN: z.string().optional(),
     VITE_CLARITY_PROJECT_ID: z.string().optional(),
     VITE_PLAUSIBLE_SCRIPT: z.string().optional(),
     VITE_UMAMI_WEBSITE_ID: z.string().optional(),
