@@ -4,13 +4,63 @@ import { describe, it } from 'node:test';
 import { shareChallenge, shouldPreferNativeShare } from './share';
 
 describe('shareChallenge', () => {
+  it('copies an invitation instead of bragging for zero and low scores', async () => {
+    const clipboardWrites: string[] = [];
+
+    for (const score of [0, 9]) {
+      await shareChallenge({
+        score,
+        targetScore: 100,
+        href: 'https://name100challenge.com/',
+        shareNavigator: {
+          clipboard: {
+            writeText: async (text) => {
+              clipboardWrites.push(text);
+            },
+          },
+        },
+        onMessage: () => {},
+      });
+    }
+
+    assert.deepEqual(clipboardWrites, [
+      'Can you name 100 famous women in 12 minutes? Try the Name 100 Challenge: https://name100challenge.com/',
+      'Can you name 100 famous women in 12 minutes? Try the Name 100 Challenge: https://name100challenge.com/',
+    ]);
+  });
+
+  it('brags with the score once the score is high enough', async () => {
+    const shareCalls: unknown[] = [];
+
+    await shareChallenge({
+      score: 10,
+      targetScore: 100,
+      href: 'https://name100challenge.com/',
+      shareNavigator: {
+        share: async (payload) => {
+          shareCalls.push(payload);
+        },
+      },
+      preferNativeShare: true,
+      onMessage: () => {},
+    });
+
+    assert.deepEqual(shareCalls, [
+      {
+        title: 'Name 100 Challenge',
+        text: 'I named 10 of 100 in the Name 100 Challenge. Can you beat me?',
+        url: 'https://name100challenge.com/',
+      },
+    ]);
+  });
+
   it('copies by default even when the Web Share API exists', async () => {
     const shareCalls: unknown[] = [];
     const clipboardWrites: string[] = [];
     const messages: string[] = [];
 
     await shareChallenge({
-      score: 7,
+      score: 17,
       targetScore: 100,
       href: 'https://name100challenge.com/',
       shareNavigator: {
@@ -28,7 +78,7 @@ describe('shareChallenge', () => {
 
     assert.deepEqual(shareCalls, []);
     assert.deepEqual(clipboardWrites, [
-      'I named 7 of 100 in the Name 100 Challenge. Can you beat me? https://name100challenge.com/',
+      'I named 17 of 100 in the Name 100 Challenge. Can you beat me? https://name100challenge.com/',
     ]);
     assert.deepEqual(messages, ['Challenge link copied.']);
   });
@@ -39,7 +89,7 @@ describe('shareChallenge', () => {
     const messages: string[] = [];
 
     await shareChallenge({
-      score: 7,
+      score: 17,
       targetScore: 100,
       href: 'https://name100challenge.com/',
       shareNavigator: {
@@ -59,7 +109,7 @@ describe('shareChallenge', () => {
     assert.deepEqual(shareCalls, [
       {
         title: 'Name 100 Challenge',
-        text: 'I named 7 of 100 in the Name 100 Challenge. Can you beat me?',
+        text: 'I named 17 of 100 in the Name 100 Challenge. Can you beat me?',
         url: 'https://name100challenge.com/',
       },
     ]);
@@ -72,7 +122,7 @@ describe('shareChallenge', () => {
     const messages: string[] = [];
 
     await shareChallenge({
-      score: 4,
+      score: 14,
       targetScore: 100,
       href: 'https://name100challenge.com/',
       shareNavigator: {
@@ -86,7 +136,7 @@ describe('shareChallenge', () => {
     });
 
     assert.deepEqual(clipboardWrites, [
-      'I named 4 of 100 in the Name 100 Challenge. Can you beat me? https://name100challenge.com/',
+      'I named 14 of 100 in the Name 100 Challenge. Can you beat me? https://name100challenge.com/',
     ]);
     assert.deepEqual(messages, ['Challenge link copied.']);
   });

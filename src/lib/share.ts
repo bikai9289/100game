@@ -21,6 +21,21 @@ type ShareChallengeOptions = {
   logger?: Pick<Console, 'info' | 'warn'>;
 };
 
+const MIN_BRAG_SCORE_RATIO = 0.1;
+const CHALLENGE_INVITATION_TEXT =
+  'Can you name 100 famous women in 12 minutes? Try the Name 100 Challenge:';
+
+function shouldBragWithScore(score: number, targetScore: number) {
+  return score >= Math.ceil(targetScore * MIN_BRAG_SCORE_RATIO);
+}
+
+function getShareText(score: number, targetScore: number) {
+  if (!shouldBragWithScore(score, targetScore)) {
+    return CHALLENGE_INVITATION_TEXT;
+  }
+  return `I named ${score} of ${targetScore} in the Name 100 Challenge. Can you beat me?`;
+}
+
 export async function shareChallenge({
   score,
   targetScore,
@@ -30,7 +45,7 @@ export async function shareChallenge({
   preferNativeShare = false,
   logger,
 }: ShareChallengeOptions) {
-  const text = `I named ${score} of ${targetScore} in the Name 100 Challenge. Can you beat me?`;
+  const text = getShareText(score, targetScore);
   const payload = {
     title: 'Name 100 Challenge',
     text,
