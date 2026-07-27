@@ -5,7 +5,7 @@ import answersData from '@/data/answers-women.json';
 import type { Answer } from '@/lib/gameEngine';
 import { categoryMeta, categoryOrder } from '@/lib/name100-data';
 import { seo } from '@/lib/seo';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 
 const answers = answersData as Answer[];
 const title =
@@ -118,17 +118,30 @@ function AnswersPage() {
             <p>
               The answer list is best used after you have played at least one
               round. Read through one category at a time, notice which names you
-              forgot, then replay the game while those memory paths are still
-              warm. The goal is not to memorize the page in order; it is to
-              build stronger category clusters so you can move faster under the
-              12-minute timer.
+              forgot, then{' '}
+              <Link
+                to="/"
+                className="font-semibold text-primary hover:underline"
+              >
+                play the Name 100 Women Challenge
+              </Link>{' '}
+              again while those memory paths are still warm. The goal is not to
+              memorize the page in order; it is to build stronger category
+              clusters so you can move faster under the 12-minute timer.
             </p>
             <p>
               Aliases show common inputs that the game accepts. Some people are
               widely recognized by a last name, stage name, or shorter variant.
               First and last names are still the safest strategy, but aliases
               make the game feel fair when a person is globally known by a
-              simpler form.
+              simpler form. You can also{' '}
+              <Link
+                to="/categories"
+                className="font-semibold text-primary hover:underline"
+              >
+                practice by category
+              </Link>{' '}
+              before starting another full round.
             </p>
           </article>
         </Container>

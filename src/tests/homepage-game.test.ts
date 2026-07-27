@@ -17,7 +17,8 @@ describe('game homepage source', () => {
     const route = readFileSync('src/routes/index.tsx', 'utf8');
 
     assert.match(route, /Name 100 Women Challenge/);
-    assert.match(route, /Can You Name 100 Famous Women/);
+    assert.match(route, /Free 12-Minute Game/);
+    assert.match(route, /name 100 famous women/);
   });
 
   it('submits the controlled input and persists browser progress', () => {

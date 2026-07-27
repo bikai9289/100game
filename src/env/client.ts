@@ -7,7 +7,7 @@ import * as z from 'zod';
 export const clientEnv = createEnv({
   clientPrefix: 'VITE_',
   client: {
-    VITE_BASE_URL: z.url().default('http://localhost:3000'),
+    VITE_BASE_URL: z.url().default('https://name100challenge.com'),
 
     // Payment provider: 'stripe' | 'creem' | '' (empty = disabled)
     VITE_PAYMENT_PROVIDER: z.enum(['stripe', 'creem', '']).default(''),
