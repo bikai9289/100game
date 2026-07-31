@@ -13,7 +13,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className={cn('border-t border-border bg-card py-9', className)}>
       <Container className="px-[18px]">
-        <div className="mx-auto grid max-w-[1180px] gap-[22px] sm:grid-cols-[2fr_1fr_1fr]">
+        <div className="mx-auto grid max-w-[1180px] gap-[22px] sm:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
               <Logo className="size-7 rounded-[7px] text-xs" />

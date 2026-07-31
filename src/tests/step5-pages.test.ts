@@ -81,4 +81,20 @@ describe('step5 internal pages', () => {
       assert.match(sitemap, new RegExp(`path: '${path}'`));
     }
   });
+
+  it('labels the shared daily challenge as UTC', () => {
+    const challenge = readFileSync('src/routes/(pages)/challenge.tsx', 'utf8');
+
+    assert.match(challenge, /UTC daily challenge:/i);
+    assert.doesNotMatch(challenge, />\s*Today: \{today\}/);
+  });
+
+  it('links privacy, terms, and contact from the footer', () => {
+    const footerConfig = readFileSync('src/config/footer-config.ts', 'utf8');
+
+    assert.match(footerConfig, /Routes\.PrivacyPolicy/);
+    assert.match(footerConfig, /Routes\.TermsOfService/);
+    assert.match(footerConfig, /Routes\.Contact/);
+    assert.ok(existsSync('src/routes/(pages)/contact.tsx'));
+  });
 });

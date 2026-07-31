@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 import { getRetiredTemplateRedirect } from './retired-template-route';
 
-const retiredPaths = ['/about', '/ai', '/contact', '/roadmap', '/waitlist'];
+const retiredPaths = ['/about', '/ai', '/roadmap', '/waitlist'];
 const retiredRouteFiles = retiredPaths.map(
   (path) => `src/routes/(pages)/${path.slice(1)}.tsx`
 );

@@ -12,7 +12,7 @@ const faqItems = [
   {
     question: 'What counts as a valid answer?',
     answer:
-      'A valid answer is a real famous woman from any field, including entertainment, science, sports, politics, business, activism, or history. First and last names usually work best, and a few widely known stage names or aliases are accepted too.',
+      'A valid answer is a woman in the curated answer library, covering entertainment, science, sports, politics, business, activism, and history. First and last names are safest; unambiguous stage names and aliases also work.',
   },
   {
     question: 'How is the score calculated?',

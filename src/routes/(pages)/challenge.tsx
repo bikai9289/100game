@@ -20,12 +20,12 @@ const faqs = [
   {
     question: 'How does the daily challenge choose categories?',
     answer:
-      'The daily challenge uses the current date as a fixed seed, then selects three categories for everyone. If you and a friend play on the same day, you face the same category mix.',
+      'The daily challenge uses the current UTC date as a fixed seed, then selects three categories for everyone. The UTC label and countdown show exactly when the shared challenge changes.',
   },
   {
     question: 'Does the daily score reset?',
     answer:
-      'Yes. Your daily challenge progress is saved separately for each date in your browser, so tomorrow starts with a fresh category mix and a fresh score.',
+      'Yes. Your daily challenge progress is saved separately for each UTC date in your browser, so the next UTC day starts with a fresh category mix and score.',
   },
   {
     question: 'Why is the daily target 30 instead of 100?',
@@ -71,14 +71,14 @@ function ChallengePage() {
         <Container className="px-4 py-10">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Today: {today}
+              UTC daily challenge: {today}
             </p>
             <h1 className="mt-3 text-balance text-4xl font-bold tracking-normal sm:text-5xl">
               Daily Challenge: Name 100 Women
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Everyone gets the same three categories today. Name 30 famous
-              women before the timer runs out, then compare your score.
+              Everyone gets the same three categories for this UTC day. Name 30
+              famous women before the timer runs out, then compare your score.
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-2">
               {categories.map((slug) => (
@@ -115,9 +115,9 @@ function ChallengePage() {
             <p>
               The Daily Challenge is a shorter, repeatable version of Name 100
               Women. Instead of drawing from the full answer list, it uses the
-              current date to select three categories. That means every player
-              who opens the page today sees the same category combination and
-              can compare scores fairly. The target is 30 correct answers, which
+              UTC date to select three categories. That means every player in
+              the same UTC day sees the same category combination and can
+              compare scores fairly. The target is 30 correct answers, which
               makes the mode fast enough for a morning break, a lunch challenge,
               or a group chat competition.
             </p>
@@ -131,8 +131,8 @@ function ChallengePage() {
               backend or account system.
             </p>
             <p>
-              Your score is stored locally for the date, so refreshing the page
-              does not erase a good run. Tomorrow, a new date creates a new
+              Your score is stored locally for the UTC date, so refreshing the
+              page does not erase a good run. The next UTC date creates a new
               challenge. If you want to improve quickly, play the daily mode
               first, then jump into category practice for any areas that slowed
               you down.
@@ -178,7 +178,7 @@ function DailyResetCountdown() {
 
   return (
     <p className="mt-4 text-sm text-muted-foreground">
-      New challenge in {hours}h {minutes}m. Same categories for everyone today.
+      New UTC challenge in {hours}h {minutes}m. Same categories worldwide.
     </p>
   );
 }

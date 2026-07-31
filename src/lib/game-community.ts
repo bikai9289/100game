@@ -1,4 +1,4 @@
-import { checkAnswer, normalizeInput, type Answer } from './gameEngine';
+import { checkAnswer, type Answer } from './gameEngine';
 import { z } from 'zod';
 
 const gameIdPattern = /^(women|men|daily:\d{4}-\d{2}-\d{2}|category:[a-z-]+)$/;
@@ -40,7 +40,7 @@ export function recomputeSubmittedScore(
     const answer = checkAnswer(submittedName, answers);
     if (!answer) continue;
 
-    const key = normalizeInput(answer.name);
+    const key = answer.id;
     if (acceptedKeys.has(key)) continue;
 
     acceptedKeys.add(key);

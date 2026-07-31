@@ -609,22 +609,71 @@ function aliasesForName(name) {
     aliases.push(`${parts[0]} ${parts.at(-1)}`);
   }
 
-  return [...new Set(aliases.filter(Boolean))].slice(0, 5);
+  return [...new Set(aliases.filter(Boolean))]
+    .filter((alias) => normalizeInput(alias) !== normalized)
+    .slice(0, 5);
 }
 
 function toAnswer(name, category) {
-  const aliases = aliasesForName(name);
-
-  while (aliases.length < 2) {
-    aliases.push(aliases[0]);
-  }
-
   return {
+    id: normalizeInput(name).replaceAll(' ', '-'),
     name,
-    aliases,
+    aliases: aliasesForName(name),
     category,
     hint: categoryHints[category],
   };
+}
+
+function removeConflictingAliases(answers) {
+  const canonicalOwners = new Map(
+    answers.map((answer) => [normalizeInput(answer.name), answer.id])
+  );
+  const aliasOwners = new Map();
+
+  for (const answer of answers) {
+    answer.aliases = answer.aliases.filter((alias) => {
+      const canonicalOwner = canonicalOwners.get(normalizeInput(alias));
+      return !canonicalOwner || canonicalOwner === answer.id;
+    });
+    for (const alias of answer.aliases) {
+      const key = normalizeInput(alias);
+      const owners = aliasOwners.get(key) ?? new Set();
+      owners.add(answer.id);
+      aliasOwners.set(key, owners);
+    }
+  }
+
+  return answers.map((answer) => ({
+    ...answer,
+    aliases: answer.aliases.filter(
+      (alias) => aliasOwners.get(normalizeInput(alias))?.size === 1
+    ),
+  }));
+}
+
+function applyWomenCorrections(answers) {
+  const musicianNames = new Set([
+    "D'arcy Wretzky",
+    'Elizabeth Stokes',
+    'Emma Richardson',
+    'Radie Peat',
+    'Romy Madley Croft',
+  ]);
+  const corrected = answers
+    .filter((answer) => answer.name !== 'Patricia Era Bath')
+    .map((answer) =>
+      musicianNames.has(answer.name)
+        ? toAnswer(answer.name, 'musicians')
+        : answer
+    );
+
+  if (
+    !corrected.some((answer) => normalizeInput(answer.name) === 'marie curie')
+  ) {
+    corrected.push(toAnswer('Marie Curie', 'scientists'));
+  }
+
+  return corrected;
 }
 
 function dedupeAnswers(answers) {
@@ -648,20 +697,26 @@ async function buildWomenAnswers() {
   const data = JSON.parse(await readFile(REFERENCE_WOMEN_DB, 'utf8'));
   const names = data.names;
 
-  return dedupeAnswers(
-    womenSlices.flatMap(([category, start, count]) =>
-      names
-        .slice(start, start + count)
-        .filter((name) => typeof name === 'string')
-        .map((name) => toAnswer(name, category))
+  return removeConflictingAliases(
+    applyWomenCorrections(
+      dedupeAnswers(
+        womenSlices.flatMap(([category, start, count]) =>
+          names
+            .slice(start, start + count)
+            .filter((name) => typeof name === 'string')
+            .map((name) => toAnswer(name, category))
+        )
+      )
     )
   );
 }
 
 function buildMenAnswers() {
-  return dedupeAnswers(
-    Object.entries(menNamesByCategory).flatMap(([category, names]) =>
-      names.map((name) => toAnswer(name, category))
+  return removeConflictingAliases(
+    dedupeAnswers(
+      Object.entries(menNamesByCategory).flatMap(([category, names]) =>
+        names.map((name) => toAnswer(name, category))
+      )
     )
   );
 }
@@ -678,20 +733,21 @@ function summarize(answers) {
   );
 }
 
+function formatJson(value) {
+  return `${JSON.stringify(value, null, 2).replace(
+    /\[\n\s+("(?:(?:\\.)|[^"\\])*")\n\s+\]/g,
+    '[$1]'
+  )}\n`;
+}
+
 async function main() {
   await mkdir(OUTPUT_DIR, { recursive: true });
 
   const women = await buildWomenAnswers();
   const men = buildMenAnswers();
 
-  await writeFile(
-    new URL('answers-women.json', OUTPUT_DIR),
-    `${JSON.stringify(women, null, 2)}\n`
-  );
-  await writeFile(
-    new URL('answers-men.json', OUTPUT_DIR),
-    `${JSON.stringify(men, null, 2)}\n`
-  );
+  await writeFile(new URL('answers-women.json', OUTPUT_DIR), formatJson(women));
+  await writeFile(new URL('answers-men.json', OUTPUT_DIR), formatJson(men));
 
   console.log(
     JSON.stringify(

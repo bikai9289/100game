@@ -19,5 +19,21 @@ export function getFooterLinks(): MenuItemConfig[] {
         { title: 'Answer List', href: Routes.Answers, external: false },
       ],
     },
+    {
+      title: 'Support',
+      items: [
+        { title: 'Contact', href: Routes.Contact, external: false },
+        {
+          title: 'Privacy Policy',
+          href: Routes.PrivacyPolicy,
+          external: false,
+        },
+        {
+          title: 'Terms of Service',
+          href: Routes.TermsOfService,
+          external: false,
+        },
+      ],
+    },
   ];
 }

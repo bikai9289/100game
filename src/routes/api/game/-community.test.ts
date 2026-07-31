@@ -29,6 +29,7 @@ const SESSION: GameSessionPayload = {
 
 function answers(count: number) {
   return Array.from({ length: count }, (_, index) => ({
+    id: `person-${index + 1}`,
     name: `Person ${index + 1}`,
     aliases: [],
     category: 'musicians',
@@ -85,6 +86,7 @@ function makeDependencies(
         durationSeconds: 720,
         answers: [
           {
+            id: 'taylor-swift',
             name: 'Taylor Swift',
             aliases: ['taylor', 'swift'],
             category: 'musicians',
@@ -331,6 +333,7 @@ describe('protected game community writes', () => {
           targetScore: 1,
           answers: [
             {
+              id: 'taylor-swift',
               name: 'Taylor Swift',
               aliases: ['taylor', 'swift'],
               category: 'musicians',
@@ -367,6 +370,7 @@ describe('protected game community writes', () => {
           targetScore: 1,
           answers: [
             {
+              id: 'taylor-swift',
               name: 'Taylor Swift',
               aliases: ['taylor', 'swift'],
               category: 'musicians',

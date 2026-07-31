@@ -1,4 +1,5 @@
 export interface Answer {
+  id: string;
   name: string;
   aliases: string[];
   category: string;
@@ -108,7 +109,7 @@ export function submitAnswer(
   }
 
   const isDuplicate = state.guessedAnswers.some(
-    (answer) => normalizeInput(answer.name) === normalizeInput(match.name)
+    (answer) => answer.id === match.id
   );
 
   if (isDuplicate) {

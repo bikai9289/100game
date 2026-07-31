@@ -64,7 +64,11 @@ function CategoryPage() {
               storageKey={`name100:category:${slug}`}
               storageCookie={`name100_category_${slug}`}
               ariaLabel={`Name 100 Women ${meta.title} category game`}
-              placeholder={`Type a famous ${meta.shortTitle.toLowerCase()} name...`}
+              placeholder={
+                slug === 'scientists'
+                  ? "Type a famous female scientist's name..."
+                  : `Type a famous ${meta.shortTitle.toLowerCase()} name...`
+              }
               emptyTagsText={`Correct ${meta.shortTitle.toLowerCase()} answers will appear here.`}
               missText={`Not in the ${meta.shortTitle.toLowerCase()} category list. Try another name.`}
             />

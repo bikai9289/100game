@@ -10,9 +10,24 @@ import {
 import type { Answer } from './gameEngine';
 
 const answers: Answer[] = [
-  { name: 'Taylor Swift', aliases: ['taylor', 'swift'], category: 'musicians' },
-  { name: 'Alex Morgan', aliases: ['alex', 'morgan'], category: 'athletes' },
-  { name: 'Alex Scott', aliases: ['alex', 'scott'], category: 'athletes' },
+  {
+    id: 'taylor-swift',
+    name: 'Taylor Swift',
+    aliases: ['taylor', 'swift'],
+    category: 'musicians',
+  },
+  {
+    id: 'alex-morgan',
+    name: 'Alex Morgan',
+    aliases: ['alex', 'morgan'],
+    category: 'athletes',
+  },
+  {
+    id: 'alex-scott',
+    name: 'Alex Scott',
+    aliases: ['alex', 'scott'],
+    category: 'athletes',
+  },
 ];
 
 describe('game community validation', () => {

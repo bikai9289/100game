@@ -11,12 +11,14 @@ import {
 
 const answers: Answer[] = [
   {
+    id: 'taylor-swift',
     name: 'Taylor Swift',
     aliases: ['taylor swift', 'swift', 'taylor'],
     category: 'musicians',
     hint: 'American singer-songwriter',
   },
   {
+    id: 'marie-curie',
     name: 'Marie Curie',
     aliases: ['marie curie', 'curie'],
     category: 'scientists',
@@ -57,11 +59,13 @@ describe('gameEngine', () => {
   it('rejects an alias shared by multiple answers', () => {
     const ambiguousAnswers: Answer[] = [
       {
+        id: 'alex-morgan',
         name: 'Alex Morgan',
         aliases: ['alex', 'alex morgan'],
         category: 'athletes',
       },
       {
+        id: 'alex-scott',
         name: 'Alex Scott',
         aliases: ['alex', 'alex scott'],
         category: 'athletes',

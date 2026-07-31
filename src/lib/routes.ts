@@ -7,6 +7,7 @@ export const Routes = {
   Timer: '/timer',
   Men: '/men',
   Answers: '/answers',
+  Contact: '/contact',
   Features: '/#features',
   Faqs: '/#faqs',
   Pricing: '/pricing',

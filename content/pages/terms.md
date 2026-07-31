@@ -1,50 +1,29 @@
 ---
 title: Terms of Service
-description: The terms and conditions governing the use of our services
-date: 2026-02-15
+description: Terms for playing Name100Challenge and using its community features
+date: 2026-08-01
 ---
 
-## Introduction
+## The game
 
-These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.
+Name100Challenge is provided for entertainment and educational use. The accepted answer list is curated and may contain omissions or mistakes. An accepted or rejected answer is a game decision, not a statement about a person's importance or identity.
 
-## Use of Services
+## Fair play
 
-Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will be uninterrupted, secure, or error-free.
+Do not automate submissions, manipulate timers or session tokens, evade rate limits, impersonate another person, or interfere with the service. Scores that cannot be validated may be rejected or removed.
 
-## User Accounts
+## Display names and community notes
 
-When you create an account with us, you must provide accurate and complete information. You are responsible for safeguarding your account and for all activities that occur under your account.
+You are responsible for the display name and note you submit. Do not post personal information, harassment, unlawful content, links, scripts, or misleading claims. You grant Name100Challenge permission to store, moderate, and publicly display submitted scores and notes for operating the community features.
 
-## Intellectual Property
+## Moderation
 
-Our website and its original content, features, and functionality are owned by us and are protected by international copyright, trademark, and other intellectual property laws.
+We may reject, hide, or remove scores, names, or notes that violate these terms, create security risk, or undermine the game. Repeated abuse may be blocked.
 
-## User Content
+## Availability and accuracy
 
-You retain all rights to any content you submit, post, or display on or through our services. By submitting content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and distribute your content.
+The service and answer data are provided as available without a guarantee of uninterrupted operation or complete accuracy. We may update game rules, categories, accepted aliases, and community features to improve fairness and reliability.
 
-## Prohibited Activities
+## Contact
 
-You agree not to:
-
-- Use our services in any way that violates any applicable law or regulation
-- Engage in any conduct that restricts or inhibits anyone's use or enjoyment of our services
-- Attempt to gain unauthorized access to our servers or networks
-- Use our services to distribute malware or other harmful code
-
-## Termination
-
-We may terminate or suspend your account and access to our services immediately, without prior notice or liability, for any reason.
-
-## Limitation of Liability
-
-In no event shall we be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services.
-
-## Changes to Terms
-
-We reserve the right to modify these Terms at any time. If we make changes, we will provide notice by posting the updated Terms on this page.
-
-## Contact Us
-
-If you have any questions about these Terms, please [contact us](/contact).
+Use the [contact page](/contact) for answer corrections, service issues, privacy requests, or questions about these terms.

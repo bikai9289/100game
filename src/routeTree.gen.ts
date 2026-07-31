@@ -41,6 +41,7 @@ import { Route as testsTest404RouteImport } from './routes/(tests)/test-404'
 import { Route as pagesTimerRouteImport } from './routes/(pages)/timer'
 import { Route as pagesPricingRouteImport } from './routes/(pages)/pricing'
 import { Route as pagesMenRouteImport } from './routes/(pages)/men'
+import { Route as pagesContactRouteImport } from './routes/(pages)/contact'
 import { Route as pagesChangelogRouteImport } from './routes/(pages)/changelog'
 import { Route as pagesChallengeRouteImport } from './routes/(pages)/challenge'
 import { Route as pagesAnswersRouteImport } from './routes/(pages)/answers'
@@ -216,6 +217,11 @@ const pagesMenRoute = pagesMenRouteImport.update({
   path: '/men',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesContactRoute = pagesContactRouteImport.update({
+  id: '/(pages)/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const pagesChangelogRoute = pagesChangelogRouteImport.update({
   id: '/(pages)/changelog',
   path: '/changelog',
@@ -302,6 +308,7 @@ export interface FileRoutesByFullPath {
   '/answers': typeof pagesAnswersRoute
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
+  '/contact': typeof pagesContactRoute
   '/men': typeof pagesMenRoute
   '/pricing': typeof pagesPricingRoute
   '/timer': typeof pagesTimerRoute
@@ -347,6 +354,7 @@ export interface FileRoutesByTo {
   '/answers': typeof pagesAnswersRoute
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
+  '/contact': typeof pagesContactRoute
   '/men': typeof pagesMenRoute
   '/pricing': typeof pagesPricingRoute
   '/timer': typeof pagesTimerRoute
@@ -396,6 +404,7 @@ export interface FileRoutesById {
   '/(pages)/answers': typeof pagesAnswersRoute
   '/(pages)/challenge': typeof pagesChallengeRoute
   '/(pages)/changelog': typeof pagesChangelogRoute
+  '/(pages)/contact': typeof pagesContactRoute
   '/(pages)/men': typeof pagesMenRoute
   '/(pages)/pricing': typeof pagesPricingRoute
   '/(pages)/timer': typeof pagesTimerRoute
@@ -446,6 +455,7 @@ export interface FileRouteTypes {
     | '/answers'
     | '/challenge'
     | '/changelog'
+    | '/contact'
     | '/men'
     | '/pricing'
     | '/timer'
@@ -491,6 +501,7 @@ export interface FileRouteTypes {
     | '/answers'
     | '/challenge'
     | '/changelog'
+    | '/contact'
     | '/men'
     | '/pricing'
     | '/timer'
@@ -539,6 +550,7 @@ export interface FileRouteTypes {
     | '/(pages)/answers'
     | '/(pages)/challenge'
     | '/(pages)/changelog'
+    | '/(pages)/contact'
     | '/(pages)/men'
     | '/(pages)/pricing'
     | '/(pages)/timer'
@@ -588,6 +600,7 @@ export interface RootRouteChildren {
   pagesAnswersRoute: typeof pagesAnswersRoute
   pagesChallengeRoute: typeof pagesChallengeRoute
   pagesChangelogRoute: typeof pagesChangelogRoute
+  pagesContactRoute: typeof pagesContactRoute
   pagesMenRoute: typeof pagesMenRoute
   pagesPricingRoute: typeof pagesPricingRoute
   pagesTimerRoute: typeof pagesTimerRoute
@@ -832,6 +845,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesMenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/contact': {
+      id: '/(pages)/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof pagesContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(pages)/changelog': {
       id: '/(pages)/changelog'
       path: '/changelog'
@@ -1016,6 +1036,7 @@ const rootRouteChildren: RootRouteChildren = {
   pagesAnswersRoute: pagesAnswersRoute,
   pagesChallengeRoute: pagesChallengeRoute,
   pagesChangelogRoute: pagesChangelogRoute,
+  pagesContactRoute: pagesContactRoute,
   pagesMenRoute: pagesMenRoute,
   pagesPricingRoute: pagesPricingRoute,
   pagesTimerRoute: pagesTimerRoute,

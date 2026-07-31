@@ -1,7 +1,6 @@
 const RETIRED_TEMPLATE_PATHS = new Set([
   '/about',
   '/ai',
-  '/contact',
   '/roadmap',
   '/waitlist',
 ]);

@@ -34,7 +34,7 @@ describe('game homepage source', () => {
     );
   });
 
-  it('starts the round and requests its session before evaluating the first guess', () => {
+  it('starts the round only after the first accepted guess', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const submitGuess = game.slice(
       game.indexOf('function submitGuess'),
@@ -42,17 +42,19 @@ describe('game homepage source', () => {
     );
     const trimIndex = submitGuess.indexOf('value.trim()');
     const emptyGuardIndex = submitGuess.indexOf('if (!guess)');
-    const startIndex = submitGuess.indexOf('if (!isStartedRef.current)');
+    const startIndex = submitGuess.indexOf(
+      'if (result.isCorrect && !isStartedRef.current)'
+    );
     const sessionIndex = submitGuess.indexOf('requestGameSession(now)');
     const answerIndex = submitGuess.indexOf('submitAnswer(');
 
     assert.ok(trimIndex >= 0);
     assert.ok(emptyGuardIndex > trimIndex);
-    assert.ok(startIndex > emptyGuardIndex);
+    assert.ok(answerIndex > emptyGuardIndex);
+    assert.ok(startIndex > answerIndex);
     assert.ok(sessionIndex > startIndex);
-    assert.ok(answerIndex > sessionIndex);
-    assert.doesNotMatch(
-      submitGuess.slice(startIndex, answerIndex),
+    assert.match(
+      submitGuess.slice(startIndex, sessionIndex),
       /result\.isCorrect/
     );
   });
@@ -129,7 +131,7 @@ describe('game homepage source', () => {
     );
   });
 
-  it('places the community wall before the answer grid', () => {
+  it('places answer feedback before secondary community modules', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const renderedGame = game.slice(game.lastIndexOf('  return ('));
     const communityIndex = renderedGame.indexOf('Community Wall');
@@ -137,6 +139,10 @@ describe('game homepage source', () => {
 
     assert.doesNotMatch(renderedGame, /Player notes/);
     assert.ok(communityIndex >= 0);
-    assert.ok(answersIndex > communityIndex);
+    assert.ok(answersIndex >= 0);
+    assert.ok(communityIndex > answersIndex);
+    assert.doesNotMatch(renderedGame, /hasCommunityContent/);
+    assert.match(renderedGame, /\{gameState\.isGameOver \? \(\s*<>/);
+    assert.match(game, /if \(!gameState\.isGameOver\) return;/);
   });
 });

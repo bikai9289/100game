@@ -1,44 +1,29 @@
 ---
 title: Privacy Policy
-description: Our commitment to protecting your privacy and personal data
-date: 2026-02-15
+description: How Name100Challenge stores game progress and community data
+date: 2026-08-01
 ---
 
-## Introduction
+## Game progress on your device
 
-Welcome to our Privacy Policy. This document explains how we collect, use, and protect your personal information when you use our services.
+Name100Challenge stores guessed names, remaining time, round state, and a short-lived game session token in your browser. Local storage is used first. If local storage is unavailable, a first-party cookie may be used for up to 30 days. This data stays on your device unless you submit a score.
 
-## Information We Collect
+## Leaderboard submissions
 
-We may collect the following types of information:
+When you submit a score, we store the display name you enter, score, accepted answer names, round duration, game mode, submission time, and security identifiers used to prevent duplicate or abusive submissions. The leaderboard publicly displays your chosen name, score, and ranking.
 
-- **Personal Information**: Name, email address, and contact details you provide when registering or contacting us.
-- **Usage Data**: Information about how you interact with our website, including pages visited and time spent.
-- **Device Information**: Details about the device you use to access our services, such as IP address, browser type, and operating system.
+## Community wall submissions
 
-## How We Use Your Information
+When you post a note, we store and publicly display the name and message you provide, the game mode, the posting time, and an optional score. Do not use your legal name or include personal information unless you want it displayed publicly.
 
-We use your information for the following purposes:
+## Abuse prevention and Cloudflare
 
-- To provide and maintain our services
-- To notify you about changes to our services
-- To provide customer support
-- To gather analysis or valuable information to improve our services
-- To monitor the usage of our services
-- To detect, prevent, and address technical issues
+Score and note submissions use a salted hash derived from the network address for rate limiting and abuse prevention; the raw address is not stored in the game tables. Cloudflare Turnstile processes verification data under Cloudflare's own privacy terms before a submission is accepted.
 
-## Data Security
+## Retention and deletion
 
-We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
+Public scores and notes are retained until they are removed for moderation, maintenance, or a valid deletion request. Browser progress can be removed by restarting the round and clearing site data. To request removal of a leaderboard entry or note, use the [contact page](/contact) and provide the displayed name, game mode, and approximate date.
 
-## Third-Party Services
+## Changes
 
-We may employ third-party companies and individuals to facilitate our services, provide services on our behalf, or assist us in analyzing how our services are used.
-
-## Changes to This Privacy Policy
-
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
-
-## Contact Us
-
-If you have any questions about this Privacy Policy, please [contact us](/contact).
+We may update this policy when game features or data handling change. The effective date appears at the top of this page.
