@@ -2,7 +2,7 @@
   {
     "id": "taylor-swift",
     "name": "Taylor Swift",
-    "aliases": ["swift"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -30,7 +30,7 @@
   {
     "id": "lady-gaga",
     "name": "Lady Gaga",
-    "aliases": ["gaga"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -44,28 +44,28 @@
   {
     "id": "whitney-houston",
     "name": "Whitney Houston",
-    "aliases": ["houston"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "mariah-carey",
     "name": "Mariah Carey",
-    "aliases": ["carey"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "aretha-franklin",
     "name": "Aretha Franklin",
-    "aliases": ["franklin"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "diana-ross",
     "name": "Diana Ross",
-    "aliases": ["ross"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -93,7 +93,7 @@
   {
     "id": "dolly-parton",
     "name": "Dolly Parton",
-    "aliases": ["parton"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -107,28 +107,28 @@
   {
     "id": "nina-simone",
     "name": "Nina Simone",
-    "aliases": ["simone"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "billie-holiday",
     "name": "Billie Holiday",
-    "aliases": ["holiday"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "tina-turner",
     "name": "Tina Turner",
-    "aliases": ["turner"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "celine-dion",
     "name": "Celine Dion",
-    "aliases": ["dion"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -170,14 +170,14 @@
   {
     "id": "christina-aguilera",
     "name": "Christina Aguilera",
-    "aliases": ["aguilera"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "britney-spears",
     "name": "Britney Spears",
-    "aliases": ["spears"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -198,21 +198,21 @@
   {
     "id": "alicia-keys",
     "name": "Alicia Keys",
-    "aliases": ["keys"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "kelly-clarkson",
     "name": "Kelly Clarkson",
-    "aliases": ["clarkson"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "carrie-underwood",
     "name": "Carrie Underwood",
-    "aliases": ["underwood"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -226,42 +226,42 @@
   {
     "id": "katy-perry",
     "name": "Katy Perry",
-    "aliases": ["perry"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "lady-antebellum",
     "name": "Lady Antebellum",
-    "aliases": ["antebellum"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "miley-cyrus",
     "name": "Miley Cyrus",
-    "aliases": ["cyrus"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "ariana-grande",
     "name": "Ariana Grande",
-    "aliases": ["grande"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "dua-lipa",
     "name": "Dua Lipa",
-    "aliases": ["lipa"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "olivia-rodrigo",
     "name": "Olivia Rodrigo",
-    "aliases": ["rodrigo"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -289,14 +289,14 @@
   {
     "id": "lana-del-rey",
     "name": "Lana Del Rey",
-    "aliases": ["rey", "lana rey"],
+    "aliases": ["lana rey"],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "amy-winehouse",
     "name": "Amy Winehouse",
-    "aliases": ["winehouse"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -310,14 +310,14 @@
   {
     "id": "stevie-nicks",
     "name": "Stevie Nicks",
-    "aliases": ["nicks"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "janis-joplin",
     "name": "Janis Joplin",
-    "aliases": ["joplin"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -338,168 +338,168 @@
   {
     "id": "loretta-lynn",
     "name": "Loretta Lynn",
-    "aliases": ["lynn"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "patsy-cline",
     "name": "Patsy Cline",
-    "aliases": ["cline"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "shania-twain",
     "name": "Shania Twain",
-    "aliases": ["twain"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "faith-hill",
     "name": "Faith Hill",
-    "aliases": ["hill"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "miranda-lambert",
     "name": "Miranda Lambert",
-    "aliases": ["lambert"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "reba-mcentire",
     "name": "Reba McEntire",
-    "aliases": ["mcentire"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "tammy-wynette",
     "name": "Tammy Wynette",
-    "aliases": ["wynette"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "norah-jones",
     "name": "Norah Jones",
-    "aliases": ["jones"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "diana-krall",
     "name": "Diana Krall",
-    "aliases": ["krall"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "sarah-mclachlan",
     "name": "Sarah McLachlan",
-    "aliases": ["mclachlan"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "sheryl-crow",
     "name": "Sheryl Crow",
-    "aliases": ["crow"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "alanis-morissette",
     "name": "Alanis Morissette",
-    "aliases": ["morissette"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "gail-greenwood",
     "name": "Gail Greenwood",
-    "aliases": ["greenwood"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "darcy-wretzky",
     "name": "D'arcy Wretzky",
-    "aliases": ["wretzky"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "melissa-auf-der-maur",
     "name": "Melissa Auf der Maur",
-    "aliases": ["maur", "melissa maur"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": ["melissa maur"],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "paz-lenchantin",
     "name": "Paz Lenchantin",
-    "aliases": ["lenchantin"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "emma-richardson",
     "name": "Emma Richardson",
-    "aliases": ["richardson"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "radie-peat",
     "name": "Radie Peat",
-    "aliases": ["peat"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "rachel-goswell",
     "name": "Rachel Goswell",
-    "aliases": ["goswell"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "ruth-radelet",
     "name": "Ruth Radelet",
-    "aliases": ["radelet"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "victoria-legrand",
     "name": "Victoria Legrand",
-    "aliases": ["legrand"],
-    "category": "actresses",
-    "hint": "Film or television performer"
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "elizabeth-stokes",
     "name": "Elizabeth Stokes",
-    "aliases": ["stokes"],
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "romy-madley-croft",
     "name": "Romy Madley Croft",
-    "aliases": ["croft", "romy croft"],
+    "aliases": ["romy croft"],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
     "id": "meryl-streep",
     "name": "Meryl Streep",
-    "aliases": ["streep"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -513,28 +513,28 @@
   {
     "id": "angelina-jolie",
     "name": "Angelina Jolie",
-    "aliases": ["jolie"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "nicole-kidman",
     "name": "Nicole Kidman",
-    "aliases": ["kidman"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "jennifer-aniston",
     "name": "Jennifer Aniston",
-    "aliases": ["aniston"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "sandra-bullock",
     "name": "Sandra Bullock",
-    "aliases": ["bullock"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -548,84 +548,84 @@
   {
     "id": "scarlett-johansson",
     "name": "Scarlett Johansson",
-    "aliases": ["johansson"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "anne-hathaway",
     "name": "Anne Hathaway",
-    "aliases": ["hathaway"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "emma-watson",
     "name": "Emma Watson",
-    "aliases": ["watson"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "cate-blanchett",
     "name": "Cate Blanchett",
-    "aliases": ["blanchett"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "viola-davis",
     "name": "Viola Davis",
-    "aliases": ["davis"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "helen-mirren",
     "name": "Helen Mirren",
-    "aliases": ["mirren"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "judi-dench",
     "name": "Judi Dench",
-    "aliases": ["dench"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "kate-winslet",
     "name": "Kate Winslet",
-    "aliases": ["winslet"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "charlize-theron",
     "name": "Charlize Theron",
-    "aliases": ["theron"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "natalie-portman",
     "name": "Natalie Portman",
-    "aliases": ["portman"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "jennifer-lawrence",
     "name": "Jennifer Lawrence",
-    "aliases": ["lawrence"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "reese-witherspoon",
     "name": "Reese Witherspoon",
-    "aliases": ["witherspoon"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -646,28 +646,28 @@
   {
     "id": "jessica-chastain",
     "name": "Jessica Chastain",
-    "aliases": ["chastain"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "glenn-close",
     "name": "Glenn Close",
-    "aliases": ["close"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "emma-thompson",
     "name": "Emma Thompson",
-    "aliases": ["thompson"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "julie-andrews",
     "name": "Julie Andrews",
-    "aliases": ["andrews"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -681,28 +681,28 @@
   {
     "id": "ingrid-bergman",
     "name": "Ingrid Bergman",
-    "aliases": ["bergman"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "grace-kelly",
     "name": "Grace Kelly",
-    "aliases": ["kelly"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "marilyn-monroe",
     "name": "Marilyn Monroe",
-    "aliases": ["monroe"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "elizabeth-taylor",
     "name": "Elizabeth Taylor",
-    "aliases": ["taylor"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -716,28 +716,28 @@
   {
     "id": "sophia-loren",
     "name": "Sophia Loren",
-    "aliases": ["loren"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "michelle-pfeiffer",
     "name": "Michelle Pfeiffer",
-    "aliases": ["pfeiffer"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "susan-sarandon",
     "name": "Susan Sarandon",
-    "aliases": ["sarandon"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "jodie-foster",
     "name": "Jodie Foster",
-    "aliases": ["foster"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -751,63 +751,63 @@
   {
     "id": "jessica-lange",
     "name": "Jessica Lange",
-    "aliases": ["lange"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "diane-keaton",
     "name": "Diane Keaton",
-    "aliases": ["keaton"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "sally-field",
     "name": "Sally Field",
-    "aliases": ["field"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "jane-fonda",
     "name": "Jane Fonda",
-    "aliases": ["fonda"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "sissy-spacek",
     "name": "Sissy Spacek",
-    "aliases": ["spacek"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "whoopi-goldberg",
     "name": "Whoopi Goldberg",
-    "aliases": ["goldberg"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "angela-bassett",
     "name": "Angela Bassett",
-    "aliases": ["bassett"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "halle-berry",
     "name": "Halle Berry",
-    "aliases": ["berry"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "octavia-spencer",
     "name": "Octavia Spencer",
-    "aliases": ["spencer"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
@@ -821,49 +821,49 @@
   {
     "id": "lupita-nyongo",
     "name": "Lupita Nyong'o",
-    "aliases": ["nyongo"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "brie-larson",
     "name": "Brie Larson",
-    "aliases": ["larson"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "rachel-mcadams",
     "name": "Rachel McAdams",
-    "aliases": ["mcadams"],
+    "aliases": [],
     "category": "actresses",
     "hint": "Film or television performer"
   },
   {
     "id": "empress-dowager-cixi",
     "name": "Empress Dowager Cixi",
-    "aliases": ["cixi", "empress cixi"],
+    "aliases": ["empress cixi"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "princess-margaret",
     "name": "Princess Margaret",
-    "aliases": ["margaret"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "sarah-palin",
     "name": "Sarah Palin",
-    "aliases": ["palin"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "martha-washington",
     "name": "Martha Washington",
-    "aliases": ["washington"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -884,14 +884,14 @@
   {
     "id": "sojourner-truth",
     "name": "Sojourner Truth",
-    "aliases": ["truth"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "elizabeth-cady-stanton",
     "name": "Elizabeth Cady Stanton",
-    "aliases": ["stanton", "elizabeth stanton"],
+    "aliases": ["elizabeth stanton"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -905,42 +905,42 @@
   {
     "id": "victoria-woodhull",
     "name": "Victoria Woodhull",
-    "aliases": ["woodhull"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "carry-nation",
     "name": "Carry Nation",
-    "aliases": ["nation"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "jane-addams",
     "name": "Jane Addams",
-    "aliases": ["addams"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "florence-nightingale",
     "name": "Florence Nightingale",
-    "aliases": ["nightingale"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "dorothea-dix",
     "name": "Dorothea Dix",
-    "aliases": ["dix"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "elizabeth-blackwell",
     "name": "Elizabeth Blackwell",
-    "aliases": ["blackwell"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -954,35 +954,35 @@
   {
     "id": "mary-seacole",
     "name": "Mary Seacole",
-    "aliases": ["seacole"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "dorothy-height",
     "name": "Dorothy Height",
-    "aliases": ["height"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "shirley-chisholm",
     "name": "Shirley Chisholm",
-    "aliases": ["chisholm"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "barbara-jordan",
     "name": "Barbara Jordan",
-    "aliases": ["jordan"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "geraldine-ferraro",
     "name": "Geraldine Ferraro",
-    "aliases": ["ferraro"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -996,140 +996,140 @@
   {
     "id": "janet-reno",
     "name": "Janet Reno",
-    "aliases": ["reno"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "elizabeth-dole",
     "name": "Elizabeth Dole",
-    "aliases": ["dole"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "carol-moseley-braun",
     "name": "Carol Moseley Braun",
-    "aliases": ["braun", "carol braun"],
+    "aliases": ["carol braun"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "dianne-feinstein",
     "name": "Dianne Feinstein",
-    "aliases": ["feinstein"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "barbara-mikulski",
     "name": "Barbara Mikulski",
-    "aliases": ["mikulski"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "olympia-snowe",
     "name": "Olympia Snowe",
-    "aliases": ["snowe"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "kay-bailey-hutchison",
     "name": "Kay Bailey Hutchison",
-    "aliases": ["hutchison", "kay hutchison"],
+    "aliases": ["kay hutchison"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "nancy-kassebaum",
     "name": "Nancy Kassebaum",
-    "aliases": ["kassebaum"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "jennifer-granholm",
     "name": "Jennifer Granholm",
-    "aliases": ["granholm"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "christine-todd-whitman",
     "name": "Christine Todd Whitman",
-    "aliases": ["whitman", "christine whitman"],
+    "aliases": ["christine whitman"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "jeane-kirkpatrick",
     "name": "Jeane Kirkpatrick",
-    "aliases": ["kirkpatrick"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "patricia-roberts-harris",
     "name": "Patricia Roberts Harris",
-    "aliases": ["harris", "patricia harris"],
+    "aliases": ["patricia harris"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "carla-hills",
     "name": "Carla Hills",
-    "aliases": ["hills"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "elizabeth-holtzman",
     "name": "Elizabeth Holtzman",
-    "aliases": ["holtzman"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "bella-abzug",
     "name": "Bella Abzug",
-    "aliases": ["abzug"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "martha-griffiths",
     "name": "Martha Griffiths",
-    "aliases": ["griffiths"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "frances-perkins",
     "name": "Frances Perkins",
-    "aliases": ["perkins"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "mary-anderson",
     "name": "Mary Anderson",
-    "aliases": ["anderson"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "mary-norton",
     "name": "Mary Norton",
-    "aliases": ["norton"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "clare-boothe-luce",
     "name": "Clare Boothe Luce",
-    "aliases": ["luce", "clare luce"],
+    "aliases": ["clare luce"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -1143,35 +1143,35 @@
   {
     "id": "patsy-mink",
     "name": "Patsy Mink",
-    "aliases": ["mink"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "leonor-k-sullivan",
     "name": "Leonor K. Sullivan",
-    "aliases": ["sullivan", "leonor sullivan"],
+    "aliases": ["leonor sullivan"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "edith-green",
     "name": "Edith Green",
-    "aliases": ["green"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "julia-butler-hansen",
     "name": "Julia Butler Hansen",
-    "aliases": ["hansen", "julia hansen"],
+    "aliases": ["julia hansen"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "catherine-dean-may",
     "name": "Catherine Dean May",
-    "aliases": ["may", "catherine may"],
+    "aliases": ["catherine may"],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -1185,42 +1185,42 @@
   {
     "id": "margaret-heckler",
     "name": "Margaret Heckler",
-    "aliases": ["heckler"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "millicent-fenwick",
     "name": "Millicent Fenwick",
-    "aliases": ["fenwick"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "patricia-schroeder",
     "name": "Patricia Schroeder",
-    "aliases": ["schroeder"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "barbara-boxer",
     "name": "Barbara Boxer",
-    "aliases": ["boxer"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "susan-collins",
     "name": "Susan Collins",
-    "aliases": ["collins"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "mary-landrieu",
     "name": "Mary Landrieu",
-    "aliases": ["landrieu"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
@@ -1234,35 +1234,35 @@
   {
     "id": "patty-murray",
     "name": "Patty Murray",
-    "aliases": ["murray"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "lisa-murkowski",
     "name": "Lisa Murkowski",
-    "aliases": ["murkowski"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "claire-mccaskill",
     "name": "Claire McCaskill",
-    "aliases": ["mccaskill"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "amy-klobuchar",
     "name": "Amy Klobuchar",
-    "aliases": ["klobuchar"],
+    "aliases": [],
     "category": "politicians",
     "hint": "Political leader or public official"
   },
   {
     "id": "megan-rapinoe",
     "name": "Megan Rapinoe",
-    "aliases": ["rapinoe"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1276,35 +1276,35 @@
   {
     "id": "maria-sharapova",
     "name": "Maria Sharapova",
-    "aliases": ["sharapova"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "naomi-osaka",
     "name": "Naomi Osaka",
-    "aliases": ["osaka"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "lindsey-vonn",
     "name": "Lindsey Vonn",
-    "aliases": ["vonn"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "martina-navratilova",
     "name": "Martina Navratilova",
-    "aliases": ["navratilova"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "steffi-graf",
     "name": "Steffi Graf",
-    "aliases": ["graf"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1318,98 +1318,98 @@
   {
     "id": "chris-evert",
     "name": "Chris Evert",
-    "aliases": ["evert"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "monica-seles",
     "name": "Monica Seles",
-    "aliases": ["seles"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "nadia-comaneci",
     "name": "Nadia Comăneci",
-    "aliases": ["comaneci"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "mary-lou-retton",
     "name": "Mary Lou Retton",
-    "aliases": ["retton", "mary retton"],
+    "aliases": ["mary retton"],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "jackie-joynerkersee",
     "name": "Jackie Joyner-Kersee",
-    "aliases": ["joynerkersee"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "florence-griffith-joyner",
     "name": "Florence Griffith Joyner",
-    "aliases": ["joyner", "florence joyner"],
+    "aliases": ["florence joyner"],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "wilma-rudolph",
     "name": "Wilma Rudolph",
-    "aliases": ["rudolph"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "mia-hamm",
     "name": "Mia Hamm",
-    "aliases": ["hamm"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "abby-wambach",
     "name": "Abby Wambach",
-    "aliases": ["wambach"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "hope-solo",
     "name": "Hope Solo",
-    "aliases": ["solo"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "carli-lloyd",
     "name": "Carli Lloyd",
-    "aliases": ["lloyd"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "diana-taurasi",
     "name": "Diana Taurasi",
-    "aliases": ["taurasi"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "lisa-leslie",
     "name": "Lisa Leslie",
-    "aliases": ["leslie"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "sheryl-swoopes",
     "name": "Sheryl Swoopes",
-    "aliases": ["swoopes"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1430,70 +1430,70 @@
   {
     "id": "kerri-walsh-jennings",
     "name": "Kerri Walsh Jennings",
-    "aliases": ["jennings", "kerri jennings"],
+    "aliases": ["kerri jennings"],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "misty-maytreanor",
     "name": "Misty May-Treanor",
-    "aliases": ["maytreanor"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "katie-ledecky",
     "name": "Katie Ledecky",
-    "aliases": ["ledecky"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "simone-manuel",
     "name": "Simone Manuel",
-    "aliases": ["manuel"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "aly-raisman",
     "name": "Aly Raisman",
-    "aliases": ["raisman"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "gabby-douglas",
     "name": "Gabby Douglas",
-    "aliases": ["douglas"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "mckayla-maroney",
     "name": "McKayla Maroney",
-    "aliases": ["maroney"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "dominique-dawes",
     "name": "Dominique Dawes",
-    "aliases": ["dawes"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "shannon-miller",
     "name": "Shannon Miller",
-    "aliases": ["miller"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "nastia-liukin",
     "name": "Nastia Liukin",
-    "aliases": ["liukin"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1507,126 +1507,126 @@
   {
     "id": "carly-patterson",
     "name": "Carly Patterson",
-    "aliases": ["patterson"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "ronda-rousey",
     "name": "Ronda Rousey",
-    "aliases": ["rousey"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "danica-patrick",
     "name": "Danica Patrick",
-    "aliases": ["patrick"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "anna-kournikova",
     "name": "Anna Kournikova",
-    "aliases": ["kournikova"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "martina-hingis",
     "name": "Martina Hingis",
-    "aliases": ["hingis"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "justine-henin",
     "name": "Justine Henin",
-    "aliases": ["henin"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "kim-clijsters",
     "name": "Kim Clijsters",
-    "aliases": ["clijsters"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "lindsay-davenport",
     "name": "Lindsay Davenport",
-    "aliases": ["davenport"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "evonne-goolagong",
     "name": "Evonne Goolagong",
-    "aliases": ["goolagong"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "margaret-court",
     "name": "Margaret Court",
-    "aliases": ["court"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "tracy-austin",
     "name": "Tracy Austin",
-    "aliases": ["austin"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "arantxa-sanchez-vicario",
     "name": "Arantxa Sánchez Vicario",
-    "aliases": ["vicario", "arantxa vicario"],
+    "aliases": ["arantxa vicario"],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "gabriela-sabatini",
     "name": "Gabriela Sabatini",
-    "aliases": ["sabatini"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "jennifer-capriati",
     "name": "Jennifer Capriati",
-    "aliases": ["capriati"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "pam-shriver",
     "name": "Pam Shriver",
-    "aliases": ["shriver"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "helena-sukova",
     "name": "Helena Sukova",
-    "aliases": ["sukova"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "hana-mandlikova",
     "name": "Hana Mandlikova",
-    "aliases": ["mandlikova"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "virginia-wade",
     "name": "Virginia Wade",
-    "aliases": ["wade"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1640,21 +1640,21 @@
   {
     "id": "annika-sorenstam",
     "name": "Annika Sörenstam",
-    "aliases": ["sorenstam"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "michelle-wie",
     "name": "Michelle Wie",
-    "aliases": ["wie"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
   {
     "id": "paula-creamer",
     "name": "Paula Creamer",
-    "aliases": ["creamer"],
+    "aliases": [],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1668,7 +1668,7 @@
   {
     "id": "se-ri-pak",
     "name": "Se Ri Pak",
-    "aliases": ["pak", "se pak"],
+    "aliases": ["se pak"],
     "category": "athletes",
     "hint": "Athlete or sports figure"
   },
@@ -1682,28 +1682,28 @@
   {
     "id": "george-eliot",
     "name": "George Eliot",
-    "aliases": ["eliot"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "louisa-may-alcott",
     "name": "Louisa May Alcott",
-    "aliases": ["alcott", "louisa alcott"],
+    "aliases": ["louisa alcott"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "edith-wharton",
     "name": "Edith Wharton",
-    "aliases": ["wharton"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "willa-cather",
     "name": "Willa Cather",
-    "aliases": ["cather"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1724,28 +1724,28 @@
   {
     "id": "ursula-k-le-guin",
     "name": "Ursula K. Le Guin",
-    "aliases": ["guin", "ursula guin"],
+    "aliases": ["ursula guin"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "anne-rice",
     "name": "Anne Rice",
-    "aliases": ["rice"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "jk-rowling",
     "name": "J.K. Rowling",
-    "aliases": ["rowling"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "danielle-steel",
     "name": "Danielle Steel",
-    "aliases": ["steel"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1766,84 +1766,84 @@
   {
     "id": "amy-tan",
     "name": "Amy Tan",
-    "aliases": ["tan"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "isabel-allende",
     "name": "Isabel Allende",
-    "aliases": ["allende"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "jane-goodall",
     "name": "Jane Goodall",
-    "aliases": ["goodall"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "daphne-du-maurier",
     "name": "Daphne du Maurier",
-    "aliases": ["maurier", "daphne maurier"],
+    "aliases": ["daphne maurier"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "judy-blume",
     "name": "Judy Blume",
-    "aliases": ["blume"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "beverly-cleary",
     "name": "Beverly Cleary",
-    "aliases": ["cleary"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "beatrix-potter",
     "name": "Beatrix Potter",
-    "aliases": ["potter"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "laura-ingalls-wilder",
     "name": "Laura Ingalls Wilder",
-    "aliases": ["wilder", "laura wilder"],
+    "aliases": ["laura wilder"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "e-annie-proulx",
     "name": "E. Annie Proulx",
-    "aliases": ["proulx", "e proulx"],
+    "aliases": ["e proulx"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "joyce-carol-oates",
     "name": "Joyce Carol Oates",
-    "aliases": ["oates", "joyce oates"],
+    "aliases": ["joyce oates"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "alice-munro",
     "name": "Alice Munro",
-    "aliases": ["munro"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "anne-frank",
     "name": "Anne Frank",
-    "aliases": ["frank"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1857,49 +1857,49 @@
   {
     "id": "bell-hooks",
     "name": "Bell Hooks",
-    "aliases": ["hooks"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "gloria-steinem",
     "name": "Gloria Steinem",
-    "aliases": ["steinem"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "betty-friedan",
     "name": "Betty Friedan",
-    "aliases": ["friedan"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "simone-de-beauvoir",
     "name": "Simone de Beauvoir",
-    "aliases": ["beauvoir", "simone beauvoir"],
+    "aliases": ["simone beauvoir"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "susan-sontag",
     "name": "Susan Sontag",
-    "aliases": ["sontag"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "annie-dillard",
     "name": "Annie Dillard",
-    "aliases": ["dillard"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "joan-didion",
     "name": "Joan Didion",
-    "aliases": ["didion"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1913,7 +1913,7 @@
   {
     "id": "gertrude-stein",
     "name": "Gertrude Stein",
-    "aliases": ["stein"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1927,35 +1927,35 @@
   {
     "id": "edna-st-vincent-millay",
     "name": "Edna St. Vincent Millay",
-    "aliases": ["millay", "edna millay"],
+    "aliases": ["edna millay"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "elizabeth-barrett-browning",
     "name": "Elizabeth Barrett Browning",
-    "aliases": ["browning", "elizabeth browning"],
+    "aliases": ["elizabeth browning"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "christina-rossetti",
     "name": "Christina Rossetti",
-    "aliases": ["rossetti"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "dorothy-sayers",
     "name": "Dorothy Sayers",
-    "aliases": ["sayers"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "patricia-highsmith",
     "name": "Patricia Highsmith",
-    "aliases": ["highsmith"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1969,21 +1969,21 @@
   {
     "id": "carson-mccullers",
     "name": "Carson McCullers",
-    "aliases": ["mccullers"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "eudora-welty",
     "name": "Eudora Welty",
-    "aliases": ["welty"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "katherine-anne-porter",
     "name": "Katherine Anne Porter",
-    "aliases": ["porter", "katherine porter"],
+    "aliases": ["katherine porter"],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -1997,28 +1997,28 @@
   {
     "id": "iris-murdoch",
     "name": "Iris Murdoch",
-    "aliases": ["murdoch"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "doris-lessing",
     "name": "Doris Lessing",
-    "aliases": ["lessing"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "muriel-spark",
     "name": "Muriel Spark",
-    "aliases": ["spark"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "nadine-gordimer",
     "name": "Nadine Gordimer",
-    "aliases": ["gordimer"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -2032,28 +2032,28 @@
   {
     "id": "anne-tyler",
     "name": "Anne Tyler",
-    "aliases": ["tyler"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "barbara-kingsolver",
     "name": "Barbara Kingsolver",
-    "aliases": ["kingsolver"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "sue-grafton",
     "name": "Sue Grafton",
-    "aliases": ["grafton"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "patricia-cornwell",
     "name": "Patricia Cornwell",
-    "aliases": ["cornwell"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -2067,14 +2067,14 @@
   {
     "id": "elizabeth-gaskell",
     "name": "Elizabeth Gaskell",
-    "aliases": ["gaskell"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "george-sand",
     "name": "George Sand",
-    "aliases": ["sand"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
@@ -2088,56 +2088,56 @@
   {
     "id": "marguerite-duras",
     "name": "Marguerite Duras",
-    "aliases": ["duras"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "anais-nin",
     "name": "Anaïs Nin",
-    "aliases": ["nin"],
+    "aliases": [],
     "category": "historical",
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
     "id": "simone-weil",
     "name": "Simone Weil",
-    "aliases": ["weil"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "hannah-arendt",
     "name": "Hannah Arendt",
-    "aliases": ["arendt"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "mary-wollstonecraft",
     "name": "Mary Wollstonecraft",
-    "aliases": ["wollstonecraft"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "angela-carter",
     "name": "Angela Carter",
-    "aliases": ["carter"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "jeanette-winterson",
     "name": "Jeanette Winterson",
-    "aliases": ["winterson"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "as-byatt",
     "name": "A.S. Byatt",
-    "aliases": ["byatt"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
@@ -2151,224 +2151,224 @@
   {
     "id": "chimamanda-ngozi-adichie",
     "name": "Chimamanda Ngozi Adichie",
-    "aliases": ["adichie", "chimamanda adichie"],
+    "aliases": ["chimamanda adichie"],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "alice-hoffman",
     "name": "Alice Hoffman",
-    "aliases": ["hoffman"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "anne-mccaffrey",
     "name": "Anne McCaffrey",
-    "aliases": ["mccaffrey"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "marion-zimmer-bradley",
     "name": "Marion Zimmer Bradley",
-    "aliases": ["bradley", "marion bradley"],
+    "aliases": ["marion bradley"],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "diana-gabaldon",
     "name": "Diana Gabaldon",
-    "aliases": ["gabaldon"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "octavia-butler",
     "name": "Octavia Butler",
-    "aliases": ["butler"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "mary-renault",
     "name": "Mary Renault",
-    "aliases": ["renault"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "philippa-gregory",
     "name": "Philippa Gregory",
-    "aliases": ["gregory"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "alice-sebold",
     "name": "Alice Sebold",
-    "aliases": ["sebold"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "ann-patchett",
     "name": "Ann Patchett",
-    "aliases": ["patchett"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "marilynne-robinson",
     "name": "Marilynne Robinson",
-    "aliases": ["robinson"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "louise-erdrich",
     "name": "Louise Erdrich",
-    "aliases": ["erdrich"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "sandra-cisneros",
     "name": "Sandra Cisneros",
-    "aliases": ["cisneros"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "julia-alvarez",
     "name": "Julia Alvarez",
-    "aliases": ["alvarez"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "maxine-hong-kingston",
     "name": "Maxine Hong Kingston",
-    "aliases": ["kingston", "maxine kingston"],
+    "aliases": ["maxine kingston"],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "anchee-min",
     "name": "Anchee Min",
-    "aliases": ["min"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "arundhati-roy",
     "name": "Arundhati Roy",
-    "aliases": ["roy"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "jhumpa-lahiri",
     "name": "Jhumpa Lahiri",
-    "aliases": ["lahiri"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "banana-yoshimoto",
     "name": "Banana Yoshimoto",
-    "aliases": ["yoshimoto"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "han-kang",
     "name": "Han Kang",
-    "aliases": ["kang"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "clarice-lispector",
     "name": "Clarice Lispector",
-    "aliases": ["lispector"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "elena-ferrante",
     "name": "Elena Ferrante",
-    "aliases": ["ferrante"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "elfriede-jelinek",
     "name": "Elfriede Jelinek",
-    "aliases": ["jelinek"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "herta-muller",
     "name": "Herta Müller",
-    "aliases": ["muller"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "wisawa-szymborska",
     "name": "Wisława Szymborska",
-    "aliases": ["szymborska"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "anne-sexton",
     "name": "Anne Sexton",
-    "aliases": ["sexton"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "adrienne-rich",
     "name": "Adrienne Rich",
-    "aliases": ["rich"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "mary-oliver",
     "name": "Mary Oliver",
-    "aliases": ["oliver"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "sharon-olds",
     "name": "Sharon Olds",
-    "aliases": ["olds"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "louise-gluck",
     "name": "Louise Glück",
-    "aliases": ["gluck"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "rita-dove",
     "name": "Rita Dove",
-    "aliases": ["dove"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "carol-ann-duffy",
     "name": "Carol Ann Duffy",
-    "aliases": ["duffy", "carol duffy"],
+    "aliases": ["carol duffy"],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
@@ -2382,14 +2382,14 @@
   {
     "id": "dorothy-wordsworth",
     "name": "Dorothy Wordsworth",
-    "aliases": ["wordsworth"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "elizabeth-bishop",
     "name": "Elizabeth Bishop",
-    "aliases": ["bishop"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
@@ -2424,35 +2424,35 @@
   {
     "id": "anne-bradstreet",
     "name": "Anne Bradstreet",
-    "aliases": ["bradstreet"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "phillis-wheatley",
     "name": "Phillis Wheatley",
-    "aliases": ["wheatley"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "aphra-behn",
     "name": "Aphra Behn",
-    "aliases": ["behn"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "frances-burney",
     "name": "Frances Burney",
-    "aliases": ["burney"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "maria-edgeworth",
     "name": "Maria Edgeworth",
-    "aliases": ["edgeworth"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
@@ -2473,35 +2473,35 @@
   {
     "id": "rosamond-lehmann",
     "name": "Rosamond Lehmann",
-    "aliases": ["lehmann"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "elizabeth-bowen",
     "name": "Elizabeth Bowen",
-    "aliases": ["bowen"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "jean-rhys",
     "name": "Jean Rhys",
-    "aliases": ["rhys"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "storm-jameson",
     "name": "Storm Jameson",
-    "aliases": ["jameson"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "ivy-comptonburnett",
     "name": "Ivy Compton-Burnett",
-    "aliases": ["comptonburnett"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
@@ -2515,28 +2515,28 @@
   {
     "id": "beryl-bainbridge",
     "name": "Beryl Bainbridge",
-    "aliases": ["bainbridge"],
+    "aliases": [],
     "category": "activists",
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
     "id": "alice-ball",
     "name": "Alice Ball",
-    "aliases": ["ball"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "annie-jump-cannon",
     "name": "Annie Jump Cannon",
-    "aliases": ["cannon", "annie cannon"],
+    "aliases": ["annie cannon"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "henrietta-swan-leavitt",
     "name": "Henrietta Swan Leavitt",
-    "aliases": ["leavitt", "henrietta leavitt"],
+    "aliases": ["henrietta leavitt"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2550,35 +2550,35 @@
   {
     "id": "jocelyn-bell-burnell",
     "name": "Jocelyn Bell Burnell",
-    "aliases": ["burnell", "jocelyn burnell"],
+    "aliases": ["jocelyn burnell"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "vera-rubin",
     "name": "Vera Rubin",
-    "aliases": ["rubin"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "mae-jemison",
     "name": "Mae Jemison",
-    "aliases": ["jemison"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "sally-ride",
     "name": "Sally Ride",
-    "aliases": ["ride"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "margaret-hamilton",
     "name": "Margaret Hamilton",
-    "aliases": ["hamilton"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2592,7 +2592,7 @@
   {
     "id": "dorothy-vaughan",
     "name": "Dorothy Vaughan",
-    "aliases": ["vaughan"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2606,35 +2606,35 @@
   {
     "id": "annie-easley",
     "name": "Annie Easley",
-    "aliases": ["easley"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "flossie-wongstaal",
     "name": "Flossie Wong-Staal",
-    "aliases": ["wongstaal"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "jennifer-doudna",
     "name": "Jennifer Doudna",
-    "aliases": ["doudna"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "frances-arnold",
     "name": "Frances Arnold",
-    "aliases": ["arnold"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "tu-youyou",
     "name": "Tu Youyou",
-    "aliases": ["youyou"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2648,133 +2648,133 @@
   {
     "id": "jane-cooke-wright",
     "name": "Jane Cooke Wright",
-    "aliases": ["wright", "jane wright"],
+    "aliases": ["jane wright"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "virginia-apgar",
     "name": "Virginia Apgar",
-    "aliases": ["apgar"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "helen-taussig",
     "name": "Helen Taussig",
-    "aliases": ["taussig"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "gerty-cori",
     "name": "Gerty Cori",
-    "aliases": ["cori"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "rosalyn-yalow",
     "name": "Rosalyn Yalow",
-    "aliases": ["yalow"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "maria-goeppert-mayer",
     "name": "Maria Goeppert Mayer",
-    "aliases": ["mayer", "maria mayer"],
+    "aliases": ["maria mayer"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "maybritt-moser",
     "name": "May-Britt Moser",
-    "aliases": ["moser"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "elizabeth-blackburn",
     "name": "Elizabeth Blackburn",
-    "aliases": ["blackburn"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "carol-greider",
     "name": "Carol Greider",
-    "aliases": ["greider"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "francoise-barresinoussi",
     "name": "Françoise Barré-Sinoussi",
-    "aliases": ["barresinoussi"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "christiane-nussleinvolhard",
     "name": "Christiane Nüsslein-Volhard",
-    "aliases": ["nussleinvolhard"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "dorothy-crowfoot-hodgkin",
     "name": "Dorothy Crowfoot Hodgkin",
-    "aliases": ["hodgkin", "dorothy hodgkin"],
+    "aliases": ["dorothy hodgkin"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "gertrude-belle-elion",
     "name": "Gertrude Belle Elion",
-    "aliases": ["elion", "gertrude elion"],
+    "aliases": ["gertrude elion"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "ada-yonath",
     "name": "Ada Yonath",
-    "aliases": ["yonath"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "youyou-tu",
     "name": "Youyou Tu",
-    "aliases": ["tu"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "emmanuelle-charpentier",
     "name": "Emmanuelle Charpentier",
-    "aliases": ["charpentier"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "andrea-ghez",
     "name": "Andrea Ghez",
-    "aliases": ["ghez"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "carolyn-bertozzi",
     "name": "Carolyn Bertozzi",
-    "aliases": ["bertozzi"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "patricia-bath",
     "name": "Patricia Bath",
-    "aliases": ["bath"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2795,28 +2795,28 @@
   {
     "id": "stephanie-kwolek",
     "name": "Stephanie Kwolek",
-    "aliases": ["kwolek"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "hedy-lamarr",
     "name": "Hedy Lamarr",
-    "aliases": ["lamarr"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "temple-grandin",
     "name": "Temple Grandin",
-    "aliases": ["grandin"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "melba-roy-mouton",
     "name": "Melba Roy Mouton",
-    "aliases": ["mouton", "melba mouton"],
+    "aliases": ["melba mouton"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2830,21 +2830,21 @@
   {
     "id": "alice-catherine-evans",
     "name": "Alice Catherine Evans",
-    "aliases": ["evans", "alice evans"],
+    "aliases": ["alice evans"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "mary-engle-pennington",
     "name": "Mary Engle Pennington",
-    "aliases": ["pennington", "mary pennington"],
+    "aliases": ["mary pennington"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "rachel-fuller-brown",
     "name": "Rachel Fuller Brown",
-    "aliases": ["brown", "rachel brown"],
+    "aliases": ["rachel brown"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2858,28 +2858,28 @@
   {
     "id": "marian-croak",
     "name": "Marian Croak",
-    "aliases": ["croak"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "ruth-rogan-benerito",
     "name": "Ruth Rogan Benerito",
-    "aliases": ["benerito", "ruth benerito"],
+    "aliases": ["ruth benerito"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "erna-schneider-hoover",
     "name": "Erna Schneider Hoover",
-    "aliases": ["hoover", "erna hoover"],
+    "aliases": ["erna hoover"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "helen-free",
     "name": "Helen Free",
-    "aliases": ["free"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
@@ -2907,147 +2907,147 @@
   {
     "id": "beulah-louise-henry",
     "name": "Beulah Louise Henry",
-    "aliases": ["henry", "beulah henry"],
+    "aliases": ["beulah henry"],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "margaret-knight",
     "name": "Margaret Knight",
-    "aliases": ["knight"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "melitta-bentz",
     "name": "Melitta Bentz",
-    "aliases": ["bentz"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "maria-beasley",
     "name": "Maria Beasley",
-    "aliases": ["beasley"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "kalpana-chawla",
     "name": "Kalpana Chawla",
-    "aliases": ["chawla"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "laurel-clark",
     "name": "Laurel Clark",
     "aliases": [],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "stephanie-wilson",
     "name": "Stephanie Wilson",
-    "aliases": ["wilson"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "barbara-morgan",
     "name": "Barbara Morgan",
     "aliases": [],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "dorothy-metcalflindenburger",
     "name": "Dorothy Metcalf-Lindenburger",
-    "aliases": ["metcalflindenburger"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "karen-nyberg",
     "name": "Karen Nyberg",
-    "aliases": ["nyberg"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "tracy-caldwell-dyson",
     "name": "Tracy Caldwell Dyson",
-    "aliases": ["dyson", "tracy dyson"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": ["tracy dyson"],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "shannon-walker",
     "name": "Shannon Walker",
     "aliases": [],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "catherine-coleman",
     "name": "Catherine Coleman",
-    "aliases": ["coleman"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "sunita-williams",
     "name": "Sunita Williams",
     "aliases": [],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "anne-mcclain",
     "name": "Anne McClain",
-    "aliases": ["mcclain"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "christina-koch",
     "name": "Christina Koch",
-    "aliases": ["koch"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "jessica-meir",
     "name": "Jessica Meir",
-    "aliases": ["meir"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "jasmin-moghbeli",
     "name": "Jasmin Moghbeli",
-    "aliases": ["moghbeli"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "nicole-mann",
     "name": "Nicole Mann",
-    "aliases": ["mann"],
-    "category": "business",
-    "hint": "Business, media, fashion, or entrepreneurship figure"
+    "aliases": [],
+    "category": "scientists",
+    "hint": "Scientist, inventor, mathematician, or engineer"
   },
   {
     "id": "oprah-winfrey",
     "name": "Oprah Winfrey",
-    "aliases": ["winfrey"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "ellen-degeneres",
     "name": "Ellen DeGeneres",
-    "aliases": ["degeneres"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3061,21 +3061,21 @@
   {
     "id": "barbara-walters",
     "name": "Barbara Walters",
-    "aliases": ["walters"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "anna-wintour",
     "name": "Anna Wintour",
-    "aliases": ["wintour"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "tyra-banks",
     "name": "Tyra Banks",
-    "aliases": ["banks"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3096,14 +3096,14 @@
   {
     "id": "naomi-campbell",
     "name": "Naomi Campbell",
-    "aliases": ["campbell"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "cindy-crawford",
     "name": "Cindy Crawford",
-    "aliases": ["crawford"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3117,49 +3117,49 @@
   {
     "id": "kate-moss",
     "name": "Kate Moss",
-    "aliases": ["moss"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "heidi-klum",
     "name": "Heidi Klum",
-    "aliases": ["klum"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "gisele-bundchen",
     "name": "Gisele Bündchen",
-    "aliases": ["bundchen"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "linda-evangelista",
     "name": "Linda Evangelista",
-    "aliases": ["evangelista"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "christy-turlington",
     "name": "Christy Turlington",
-    "aliases": ["turlington"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "claudia-schiffer",
     "name": "Claudia Schiffer",
-    "aliases": ["schiffer"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "elle-macpherson",
     "name": "Elle Macpherson",
-    "aliases": ["macpherson"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3173,14 +3173,14 @@
   {
     "id": "lauren-hutton",
     "name": "Lauren Hutton",
-    "aliases": ["hutton"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "isabella-rossellini",
     "name": "Isabella Rossellini",
-    "aliases": ["rossellini"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3194,21 +3194,21 @@
   {
     "id": "janice-dickinson",
     "name": "Janice Dickinson",
-    "aliases": ["dickinson"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "christie-brinkley",
     "name": "Christie Brinkley",
-    "aliases": ["brinkley"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "paulina-porizkova",
     "name": "Paulina Porizkova",
-    "aliases": ["porizkova"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3222,63 +3222,63 @@
   {
     "id": "helena-christensen",
     "name": "Helena Christensen",
-    "aliases": ["christensen"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "stephanie-seymour",
     "name": "Stephanie Seymour",
-    "aliases": ["seymour"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "amber-valletta",
     "name": "Amber Valletta",
-    "aliases": ["valletta"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "adriana-lima",
     "name": "Adriana Lima",
-    "aliases": ["lima"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "alessandra-ambrosio",
     "name": "Alessandra Ambrosio",
-    "aliases": ["ambrosio"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "miranda-kerr",
     "name": "Miranda Kerr",
-    "aliases": ["kerr"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "karlie-kloss",
     "name": "Karlie Kloss",
-    "aliases": ["kloss"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "cara-delevingne",
     "name": "Cara Delevingne",
-    "aliases": ["delevingne"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "kendall-jenner",
     "name": "Kendall Jenner",
-    "aliases": ["jenner"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
@@ -3299,91 +3299,91 @@
   {
     "id": "ashley-graham",
     "name": "Ashley Graham",
-    "aliases": ["graham"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "joan-rivers",
     "name": "Joan Rivers",
-    "aliases": ["rivers"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "phyllis-diller",
     "name": "Phyllis Diller",
-    "aliases": ["diller"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "sophia-petrillo",
     "name": "Sophia Petrillo",
-    "aliases": ["petrillo"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "rose-nylund",
     "name": "Rose Nylund",
-    "aliases": ["nylund"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "dorothy-zbornak",
     "name": "Dorothy Zbornak",
-    "aliases": ["zbornak"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "blanche-devereaux",
     "name": "Blanche Devereaux",
-    "aliases": ["devereaux"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "bea-arthur",
     "name": "Bea Arthur",
-    "aliases": ["arthur"],
+    "aliases": [],
     "category": "business",
     "hint": "Business, media, fashion, or entrepreneurship figure"
   },
   {
     "id": "joan-lunden",
     "name": "Joan Lunden",
-    "aliases": ["lunden"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "paula-zahn",
     "name": "Paula Zahn",
-    "aliases": ["zahn"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "soledad-obrien",
     "name": "Soledad O'Brien",
-    "aliases": ["obrien"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "ann-curry",
     "name": "Ann Curry",
-    "aliases": ["curry"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "natalie-morales",
     "name": "Natalie Morales",
-    "aliases": ["morales"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3397,21 +3397,21 @@
   {
     "id": "melissa-harrisperry",
     "name": "Melissa Harris-Perry",
-    "aliases": ["harrisperry"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "rachel-maddow",
     "name": "Rachel Maddow",
-    "aliases": ["maddow"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "ana-navarro",
     "name": "Ana Navarro",
-    "aliases": ["navarro"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3425,42 +3425,42 @@
   {
     "id": "sunny-hostin",
     "name": "Sunny Hostin",
-    "aliases": ["hostin"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "sara-haines",
     "name": "Sara Haines",
-    "aliases": ["haines"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "jedediah-bila",
     "name": "Jedediah Bila",
-    "aliases": ["bila"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "paula-faris",
     "name": "Paula Faris",
-    "aliases": ["faris"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "candace-cameron-bure",
     "name": "Candace Cameron Bure",
-    "aliases": ["bure", "candace bure"],
+    "aliases": ["candace bure"],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "elisabeth-hasselbeck",
     "name": "Elisabeth Hasselbeck",
-    "aliases": ["hasselbeck"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3474,49 +3474,49 @@
   {
     "id": "sherri-shepherd",
     "name": "Sherri Shepherd",
-    "aliases": ["shepherd"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "debbie-matenopoulos",
     "name": "Debbie Matenopoulos",
-    "aliases": ["matenopoulos"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "lisa-ling",
     "name": "Lisa Ling",
-    "aliases": ["ling"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "diana-vreeland",
     "name": "Diana Vreeland",
-    "aliases": ["vreeland"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "coco-chanel",
     "name": "Coco Chanel",
-    "aliases": ["chanel"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "donna-karan",
     "name": "Donna Karan",
-    "aliases": ["karan"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "vera-wang",
     "name": "Vera Wang",
-    "aliases": ["wang"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3530,91 +3530,91 @@
   {
     "id": "carolina-herrera",
     "name": "Carolina Herrera",
-    "aliases": ["herrera"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "diane-von-furstenberg",
     "name": "Diane von Furstenberg",
-    "aliases": ["furstenberg", "diane furstenberg"],
+    "aliases": ["diane furstenberg"],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "mary-quant",
     "name": "Mary Quant",
-    "aliases": ["quant"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "vivienne-westwood",
     "name": "Vivienne Westwood",
-    "aliases": ["westwood"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "donatella-versace",
     "name": "Donatella Versace",
-    "aliases": ["versace"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "miuccia-prada",
     "name": "Miuccia Prada",
-    "aliases": ["prada"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "stella-mccartney",
     "name": "Stella McCartney",
-    "aliases": ["mccartney"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "kate-spade",
     "name": "Kate Spade",
-    "aliases": ["spade"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "tory-burch",
     "name": "Tory Burch",
-    "aliases": ["burch"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "rachel-zoe",
     "name": "Rachel Zoe",
-    "aliases": ["zoe"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "victoria-beckham",
     "name": "Victoria Beckham",
-    "aliases": ["beckham"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "jackie-kennedy",
     "name": "Jackie Kennedy",
-    "aliases": ["kennedy"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "brigitte-bardot",
     "name": "Brigitte Bardot",
-    "aliases": ["bardot"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3628,63 +3628,63 @@
   {
     "id": "bo-derek",
     "name": "Bo Derek",
-    "aliases": ["derek"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "kim-kardashian",
     "name": "Kim Kardashian",
-    "aliases": ["kardashian"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "paris-hilton",
     "name": "Paris Hilton",
-    "aliases": ["hilton"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "nicole-richie",
     "name": "Nicole Richie",
-    "aliases": ["richie"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "lauren-conrad",
     "name": "Lauren Conrad",
-    "aliases": ["conrad"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "heidi-montag",
     "name": "Heidi Montag",
-    "aliases": ["montag"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "audrina-patridge",
     "name": "Audrina Patridge",
-    "aliases": ["patridge"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "whitney-port",
     "name": "Whitney Port",
-    "aliases": ["port"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "kristin-cavallari",
     "name": "Kristin Cavallari",
-    "aliases": ["cavallari"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3705,35 +3705,35 @@
   {
     "id": "teresa-giudice",
     "name": "Teresa Giudice",
-    "aliases": ["giudice"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "nene-leakes",
     "name": "NeNe Leakes",
-    "aliases": ["leakes"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "bethenny-frankel",
     "name": "Bethenny Frankel",
-    "aliases": ["frankel"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "lisa-vanderpump",
     "name": "Lisa Vanderpump",
-    "aliases": ["vanderpump"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "kyle-richards",
     "name": "Kyle Richards",
-    "aliases": ["richards"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3747,14 +3747,14 @@
   {
     "id": "ramona-singer",
     "name": "Ramona Singer",
-    "aliases": ["singer"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "luann-de-lesseps",
     "name": "Luann de Lesseps",
-    "aliases": ["lesseps", "luann lesseps"],
+    "aliases": ["luann lesseps"],
     "category": "other",
     "hint": "Famous public figure"
   },
@@ -3768,15 +3768,182 @@
   {
     "id": "kandi-burruss",
     "name": "Kandi Burruss",
-    "aliases": ["burruss"],
+    "aliases": [],
     "category": "other",
     "hint": "Famous public figure"
   },
   {
     "id": "marie-curie",
     "name": "Marie Curie",
-    "aliases": ["curie"],
+    "aliases": [],
     "category": "scientists",
     "hint": "Physicist and chemist; two-time Nobel Prize winner"
+  },
+  {
+    "id": "michelle-obama",
+    "name": "Michelle Obama",
+    "aliases": ["Michelle Robinson Obama"],
+    "category": "politicians",
+    "hint": "Former First Lady of the United States and public leader"
+  },
+  {
+    "id": "melania-trump",
+    "name": "Melania Trump",
+    "aliases": ["Melania Knauss Trump"],
+    "category": "politicians",
+    "hint": "First Lady of the United States"
+  },
+  {
+    "id": "catherine-princess-of-wales",
+    "name": "Catherine, Princess of Wales",
+    "aliases": [
+      "Kate Middleton",
+      "Catherine Middleton"
+    ],
+    "category": "politicians",
+    "hint": "British royal and public figure"
+  },
+  {
+    "id": "rosa-parks",
+    "name": "Rosa Parks",
+    "aliases": [],
+    "category": "activists",
+    "hint": "American civil rights activist"
+  },
+  {
+    "id": "ada-lovelace",
+    "name": "Ada Lovelace",
+    "aliases": ["Augusta Ada King"],
+    "category": "scientists",
+    "hint": "Mathematician and early computing pioneer"
+  },
+  {
+    "id": "serena-williams",
+    "name": "Serena Williams",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Tennis champion"
+  },
+  {
+    "id": "diana-princess-of-wales",
+    "name": "Diana, Princess of Wales",
+    "aliases": [
+      "Princess Diana",
+      "Diana Spencer"
+    ],
+    "category": "historical",
+    "hint": "British royal and humanitarian"
+  },
+  {
+    "id": "cleopatra",
+    "name": "Cleopatra",
+    "aliases": [],
+    "category": "historical",
+    "hint": "Queen of ancient Egypt"
+  },
+  {
+    "id": "frida-kahlo",
+    "name": "Frida Kahlo",
+    "aliases": [],
+    "category": "other",
+    "hint": "Mexican painter and cultural icon"
+  },
+  {
+    "id": "jane-austen",
+    "name": "Jane Austen",
+    "aliases": [],
+    "category": "historical",
+    "hint": "English novelist"
+  },
+  {
+    "id": "maya-angelou",
+    "name": "Maya Angelou",
+    "aliases": [],
+    "category": "other",
+    "hint": "American poet, memoirist, and author"
+  },
+  {
+    "id": "malala-yousafzai",
+    "name": "Malala Yousafzai",
+    "aliases": [],
+    "category": "activists",
+    "hint": "Education activist and Nobel Peace Prize laureate"
+  },
+  {
+    "id": "greta-thunberg",
+    "name": "Greta Thunberg",
+    "aliases": [],
+    "category": "activists",
+    "hint": "Climate activist"
+  },
+  {
+    "id": "amelia-earhart",
+    "name": "Amelia Earhart",
+    "aliases": [],
+    "category": "historical",
+    "hint": "Aviation pioneer"
+  },
+  {
+    "id": "margaret-thatcher",
+    "name": "Margaret Thatcher",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Former Prime Minister of the United Kingdom"
+  },
+  {
+    "id": "hillary-clinton",
+    "name": "Hillary Clinton",
+    "aliases": ["Hillary Rodham Clinton"],
+    "category": "politicians",
+    "hint": "American politician and former Secretary of State"
+  },
+  {
+    "id": "kamala-harris",
+    "name": "Kamala Harris",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "American politician and former vice president"
+  },
+  {
+    "id": "elizabeth-ii",
+    "name": "Elizabeth II",
+    "aliases": ["Queen Elizabeth II"],
+    "category": "historical",
+    "hint": "Former Queen of the United Kingdom"
+  },
+  {
+    "id": "mother-teresa",
+    "name": "Mother Teresa",
+    "aliases": ["Teresa of Calcutta"],
+    "category": "activists",
+    "hint": "Humanitarian and Nobel Peace Prize laureate"
+  },
+  {
+    "id": "virginia-woolf",
+    "name": "Virginia Woolf",
+    "aliases": [],
+    "category": "historical",
+    "hint": "English writer and modernist"
+  },
+  {
+    "id": "helen-keller",
+    "name": "Helen Keller",
+    "aliases": [],
+    "category": "activists",
+    "hint": "Author, educator, and disability-rights advocate"
+  },
+  {
+    "id": "harriet-tubman",
+    "name": "Harriet Tubman",
+    "aliases": [],
+    "category": "activists",
+    "hint": "American abolitionist and activist"
+  },
+  {
+    "id": "georgia-okeeffe",
+    "name": "Georgia O'Keeffe",
+    "aliases": ["Georgia Totto O Keeffe"],
+    "category": "other",
+    "hint": "American modernist artist"
   }
 ]

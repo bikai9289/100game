@@ -32,6 +32,7 @@ import {
   IconShare,
   IconTrophy,
 } from '@tabler/icons-react';
+import { Link } from '@tanstack/react-router';
 import type { FormEvent } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -194,7 +195,7 @@ export function Name100Game({
   placeholder = "Type a famous woman's name...",
   activeHint = 'Keep going. Think by category.',
   idleHint = 'Press Enter after each name. Your timer starts on the first accepted guess.',
-  missText = 'Not in the answer list yet. Try another famous person.',
+  missText = 'Not in the current answer list. Check the spelling or try another name.',
 }: Name100GameProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const deadlineRef = useRef<number | null>(null);
@@ -210,6 +211,7 @@ export function Name100Game({
   );
   const [input, setInput] = useState('');
   const [message, setMessage] = useState('');
+  const [lastRejectedGuess, setLastRejectedGuess] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [hasRestoredGame, setHasRestoredGame] = useState(false);
   const [period, setPeriod] = useState<'daily' | 'all'>('daily');
@@ -496,6 +498,7 @@ export function Name100Game({
 
     const guess = value.trim();
     if (!guess) {
+      setLastRejectedGuess('');
       setMessage('Type a name to make a guess.');
       return;
     }
@@ -515,11 +518,14 @@ export function Name100Game({
         ? { ...result.newState, isGameOver: true }
         : result.newState;
     if (result.isDuplicate) {
+      setLastRejectedGuess('');
       setMessage('Already guessed!');
     } else if (result.isCorrect) {
+      setLastRejectedGuess('');
       setMessage(`${result.newState.guessedAnswers.at(-1)?.name} counts.`);
       setInput('');
     } else {
+      setLastRejectedGuess(guess);
       setMessage(missText);
     }
 
@@ -547,6 +553,7 @@ export function Name100Game({
     setGameState(nextState);
     setInput('');
     setMessage('');
+    setLastRejectedGuess('');
     setScoreSubmitStatus('');
     setIsStarted(false);
     clearStoredGame(storageKey, storageCookie);
@@ -576,7 +583,7 @@ export function Name100Game({
     try {
       const cleanName = playerName.trim();
       if (!communitySubmissionConfigured) {
-        throw new Error('Community submissions are not configured.');
+        throw new Error('Score submission is unavailable.');
       }
       if (cleanName.length < 2) {
         throw new Error('Enter a name with at least 2 characters.');
@@ -638,7 +645,7 @@ export function Name100Game({
     setCommentSubmitStatus('Posting...');
     try {
       if (!communitySubmissionConfigured) {
-        throw new Error('Community submissions are not configured.');
+        throw new Error('Comment submission is unavailable.');
       }
       if (playerName.trim().length < 2) {
         throw new Error('Enter a display name with at least 2 characters.');
@@ -685,7 +692,7 @@ export function Name100Game({
       aria-label={ariaLabel}
       className="mx-auto grid w-full max-w-[1180px] gap-[22px] lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start"
     >
-      <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+      <div className="order-1 min-w-0 lg:order-none lg:col-start-1 lg:row-start-1">
         <div className="sticky top-[64px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md">
           <div className="grid grid-cols-2 items-center gap-2 min-[360px]:grid-cols-[auto_auto_auto_auto] min-[360px]:justify-between">
             <div className="text-center">
@@ -760,7 +767,15 @@ export function Name100Game({
             aria-live="polite"
             className="mt-1 text-center text-sm font-semibold text-muted-foreground"
           >
-            {message}
+            <span>{message}</span>
+            {lastRejectedGuess ? (
+              <Link
+                to="/contact"
+                className="ml-2 inline-flex font-bold text-primary hover:underline"
+              >
+                Report a missing answer
+              </Link>
+            ) : null}
           </div>
         ) : (
           <span className="sr-only" aria-live="polite">
@@ -769,7 +784,7 @@ export function Name100Game({
         )}
       </div>
 
-      <div className="grid grid-cols-1 gap-[7px] min-[380px]:grid-cols-2 md:grid-cols-3 lg:col-start-1 lg:grid-cols-4">
+      <div className="order-3 grid grid-cols-1 gap-[7px] min-[380px]:grid-cols-2 md:grid-cols-3 lg:order-none lg:col-start-1 lg:grid-cols-4">
         {answerSlots.map((answer, index) => (
           <div
             key={`${answer?.id ?? 'empty'}-${index}`}
@@ -804,7 +819,7 @@ export function Name100Game({
 
       {gameState.isGameOver ? (
         <>
-          <Card className="order-5 rounded-lg border border-border px-4 py-4 shadow-sm ring-0 lg:sticky lg:top-[76px] lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <Card className="order-4 rounded-lg border border-border px-4 py-4 shadow-sm ring-0 lg:order-none lg:sticky lg:top-[76px] lg:col-start-2 lg:row-span-2 lg:row-start-1">
             <CardHeader className="items-center px-0">
               <CardTitle className="flex items-center gap-2 text-[0.9375rem] font-extrabold">
                 <IconTrophy className="size-5 text-amber-600" />
@@ -878,7 +893,7 @@ export function Name100Game({
             </CardContent>
           </Card>
 
-          <section className="order-5 border-t border-border pt-8 lg:col-span-2">
+          <section className="order-5 border-t border-border pt-8 lg:order-none lg:col-span-2">
             <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
               <div>
                 <h2 className="flex items-center gap-2 text-xl font-bold">
@@ -943,7 +958,7 @@ export function Name100Game({
                   >
                     {commentSubmitStatus ||
                       (!communitySubmissionConfigured
-                        ? 'Community submissions are not configured.'
+                        ? 'Posting is temporarily unavailable.'
                         : '')}
                   </p>
                 </form>
@@ -983,7 +998,7 @@ export function Name100Game({
       ) : null}
 
       {gameState.isGameOver ? (
-        <Card className="order-4 rounded-lg border border-border py-4 shadow-sm ring-0 lg:col-start-1">
+        <Card className="order-2 rounded-lg border border-border py-4 shadow-sm ring-0 lg:order-none lg:col-start-1">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg font-black">
               <IconTrophy className="size-5 text-primary" />
@@ -991,52 +1006,49 @@ export function Name100Game({
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <form
-              onSubmit={(event) => void submitScore(event)}
-              className="grid gap-3"
-            >
-              <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
-                <div>
-                  <label htmlFor={playerNameId} className="sr-only">
-                    Leaderboard name
-                  </label>
-                  <Input
-                    id={playerNameId}
-                    value={playerName}
-                    maxLength={24}
-                    placeholder="Leaderboard name"
-                    onChange={(event) => setPlayerName(event.target.value)}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="font-bold"
-                  disabled={
-                    !communitySubmissionConfigured || !scoreTurnstileToken
-                  }
+            {communitySubmissionConfigured ? (
+              <>
+                <form
+                  onSubmit={(event) => void submitScore(event)}
+                  className="grid gap-3"
                 >
-                  <IconSend data-icon="inline-start" />
-                  Save score
-                </Button>
-              </div>
-              {turnstileSiteKey ? (
-                <TurnstileWidget
-                  ref={scoreTurnstileRef}
-                  siteKey={turnstileSiteKey}
-                  action="score"
-                  onToken={setScoreTurnstileToken}
-                />
-              ) : null}
-            </form>
-            <p
-              className="mt-2 min-h-5 text-sm text-muted-foreground"
-              aria-live="polite"
-            >
-              {scoreSubmitStatus ||
-                (!communitySubmissionConfigured
-                  ? 'Community submissions are not configured.'
-                  : '')}
-            </p>
+                  <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                    <div>
+                      <label htmlFor={playerNameId} className="sr-only">
+                        Leaderboard name
+                      </label>
+                      <Input
+                        id={playerNameId}
+                        value={playerName}
+                        maxLength={24}
+                        placeholder="Leaderboard name"
+                        onChange={(event) => setPlayerName(event.target.value)}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="font-bold"
+                      disabled={!scoreTurnstileToken}
+                    >
+                      <IconSend data-icon="inline-start" />
+                      Save score
+                    </Button>
+                  </div>
+                  <TurnstileWidget
+                    ref={scoreTurnstileRef}
+                    siteKey={turnstileSiteKey}
+                    action="score"
+                    onToken={setScoreTurnstileToken}
+                  />
+                </form>
+                <p
+                  className="mt-2 min-h-5 text-sm text-muted-foreground"
+                  aria-live="polite"
+                >
+                  {scoreSubmitStatus}
+                </p>
+              </>
+            ) : null}
             <details className="mt-2 rounded-lg border border-border bg-background p-4">
               <summary className="cursor-pointer text-sm font-bold">
                 Show missed answer examples

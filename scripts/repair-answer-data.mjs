@@ -1,26 +1,19 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
+import {
+  isSafeAnswerAlias,
+  normalizeAnswerText,
+  requiredWomenAnswers,
+  womenCategoryCorrections,
+} from './answer-data-policy.mjs';
+
 const dataFiles = [
   new URL('../src/data/answers-women.json', import.meta.url),
   new URL('../src/data/answers-men.json', import.meta.url),
 ];
 
-const womenCategoryCorrections = new Map([
-  ["D'arcy Wretzky", 'musicians'],
-  ['Elizabeth Stokes', 'musicians'],
-  ['Emma Richardson', 'musicians'],
-  ['Radie Peat', 'musicians'],
-  ['Romy Madley Croft', 'musicians'],
-]);
-
 function normalize(value) {
-  return value
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return normalizeAnswerText(value);
 }
 
 function toId(name) {
@@ -37,21 +30,34 @@ function formatJson(value) {
 function applyWomenCorrections(answers) {
   const corrected = answers
     .filter((answer) => answer.name !== 'Patricia Era Bath')
-    .map((answer) => ({
-      ...answer,
-      category: womenCategoryCorrections.get(answer.name) ?? answer.category,
-      hint: womenCategoryCorrections.has(answer.name)
-        ? 'Singer, musician, songwriter, or recording artist'
-        : answer.hint,
-    }));
+    .map((answer) => {
+      const category = womenCategoryCorrections.get(answer.name);
+      if (!category) return answer;
 
-  if (!corrected.some((answer) => normalize(answer.name) === 'marie curie')) {
-    corrected.push({
-      name: 'Marie Curie',
-      aliases: ['curie'],
-      category: 'scientists',
-      hint: 'Physicist and chemist; two-time Nobel Prize winner',
+      return {
+        ...answer,
+        category,
+        hint:
+          category === 'musicians'
+            ? 'Singer, musician, songwriter, or recording artist'
+            : 'Scientist, inventor, mathematician, engineer, or astronaut',
+      };
     });
+
+  for (const required of requiredWomenAnswers) {
+    const index = corrected.findIndex(
+      (answer) => normalize(answer.name) === normalize(required.name)
+    );
+    if (index === -1) {
+      corrected.push(required);
+      continue;
+    }
+
+    corrected[index] = {
+      ...corrected[index],
+      ...required,
+      aliases: [...(corrected[index]?.aliases ?? []), ...required.aliases],
+    };
   }
 
   return corrected;
@@ -80,6 +86,7 @@ function sanitizeAnswers(input) {
       if (!normalized || normalized === canonical || seen.has(normalized)) {
         continue;
       }
+      if (!isSafeAnswerAlias(alias)) continue;
       const canonicalOwner = canonicalOwners.get(normalized);
       if (canonicalOwner && canonicalOwner !== answer.id) continue;
 

@@ -1,5 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
+import {
+  isSafeAnswerAlias,
+  normalizeAnswerText,
+  requiredWomenAnswers,
+} from './answer-data-policy.mjs';
+
 const allowedCategories = new Set([
   'actresses',
   'musicians',
@@ -14,13 +20,7 @@ const allowedCategories = new Set([
 const files = ['answers-women.json', 'answers-men.json'];
 
 function normalize(value) {
-  return value
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return normalizeAnswerText(value);
 }
 
 for (const filename of files) {
@@ -52,6 +52,23 @@ for (const filename of files) {
         problems.push(`shared input '${normalized}' on ${owner}/${answer.id}`);
       }
       acceptedInputs.set(normalized, answer.id);
+    }
+
+    for (const alias of answer.aliases) {
+      if (!isSafeAnswerAlias(alias)) {
+        problems.push(
+          `ambiguous single-word alias '${alias}' on ${answer.name}`
+        );
+      }
+    }
+  }
+
+  if (filename === 'answers-women.json') {
+    for (const required of requiredWomenAnswers) {
+      const canonical = normalize(required.name);
+      if (!acceptedInputs.has(canonical)) {
+        problems.push(`missing required answer: ${required.name}`);
+      }
     }
   }
 

@@ -131,7 +131,7 @@ describe('game homepage source', () => {
     );
   });
 
-  it('places answer feedback before secondary community modules', () => {
+  it('keeps comments and leaderboard visible after every completed round', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const renderedGame = game.slice(game.lastIndexOf('  return ('));
     const communityIndex = renderedGame.indexOf('Community Wall');
@@ -141,8 +141,34 @@ describe('game homepage source', () => {
     assert.ok(communityIndex >= 0);
     assert.ok(answersIndex >= 0);
     assert.ok(communityIndex > answersIndex);
-    assert.doesNotMatch(renderedGame, /hasCommunityContent/);
     assert.match(renderedGame, /\{gameState\.isGameOver \? \(\s*<>/);
-    assert.match(game, /if \(!gameState\.isGameOver\) return;/);
+    assert.doesNotMatch(
+      renderedGame,
+      /gameState\.isGameOver && communitySubmissionConfigured/
+    );
+    assert.match(
+      game,
+      /if \(!gameState\.isGameOver\) return;[\s\S]*void loadCommunity\(\);/
+    );
+    assert.match(
+      renderedGame,
+      /onSubmit=\{\(event\) => void submitComment\(event\)\}/
+    );
+    assert.match(renderedGame, /Posting is temporarily unavailable\./);
+  });
+
+  it('shows the final score before the answer grid on small screens', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+
+    assert.match(game, /order-3[^"']*lg:order-none[\s\S]*answerSlots\.map/);
+    assert.match(game, /order-2[^"']*lg:order-none[\s\S]*Final score:/);
+  });
+
+  it('offers a recovery path after a rejected guess', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+
+    assert.match(game, /lastRejectedGuess/);
+    assert.match(game, /Report a missing answer/);
+    assert.match(game, /to="\/contact"/);
   });
 });
