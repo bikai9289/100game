@@ -3796,10 +3796,7 @@
   {
     "id": "catherine-princess-of-wales",
     "name": "Catherine, Princess of Wales",
-    "aliases": [
-      "Kate Middleton",
-      "Catherine Middleton"
-    ],
+    "aliases": ["Kate Middleton", "Catherine Middleton"],
     "category": "politicians",
     "hint": "British royal and public figure"
   },
@@ -3827,10 +3824,7 @@
   {
     "id": "diana-princess-of-wales",
     "name": "Diana, Princess of Wales",
-    "aliases": [
-      "Princess Diana",
-      "Diana Spencer"
-    ],
+    "aliases": ["Princess Diana", "Diana Spencer"],
     "category": "historical",
     "hint": "British royal and humanitarian"
   },

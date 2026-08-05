@@ -270,9 +270,8 @@ export function Name100Game({
   }, [gameId, period]);
 
   useEffect(() => {
-    if (!gameState.isGameOver) return;
     void loadCommunity();
-  }, [gameState.isGameOver, loadCommunity]);
+  }, [loadCommunity]);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -817,185 +816,180 @@ export function Name100Game({
         ))}
       </div>
 
-      {gameState.isGameOver ? (
-        <>
-          <Card className="order-4 rounded-lg border border-border px-4 py-4 shadow-sm ring-0 lg:order-none lg:sticky lg:top-[76px] lg:col-start-2 lg:row-span-2 lg:row-start-1">
-            <CardHeader className="items-center px-0">
-              <CardTitle className="flex items-center gap-2 text-[0.9375rem] font-extrabold">
-                <IconTrophy className="size-5 text-amber-600" />
-                Leaderboard
-              </CardTitle>
-              <div className="grid w-full grid-cols-2 rounded-lg bg-muted p-1">
-                {(['daily', 'all'] as const).map((value) => (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => setPeriod(value)}
-                    className={cn(
-                      'h-8 rounded-md text-xs font-bold transition-colors',
-                      period === value
-                        ? 'bg-background text-foreground shadow-sm'
-                        : 'text-muted-foreground hover:text-foreground'
-                    )}
-                  >
-                    {value === 'daily' ? 'Today' : 'All time'}
-                  </button>
-                ))}
-              </div>
-            </CardHeader>
-            <CardContent className="px-0">
-              {communityStatus === 'loading' ? (
-                <p className="py-8 text-center text-sm text-muted-foreground">
-                  Loading scores...
+      <>
+        <Card className="order-4 rounded-lg border border-border px-4 py-4 shadow-sm ring-0 lg:order-none lg:sticky lg:top-[76px] lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <CardHeader className="items-center px-0">
+            <CardTitle className="flex items-center gap-2 text-[0.9375rem] font-extrabold">
+              <IconTrophy className="size-5 text-amber-600" />
+              Leaderboard
+            </CardTitle>
+            <div className="grid w-full grid-cols-2 rounded-lg bg-muted p-1">
+              {(['daily', 'all'] as const).map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setPeriod(value)}
+                  className={cn(
+                    'h-8 rounded-md text-xs font-bold transition-colors',
+                    period === value
+                      ? 'bg-background text-foreground shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
+                >
+                  {value === 'daily' ? 'Today' : 'All time'}
+                </button>
+              ))}
+            </div>
+          </CardHeader>
+          <CardContent className="px-0">
+            {communityStatus === 'loading' ? (
+              <p className="py-8 text-center text-sm text-muted-foreground">
+                Loading scores...
+              </p>
+            ) : null}
+            {communityStatus === 'error' ? (
+              <div className="py-6 text-center">
+                <p className="text-sm text-muted-foreground">
+                  Scores are temporarily unavailable.
                 </p>
-              ) : null}
-              {communityStatus === 'error' ? (
-                <div className="py-6 text-center">
-                  <p className="text-sm text-muted-foreground">
-                    Scores are temporarily unavailable.
-                  </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="mt-3"
+                  onClick={() => void loadCommunity()}
+                >
+                  Retry
+                </Button>
+              </div>
+            ) : null}
+            {communityStatus === 'ready' &&
+            community.leaderboard.length === 0 ? (
+              <p className="py-8 text-center text-sm text-muted-foreground">
+                No scores yet. Finish a round to take the first spot.
+              </p>
+            ) : null}
+            {community.leaderboard.map((row, index) => (
+              <div
+                key={row.id}
+                className="grid grid-cols-[30px_1fr_auto] items-center gap-2 border-b border-border px-1.5 py-2 text-[0.8125rem] last:border-b-0"
+              >
+                <span
+                  className={cn(
+                    'font-bold text-muted-foreground',
+                    index === 0 && 'text-amber-600'
+                  )}
+                >
+                  #{index + 1}
+                </span>
+                <span className="min-w-0 truncate font-semibold text-foreground">
+                  {row.playerName}
+                </span>
+                <span className="font-black text-primary">{row.score}</span>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        <section className="order-5 border-t border-border pt-8 lg:order-none lg:col-span-2">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
+            <div>
+              <h2 className="flex items-center gap-2 text-xl font-bold">
+                <IconMessage className="size-5 text-primary" />
+                Community Wall
+              </h2>
+              <form
+                onSubmit={(event) => void submitComment(event)}
+                className="mt-4 grid gap-3"
+              >
+                <label htmlFor={`${playerNameId}-comment`} className="sr-only">
+                  Display name
+                </label>
+                <Input
+                  id={`${playerNameId}-comment`}
+                  value={playerName}
+                  maxLength={24}
+                  placeholder="Display name"
+                  onChange={(event) => setPlayerName(event.target.value)}
+                />
+                <label htmlFor={commentId} className="sr-only">
+                  Comment
+                </label>
+                <Textarea
+                  id={commentId}
+                  value={commentMessage}
+                  maxLength={280}
+                  placeholder="Leave a short note about your run"
+                  onChange={(event) => setCommentMessage(event.target.value)}
+                />
+                {turnstileSiteKey ? (
+                  <TurnstileWidget
+                    ref={commentTurnstileRef}
+                    siteKey={turnstileSiteKey}
+                    action="comment"
+                    onToken={setCommentTurnstileToken}
+                  />
+                ) : null}
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs text-muted-foreground">
+                    {commentMessage.length}/280
+                  </span>
                   <Button
-                    type="button"
-                    variant="outline"
+                    type="submit"
                     size="sm"
-                    className="mt-3"
-                    onClick={() => void loadCommunity()}
+                    disabled={
+                      !commentMessage.trim() ||
+                      !communitySubmissionConfigured ||
+                      !commentTurnstileToken
+                    }
                   >
-                    Retry
+                    <IconSend data-icon="inline-start" />
+                    Post
                   </Button>
                 </div>
-              ) : null}
+                <p
+                  className="min-h-5 text-sm text-muted-foreground"
+                  aria-live="polite"
+                >
+                  {commentSubmitStatus ||
+                    (!communitySubmissionConfigured
+                      ? 'Posting is temporarily unavailable.'
+                      : '')}
+                </p>
+              </form>
+            </div>
+
+            <div className="divide-y divide-border">
               {communityStatus === 'ready' &&
-              community.leaderboard.length === 0 ? (
+              community.comments.length === 0 ? (
                 <p className="py-8 text-center text-sm text-muted-foreground">
-                  No scores yet. Finish a round to take the first spot.
+                  No notes yet.
                 </p>
               ) : null}
-              {community.leaderboard.map((row, index) => (
-                <div
-                  key={row.id}
-                  className="grid grid-cols-[30px_1fr_auto] items-center gap-2 border-b border-border px-1.5 py-2 text-[0.8125rem] last:border-b-0"
-                >
-                  <span
-                    className={cn(
-                      'font-bold text-muted-foreground',
-                      index === 0 && 'text-amber-600'
-                    )}
-                  >
-                    #{index + 1}
-                  </span>
-                  <span className="min-w-0 truncate font-semibold text-foreground">
-                    {row.playerName}
-                  </span>
-                  <span className="font-black text-primary">{row.score}</span>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          <section className="order-5 border-t border-border pt-8 lg:order-none lg:col-span-2">
-            <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
-              <div>
-                <h2 className="flex items-center gap-2 text-xl font-bold">
-                  <IconMessage className="size-5 text-primary" />
-                  Community Wall
-                </h2>
-                <form
-                  onSubmit={(event) => void submitComment(event)}
-                  className="mt-4 grid gap-3"
-                >
-                  <label
-                    htmlFor={`${playerNameId}-comment`}
-                    className="sr-only"
-                  >
-                    Display name
-                  </label>
-                  <Input
-                    id={`${playerNameId}-comment`}
-                    value={playerName}
-                    maxLength={24}
-                    placeholder="Display name"
-                    onChange={(event) => setPlayerName(event.target.value)}
-                  />
-                  <label htmlFor={commentId} className="sr-only">
-                    Comment
-                  </label>
-                  <Textarea
-                    id={commentId}
-                    value={commentMessage}
-                    maxLength={280}
-                    placeholder="Leave a short note about your run"
-                    onChange={(event) => setCommentMessage(event.target.value)}
-                  />
-                  {turnstileSiteKey ? (
-                    <TurnstileWidget
-                      ref={commentTurnstileRef}
-                      siteKey={turnstileSiteKey}
-                      action="comment"
-                      onToken={setCommentTurnstileToken}
-                    />
-                  ) : null}
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs text-muted-foreground">
-                      {commentMessage.length}/280
-                    </span>
-                    <Button
-                      type="submit"
-                      size="sm"
-                      disabled={
-                        !commentMessage.trim() ||
-                        !communitySubmissionConfigured ||
-                        !commentTurnstileToken
-                      }
-                    >
-                      <IconSend data-icon="inline-start" />
-                      Post
-                    </Button>
-                  </div>
-                  <p
-                    className="min-h-5 text-sm text-muted-foreground"
-                    aria-live="polite"
-                  >
-                    {commentSubmitStatus ||
-                      (!communitySubmissionConfigured
-                        ? 'Posting is temporarily unavailable.'
-                        : '')}
-                  </p>
-                </form>
-              </div>
-
-              <div className="divide-y divide-border">
-                {communityStatus === 'ready' &&
-                community.comments.length === 0 ? (
-                  <p className="py-8 text-center text-sm text-muted-foreground">
-                    No notes yet.
-                  </p>
-                ) : null}
-                {community.comments.map((comment) => (
-                  <article key={comment.id} className="py-4 first:pt-0">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="font-bold text-foreground">
-                        {comment.displayName}
-                        {comment.score !== null ? (
-                          <span className="ml-2 text-xs font-semibold text-primary">
-                            Score {comment.score}
-                          </span>
-                        ) : null}
-                      </p>
-                      <time className="text-xs text-muted-foreground">
-                        {new Date(comment.createdAt).toLocaleDateString()}
-                      </time>
-                    </div>
-                    <p className="mt-1 break-words text-sm leading-6 text-muted-foreground">
-                      {comment.message}
+              {community.comments.map((comment) => (
+                <article key={comment.id} className="py-4 first:pt-0">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <p className="font-bold text-foreground">
+                      {comment.displayName}
+                      {comment.score !== null ? (
+                        <span className="ml-2 text-xs font-semibold text-primary">
+                          Score {comment.score}
+                        </span>
+                      ) : null}
                     </p>
-                  </article>
-                ))}
-              </div>
+                    <time className="text-xs text-muted-foreground">
+                      {new Date(comment.createdAt).toLocaleDateString()}
+                    </time>
+                  </div>
+                  <p className="mt-1 break-words text-sm leading-6 text-muted-foreground">
+                    {comment.message}
+                  </p>
+                </article>
+              ))}
             </div>
-          </section>
-        </>
-      ) : null}
+          </div>
+        </section>
+      </>
 
       {gameState.isGameOver ? (
         <Card className="order-2 rounded-lg border border-border py-4 shadow-sm ring-0 lg:order-none lg:col-start-1">

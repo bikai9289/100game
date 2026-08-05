@@ -131,7 +131,7 @@ describe('game homepage source', () => {
     );
   });
 
-  it('keeps comments and leaderboard visible after every completed round', () => {
+  it('keeps comments and leaderboard visible before a round is completed', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const renderedGame = game.slice(game.lastIndexOf('  return ('));
     const communityIndex = renderedGame.indexOf('Community Wall');
@@ -141,14 +141,18 @@ describe('game homepage source', () => {
     assert.ok(communityIndex >= 0);
     assert.ok(answersIndex >= 0);
     assert.ok(communityIndex > answersIndex);
-    assert.match(renderedGame, /\{gameState\.isGameOver \? \(\s*<>/);
+    assert.doesNotMatch(
+      renderedGame,
+      /\{gameState\.isGameOver \? \(\s*<>\s*<Card[\s\S]*?Leaderboard/
+    );
     assert.doesNotMatch(
       renderedGame,
       /gameState\.isGameOver && communitySubmissionConfigured/
     );
+    assert.doesNotMatch(game, /if \(!gameState\.isGameOver\) return;/);
     assert.match(
       game,
-      /if \(!gameState\.isGameOver\) return;[\s\S]*void loadCommunity\(\);/
+      /useEffect\(\(\) => \{\s*void loadCommunity\(\);\s*\}, \[loadCommunity\]\);/
     );
     assert.match(
       renderedGame,
