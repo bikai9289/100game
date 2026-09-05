@@ -9,7 +9,7 @@ describe('game homepage source', () => {
     assert.match(homepage, /Name100Game/);
     assert.match(homepage, /Name 100 Women Challenge/);
     assert.match(homepage, /How to Play/);
-    assert.match(homepage, /Tips to Reach 100/);
+    assert.match(homepage, /Tips and Strategies to Reach 100/);
     assert.match(homepage, /FAQ/);
   });
 

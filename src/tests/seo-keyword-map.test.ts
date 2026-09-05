@@ -23,9 +23,13 @@ describe('SEO keyword map', () => {
   });
 
   it('links the answer intent back to the game and category practice', () => {
-    const answers = readFileSync('src/routes/(pages)/answers.tsx', 'utf8');
+    const answers = readFileSync(
+      'src/components/blocks/answers-list-page.tsx',
+      'utf8'
+    );
 
-    assert.match(answers, /to="\/"[^>]*>\s*play the Name 100 Women Challenge/i);
+    assert.match(answers, /to=\{playTo\}/);
+    assert.match(answers, /play the \{playLabel\}/);
     assert.match(answers, /to="\/categories"[^>]*>\s*practice by category/i);
   });
 });

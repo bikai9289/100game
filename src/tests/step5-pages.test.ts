@@ -59,7 +59,8 @@ describe('step5 internal pages', () => {
     const answers = readFileSync('src/routes/(pages)/answers.tsx', 'utf8');
 
     assert.match(challenge, /Daily Challenge: Name 100 Women/);
-    assert.match(challenge, /FAQPage/);
+    assert.match(challenge, /gameJsonLd/);
+    assert.match(readFileSync('src/lib/game-schema.ts', 'utf8'), /FAQPage/);
     assert.match(categories, /Name 100 Women by Category/);
     assert.match(timer, /Name 100 Women Timer/);
     assert.match(men, /Name 100 Men Challenge/);
