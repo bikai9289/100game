@@ -38,7 +38,6 @@ import { Route as testsTestErrorRouteImport } from './routes/(tests)/test-error'
 import { Route as testsTest404RouteImport } from './routes/(tests)/test-404'
 import { Route as pagesTimerRouteImport } from './routes/(pages)/timer'
 import { Route as pagesRulesRouteImport } from './routes/(pages)/rules'
-import { Route as pagesMenRouteImport } from './routes/(pages)/men'
 import { Route as pagesContactRouteImport } from './routes/(pages)/contact'
 import { Route as pagesChangelogRouteImport } from './routes/(pages)/changelog'
 import { Route as pagesChallengeRouteImport } from './routes/(pages)/challenge'
@@ -46,6 +45,8 @@ import { Route as pagesAnswersRouteImport } from './routes/(pages)/answers'
 import { Route as legalsTermsRouteImport } from './routes/(legals)/terms'
 import { Route as legalsPrivacyRouteImport } from './routes/(legals)/privacy'
 import { Route as legalsCookieRouteImport } from './routes/(legals)/cookie'
+import { Route as pagesMenRouteRouteImport } from './routes/(pages)/men/route'
+import { Route as pagesMenIndexRouteImport } from './routes/(pages)/men/index'
 import { Route as pagesCategoriesIndexRouteImport } from './routes/(pages)/categories/index'
 import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/stripe'
 import { Route as ApiWebhooksCreemRouteImport } from './routes/api/webhooks/creem'
@@ -202,11 +203,6 @@ const pagesRulesRoute = pagesRulesRouteImport.update({
   path: '/rules',
   getParentRoute: () => rootRouteImport,
 } as any)
-const pagesMenRoute = pagesMenRouteImport.update({
-  id: '/(pages)/men',
-  path: '/men',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const pagesContactRoute = pagesContactRouteImport.update({
   id: '/(pages)/contact',
   path: '/contact',
@@ -241,6 +237,16 @@ const legalsCookieRoute = legalsCookieRouteImport.update({
   id: '/(legals)/cookie',
   path: '/cookie',
   getParentRoute: () => rootRouteImport,
+} as any)
+const pagesMenRouteRoute = pagesMenRouteRouteImport.update({
+  id: '/(pages)/men',
+  path: '/men',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const pagesMenIndexRoute = pagesMenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => pagesMenRouteRoute,
 } as any)
 const pagesCategoriesIndexRoute = pagesCategoriesIndexRouteImport.update({
   id: '/(pages)/categories/',
@@ -280,12 +286,12 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 const pagesMenRulesRoute = pagesMenRulesRouteImport.update({
   id: '/rules',
   path: '/rules',
-  getParentRoute: () => pagesMenRoute,
+  getParentRoute: () => pagesMenRouteRoute,
 } as any)
 const pagesMenAnswersRoute = pagesMenAnswersRouteImport.update({
   id: '/answers',
   path: '/answers',
-  getParentRoute: () => pagesMenRoute,
+  getParentRoute: () => pagesMenRouteRoute,
 } as any)
 const pagesCategoriesSlugRoute = pagesCategoriesSlugRouteImport.update({
   id: '/(pages)/categories/$slug',
@@ -302,6 +308,7 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/settings': typeof SettingsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/men': typeof pagesMenRouteRouteWithChildren
   '/cookie': typeof legalsCookieRoute
   '/privacy': typeof legalsPrivacyRoute
   '/terms': typeof legalsTermsRoute
@@ -309,7 +316,6 @@ export interface FileRoutesByFullPath {
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
-  '/men': typeof pagesMenRouteWithChildren
   '/rules': typeof pagesRulesRoute
   '/timer': typeof pagesTimerRoute
   '/test-404': typeof testsTest404Route
@@ -341,6 +347,7 @@ export interface FileRoutesByFullPath {
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
   '/categories/': typeof pagesCategoriesIndexRoute
+  '/men/': typeof pagesMenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -355,7 +362,6 @@ export interface FileRoutesByTo {
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
-  '/men': typeof pagesMenRouteWithChildren
   '/rules': typeof pagesRulesRoute
   '/timer': typeof pagesTimerRoute
   '/test-404': typeof testsTest404Route
@@ -387,6 +393,7 @@ export interface FileRoutesByTo {
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
   '/categories': typeof pagesCategoriesIndexRoute
+  '/men': typeof pagesMenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -398,6 +405,7 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/settings': typeof SettingsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/(pages)/men': typeof pagesMenRouteRouteWithChildren
   '/(legals)/cookie': typeof legalsCookieRoute
   '/(legals)/privacy': typeof legalsPrivacyRoute
   '/(legals)/terms': typeof legalsTermsRoute
@@ -405,7 +413,6 @@ export interface FileRoutesById {
   '/(pages)/challenge': typeof pagesChallengeRoute
   '/(pages)/changelog': typeof pagesChangelogRoute
   '/(pages)/contact': typeof pagesContactRoute
-  '/(pages)/men': typeof pagesMenRouteWithChildren
   '/(pages)/rules': typeof pagesRulesRoute
   '/(pages)/timer': typeof pagesTimerRoute
   '/(tests)/test-404': typeof testsTest404Route
@@ -437,6 +444,7 @@ export interface FileRoutesById {
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
   '/api/webhooks/stripe': typeof ApiWebhooksStripeRoute
   '/(pages)/categories/': typeof pagesCategoriesIndexRoute
+  '/(pages)/men/': typeof pagesMenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -449,6 +457,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/settings'
     | '/sitemap.xml'
+    | '/men'
     | '/cookie'
     | '/privacy'
     | '/terms'
@@ -456,7 +465,6 @@ export interface FileRouteTypes {
     | '/challenge'
     | '/changelog'
     | '/contact'
-    | '/men'
     | '/rules'
     | '/timer'
     | '/test-404'
@@ -488,6 +496,7 @@ export interface FileRouteTypes {
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
     | '/categories/'
+    | '/men/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -502,7 +511,6 @@ export interface FileRouteTypes {
     | '/challenge'
     | '/changelog'
     | '/contact'
-    | '/men'
     | '/rules'
     | '/timer'
     | '/test-404'
@@ -534,6 +542,7 @@ export interface FileRouteTypes {
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
     | '/categories'
+    | '/men'
   id:
     | '__root__'
     | '/'
@@ -544,6 +553,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/settings'
     | '/sitemap.xml'
+    | '/(pages)/men'
     | '/(legals)/cookie'
     | '/(legals)/privacy'
     | '/(legals)/terms'
@@ -551,7 +561,6 @@ export interface FileRouteTypes {
     | '/(pages)/challenge'
     | '/(pages)/changelog'
     | '/(pages)/contact'
-    | '/(pages)/men'
     | '/(pages)/rules'
     | '/(pages)/timer'
     | '/(tests)/test-404'
@@ -583,6 +592,7 @@ export interface FileRouteTypes {
     | '/api/webhooks/creem'
     | '/api/webhooks/stripe'
     | '/(pages)/categories/'
+    | '/(pages)/men/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -594,6 +604,7 @@ export interface RootRouteChildren {
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SettingsRoute: typeof SettingsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  pagesMenRouteRoute: typeof pagesMenRouteRouteWithChildren
   legalsCookieRoute: typeof legalsCookieRoute
   legalsPrivacyRoute: typeof legalsPrivacyRoute
   legalsTermsRoute: typeof legalsTermsRoute
@@ -601,7 +612,6 @@ export interface RootRouteChildren {
   pagesChallengeRoute: typeof pagesChallengeRoute
   pagesChangelogRoute: typeof pagesChangelogRoute
   pagesContactRoute: typeof pagesContactRoute
-  pagesMenRoute: typeof pagesMenRouteWithChildren
   pagesRulesRoute: typeof pagesRulesRoute
   pagesTimerRoute: typeof pagesTimerRoute
   testsTest404Route: typeof testsTest404Route
@@ -822,13 +832,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesRulesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(pages)/men': {
-      id: '/(pages)/men'
-      path: '/men'
-      fullPath: '/men'
-      preLoaderRoute: typeof pagesMenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/(pages)/contact': {
       id: '/(pages)/contact'
       path: '/contact'
@@ -877,6 +880,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/cookie'
       preLoaderRoute: typeof legalsCookieRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/(pages)/men': {
+      id: '/(pages)/men'
+      path: '/men'
+      fullPath: '/men'
+      preLoaderRoute: typeof pagesMenRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(pages)/men/': {
+      id: '/(pages)/men/'
+      path: '/'
+      fullPath: '/men/'
+      preLoaderRoute: typeof pagesMenIndexRouteImport
+      parentRoute: typeof pagesMenRouteRoute
     }
     '/(pages)/categories/': {
       id: '/(pages)/categories/'
@@ -932,14 +949,14 @@ declare module '@tanstack/react-router' {
       path: '/rules'
       fullPath: '/men/rules'
       preLoaderRoute: typeof pagesMenRulesRouteImport
-      parentRoute: typeof pagesMenRoute
+      parentRoute: typeof pagesMenRouteRoute
     }
     '/(pages)/men/answers': {
       id: '/(pages)/men/answers'
       path: '/answers'
       fullPath: '/men/answers'
       preLoaderRoute: typeof pagesMenAnswersRouteImport
-      parentRoute: typeof pagesMenRoute
+      parentRoute: typeof pagesMenRouteRoute
     }
     '/(pages)/categories/$slug': {
       id: '/(pages)/categories/$slug'
@@ -1019,18 +1036,20 @@ const SettingsRouteWithChildren = SettingsRoute._addFileChildren(
   SettingsRouteChildren,
 )
 
-interface pagesMenRouteChildren {
+interface pagesMenRouteRouteChildren {
   pagesMenAnswersRoute: typeof pagesMenAnswersRoute
   pagesMenRulesRoute: typeof pagesMenRulesRoute
+  pagesMenIndexRoute: typeof pagesMenIndexRoute
 }
 
-const pagesMenRouteChildren: pagesMenRouteChildren = {
+const pagesMenRouteRouteChildren: pagesMenRouteRouteChildren = {
   pagesMenAnswersRoute: pagesMenAnswersRoute,
   pagesMenRulesRoute: pagesMenRulesRoute,
+  pagesMenIndexRoute: pagesMenIndexRoute,
 }
 
-const pagesMenRouteWithChildren = pagesMenRoute._addFileChildren(
-  pagesMenRouteChildren,
+const pagesMenRouteRouteWithChildren = pagesMenRouteRoute._addFileChildren(
+  pagesMenRouteRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
@@ -1042,6 +1061,7 @@ const rootRouteChildren: RootRouteChildren = {
   RobotsDottxtRoute: RobotsDottxtRoute,
   SettingsRoute: SettingsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  pagesMenRouteRoute: pagesMenRouteRouteWithChildren,
   legalsCookieRoute: legalsCookieRoute,
   legalsPrivacyRoute: legalsPrivacyRoute,
   legalsTermsRoute: legalsTermsRoute,
@@ -1049,7 +1069,6 @@ const rootRouteChildren: RootRouteChildren = {
   pagesChallengeRoute: pagesChallengeRoute,
   pagesChangelogRoute: pagesChangelogRoute,
   pagesContactRoute: pagesContactRoute,
-  pagesMenRoute: pagesMenRouteWithChildren,
   pagesRulesRoute: pagesRulesRoute,
   pagesTimerRoute: pagesTimerRoute,
   testsTest404Route: testsTest404Route,

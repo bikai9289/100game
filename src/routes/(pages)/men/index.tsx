@@ -46,7 +46,7 @@ const menTips = [
   },
 ];
 
-export const Route = createFileRoute('/(pages)/men')({
+export const Route = createFileRoute('/(pages)/men/')({
   head: () => ({
     ...seo('/men', {
       title,

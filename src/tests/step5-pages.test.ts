@@ -6,7 +6,7 @@ const mainRoutes = [
   'src/routes/(pages)/challenge.tsx',
   'src/routes/(pages)/categories/index.tsx',
   'src/routes/(pages)/timer.tsx',
-  'src/routes/(pages)/men.tsx',
+  'src/routes/(pages)/men/index.tsx',
   'src/routes/(pages)/answers.tsx',
 ];
 
@@ -55,7 +55,7 @@ describe('step5 internal pages', () => {
       'utf8'
     );
     const timer = readFileSync('src/routes/(pages)/timer.tsx', 'utf8');
-    const men = readFileSync('src/routes/(pages)/men.tsx', 'utf8');
+    const men = readFileSync('src/routes/(pages)/men/index.tsx', 'utf8');
     const answers = readFileSync('src/routes/(pages)/answers.tsx', 'utf8');
 
     assert.match(challenge, /Daily Challenge: Name 100 Women/);
