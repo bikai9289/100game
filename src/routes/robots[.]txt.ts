@@ -29,6 +29,18 @@ export const Route = createFileRoute('/robots.txt')({
 Allow: /
 ${getDisallowRules()}
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: ${base}/sitemap.xml`;
 
         return new Response(robots, {

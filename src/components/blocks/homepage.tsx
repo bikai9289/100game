@@ -1,14 +1,7 @@
+import { GameFaq } from '@/components/blocks/game-faq';
 import { MoreChallenges } from '@/components/blocks/more-challenges';
 import { Name100Game } from '@/components/game/name100-game';
-import womenAnswersData from '@/data/answers-women.json';
-import type { Answer } from '@/lib/gameEngine';
 import Container from '@/components/layout/container';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import {
   Card,
   CardContent,
@@ -16,67 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  IconCheck,
-  IconClock,
-  IconFlag,
-  IconKeyboard,
-} from '@tabler/icons-react';
-
-const steps = [
-  {
-    title: 'Type a name, press Enter',
-    body: "Type a famous woman's name from the curated answer library and hit Enter. Your 12-minute timer starts on your first accepted guess.",
-    icon: IconKeyboard,
-  },
-  {
-    title: 'Correct answers fill slots',
-    body: 'Every accepted name fills a numbered slot with a colorful category tag and your score goes up. Duplicates are ignored.',
-    icon: IconFlag,
-  },
-  {
-    title: 'Name as many as you can',
-    body: "Race the clock toward 100. Your progress is saved in this browser, so a refresh won't erase a good run.",
-    icon: IconClock,
-  },
-];
-
-const tips = [
-  'Start with modern celebrities you know well.',
-  'Think by category: music, movies, sports, history.',
-  'Move country by country when your first list slows down.',
-  'Do not forget scientists, founders, and political leaders.',
-  'Use last names carefully for instantly recognizable people.',
-  'Keep typing quickly; you can clean up mistakes next round.',
-];
-
-const faqs = [
-  {
-    question: 'What counts as a valid answer?',
-    answer:
-      'A valid answer is a woman in the curated answer library, covering entertainment, science, sports, politics, business, activism, and history. First and last names are safest; unambiguous stage names and aliases also work.',
-  },
-  {
-    question: 'How is the score calculated?',
-    answer:
-      'Your score is the number of unique accepted names you enter before the 12 minute timer reaches zero. Repeating the same person does not add another point.',
-  },
-  {
-    question: 'Can I play on my phone?',
-    answer:
-      'Yes. The game is designed mobile-first, with the timer and score kept above the input so you can keep typing while the keyboard is open.',
-  },
-  {
-    question: 'Is the game free?',
-    answer:
-      'Yes. Name 100 Women Challenge is free to play online, and your progress is stored locally in your browser.',
-  },
-  {
-    question: 'Will there be new categories?',
-    answer:
-      "Yes. Category pages, daily challenge mode, a timer tool, and a men's version are separate pages so each mode can have focused rules and useful practice content.",
-  },
-];
+import womenAnswersData from '@/data/answers-women.json';
+import type { Answer } from '@/lib/gameEngine';
+import { homeFaqs, homeHowToSteps } from '@/lib/name100-copy';
+import { categoryMeta, categoryOrder } from '@/lib/name100-data';
+import { IconCheck } from '@tabler/icons-react';
+import { Link } from '@tanstack/react-router';
 
 export function HomePage() {
   return (
@@ -97,39 +35,81 @@ export function HomePage() {
 
       <section className="border-t border-border bg-background py-[52px]">
         <Container className="px-[18px]">
+          <article className="mx-auto max-w-[1180px] space-y-4 text-base leading-7 text-muted-foreground">
+            <h2 className="text-[1.75rem] font-extrabold tracking-normal text-foreground">
+              About the Name 100 Women Challenge
+            </h2>
+            <p>
+              Name 100 Women Challenge is a free 12-minute typing game: name as
+              many famous women as you can before the clock runs out. The format
+              spread because it is simple to explain, easy to share, and harder
+              than it sounds. Most people can name a dozen actresses or
+              musicians immediately, then stall when they try to leave
+              entertainment and reach scientists, athletes, leaders, and
+              historical figures.
+            </p>
+            <p>
+              The social version of the challenge shows up in group chats,
+              classrooms, and short videos because a score is easy to compare.
+              Twelve minutes is long enough to feel like a real attempt and
+              short enough to finish in one sitting. A friend can play the same
+              page and send back a number. That loop is why the Name 100
+              Challenge keeps spreading: the game is the content.
+            </p>
+            <p>
+              This site uses a curated answer library, not a live encyclopedia
+              lookup. Accepted names are checked in your browser against more
+              than 500 women across entertainment, science, sports, politics,
+              business, activism, and history. A one-letter spelling slip can
+              still count. That keeps the game fair on a phone, works without an
+              account, and lets the first screen stay playable.
+            </p>
+          </article>
+        </Container>
+      </section>
+
+      <section className="border-t border-border bg-background py-[52px]">
+        <Container className="px-[18px]">
           <div className="mx-auto max-w-[1180px]">
             <h2 className="text-[1.75rem] font-extrabold tracking-normal">
               How to Play
             </h2>
             <p className="mt-1.5 text-muted-foreground">
-              Three simple steps. No sign-up, free to play.
+              Six rules. No sign-up, free to play.
             </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {steps.map((step) => {
-                const Icon = step.icon;
-
-                return (
-                  <Card
-                    key={step.title}
-                    className="rounded-[14px] border border-border bg-card p-5 ring-0"
-                  >
-                    <CardHeader className="px-0">
-                      <div className="grid size-10 place-items-center rounded-full bg-accent text-primary">
-                        <Icon className="size-5" />
-                      </div>
-                      <CardTitle className="mt-3.5 text-[1.0625rem] font-bold">
-                        {step.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="px-0">
-                      <CardDescription className="mt-1.5 text-sm leading-6">
-                        {step.body}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {homeHowToSteps.map((step, index) => (
+                <Card
+                  key={step.title}
+                  className="rounded-[14px] border border-border bg-card p-5 ring-0"
+                >
+                  <CardHeader className="px-0">
+                    <p className="text-sm font-bold text-primary">
+                      Step {index + 1}
+                    </p>
+                    <CardTitle className="mt-2 text-[1.0625rem] font-bold">
+                      {step.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-0">
+                    <CardDescription className="mt-1.5 text-sm leading-6">
+                      {step.body}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
+            <p className="mt-6 text-sm leading-6 text-muted-foreground">
+              The full scoring rules, aliases, and edge cases are written out on
+              the{' '}
+              <Link
+                to="/rules"
+                className="font-semibold text-primary hover:underline"
+              >
+                Name 100 Women rules page
+              </Link>
+              .
+            </p>
           </div>
         </Container>
       </section>
@@ -138,16 +118,53 @@ export function HomePage() {
         <Container className="px-[18px]">
           <div className="mx-auto max-w-[1180px]">
             <h2 className="text-[1.75rem] font-extrabold tracking-normal">
-              Tips to Reach 100
+              Tips and Strategies to Reach 100
             </h2>
-            <div className="mt-5 grid gap-2.5">
-              {tips.map((tip) => (
-                <div key={tip} className="flex gap-2.5">
-                  <IconCheck className="mt-1 size-4 shrink-0 stroke-[3] text-primary" />
-                  <span className="text-muted-foreground">{tip}</span>
-                </div>
-              ))}
+            <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
+              High scores come from rotating categories, not from staring at one
+              mental list. Use the lanes below, then jump to a focused practice
+              page when a group dries up.
+            </p>
+            <div className="mt-6 grid gap-5">
+              {categoryOrder.map((slug) => {
+                const meta = categoryMeta[slug];
+                return (
+                  <div key={slug} className="flex gap-2.5">
+                    <IconCheck className="mt-1 size-4 shrink-0 stroke-[3] text-primary" />
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      <Link
+                        to="/categories/$slug"
+                        params={{ slug }}
+                        className="font-semibold text-foreground hover:underline"
+                      >
+                        {meta.title}.
+                      </Link>{' '}
+                      {meta.practiceTips} {meta.listIntro}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
+            <ul className="mt-6 space-y-2 text-sm leading-6 text-muted-foreground">
+              <li>
+                Start with modern celebrities you can type fast, then leave
+                entertainment before you stall.
+              </li>
+              <li>
+                Move country by country for leaders, athletes, and historical
+                figures.
+              </li>
+              <li>
+                After a lost round, open the{' '}
+                <Link
+                  to="/answers"
+                  className="font-semibold text-primary hover:underline"
+                >
+                  full famous women list
+                </Link>{' '}
+                and replay while missed names are still fresh.
+              </li>
+            </ul>
           </div>
         </Container>
       </section>
@@ -160,24 +177,47 @@ export function HomePage() {
             <h2 className="text-[1.75rem] font-extrabold tracking-normal">
               FAQ
             </h2>
-            <Accordion className="mt-5 grid gap-2.5" defaultValue={['faq-1']}>
-              {faqs.map((item, index) => (
-                <AccordionItem
-                  key={item.question}
-                  value={`faq-${index + 1}`}
-                  className="rounded-xl border border-border bg-card px-4"
-                >
-                  <AccordionTrigger className="text-left font-bold hover:no-underline">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      {item.answer}
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <GameFaq
+              faqs={homeFaqs}
+              renderAnswer={(item, index) =>
+                index === 4 ? (
+                  <p>
+                    Yes. You can{' '}
+                    <Link
+                      to="/categories"
+                      className="font-semibold text-primary hover:underline"
+                    >
+                      practice Name 100 Women by category
+                    </Link>
+                    , play the{' '}
+                    <Link
+                      to="/challenge"
+                      className="font-semibold text-primary hover:underline"
+                    >
+                      daily challenge
+                    </Link>
+                    , use the{' '}
+                    <Link
+                      to="/timer"
+                      className="font-semibold text-primary hover:underline"
+                    >
+                      timer tool
+                    </Link>
+                    , or switch to the{' '}
+                    <Link
+                      to="/men"
+                      className="font-semibold text-primary hover:underline"
+                    >
+                      Name 100 Men Challenge
+                    </Link>
+                    . Each mode has its own rules, answer list, and saved
+                    progress.
+                  </p>
+                ) : (
+                  <p>{item.answer}</p>
+                )
+              }
+            />
           </div>
         </Container>
       </section>

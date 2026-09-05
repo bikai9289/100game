@@ -17,7 +17,7 @@ interface EmailLayoutProps {
 }
 
 /**
- * Shared email layout (same structure as MkSaaS).
+ * Shared email layout.
  */
 export default function EmailLayout({ children }: EmailLayoutProps) {
   const year = new Date().getFullYear();

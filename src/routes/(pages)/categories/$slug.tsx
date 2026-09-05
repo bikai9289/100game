@@ -7,6 +7,7 @@ import {
   getAnswersByCategory,
   type CategorySlug,
 } from '@/lib/name100-data';
+import { gameJsonLd } from '@/lib/game-schema';
 import { seo } from '@/lib/seo';
 import { createFileRoute, Link, notFound } from '@tanstack/react-router';
 
@@ -27,7 +28,17 @@ export const Route = createFileRoute('/(pages)/categories/$slug')({
     const title = `Name 100 Women: ${loaderData.meta.title} Edition – Category Challenge`;
     const description = `Practice the Name 100 Women ${loaderData.meta.title.toLowerCase()} category challenge. You have 5 minutes to name 30 famous women from this category.`;
 
-    return seo(`/categories/${loaderData.slug}`, { title, description });
+    return {
+      ...seo(`/categories/${loaderData.slug}`, { title, description }),
+      scripts: [
+        gameJsonLd({
+          path: `/categories/${loaderData.slug}`,
+          name: `Name 100 Women: ${loaderData.meta.title}`,
+          description,
+          breadcrumb: loaderData.meta.title,
+        }),
+      ],
+    };
   },
   component: CategoryPage,
 });

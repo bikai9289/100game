@@ -81,15 +81,12 @@ export function getCanonicalPathname(pathname: string) {
 
 /**
  * Paths that are fully translated and should get hreflang alternates
- * in sitemap / SEO metadata. Blog posts (`/blog/<slug>`) are localized too,
- * but handled separately via {@link isLocalizedPath} since they're dynamic.
+ * in sitemap / SEO metadata.
  */
 export const LOCALIZED_PATHS = new Set([
   '/',
-  '/blog',
   '/changelog',
   '/cookie',
-  '/pricing',
   '/privacy',
   '/terms',
 ]);
@@ -100,6 +97,5 @@ export const LOCALIZED_PATHS = new Set([
  * `seo()` metadata and the dynamic sitemap.
  */
 export function isLocalizedPath(path: string): boolean {
-  if (LOCALIZED_PATHS.has(path)) return true;
-  return path.startsWith('/blog/');
+  return LOCALIZED_PATHS.has(path);
 }

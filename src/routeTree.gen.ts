@@ -19,7 +19,6 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as SettingsSecurityRouteImport } from './routes/settings/security'
 import { Route as SettingsProfileRouteImport } from './routes/settings/profile'
@@ -28,7 +27,6 @@ import { Route as SettingsNotificationsRouteImport } from './routes/settings/not
 import { Route as SettingsFilesRouteImport } from './routes/settings/files'
 import { Route as SettingsBillingRouteImport } from './routes/settings/billing'
 import { Route as SettingsApikeysRouteImport } from './routes/settings/apikeys'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
 import { Route as AuthRegisterRouteImport } from './routes/auth/register'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
@@ -39,7 +37,7 @@ import { Route as AdminUsersRouteImport } from './routes/admin/users'
 import { Route as testsTestErrorRouteImport } from './routes/(tests)/test-error'
 import { Route as testsTest404RouteImport } from './routes/(tests)/test-404'
 import { Route as pagesTimerRouteImport } from './routes/(pages)/timer'
-import { Route as pagesPricingRouteImport } from './routes/(pages)/pricing'
+import { Route as pagesRulesRouteImport } from './routes/(pages)/rules'
 import { Route as pagesMenRouteImport } from './routes/(pages)/men'
 import { Route as pagesContactRouteImport } from './routes/(pages)/contact'
 import { Route as pagesChangelogRouteImport } from './routes/(pages)/changelog'
@@ -55,6 +53,8 @@ import { Route as ApiStorageFileRouteImport } from './routes/api/storage/file'
 import { Route as ApiGameSessionRouteImport } from './routes/api/game/session'
 import { Route as ApiGameCommunityRouteImport } from './routes/api/game/community'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as pagesMenRulesRouteImport } from './routes/(pages)/men/rules'
+import { Route as pagesMenAnswersRouteImport } from './routes/(pages)/men/answers'
 import { Route as pagesCategoriesSlugRouteImport } from './routes/(pages)/categories/$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -107,11 +107,6 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DashboardRoute,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -151,11 +146,6 @@ const SettingsApikeysRoute = SettingsApikeysRouteImport.update({
   id: '/apikeys',
   path: '/apikeys',
   getParentRoute: () => SettingsRoute,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthResetPasswordRoute = AuthResetPasswordRouteImport.update({
   id: '/reset-password',
@@ -207,9 +197,9 @@ const pagesTimerRoute = pagesTimerRouteImport.update({
   path: '/timer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const pagesPricingRoute = pagesPricingRouteImport.update({
-  id: '/(pages)/pricing',
-  path: '/pricing',
+const pagesRulesRoute = pagesRulesRouteImport.update({
+  id: '/(pages)/rules',
+  path: '/rules',
   getParentRoute: () => rootRouteImport,
 } as any)
 const pagesMenRoute = pagesMenRouteImport.update({
@@ -287,6 +277,16 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const pagesMenRulesRoute = pagesMenRulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => pagesMenRoute,
+} as any)
+const pagesMenAnswersRoute = pagesMenAnswersRouteImport.update({
+  id: '/answers',
+  path: '/answers',
+  getParentRoute: () => pagesMenRoute,
+} as any)
 const pagesCategoriesSlugRoute = pagesCategoriesSlugRouteImport.update({
   id: '/(pages)/categories/$slug',
   path: '/categories/$slug',
@@ -309,8 +309,8 @@ export interface FileRoutesByFullPath {
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
-  '/men': typeof pagesMenRoute
-  '/pricing': typeof pagesPricingRoute
+  '/men': typeof pagesMenRouteWithChildren
+  '/rules': typeof pagesRulesRoute
   '/timer': typeof pagesTimerRoute
   '/test-404': typeof testsTest404Route
   '/test-error': typeof testsTestErrorRoute
@@ -321,7 +321,6 @@ export interface FileRoutesByFullPath {
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/settings/apikeys': typeof SettingsApikeysRoute
   '/settings/billing': typeof SettingsBillingRoute
   '/settings/files': typeof SettingsFilesRoute
@@ -330,10 +329,11 @@ export interface FileRoutesByFullPath {
   '/settings/profile': typeof SettingsProfileRoute
   '/settings/security': typeof SettingsSecurityRoute
   '/admin/': typeof AdminIndexRoute
-  '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/categories/$slug': typeof pagesCategoriesSlugRoute
+  '/men/answers': typeof pagesMenAnswersRoute
+  '/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
   '/api/game/session': typeof ApiGameSessionRoute
@@ -355,8 +355,8 @@ export interface FileRoutesByTo {
   '/challenge': typeof pagesChallengeRoute
   '/changelog': typeof pagesChangelogRoute
   '/contact': typeof pagesContactRoute
-  '/men': typeof pagesMenRoute
-  '/pricing': typeof pagesPricingRoute
+  '/men': typeof pagesMenRouteWithChildren
+  '/rules': typeof pagesRulesRoute
   '/timer': typeof pagesTimerRoute
   '/test-404': typeof testsTest404Route
   '/test-error': typeof testsTestErrorRoute
@@ -367,7 +367,6 @@ export interface FileRoutesByTo {
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/settings/apikeys': typeof SettingsApikeysRoute
   '/settings/billing': typeof SettingsBillingRoute
   '/settings/files': typeof SettingsFilesRoute
@@ -376,10 +375,11 @@ export interface FileRoutesByTo {
   '/settings/profile': typeof SettingsProfileRoute
   '/settings/security': typeof SettingsSecurityRoute
   '/admin': typeof AdminIndexRoute
-  '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/settings': typeof SettingsIndexRoute
   '/categories/$slug': typeof pagesCategoriesSlugRoute
+  '/men/answers': typeof pagesMenAnswersRoute
+  '/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
   '/api/game/session': typeof ApiGameSessionRoute
@@ -405,8 +405,8 @@ export interface FileRoutesById {
   '/(pages)/challenge': typeof pagesChallengeRoute
   '/(pages)/changelog': typeof pagesChangelogRoute
   '/(pages)/contact': typeof pagesContactRoute
-  '/(pages)/men': typeof pagesMenRoute
-  '/(pages)/pricing': typeof pagesPricingRoute
+  '/(pages)/men': typeof pagesMenRouteWithChildren
+  '/(pages)/rules': typeof pagesRulesRoute
   '/(pages)/timer': typeof pagesTimerRoute
   '/(tests)/test-404': typeof testsTest404Route
   '/(tests)/test-error': typeof testsTestErrorRoute
@@ -417,7 +417,6 @@ export interface FileRoutesById {
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/settings/apikeys': typeof SettingsApikeysRoute
   '/settings/billing': typeof SettingsBillingRoute
   '/settings/files': typeof SettingsFilesRoute
@@ -426,10 +425,11 @@ export interface FileRoutesById {
   '/settings/profile': typeof SettingsProfileRoute
   '/settings/security': typeof SettingsSecurityRoute
   '/admin/': typeof AdminIndexRoute
-  '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/(pages)/categories/$slug': typeof pagesCategoriesSlugRoute
+  '/(pages)/men/answers': typeof pagesMenAnswersRoute
+  '/(pages)/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
   '/api/game/session': typeof ApiGameSessionRoute
@@ -457,7 +457,7 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/men'
-    | '/pricing'
+    | '/rules'
     | '/timer'
     | '/test-404'
     | '/test-error'
@@ -468,7 +468,6 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
-    | '/blog/$slug'
     | '/settings/apikeys'
     | '/settings/billing'
     | '/settings/files'
@@ -477,10 +476,11 @@ export interface FileRouteTypes {
     | '/settings/profile'
     | '/settings/security'
     | '/admin/'
-    | '/blog/'
     | '/dashboard/'
     | '/settings/'
     | '/categories/$slug'
+    | '/men/answers'
+    | '/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
     | '/api/game/session'
@@ -503,7 +503,7 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/men'
-    | '/pricing'
+    | '/rules'
     | '/timer'
     | '/test-404'
     | '/test-error'
@@ -514,7 +514,6 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
-    | '/blog/$slug'
     | '/settings/apikeys'
     | '/settings/billing'
     | '/settings/files'
@@ -523,10 +522,11 @@ export interface FileRouteTypes {
     | '/settings/profile'
     | '/settings/security'
     | '/admin'
-    | '/blog'
     | '/dashboard'
     | '/settings'
     | '/categories/$slug'
+    | '/men/answers'
+    | '/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
     | '/api/game/session'
@@ -552,7 +552,7 @@ export interface FileRouteTypes {
     | '/(pages)/changelog'
     | '/(pages)/contact'
     | '/(pages)/men'
-    | '/(pages)/pricing'
+    | '/(pages)/rules'
     | '/(pages)/timer'
     | '/(tests)/test-404'
     | '/(tests)/test-error'
@@ -563,7 +563,6 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/register'
     | '/auth/reset-password'
-    | '/blog/$slug'
     | '/settings/apikeys'
     | '/settings/billing'
     | '/settings/files'
@@ -572,10 +571,11 @@ export interface FileRouteTypes {
     | '/settings/profile'
     | '/settings/security'
     | '/admin/'
-    | '/blog/'
     | '/dashboard/'
     | '/settings/'
     | '/(pages)/categories/$slug'
+    | '/(pages)/men/answers'
+    | '/(pages)/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
     | '/api/game/session'
@@ -601,14 +601,12 @@ export interface RootRouteChildren {
   pagesChallengeRoute: typeof pagesChallengeRoute
   pagesChangelogRoute: typeof pagesChangelogRoute
   pagesContactRoute: typeof pagesContactRoute
-  pagesMenRoute: typeof pagesMenRoute
-  pagesPricingRoute: typeof pagesPricingRoute
+  pagesMenRoute: typeof pagesMenRouteWithChildren
+  pagesRulesRoute: typeof pagesRulesRoute
   pagesTimerRoute: typeof pagesTimerRoute
   testsTest404Route: typeof testsTest404Route
   testsTestErrorRoute: typeof testsTestErrorRoute
   ApiPingRoute: typeof ApiPingRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
   pagesCategoriesSlugRoute: typeof pagesCategoriesSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiGameCommunityRoute: typeof ApiGameCommunityRoute
@@ -691,13 +689,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -753,13 +744,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/settings/apikeys'
       preLoaderRoute: typeof SettingsApikeysRouteImport
       parentRoute: typeof SettingsRoute
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/auth/reset-password': {
       id: '/auth/reset-password'
@@ -831,11 +815,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesTimerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(pages)/pricing': {
-      id: '/(pages)/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof pagesPricingRouteImport
+    '/(pages)/rules': {
+      id: '/(pages)/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof pagesRulesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(pages)/men': {
@@ -943,6 +927,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(pages)/men/rules': {
+      id: '/(pages)/men/rules'
+      path: '/rules'
+      fullPath: '/men/rules'
+      preLoaderRoute: typeof pagesMenRulesRouteImport
+      parentRoute: typeof pagesMenRoute
+    }
+    '/(pages)/men/answers': {
+      id: '/(pages)/men/answers'
+      path: '/answers'
+      fullPath: '/men/answers'
+      preLoaderRoute: typeof pagesMenAnswersRouteImport
+      parentRoute: typeof pagesMenRoute
+    }
     '/(pages)/categories/$slug': {
       id: '/(pages)/categories/$slug'
       path: '/categories/$slug'
@@ -1021,6 +1019,20 @@ const SettingsRouteWithChildren = SettingsRoute._addFileChildren(
   SettingsRouteChildren,
 )
 
+interface pagesMenRouteChildren {
+  pagesMenAnswersRoute: typeof pagesMenAnswersRoute
+  pagesMenRulesRoute: typeof pagesMenRulesRoute
+}
+
+const pagesMenRouteChildren: pagesMenRouteChildren = {
+  pagesMenAnswersRoute: pagesMenAnswersRoute,
+  pagesMenRulesRoute: pagesMenRulesRoute,
+}
+
+const pagesMenRouteWithChildren = pagesMenRoute._addFileChildren(
+  pagesMenRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
@@ -1037,14 +1049,12 @@ const rootRouteChildren: RootRouteChildren = {
   pagesChallengeRoute: pagesChallengeRoute,
   pagesChangelogRoute: pagesChangelogRoute,
   pagesContactRoute: pagesContactRoute,
-  pagesMenRoute: pagesMenRoute,
-  pagesPricingRoute: pagesPricingRoute,
+  pagesMenRoute: pagesMenRouteWithChildren,
+  pagesRulesRoute: pagesRulesRoute,
   pagesTimerRoute: pagesTimerRoute,
   testsTest404Route: testsTest404Route,
   testsTestErrorRoute: testsTestErrorRoute,
   ApiPingRoute: ApiPingRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
   pagesCategoriesSlugRoute: pagesCategoriesSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiGameCommunityRoute: ApiGameCommunityRoute,

@@ -16,7 +16,9 @@ export function getFooterLinks(): MenuItemConfig[] {
       items: [
         { title: 'Categories', href: Routes.Categories, external: false },
         { title: 'Name 100 Men', href: Routes.Men, external: false },
-        { title: 'Answer List', href: Routes.Answers, external: false },
+        { title: 'Women Answers', href: Routes.Answers, external: false },
+        { title: 'Men Answers', href: Routes.MenAnswers, external: false },
+        { title: 'Game Rules', href: Routes.Rules, external: false },
       ],
     },
     {

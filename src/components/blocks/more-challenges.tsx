@@ -22,7 +22,9 @@ type ChallengePage =
   | 'categories'
   | 'timer'
   | 'men'
-  | 'answers';
+  | 'answers'
+  | 'men-answers'
+  | 'rules';
 
 const challengeLinks: {
   key: ChallengePage;
@@ -68,9 +70,16 @@ const challengeLinks: {
   },
   {
     key: 'answers',
-    title: 'Full Answer List',
+    title: '100 Famous Women List',
     href: '/answers',
     description: 'Browse the full list of accepted answers and aliases.',
+    icon: IconListDetails,
+  },
+  {
+    key: 'men-answers',
+    title: '100 Famous Men List',
+    href: '/men/answers',
+    description: 'Study the accepted men answers after you play.',
     icon: IconListDetails,
   },
 ];

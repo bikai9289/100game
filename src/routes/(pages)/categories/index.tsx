@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { getCategoryStats } from '@/lib/name100-data';
+import { gameJsonLd } from '@/lib/game-schema';
 import { seo } from '@/lib/seo';
 import { createFileRoute, Link } from '@tanstack/react-router';
 
@@ -17,7 +18,17 @@ const description =
   'Practice Name 100 Women by category. Pick actresses, musicians, athletes, scientists, politicians, historical figures and more. Free category challenge modes.';
 
 export const Route = createFileRoute('/(pages)/categories/')({
-  head: () => seo('/categories', { title, description }),
+  head: () => ({
+    ...seo('/categories', { title, description }),
+    scripts: [
+      gameJsonLd({
+        path: '/categories',
+        name: 'Name 100 Women by Category',
+        description,
+        breadcrumb: 'Categories',
+      }),
+    ],
+  }),
   component: CategoriesPage,
 });
 

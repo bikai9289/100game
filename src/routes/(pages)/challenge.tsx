@@ -7,6 +7,7 @@ import {
   getDailyAnswers,
   getDailyCategories,
 } from '@/lib/name100-data';
+import { gameJsonLd } from '@/lib/game-schema';
 import { seo } from '@/lib/seo';
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
@@ -35,28 +36,18 @@ const faqs = [
 ];
 
 export const Route = createFileRoute('/(pages)/challenge')({
-  head: () => {
-    const metadata = seo('/challenge', { title, description });
-    const faqPageJsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: item.answer },
-      })),
-    };
-
-    return {
-      ...metadata,
-      scripts: [
-        {
-          type: 'application/ld+json',
-          children: JSON.stringify(faqPageJsonLd),
-        },
-      ],
-    };
-  },
+  head: () => ({
+    ...seo('/challenge', { title, description }),
+    scripts: [
+      gameJsonLd({
+        path: '/challenge',
+        name: 'Name 100 Women Daily Challenge',
+        description,
+        breadcrumb: 'Daily Challenge',
+        faqs,
+      }),
+    ],
+  }),
   component: ChallengePage,
 });
 

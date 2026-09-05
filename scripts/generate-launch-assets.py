@@ -56,7 +56,12 @@ def make_icon(size: int) -> Image.Image:
     return image
 
 
-def make_og() -> Image.Image:
+def make_og(
+    title_line: str = "Name 100 Women",
+    subtitle: str = "Can you name 100 famous women in 12 minutes?",
+    accent: str = "#38bdf8",
+    warm: str = "#f97316",
+) -> Image.Image:
     width, height = 1200, 630
     image = Image.new("RGB", (width, height), "#071426")
     pixels = image.load()
@@ -70,18 +75,18 @@ def make_og() -> Image.Image:
             pixels[x, y] = (r, g, b)
 
     draw = ImageDraw.Draw(image)
-    draw.rounded_rectangle((70, 68, 1130, 562), radius=42, outline="#38bdf8", width=3)
-    draw.rounded_rectangle((86, 84, 1114, 546), radius=32, outline="#f97316", width=2)
+    draw.rounded_rectangle((70, 68, 1130, 562), radius=42, outline=accent, width=3)
+    draw.rounded_rectangle((86, 84, 1114, 546), radius=32, outline=warm, width=2)
     draw.text((96, 92), "NAME100CHALLENGE.COM", fill="#93c5fd", font=font(34))
-    draw.text((96, 210), "Name 100 Women", fill="#ffffff", font=font(92))
+    draw.text((96, 210), title_line, fill="#ffffff", font=font(92))
     draw.text((96, 315), "Challenge", fill="#ffffff", font=font(92))
     draw.text(
         (100, 440),
-        "Can you name 100 famous women in 12 minutes?",
+        subtitle,
         fill="#dbeafe",
         font=font(38, bold=False),
     )
-    draw.rounded_rectangle((904, 168, 1064, 328), radius=36, fill="#0f172a", outline="#38bdf8", width=3)
+    draw.rounded_rectangle((904, 168, 1064, 328), radius=36, fill="#0f172a", outline=accent, width=3)
     centered_text(draw, (904, 168, 1064, 328), "100", "#ffffff", font(62))
     draw.text((900, 354), "12:00", fill="#fb923c", font=font(48))
     return image
@@ -103,9 +108,14 @@ def main() -> None:
     icon512.save(PUBLIC / "android-chrome-512x512.png")
     icon512.save(PUBLIC / "logo.png")
     icon512.save(PUBLIC / "logo-dark.png")
-    icon512.save(PUBLIC / "tanstarter.png")
     icon512.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     make_og().save(PUBLIC / "og-image.png", optimize=True)
+    make_og(
+        title_line="Name 100 Men",
+        subtitle="Can you name 100 famous men in 12 minutes?",
+        accent="#60a5fa",
+        warm="#38bdf8",
+    ).save(PUBLIC / "og-image-men.png", optimize=True)
 
 
 if __name__ == "__main__":

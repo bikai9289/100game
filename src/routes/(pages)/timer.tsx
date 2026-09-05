@@ -1,6 +1,7 @@
 import { MoreChallenges } from '@/components/blocks/more-challenges';
 import { TimerTool } from '@/components/game/timer-tool';
 import Container from '@/components/layout/container';
+import { gameJsonLd } from '@/lib/game-schema';
 import { seo } from '@/lib/seo';
 import { createFileRoute } from '@tanstack/react-router';
 
@@ -9,7 +10,17 @@ const description =
   'Free online timer for the Name 100 Women challenge. Choose 3, 5 or 12 minutes, start the countdown and play. Share a timed challenge with friends.';
 
 export const Route = createFileRoute('/(pages)/timer')({
-  head: () => seo('/timer', { title, description }),
+  head: () => ({
+    ...seo('/timer', { title, description }),
+    scripts: [
+      gameJsonLd({
+        path: '/timer',
+        name: 'Name 100 Women Timer',
+        description,
+        breadcrumb: 'Timer Tool',
+      }),
+    ],
+  }),
   component: TimerPage,
 });
 

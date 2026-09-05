@@ -130,7 +130,7 @@ export function BillingCard() {
         </CardContent>
         <CardFooter className={footerClass}>
           <Link
-            to={Routes.Pricing}
+            to={Routes.Root}
             className={buttonVariants({ variant: 'default' })}
           >
             {m.settings_billing_card_upgrade_plan()}
@@ -226,7 +226,7 @@ export function BillingCard() {
         {/* Free: show upgrade button */}
         {isFreePlan && (
           <Link
-            to={Routes.Pricing}
+            to={Routes.Root}
             className={buttonVariants({ variant: 'default' })}
           >
             {m.settings_billing_card_upgrade_plan()}

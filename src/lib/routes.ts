@@ -7,11 +7,11 @@ export const Routes = {
   Timer: '/timer',
   Men: '/men',
   Answers: '/answers',
+  MenAnswers: '/men/answers',
+  Rules: '/rules',
+  MenRules: '/men/rules',
   Contact: '/contact',
-  Features: '/#features',
   Faqs: '/#faqs',
-  Pricing: '/pricing',
-  Blog: '/blog',
   Changelog: '/changelog',
 
   // Auth routes
