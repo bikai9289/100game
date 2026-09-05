@@ -73,17 +73,17 @@ function RulesPage() {
               Most failed rounds look the same: a fast burst of actresses and
               musicians, then a long pause. The clock rewards rotation. After
               five or six entertainment names, switch to athletes, then
-              scientists, then leaders, then history. Country groups help:
-              one national team or one cabinet can unlock several answers in a
-              row. If a name is not accepted, do not argue with the box. Type
-              the next person.
+              scientists, then leaders, then history. Country groups help: one
+              national team or one cabinet can unlock several answers in a row.
+              If a name is not accepted, do not argue with the box. Type the
+              next person.
             </p>
             <p>
               Practice modes exist so you can train one weak lane without
-              spending a full 12 minutes. Category pages use a five-minute
-              timer and a target of 30. The daily challenge gives everyone the
-              same three categories for a UTC day. The timer tool is for
-              shared sprints with no scoring library at all.
+              spending a full 12 minutes. Category pages use a five-minute timer
+              and a target of 30. The daily challenge gives everyone the same
+              three categories for a UTC day. The timer tool is for shared
+              sprints with no scoring library at all.
             </p>
             <h2 className="pt-4 text-2xl font-bold text-foreground">
               Progress, devices, and sharing

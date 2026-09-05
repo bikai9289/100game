@@ -88,8 +88,8 @@ function MenRulesPage() {
               penalty. Keep moving.
             </p>
             <p>
-              This page is the long-form rules companion to the men&apos;s
-              game. The playable challenge stays on{' '}
+              This page is the long-form rules companion to the men&apos;s game.
+              The playable challenge stays on{' '}
               <Link
                 to="/men"
                 className="font-semibold text-primary hover:underline"
