@@ -12,9 +12,13 @@ describe('name100 data quality', () => {
   it('accepts high-recall women from the playtest and community feedback', () => {
     const expectedNames = new Map([
       ['Billie Eilish', 'Billie Eilish'],
+      ['Sabrina Carpenter', 'Sabrina Carpenter'],
       ['Zendaya', 'Zendaya'],
       ['Michelle Yeoh', 'Michelle Yeoh'],
+      ['Simone Biles', 'Simone Biles'],
+      ['Liu Yifei', 'Liu Yifei'],
       ['Jane Austen', 'Jane Austen'],
+      ['JK Rowling', 'J.K. Rowling'],
       ['Michelle Obama', 'Michelle Obama'],
       ['Melania Trump', 'Melania Trump'],
       ['Kate Middleton', 'Catherine, Princess of Wales'],
@@ -44,6 +48,24 @@ describe('name100 data quality', () => {
     assert.equal(
       getAnswersByCategory('business').some(
         (answer) => answer.name === 'Madam C. J. Walker'
+      ),
+      true
+    );
+    assert.equal(
+      getAnswersByCategory('other').some(
+        (answer) => answer.name === 'J.K. Rowling'
+      ),
+      true
+    );
+    assert.equal(
+      getAnswersByCategory('musicians').some(
+        (answer) => answer.name === 'Pokimane'
+      ),
+      false
+    );
+    assert.equal(
+      getAnswersByCategory('other').some(
+        (answer) => answer.name === 'Pokimane'
       ),
       true
     );

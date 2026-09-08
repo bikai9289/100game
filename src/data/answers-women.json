@@ -92,6 +92,14 @@
     "hint": "Singer, musician, songwriter, or recording artist"
   },
   {
+    "id": "sabrina-carpenter",
+    "name": "Sabrina Carpenter",
+    "aliases": [],
+    "category": "musicians",
+    "categories": ["musicians", "actresses"],
+    "hint": "Singer, actress, and pop culture figure"
+  },
+  {
     "id": "pinkpantheress",
     "name": "PinkPantheress",
     "aliases": [],
@@ -158,8 +166,8 @@
     "id": "pokimane",
     "name": "Pokimane",
     "aliases": [],
-    "category": "musicians",
-    "hint": "Singer, musician, songwriter, or recording artist"
+    "category": "other",
+    "hint": "Streamer and media personality"
   },
   {
     "id": "doechii",
@@ -1464,6 +1472,13 @@
     "hint": "Athlete or sports figure"
   },
   {
+    "id": "simone-biles",
+    "name": "Simone Biles",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Olympic gymnast"
+  },
+  {
     "id": "aly-raisman",
     "name": "Aly Raisman",
     "aliases": [],
@@ -1746,8 +1761,9 @@
   {
     "id": "jk-rowling",
     "name": "J.K. Rowling",
-    "aliases": [],
+    "aliases": ["Joanne Rowling"],
     "category": "historical",
+    "categories": ["other", "historical"],
     "hint": "Historical, literary, royal, or cultural figure"
   },
   {
@@ -3968,5 +3984,12 @@
     "aliases": [],
     "category": "actresses",
     "hint": "Actress and international film star"
+  },
+  {
+    "id": "liu-yifei",
+    "name": "Liu Yifei",
+    "aliases": ["Crystal Liu"],
+    "category": "actresses",
+    "hint": "Actress and singer"
   }
 ]

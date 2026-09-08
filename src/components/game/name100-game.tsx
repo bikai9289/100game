@@ -37,6 +37,7 @@ import { shareChallenge, shouldPreferNativeShare } from '@/lib/share';
 import { cn } from '@/lib/utils';
 import {
   IconMessage,
+  IconPlayerStop,
   IconRefresh,
   IconSend,
   IconShare,
@@ -129,6 +130,7 @@ type Name100GameProps = {
   missText?: string;
   challengeTitle?: string;
   subjectLabel?: string;
+  categoryContext?: string[];
 };
 
 function readStoredGame(storageKey: string, storageCookie: string) {
@@ -221,6 +223,7 @@ export function Name100Game({
   missText = 'Not in the current answer list. Check the spelling or try another name.',
   challengeTitle,
   subjectLabel,
+  categoryContext = [],
 }: Name100GameProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const deadlineRef = useRef<number | null>(null);
@@ -282,6 +285,16 @@ export function Name100Game({
   );
   const shareTitle = challengeTitle ?? getChallengeTitle(gameId);
   const shareSubject = subjectLabel ?? getSubjectLabel(gameId);
+  const resultState =
+    gameState.score >= targetScore
+      ? 'completed'
+      : gameState.remainingTime <= 0
+        ? 'time-up'
+        : 'ended';
+  const elapsedSeconds =
+    startedAtRef.current === null
+      ? 0
+      : Math.max(0, durationSeconds - gameState.remainingTime);
   const loadCommunity = useCallback(async () => {
     setCommunityStatus('loading');
     try {
@@ -605,6 +618,17 @@ export function Name100Game({
     resetGame();
   }
 
+  function endRound() {
+    if (gameState.isGameOver) return;
+    if (startedAtRef.current === null) {
+      startedAtRef.current = Date.now();
+    }
+    isStartedRef.current = false;
+    setIsStarted(false);
+    setGameState((current) => ({ ...current, isGameOver: true }));
+    setMessage('Round ended. Your score is ready.');
+  }
+
   async function shareGame(resultMode: 'auto' | 'score' = 'auto') {
     const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches;
     await shareChallenge({
@@ -754,7 +778,7 @@ export function Name100Game({
     >
       <div className="order-1 min-w-0 lg:order-none lg:col-start-1 lg:row-start-1">
         <div className="sticky top-[64px] z-20 grid gap-3 bg-background/95 py-3 backdrop-blur-md">
-          <div className="grid grid-cols-2 items-center gap-2 min-[360px]:grid-cols-[auto_auto_auto_auto] min-[360px]:justify-between">
+          <div className="grid grid-cols-2 items-center gap-2 min-[520px]:grid-cols-[auto_auto_auto_auto_auto] min-[520px]:justify-between">
             <div className="text-center">
               <div className="text-[0.625rem] font-bold uppercase tracking-[0.1em] text-muted-foreground">
                 Time
@@ -786,7 +810,20 @@ export function Name100Game({
               type="button"
               variant="outline"
               size="sm"
-              className="justify-self-start min-[360px]:justify-self-auto"
+              className="justify-self-end min-[520px]:justify-self-auto"
+              onClick={endRound}
+              disabled={gameState.isGameOver}
+              aria-label="End round and view score"
+              title="End round and view score"
+            >
+              <IconPlayerStop />
+              End
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="justify-self-start min-[520px]:justify-self-auto"
               onClick={() => void shareGame()}
               aria-label="Share challenge"
               title="Share challenge"
@@ -822,7 +859,149 @@ export function Name100Game({
           />
         </div>
 
-        {message ? (
+        {gameState.isGameOver ? (
+          <Card className="mt-3 rounded-lg border-2 border-primary/30 bg-card py-4 shadow-sm ring-0">
+            <CardHeader>
+              <CardTitle className="flex flex-wrap items-center gap-2 text-lg font-black">
+                <IconTrophy className="size-5 text-primary" />
+                {getResultTitle(resultState)}: {gameState.score} / {targetScore}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
+                <div className="rounded-lg bg-muted px-3 py-2">
+                  <span className="block text-xs font-bold uppercase text-muted-foreground">
+                    Mode
+                  </span>
+                  <span className="font-semibold text-foreground">
+                    {shareTitle}
+                  </span>
+                </div>
+                <div className="rounded-lg bg-muted px-3 py-2">
+                  <span className="block text-xs font-bold uppercase text-muted-foreground">
+                    Time used
+                  </span>
+                  <span className="font-mono font-semibold text-foreground">
+                    {formatElapsedSeconds(elapsedSeconds)}
+                  </span>
+                </div>
+                <div className="rounded-lg bg-muted px-3 py-2">
+                  <span className="block text-xs font-bold uppercase text-muted-foreground">
+                    Remaining
+                  </span>
+                  <span className="font-mono font-semibold text-foreground">
+                    {formatElapsedSeconds(gameState.remainingTime)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Button
+                  type="button"
+                  onClick={() => resetGame(true)}
+                  className="font-bold"
+                >
+                  <IconRefresh data-icon="inline-start" />
+                  Play again
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => void shareGame('score')}
+                  className="font-bold"
+                >
+                  <IconShare data-icon="inline-start" />
+                  Share score
+                </Button>
+              </div>
+
+              {communitySubmissionConfigured ? (
+                <>
+                  <form
+                    onSubmit={(event) => void submitScore(event)}
+                    className="mt-4 grid gap-3"
+                  >
+                    <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                      <div>
+                        <label htmlFor={playerNameId} className="sr-only">
+                          Leaderboard name
+                        </label>
+                        <Input
+                          id={playerNameId}
+                          value={playerName}
+                          disabled={isScoreSubmitting || isScoreSaved}
+                          maxLength={24}
+                          placeholder="Leaderboard name"
+                          onChange={(event) =>
+                            setPlayerName(event.target.value)
+                          }
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        className="font-bold"
+                        disabled={
+                          !scoreTurnstileToken ||
+                          isScoreSubmitting ||
+                          isScoreSaved
+                        }
+                      >
+                        <IconSend data-icon="inline-start" />
+                        {isScoreSubmitting
+                          ? 'Saving...'
+                          : isScoreSaved
+                            ? 'Score saved'
+                            : 'Save score'}
+                      </Button>
+                    </div>
+                    {turnstileSiteKey && !isScoreSaved ? (
+                      <TurnstileWidget
+                        ref={scoreTurnstileRef}
+                        siteKey={turnstileSiteKey}
+                        action="score"
+                        onToken={setScoreTurnstileToken}
+                      />
+                    ) : null}
+                  </form>
+                  <p
+                    className="mt-2 min-h-5 text-sm text-muted-foreground"
+                    aria-live="polite"
+                  >
+                    {scoreSubmitStatus}
+                  </p>
+                </>
+              ) : null}
+
+              <details className="mt-3 rounded-lg border border-border bg-background p-4">
+                <summary className="cursor-pointer text-sm font-bold">
+                  Show missed answer examples
+                </summary>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  {getMissedAnswerGroups(missedAnswers).map((group) => (
+                    <div
+                      key={group.category}
+                      className="rounded-lg bg-muted p-3"
+                    >
+                      <h3 className="text-sm font-bold text-foreground">
+                        {categoryLabels[group.category] ?? categoryLabels.other}
+                      </h3>
+                      <ul className="mt-2 grid gap-2 text-sm text-muted-foreground">
+                        {group.answers.map((answer) => (
+                          <li key={answer.id}>
+                            <span className="font-semibold text-foreground">
+                              {answer.name}
+                            </span>
+                            {answer.hint ? ` - ${answer.hint}` : null}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </CardContent>
+          </Card>
+        ) : message ? (
           <div
             aria-live="polite"
             className="mt-1 text-center text-sm font-semibold text-muted-foreground"
@@ -875,7 +1054,7 @@ export function Name100Game({
           <div
             key={`${answer?.id ?? 'empty'}-${index}`}
             className={cn(
-              'flex min-h-[38px] items-center gap-1.5 rounded-lg border border-border bg-card px-2.5 py-1.5 transition duration-150',
+              'grid min-h-[50px] grid-cols-[1.25rem_1fr] gap-x-1.5 gap-y-0.5 rounded-lg border border-border bg-card px-2.5 py-1.5 transition duration-150',
               answer &&
                 cn(
                   'animate-in zoom-in-95 fade-in',
@@ -893,15 +1072,16 @@ export function Name100Game({
             </span>
             <span
               className={cn(
-                'min-w-0 flex-1 truncate text-[0.8125rem]',
+                'min-w-0 break-words text-[0.8125rem] leading-tight',
                 answer ? 'font-semibold text-white' : 'text-muted-foreground'
               )}
+              title={answer?.name}
             >
               {answer?.name ?? '-'}
             </span>
             {answer ? (
-              <span className="shrink-0 rounded bg-white/20 px-1.5 py-0.5 text-[0.625rem] font-bold text-white">
-                {getCategoryLabel(answer)}
+              <span className="col-start-2 w-fit rounded bg-white/20 px-1.5 py-0.5 text-[0.625rem] font-bold text-white">
+                {getCategoryLabel(answer, categoryContext)}
               </span>
             ) : null}
           </div>
@@ -1083,100 +1263,6 @@ export function Name100Game({
         </section>
       </>
 
-      {gameState.isGameOver ? (
-        <Card className="order-2 rounded-lg border border-border py-4 shadow-sm ring-0 lg:order-none lg:col-start-1">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg font-black">
-              <IconTrophy className="size-5 text-primary" />
-              Final score: {gameState.score} / {targetScore}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {communitySubmissionConfigured ? (
-              <>
-                <form
-                  onSubmit={(event) => void submitScore(event)}
-                  className="grid gap-3"
-                >
-                  <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
-                    <div>
-                      <label htmlFor={playerNameId} className="sr-only">
-                        Leaderboard name
-                      </label>
-                      <Input
-                        id={playerNameId}
-                        value={playerName}
-                        disabled={isScoreSubmitting || isScoreSaved}
-                        maxLength={24}
-                        placeholder="Leaderboard name"
-                        onChange={(event) => setPlayerName(event.target.value)}
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="font-bold"
-                      disabled={
-                        !scoreTurnstileToken ||
-                        isScoreSubmitting ||
-                        isScoreSaved
-                      }
-                    >
-                      <IconSend data-icon="inline-start" />
-                      {isScoreSubmitting
-                        ? 'Saving...'
-                        : isScoreSaved
-                          ? 'Score saved'
-                          : 'Save score'}
-                    </Button>
-                  </div>
-                  {turnstileSiteKey && !isScoreSaved ? (
-                    <TurnstileWidget
-                      ref={scoreTurnstileRef}
-                      siteKey={turnstileSiteKey}
-                      action="score"
-                      onToken={setScoreTurnstileToken}
-                    />
-                  ) : null}
-                </form>
-                <p
-                  className="mt-2 min-h-5 text-sm text-muted-foreground"
-                  aria-live="polite"
-                >
-                  {scoreSubmitStatus}
-                </p>
-              </>
-            ) : null}
-            <details className="mt-2 rounded-lg border border-border bg-background p-4">
-              <summary className="cursor-pointer text-sm font-bold">
-                Show missed answer examples
-              </summary>
-              <div className="mt-3 max-h-40 overflow-y-auto text-sm text-muted-foreground">
-                {missedAnswers.map((answer) => answer.name).join(', ')}
-              </div>
-            </details>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Button
-                type="button"
-                onClick={() => resetGame(true)}
-                className="font-bold"
-              >
-                <IconRefresh data-icon="inline-start" />
-                Play again
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => void shareGame('score')}
-                className="font-bold"
-              >
-                <IconShare data-icon="inline-start" />
-                Share score
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      ) : null}
-
       <AlertDialog
         open={isRestartConfirmOpen}
         onOpenChange={setIsRestartConfirmOpen}
@@ -1214,6 +1300,44 @@ function getSubjectLabel(gameId: string) {
   return 'famous women';
 }
 
-function getCategoryLabel(answer: Answer) {
-  return categoryLabels[answer.category] ?? categoryLabels.other;
+function getResultTitle(resultState: 'completed' | 'time-up' | 'ended') {
+  if (resultState === 'completed') return 'Completed';
+  if (resultState === 'time-up') return 'Time up';
+  return 'Round ended';
+}
+
+function getCategoryLabel(answer: Answer, categoryContext: string[]) {
+  const matchedCategory = [answer.category, ...(answer.categories ?? [])].find(
+    (category) => categoryContext.includes(category)
+  );
+
+  return (
+    categoryLabels[matchedCategory ?? answer.category] ?? categoryLabels.other
+  );
+}
+
+function formatElapsedSeconds(totalSeconds: number) {
+  const minutes = Math.floor(totalSeconds / 60)
+    .toString()
+    .padStart(2, '0');
+  const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+
+  return `${minutes}:${seconds}`;
+}
+
+function getMissedAnswerGroups(missedAnswers: Answer[]) {
+  const groups = new Map<string, Answer[]>();
+
+  for (const answer of missedAnswers) {
+    if ((groups.get(answer.category)?.length ?? 0) >= 4) continue;
+    groups.set(answer.category, [
+      ...(groups.get(answer.category) ?? []),
+      answer,
+    ]);
+  }
+
+  return Array.from(groups, ([category, answers]) => ({
+    category,
+    answers,
+  })).slice(0, 6);
 }

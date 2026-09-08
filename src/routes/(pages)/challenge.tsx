@@ -92,6 +92,7 @@ function ChallengePage() {
               placeholder="Type a name from today's categories..."
               emptyTagsText="Correct daily answers will appear here."
               missText="Not in today's category-limited answer list. Try another name."
+              categoryContext={categories}
             />
           </div>
         </Container>

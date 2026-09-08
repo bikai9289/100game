@@ -82,6 +82,7 @@ function CategoryPage() {
               }
               emptyTagsText={`Correct ${meta.shortTitle.toLowerCase()} answers will appear here.`}
               missText={`Not in the ${meta.shortTitle.toLowerCase()} category list. Try another name.`}
+              categoryContext={[slug]}
             />
           </div>
         </Container>

@@ -24,6 +24,10 @@ const requiredInputs = [
   ['Rosa Parks', 'activists'],
   ['Marie Curie', 'scientists'],
   ['Ada Lovelace', 'scientists'],
+  ['Sabrina Carpenter', 'musicians'],
+  ['Simone Biles', 'athletes'],
+  ['Liu Yifei', 'actresses'],
+  ['JK Rowling', 'historical'],
   ['Serena Williams', 'athletes'],
   ['Princess Diana', 'historical'],
   ['Cleopatra', 'historical'],
@@ -152,6 +156,12 @@ describe('women answer data integrity', () => {
       const answer = answers.find((item) => item.name === name);
       assert.equal(answer?.category, 'scientists', name);
     }
+  });
+
+  it('keeps non-musician media figures out of the musicians category', () => {
+    const pokimane = answers.find((answer) => answer.name === 'Pokimane');
+
+    assert.equal(pokimane?.category, 'other');
   });
 
   it('keeps the curated women file as the generator source', () => {
