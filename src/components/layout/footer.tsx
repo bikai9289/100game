@@ -3,12 +3,14 @@ import { isLinkActive } from '@/lib/urls';
 import { cn } from '@/lib/utils';
 import Container from '@/components/layout/container';
 import { Logo } from '@/components/shared/logo';
+import { clientEnv } from '@/env/client';
 import { Link, useLocation } from '@tanstack/react-router';
 import { websiteConfig } from '@/config/website';
 
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   const pathname = useLocation().pathname;
   const footerLinks = getFooterLinks();
+  const versionLabel = getVersionLabel();
 
   return (
     <footer className={cn('border-t border-border bg-card py-9', className)}>
@@ -71,8 +73,19 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
         <p className="mt-6 text-center text-[0.8125rem] text-muted-foreground">
           &copy; {new Date().getFullYear()} {websiteConfig.metadata?.name}. All
           rights reserved.
+          {versionLabel ? (
+            <span className="mt-1 block">Version {versionLabel}</span>
+          ) : null}
         </p>
       </Container>
     </footer>
   );
+}
+
+function getVersionLabel() {
+  const shortSha = clientEnv.VITE_GIT_SHA?.slice(0, 7);
+  const buildTime = clientEnv.VITE_BUILD_TIME;
+
+  if (shortSha && buildTime) return `${shortSha} | ${buildTime}`;
+  return shortSha ?? buildTime ?? '';
 }

@@ -41,6 +41,7 @@ jobs:
       VITE_CRISP_WEBSITE_ID: ${{ secrets.VITE_CRISP_WEBSITE_ID }}
       VITE_AFFILIATE_AFFONSO_ID: ${{ secrets.VITE_AFFILIATE_AFFONSO_ID }}
       VITE_AFFILIATE_PROMOTEKIT_ID: ${{ secrets.VITE_AFFILIATE_PROMOTEKIT_ID }}
+      VITE_GIT_SHA: ${{ github.sha }}
 
     steps:
       - name: Checkout code
@@ -104,6 +105,9 @@ jobs:
             exit 1
           fi
           pnpm exec tsx --test "${test_files[@]}"
+
+      - name: Stamp build time
+        run: echo "VITE_BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
 
       - name: Build
         run: pnpm build

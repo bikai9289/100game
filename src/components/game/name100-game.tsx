@@ -168,7 +168,7 @@ function persistGame(
   const stored: StoredGame = {
     guessedNames: state.guessedAnswers.map((answer) => answer.name),
     remainingTime: state.remainingTime,
-    deadlineMs: deadlineMs ?? undefined,
+    deadlineMs: state.isGameOver ? undefined : (deadlineMs ?? undefined),
     startedAt: startedAt ?? undefined,
     sessionToken: sessionToken || undefined,
     sessionExpiresAt: sessionExpiresAt ?? undefined,
@@ -234,6 +234,7 @@ export function Name100Game({
   const sessionAbortRef = useRef<AbortController | null>(null);
   const scoreTurnstileRef = useRef<TurnstileWidgetHandle>(null);
   const commentTurnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const missingAnswerTurnstileRef = useRef<TurnstileWidgetHandle>(null);
   const scoreSubmissionInFlightRef = useRef(false);
   const [gameState, setGameState] = useState<GameState>(() =>
     initGame(answers, { durationSeconds })
@@ -255,6 +256,10 @@ export function Name100Game({
   const [commentMessage, setCommentMessage] = useState('');
   const [scoreSubmitStatus, setScoreSubmitStatus] = useState('');
   const [commentSubmitStatus, setCommentSubmitStatus] = useState('');
+  const [missingAnswerNote, setMissingAnswerNote] = useState('');
+  const [missingAnswerStatus, setMissingAnswerStatus] = useState('');
+  const [isMissingAnswerSubmitting, setIsMissingAnswerSubmitting] =
+    useState(false);
   const [isScoreSubmitting, setIsScoreSubmitting] = useState(false);
   const [isScoreSaved, setIsScoreSaved] = useState(false);
   const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
@@ -262,6 +267,8 @@ export function Name100Game({
   const [sessionExpiresAt, setSessionExpiresAt] = useState<number | null>(null);
   const [scoreTurnstileToken, setScoreTurnstileToken] = useState('');
   const [commentTurnstileToken, setCommentTurnstileToken] = useState('');
+  const [missingAnswerTurnstileToken, setMissingAnswerTurnstileToken] =
+    useState('');
   const turnstileSiteKey = clientEnv.VITE_TURNSTILE_SITE_KEY ?? '';
   const communitySubmissionConfigured = Boolean(turnstileSiteKey);
   const inputId = `name100-input-${storageKey}`;
@@ -269,6 +276,7 @@ export function Name100Game({
   const commentId = `name100-comment-${storageKey}`;
   const missingAnswerNameId = `name100-missing-answer-${storageKey}`;
   const missingAnswerModeId = `name100-missing-mode-${storageKey}`;
+  const missingAnswerNoteId = `name100-missing-note-${storageKey}`;
   const guessedKeys = useMemo(
     () =>
       new Set(
@@ -345,9 +353,11 @@ export function Name100Game({
         .filter((answer): answer is Answer => Boolean(answer));
       const deadlineMs =
         parsed.deadlineMs ?? Date.now() + parsed.remainingTime * 1000;
-      const remainingTime = parsed.isStarted
-        ? remainingTimeFromDeadline(deadlineMs)
-        : durationSeconds;
+      const remainingTime = parsed.isGameOver
+        ? parsed.remainingTime
+        : parsed.isStarted
+          ? remainingTimeFromDeadline(deadlineMs)
+          : durationSeconds;
       const isGameOver = parsed.isGameOver || remainingTime === 0;
 
       deadlineRef.current = deadlineMs;
@@ -577,6 +587,56 @@ export function Name100Game({
     setGameState(nextState);
   }
 
+  async function submitMissingAnswer(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (isMissingAnswerSubmitting) return;
+
+    setIsMissingAnswerSubmitting(true);
+    setMissingAnswerStatus('Sending...');
+    try {
+      if (!communitySubmissionConfigured) {
+        throw new Error('Feedback submission is temporarily unavailable.');
+      }
+      if (!missingAnswerTurnstileToken) {
+        throw new Error('Complete human verification before sending.');
+      }
+
+      const response = await fetch('/api/game/feedback', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name: lastRejectedGuess,
+          gameId,
+          note: missingAnswerNote,
+          pagePath: location.pathname,
+          turnstileToken: missingAnswerTurnstileToken,
+        }),
+      });
+      const result = (await response.json()) as {
+        ok: boolean;
+        error?: { message?: string };
+      };
+      if (!response.ok || !result.ok) {
+        throw new Error(
+          result.error?.message ?? 'Feedback could not be submitted.'
+        );
+      }
+
+      setMissingAnswerNote('');
+      setMissingAnswerStatus("Thanks, we'll review it.");
+    } catch (error) {
+      setMissingAnswerStatus(
+        error instanceof Error
+          ? error.message
+          : 'Feedback could not be submitted.'
+      );
+    } finally {
+      setIsMissingAnswerSubmitting(false);
+      setMissingAnswerTurnstileToken('');
+      missingAnswerTurnstileRef.current?.reset();
+    }
+  }
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     submitGuess(input);
@@ -605,6 +665,10 @@ export function Name100Game({
     setInput('');
     setMessage('');
     setLastRejectedGuess('');
+    setMissingAnswerNote('');
+    setMissingAnswerStatus('');
+    setMissingAnswerTurnstileToken('');
+    missingAnswerTurnstileRef.current?.reset();
     setScoreSubmitStatus('');
     setIsScoreSubmitting(false);
     setIsScoreSaved(false);
@@ -1012,7 +1076,10 @@ export function Name100Game({
                 <summary className="cursor-pointer text-sm font-bold text-primary">
                   Report a missing answer
                 </summary>
-                <form className="mt-3 grid gap-3">
+                <form
+                  className="mt-3 grid gap-3"
+                  onSubmit={(event) => void submitMissingAnswer(event)}
+                >
                   <label
                     htmlFor={missingAnswerNameId}
                     className="grid gap-1 text-sm font-semibold"
@@ -1032,12 +1099,40 @@ export function Name100Game({
                     <Input id={missingAnswerModeId} value={gameId} readOnly />
                   </label>
                   <Textarea
+                    id={missingAnswerNoteId}
+                    value={missingAnswerNote}
                     placeholder="Optional: suggested category or source link"
                     maxLength={280}
+                    onChange={(event) =>
+                      setMissingAnswerNote(event.target.value)
+                    }
                   />
-                  <Button type="button" variant="outline" size="sm">
-                    Send feedback
+                  {turnstileSiteKey ? (
+                    <TurnstileWidget
+                      ref={missingAnswerTurnstileRef}
+                      siteKey={turnstileSiteKey}
+                      action="comment"
+                      onToken={setMissingAnswerTurnstileToken}
+                    />
+                  ) : null}
+                  <Button
+                    type="submit"
+                    variant="outline"
+                    size="sm"
+                    disabled={
+                      isMissingAnswerSubmitting ||
+                      !communitySubmissionConfigured ||
+                      !missingAnswerTurnstileToken
+                    }
+                  >
+                    {isMissingAnswerSubmitting ? 'Sending...' : 'Send feedback'}
                   </Button>
+                  <p className="min-h-5 text-xs text-muted-foreground">
+                    {missingAnswerStatus ||
+                      (!communitySubmissionConfigured
+                        ? 'Feedback is temporarily unavailable.'
+                        : '')}
+                  </p>
                 </form>
               </details>
             ) : null}

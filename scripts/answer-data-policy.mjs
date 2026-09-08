@@ -152,6 +152,7 @@ export const requiredWomenAnswers = [
     name: 'Virginia Woolf',
     aliases: [],
     category: 'historical',
+    categories: ['other', 'historical'],
     hint: 'English writer and modernist',
   },
   {
@@ -172,7 +173,40 @@ export const requiredWomenAnswers = [
     category: 'other',
     hint: 'American modernist artist',
   },
+  {
+    name: 'Ana de Armas',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film or television performer',
+  },
+  {
+    name: 'Margot Robbie',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film or television performer',
+  },
+  {
+    name: 'Sabrina Carpenter',
+    aliases: [],
+    category: 'musicians',
+    categories: ['musicians', 'actresses'],
+    hint: 'Singer, actress, and pop culture figure',
+  },
+  {
+    name: 'Simone Biles',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Olympic gymnast',
+  },
+  {
+    name: 'Liu Yifei',
+    aliases: ['Crystal Liu'],
+    category: 'actresses',
+    hint: 'Actress and singer',
+  },
 ];
+
+export const excludedWomenAnswers = new Set(['Lady Antebellum']);
 
 export function normalizeAnswerText(value) {
   return value

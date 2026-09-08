@@ -15,10 +15,13 @@ describe('name100 data quality', () => {
       ['Sabrina Carpenter', 'Sabrina Carpenter'],
       ['Zendaya', 'Zendaya'],
       ['Michelle Yeoh', 'Michelle Yeoh'],
+      ['Ana de Armas', 'Ana de Armas'],
+      ['Margot Robbie', 'Margot Robbie'],
       ['Simone Biles', 'Simone Biles'],
       ['Liu Yifei', 'Liu Yifei'],
       ['Jane Austen', 'Jane Austen'],
       ['JK Rowling', 'J.K. Rowling'],
+      ['Virginia Woolf', 'Virginia Woolf'],
       ['Michelle Obama', 'Michelle Obama'],
       ['Melania Trump', 'Melania Trump'],
       ['Kate Middleton', 'Catherine, Princess of Wales'],
@@ -58,6 +61,12 @@ describe('name100 data quality', () => {
       true
     );
     assert.equal(
+      getAnswersByCategory('other').some(
+        (answer) => answer.name === 'Virginia Woolf'
+      ),
+      true
+    );
+    assert.equal(
       getAnswersByCategory('musicians').some(
         (answer) => answer.name === 'Pokimane'
       ),
@@ -69,6 +78,10 @@ describe('name100 data quality', () => {
       ),
       true
     );
+  });
+
+  it('rejects non-person entries that slipped in from music data', () => {
+    assert.equal(checkAnswer('Lady Antebellum', womenAnswerList), null);
   });
 
   it('keeps answer categories valid', () => {

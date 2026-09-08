@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 import {
   isSafeAnswerAlias,
+  excludedWomenAnswers,
   normalizeAnswerText,
   requiredWomenAnswers,
   womenCategoryCorrections,
@@ -29,7 +30,11 @@ function formatJson(value) {
 
 function applyWomenCorrections(answers) {
   const corrected = answers
-    .filter((answer) => answer.name !== 'Patricia Era Bath')
+    .filter(
+      (answer) =>
+        answer.name !== 'Patricia Era Bath' &&
+        !excludedWomenAnswers.has(answer.name)
+    )
     .map((answer) => {
       const category = womenCategoryCorrections.get(answer.name);
       if (!category) return answer;
@@ -107,15 +112,18 @@ function sanitizeAnswers(input) {
     }
   }
 
-  return candidates.map(({ id, name, aliases, category, hint }) => ({
-    id,
-    name,
-    aliases: aliases.filter(
-      (alias) => aliasOwners.get(normalize(alias))?.size === 1
-    ),
-    category,
-    ...(hint ? { hint } : {}),
-  }));
+  return candidates.map(
+    ({ id, name, aliases, category, categories, hint }) => ({
+      id,
+      name,
+      aliases: aliases.filter(
+        (alias) => aliasOwners.get(normalize(alias))?.size === 1
+      ),
+      category,
+      ...(Array.isArray(categories) ? { categories } : {}),
+      ...(hint ? { hint } : {}),
+    })
+  );
 }
 
 for (const [index, file] of dataFiles.entries()) {

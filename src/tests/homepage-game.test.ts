@@ -2,6 +2,10 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
+function getRenderedGame(source: string) {
+  return source.slice(source.indexOf('  return ('));
+}
+
 describe('game homepage source', () => {
   it('renders the game first viewport and static SEO sections', () => {
     const homepage = readFileSync('src/components/blocks/homepage.tsx', 'utf8');
@@ -32,6 +36,8 @@ describe('game homepage source', () => {
       game,
       /persistGame\(\s*gameState,\s*isStarted,\s*deadlineRef\.current,\s*startedAtRef\.current,\s*sessionToken,\s*sessionExpiresAt,\s*storageKey,\s*storageCookie\s*\)/
     );
+    assert.match(game, /state\.isGameOver \? undefined :/);
+    assert.match(game, /parsed\.isGameOver\s*\?\s*parsed\.remainingTime/);
   });
 
   it('starts the round only after the first accepted guess', () => {
@@ -106,7 +112,7 @@ describe('game homepage source', () => {
       game.indexOf('async function submitScore'),
       game.indexOf('async function submitComment')
     );
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const renderedGame = getRenderedGame(game);
 
     assert.match(game, /const scoreSubmissionInFlightRef = useRef\(false\)/);
     assert.match(
@@ -129,7 +135,7 @@ describe('game homepage source', () => {
 
   it('shows a labeled share button throughout the round', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const renderedGame = getRenderedGame(game);
     const shareButtonIndex = renderedGame.indexOf(
       'aria-label="Share challenge"'
     );
@@ -145,12 +151,12 @@ describe('game homepage source', () => {
 
   it('keeps the score on one line beside the labeled share button', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const renderedGame = getRenderedGame(game);
 
     assert.match(renderedGame, /grid-cols-2/);
     assert.match(
       renderedGame,
-      /min-\[360px\]:grid-cols-\[auto_auto_auto_auto\]/
+      /min-\[520px\]:grid-cols-\[auto_auto_auto_auto_auto\]/
     );
     assert.match(
       renderedGame,
@@ -160,7 +166,7 @@ describe('game homepage source', () => {
 
   it('keeps comments and leaderboard visible before a round is completed', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const renderedGame = getRenderedGame(game);
     const communityIndex = renderedGame.indexOf('Community Wall');
     const answersIndex = renderedGame.indexOf('answerSlots.map');
 
@@ -192,7 +198,7 @@ describe('game homepage source', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
 
     assert.match(game, /order-3[^"']*lg:order-none[\s\S]*answerSlots\.map/);
-    assert.match(game, /order-2[^"']*lg:order-none[\s\S]*Final score:/);
+    assert.match(game, /getResultTitle\(resultState\)[\s\S]*targetScore/);
   });
 
   it('offers a recovery path after a rejected guess', () => {
@@ -200,14 +206,16 @@ describe('game homepage source', () => {
 
     assert.match(game, /lastRejectedGuess/);
     assert.match(game, /Report a missing answer/);
+    assert.match(game, /submitMissingAnswer/);
+    assert.match(game, /fetch\('\/api\/game\/feedback'/);
     assert.match(game, /value=\{lastRejectedGuess\}/);
     assert.match(game, /value=\{gameId\}/);
   });
 
   it('renders the round result before answers on small screens and forces score sharing', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
-    const resultIndex = renderedGame.indexOf('Final score:');
+    const renderedGame = getRenderedGame(game);
+    const resultIndex = renderedGame.indexOf('getResultTitle(resultState)');
     const answersIndex = renderedGame.indexOf('answerSlots.map');
     const shareScoreIndex = renderedGame.indexOf('Share score');
     const shareScoreButton = renderedGame.slice(
@@ -217,8 +225,9 @@ describe('game homepage source', () => {
 
     assert.ok(resultIndex >= 0);
     assert.ok(answersIndex >= 0);
+    assert.ok(resultIndex < answersIndex);
     assert.match(game, /order-3[^"']*lg:order-none[\s\S]*answerSlots\.map/);
-    assert.match(game, /order-2[^"']*lg:order-none[\s\S]*Final score:/);
+    assert.match(game, /getResultTitle\(resultState\)[\s\S]*targetScore/);
     assert.match(shareScoreButton, /shareGame\('score'\)/);
   });
 
@@ -239,13 +248,13 @@ describe('game homepage source', () => {
 
   it('shows readable category labels in answered slots', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
-    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const renderedGame = getRenderedGame(game);
     const answerGrid = renderedGame.slice(
       renderedGame.indexOf('answerSlots.map')
     );
 
     assert.match(game, /getCategoryLabel/);
-    assert.match(answerGrid, /getCategoryLabel\(answer\)/);
+    assert.match(answerGrid, /getCategoryLabel\(answer, categoryContext\)/);
   });
 
   it('offers a missing-answer report form with the rejected guess', () => {
@@ -254,6 +263,8 @@ describe('game homepage source', () => {
     assert.match(game, /const \[lastRejectedGuess/);
     assert.match(game, /setLastRejectedGuess\(guess\)/);
     assert.match(game, /Report a missing answer/);
+    assert.match(game, /submitMissingAnswer/);
+    assert.match(game, /missingAnswerStatus/);
     assert.match(game, /value=\{lastRejectedGuess\}/);
     assert.match(game, /gameId/);
   });

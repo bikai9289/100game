@@ -15,6 +15,7 @@
       "!.kiro",
       "!.conductor",
       "!.vscode",
+      "!.worktrees",
       "!.source",
       "!node_modules",
       "!dist",

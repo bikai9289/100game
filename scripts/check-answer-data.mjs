@@ -38,6 +38,24 @@ for (const filename of files) {
     if (!allowedCategories.has(answer.category)) {
       problems.push(`unsupported category for ${answer.name}`);
     }
+    if (answer.categories !== undefined) {
+      if (!Array.isArray(answer.categories) || answer.categories.length === 0) {
+        problems.push(`invalid categories for ${answer.name}`);
+      } else {
+        const categorySet = new Set(answer.categories);
+        if (categorySet.size !== answer.categories.length) {
+          problems.push(`duplicate categories for ${answer.name}`);
+        }
+        if (!categorySet.has(answer.category)) {
+          problems.push(`categories omit primary category for ${answer.name}`);
+        }
+        for (const category of answer.categories) {
+          if (!allowedCategories.has(category)) {
+            problems.push(`unsupported secondary category for ${answer.name}`);
+          }
+        }
+      }
+    }
 
     const localAliases = new Set();
     for (const value of [answer.name, ...answer.aliases]) {

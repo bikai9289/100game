@@ -25,6 +25,8 @@ const requiredInputs = [
   ['Marie Curie', 'scientists'],
   ['Ada Lovelace', 'scientists'],
   ['Sabrina Carpenter', 'musicians'],
+  ['Ana de Armas', 'actresses'],
+  ['Margot Robbie', 'actresses'],
   ['Simone Biles', 'athletes'],
   ['Liu Yifei', 'actresses'],
   ['JK Rowling', 'historical'],
@@ -162,6 +164,7 @@ describe('women answer data integrity', () => {
     const pokimane = answers.find((answer) => answer.name === 'Pokimane');
 
     assert.equal(pokimane?.category, 'other');
+    assert.equal(checkAnswer('Lady Antebellum', answers), null);
   });
 
   it('keeps the curated women file as the generator source', () => {

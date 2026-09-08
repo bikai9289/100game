@@ -52,6 +52,7 @@ import { Route as ApiWebhooksStripeRouteImport } from './routes/api/webhooks/str
 import { Route as ApiWebhooksCreemRouteImport } from './routes/api/webhooks/creem'
 import { Route as ApiStorageFileRouteImport } from './routes/api/storage/file'
 import { Route as ApiGameSessionRouteImport } from './routes/api/game/session'
+import { Route as ApiGameFeedbackRouteImport } from './routes/api/game/feedback'
 import { Route as ApiGameCommunityRouteImport } from './routes/api/game/community'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as pagesMenRulesRouteImport } from './routes/(pages)/men/rules'
@@ -273,6 +274,11 @@ const ApiGameSessionRoute = ApiGameSessionRouteImport.update({
   path: '/api/game/session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGameFeedbackRoute = ApiGameFeedbackRouteImport.update({
+  id: '/api/game/feedback',
+  path: '/api/game/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiGameCommunityRoute = ApiGameCommunityRouteImport.update({
   id: '/api/game/community',
   path: '/api/game/community',
@@ -342,6 +348,7 @@ export interface FileRoutesByFullPath {
   '/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
+  '/api/game/feedback': typeof ApiGameFeedbackRoute
   '/api/game/session': typeof ApiGameSessionRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
@@ -388,6 +395,7 @@ export interface FileRoutesByTo {
   '/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
+  '/api/game/feedback': typeof ApiGameFeedbackRoute
   '/api/game/session': typeof ApiGameSessionRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
@@ -439,6 +447,7 @@ export interface FileRoutesById {
   '/(pages)/men/rules': typeof pagesMenRulesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/game/community': typeof ApiGameCommunityRoute
+  '/api/game/feedback': typeof ApiGameFeedbackRoute
   '/api/game/session': typeof ApiGameSessionRoute
   '/api/storage/file': typeof ApiStorageFileRoute
   '/api/webhooks/creem': typeof ApiWebhooksCreemRoute
@@ -491,6 +500,7 @@ export interface FileRouteTypes {
     | '/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
+    | '/api/game/feedback'
     | '/api/game/session'
     | '/api/storage/file'
     | '/api/webhooks/creem'
@@ -537,6 +547,7 @@ export interface FileRouteTypes {
     | '/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
+    | '/api/game/feedback'
     | '/api/game/session'
     | '/api/storage/file'
     | '/api/webhooks/creem'
@@ -587,6 +598,7 @@ export interface FileRouteTypes {
     | '/(pages)/men/rules'
     | '/api/auth/$'
     | '/api/game/community'
+    | '/api/game/feedback'
     | '/api/game/session'
     | '/api/storage/file'
     | '/api/webhooks/creem'
@@ -620,6 +632,7 @@ export interface RootRouteChildren {
   pagesCategoriesSlugRoute: typeof pagesCategoriesSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiGameCommunityRoute: typeof ApiGameCommunityRoute
+  ApiGameFeedbackRoute: typeof ApiGameFeedbackRoute
   ApiGameSessionRoute: typeof ApiGameSessionRoute
   ApiStorageFileRoute: typeof ApiStorageFileRoute
   ApiWebhooksCreemRoute: typeof ApiWebhooksCreemRoute
@@ -930,6 +943,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiGameSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/game/feedback': {
+      id: '/api/game/feedback'
+      path: '/api/game/feedback'
+      fullPath: '/api/game/feedback'
+      preLoaderRoute: typeof ApiGameFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/game/community': {
       id: '/api/game/community'
       path: '/api/game/community'
@@ -1077,6 +1097,7 @@ const rootRouteChildren: RootRouteChildren = {
   pagesCategoriesSlugRoute: pagesCategoriesSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiGameCommunityRoute: ApiGameCommunityRoute,
+  ApiGameFeedbackRoute: ApiGameFeedbackRoute,
   ApiGameSessionRoute: ApiGameSessionRoute,
   ApiStorageFileRoute: ApiStorageFileRoute,
   ApiWebhooksCreemRoute: ApiWebhooksCreemRoute,

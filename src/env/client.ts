@@ -35,6 +35,10 @@ export const clientEnv = createEnv({
 
     // Game security (Cloudflare Turnstile)
     VITE_TURNSTILE_SITE_KEY: z.string().optional(),
+
+    // Deployment identity
+    VITE_GIT_SHA: z.string().optional(),
+    VITE_BUILD_TIME: z.string().optional(),
   },
   runtimeEnv: import.meta.env,
 });
