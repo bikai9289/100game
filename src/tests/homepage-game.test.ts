@@ -100,6 +100,33 @@ describe('game homepage source', () => {
     assert.match(widget, /\.remove\(/);
   });
 
+  it('locks score submission and keeps a successful save terminal', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const submitScore = game.slice(
+      game.indexOf('async function submitScore'),
+      game.indexOf('async function submitComment')
+    );
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+
+    assert.match(game, /const scoreSubmissionInFlightRef = useRef\(false\)/);
+    assert.match(
+      submitScore,
+      /if \(scoreSubmissionInFlightRef\.current \|\| isScoreSaved\) return;/
+    );
+    assert.match(submitScore, /scoreSubmissionInFlightRef\.current = true;/);
+    assert.match(submitScore, /setIsScoreSubmitting\(true\)/);
+    assert.match(submitScore, /setIsScoreSaved\(true\)/);
+    assert.match(
+      submitScore,
+      /if \(!saved\) \{\s*setScoreTurnstileToken\(''\);\s*scoreTurnstileRef\.current\?\.reset\(\);\s*\}/
+    );
+    assert.match(
+      renderedGame,
+      /disabled=\{[\s\S]*?isScoreSubmitting[\s\S]*?isScoreSaved[\s\S]*?\}/
+    );
+    assert.match(renderedGame, /turnstileSiteKey && !isScoreSaved \? \(/);
+  });
+
   it('shows a labeled share button throughout the round', () => {
     const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
     const renderedGame = game.slice(game.lastIndexOf('  return ('));
@@ -173,6 +200,61 @@ describe('game homepage source', () => {
 
     assert.match(game, /lastRejectedGuess/);
     assert.match(game, /Report a missing answer/);
-    assert.match(game, /to="\/contact"/);
+    assert.match(game, /value=\{lastRejectedGuess\}/);
+    assert.match(game, /value=\{gameId\}/);
+  });
+
+  it('renders the round result before answers on small screens and forces score sharing', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const resultIndex = renderedGame.indexOf('Final score:');
+    const answersIndex = renderedGame.indexOf('answerSlots.map');
+    const shareScoreIndex = renderedGame.indexOf('Share score');
+    const shareScoreButton = renderedGame.slice(
+      Math.max(0, shareScoreIndex - 260),
+      shareScoreIndex + 120
+    );
+
+    assert.ok(resultIndex >= 0);
+    assert.ok(answersIndex >= 0);
+    assert.match(game, /order-3[^"']*lg:order-none[\s\S]*answerSlots\.map/);
+    assert.match(game, /order-2[^"']*lg:order-none[\s\S]*Final score:/);
+    assert.match(shareScoreButton, /shareGame\('score'\)/);
+  });
+
+  it('requires confirmation before restarting a round with progress', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const resetGame = game.slice(
+      game.indexOf('function resetGame'),
+      game.indexOf('async function shareGame')
+    );
+
+    assert.match(game, /const \[isRestartConfirmOpen/);
+    assert.match(game, /function requestResetGame/);
+    assert.match(resetGame, /force = false/);
+    assert.match(resetGame, /gameState\.score > 0/);
+    assert.match(resetGame, /setIsRestartConfirmOpen\(true\)/);
+    assert.match(game, /Restart and lose your/);
+  });
+
+  it('shows readable category labels in answered slots', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+    const renderedGame = game.slice(game.lastIndexOf('  return ('));
+    const answerGrid = renderedGame.slice(
+      renderedGame.indexOf('answerSlots.map')
+    );
+
+    assert.match(game, /getCategoryLabel/);
+    assert.match(answerGrid, /getCategoryLabel\(answer\)/);
+  });
+
+  it('offers a missing-answer report form with the rejected guess', () => {
+    const game = readFileSync('src/components/game/name100-game.tsx', 'utf8');
+
+    assert.match(game, /const \[lastRejectedGuess/);
+    assert.match(game, /setLastRejectedGuess\(guess\)/);
+    assert.match(game, /Report a missing answer/);
+    assert.match(game, /value=\{lastRejectedGuess\}/);
+    assert.match(game, /gameId/);
   });
 });

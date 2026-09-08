@@ -80,6 +80,14 @@
     "id": "madam-c-j-walker",
     "name": "Madam C. J. Walker",
     "aliases": ["madam walker"],
+    "category": "business",
+    "categories": ["business", "activists", "historical"],
+    "hint": "Entrepreneur, philanthropist, and activist"
+  },
+  {
+    "id": "billie-eilish",
+    "name": "Billie Eilish",
+    "aliases": [],
     "category": "musicians",
     "hint": "Singer, musician, songwriter, or recording artist"
   },
@@ -3356,7 +3364,7 @@
     "id": "joan-lunden",
     "name": "Joan Lunden",
     "aliases": [],
-    "category": "other",
+    "category": "historical",
     "hint": "Famous public figure"
   },
   {
@@ -3777,6 +3785,7 @@
     "name": "Marie Curie",
     "aliases": [],
     "category": "scientists",
+    "categories": ["scientists", "historical"],
     "hint": "Physicist and chemist; two-time Nobel Prize winner"
   },
   {
@@ -3784,6 +3793,7 @@
     "name": "Michelle Obama",
     "aliases": ["Michelle Robinson Obama"],
     "category": "politicians",
+    "categories": ["politicians", "other"],
     "hint": "Former First Lady of the United States and public leader"
   },
   {
@@ -3798,6 +3808,7 @@
     "name": "Catherine, Princess of Wales",
     "aliases": ["Kate Middleton", "Catherine Middleton"],
     "category": "politicians",
+    "categories": ["politicians", "historical", "other"],
     "hint": "British royal and public figure"
   },
   {
@@ -3805,6 +3816,7 @@
     "name": "Rosa Parks",
     "aliases": [],
     "category": "activists",
+    "categories": ["activists", "historical"],
     "hint": "American civil rights activist"
   },
   {
@@ -3812,6 +3824,7 @@
     "name": "Ada Lovelace",
     "aliases": ["Augusta Ada King"],
     "category": "scientists",
+    "categories": ["scientists", "historical"],
     "hint": "Mathematician and early computing pioneer"
   },
   {
@@ -3847,6 +3860,7 @@
     "name": "Jane Austen",
     "aliases": [],
     "category": "historical",
+    "categories": ["other", "historical"],
     "hint": "English novelist"
   },
   {
@@ -3939,5 +3953,20 @@
     "aliases": ["Georgia Totto O Keeffe"],
     "category": "other",
     "hint": "American modernist artist"
+  },
+  {
+    "id": "zendaya",
+    "name": "Zendaya",
+    "aliases": ["Zendaya Coleman"],
+    "category": "actresses",
+    "categories": ["actresses", "musicians"],
+    "hint": "Actress, singer, and public figure"
+  },
+  {
+    "id": "michelle-yeoh",
+    "name": "Michelle Yeoh",
+    "aliases": [],
+    "category": "actresses",
+    "hint": "Actress and international film star"
   }
 ]

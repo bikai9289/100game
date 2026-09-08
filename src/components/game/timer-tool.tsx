@@ -6,6 +6,7 @@ import { Link, useSearch } from '@tanstack/react-router';
 import { useEffect, useMemo, useState } from 'react';
 
 const presets = [3, 5, 12] as const;
+type TimerStatus = 'idle' | 'running' | 'paused' | 'completed';
 
 export function TimerTool() {
   const search = useSearch({ strict: false }) as { t?: string };
@@ -15,24 +16,21 @@ export function TimerTool() {
   }, [search.t]);
   const [minutes, setMinutes] = useState(initialMinutes);
   const [remaining, setRemaining] = useState(initialMinutes * 60);
-  const [isRunning, setIsRunning] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
+  const [status, setStatus] = useState<TimerStatus>('idle');
 
   useEffect(() => {
     setMinutes(initialMinutes);
     setRemaining(initialMinutes * 60);
-    setIsRunning(false);
-    setIsFinished(false);
+    setStatus('idle');
   }, [initialMinutes]);
 
   useEffect(() => {
-    if (!isRunning) return;
+    if (status !== 'running') return;
 
     const interval = window.setInterval(() => {
       setRemaining((current) => {
         if (current <= 1) {
-          setIsRunning(false);
-          setIsFinished(true);
+          setStatus('completed');
           playBeep();
           return 0;
         }
@@ -42,19 +40,26 @@ export function TimerTool() {
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [isRunning]);
+  }, [status]);
 
   function selectMinutes(value: number) {
     setMinutes(value);
     setRemaining(value * 60);
-    setIsRunning(false);
-    setIsFinished(false);
+    setStatus('idle');
   }
 
   function reset() {
     setRemaining(minutes * 60);
-    setIsRunning(false);
-    setIsFinished(false);
+    setStatus('idle');
+  }
+
+  function toggleTimer() {
+    if (status === 'completed') {
+      reset();
+      return;
+    }
+
+    setStatus((current) => (current === 'running' ? 'paused' : 'running'));
   }
 
   const minuteLabel = Math.floor(remaining / 60)
@@ -82,19 +87,19 @@ export function TimerTool() {
       <div
         className={cn(
           'mx-auto mt-8 rounded-xl border bg-background px-6 py-8 text-center font-mono text-6xl font-black tabular-nums sm:text-8xl',
-          isFinished && 'border-primary text-primary'
+          status === 'completed' && 'border-primary text-primary'
         )}
       >
         {minuteLabel}:{secondLabel}
       </div>
 
       <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Button
-          type="button"
-          size="lg"
-          onClick={() => setIsRunning((current) => !current)}
-        >
-          {isRunning ? 'Pause' : 'Start'}
+        <Button type="button" size="lg" onClick={toggleTimer}>
+          {status === 'running'
+            ? 'Pause'
+            : status === 'completed'
+              ? 'Restart timer'
+              : 'Start'}
         </Button>
         <Button type="button" variant="outline" size="lg" onClick={reset}>
           Reset
@@ -108,7 +113,7 @@ export function TimerTool() {
         aria-live="polite"
         className="mt-4 min-h-6 text-center font-semibold text-primary"
       >
-        {isFinished ? "Time's up!" : ''}
+        {status === 'completed' ? "Time's up!" : ''}
       </p>
     </section>
   );

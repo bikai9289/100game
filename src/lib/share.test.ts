@@ -29,6 +29,73 @@ describe('shareChallenge', () => {
     ]);
   });
 
+  it('builds invitations from the active game mode and duration', async () => {
+    const clipboardWrites: string[] = [];
+
+    await shareChallenge({
+      score: 0,
+      targetScore: 100,
+      durationSeconds: 720,
+      subjectLabel: 'famous men',
+      challengeTitle: 'Name 100 Men Challenge',
+      href: 'https://name100challenge.com/men',
+      shareNavigator: {
+        clipboard: {
+          writeText: async (text) => {
+            clipboardWrites.push(text);
+          },
+        },
+      },
+      onMessage: () => {},
+    });
+    await shareChallenge({
+      score: 0,
+      targetScore: 30,
+      durationSeconds: 300,
+      subjectLabel: 'famous women',
+      challengeTitle: "today's Name 100 Daily Challenge",
+      href: 'https://name100challenge.com/challenge',
+      shareNavigator: {
+        clipboard: {
+          writeText: async (text) => {
+            clipboardWrites.push(text);
+          },
+        },
+      },
+      onMessage: () => {},
+    });
+
+    assert.deepEqual(clipboardWrites, [
+      'Can you name 100 famous men in 12 minutes? Try the Name 100 Men Challenge: https://name100challenge.com/men',
+      "Can you name 30 famous women in 5 minutes? Try today's Name 100 Daily Challenge: https://name100challenge.com/challenge",
+    ]);
+  });
+
+  it('always includes score text for a finished score share', async () => {
+    const clipboardWrites: string[] = [];
+
+    await shareChallenge({
+      score: 1,
+      targetScore: 30,
+      durationSeconds: 300,
+      challengeTitle: "today's Name 100 Daily Challenge",
+      href: 'https://name100challenge.com/challenge',
+      resultMode: 'score',
+      shareNavigator: {
+        clipboard: {
+          writeText: async (text) => {
+            clipboardWrites.push(text);
+          },
+        },
+      },
+      onMessage: () => {},
+    });
+
+    assert.deepEqual(clipboardWrites, [
+      "I named 1 of 30 in today's Name 100 Daily Challenge. Can you beat me? https://name100challenge.com/challenge",
+    ]);
+  });
+
   it('brags with the score once the score is high enough', async () => {
     const shareCalls: unknown[] = [];
 

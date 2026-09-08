@@ -14,6 +14,10 @@ export type ChallengeShareNavigator = {
 type ShareChallengeOptions = {
   score: number;
   targetScore: number;
+  durationSeconds?: number;
+  challengeTitle?: string;
+  subjectLabel?: string;
+  resultMode?: 'auto' | 'invite' | 'score';
   href: string;
   shareNavigator: ChallengeShareNavigator;
   onMessage: (message: string) => void;
@@ -22,30 +26,69 @@ type ShareChallengeOptions = {
 };
 
 const MIN_BRAG_SCORE_RATIO = 0.1;
-const CHALLENGE_INVITATION_TEXT =
-  'Can you name 100 famous women in 12 minutes? Try the Name 100 Challenge:';
 
 function shouldBragWithScore(score: number, targetScore: number) {
   return score >= Math.ceil(targetScore * MIN_BRAG_SCORE_RATIO);
 }
 
-function getShareText(score: number, targetScore: number) {
-  if (!shouldBragWithScore(score, targetScore)) {
-    return CHALLENGE_INVITATION_TEXT;
+function formatDuration(durationSeconds: number) {
+  const minutes = Math.round(durationSeconds / 60);
+  return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+}
+
+function formatInvitationTitle(challengeTitle: string) {
+  if (/^(the|today's)\b/i.test(challengeTitle)) return challengeTitle;
+  return `the ${challengeTitle}`;
+}
+
+function getShareText({
+  score,
+  targetScore,
+  durationSeconds,
+  challengeTitle,
+  subjectLabel,
+  resultMode,
+}: {
+  score: number;
+  targetScore: number;
+  durationSeconds: number;
+  challengeTitle: string;
+  subjectLabel: string;
+  resultMode: 'auto' | 'invite' | 'score';
+}) {
+  if (
+    resultMode !== 'score' &&
+    (resultMode === 'invite' || !shouldBragWithScore(score, targetScore))
+  ) {
+    return `Can you name ${targetScore} ${subjectLabel} in ${formatDuration(
+      durationSeconds
+    )}? Try ${formatInvitationTitle(challengeTitle)}:`;
   }
-  return `I named ${score} of ${targetScore} in the Name 100 Challenge. Can you beat me?`;
+
+  return `I named ${score} of ${targetScore} in ${challengeTitle}. Can you beat me?`;
 }
 
 export async function shareChallenge({
   score,
   targetScore,
+  durationSeconds = 720,
+  challengeTitle = 'the Name 100 Challenge',
+  subjectLabel = 'famous women',
+  resultMode = 'auto',
   href,
   shareNavigator,
   onMessage,
   preferNativeShare = false,
   logger,
 }: ShareChallengeOptions) {
-  const text = getShareText(score, targetScore);
+  const text = getShareText({
+    score,
+    targetScore,
+    durationSeconds,
+    challengeTitle,
+    subjectLabel,
+    resultMode,
+  });
   const payload = {
     title: 'Name 100 Challenge',
     text,

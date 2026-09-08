@@ -1,5 +1,5 @@
 import womenAnswers from '@/data/answers-women.json';
-import type { Answer } from '@/lib/gameEngine';
+import { getAnswerCategories, type Answer } from '@/lib/gameEngine';
 
 export const categoryOrder = [
   'actresses',
@@ -120,7 +120,9 @@ export const categoryMeta: Record<
 export const womenAnswerList = womenAnswers as Answer[];
 
 export function getAnswersByCategory(slug: CategorySlug) {
-  return womenAnswerList.filter((answer) => answer.category === slug);
+  return womenAnswerList.filter((answer) =>
+    getAnswerCategories(answer).includes(slug)
+  );
 }
 
 export function getCategoryStats() {
@@ -158,5 +160,7 @@ export function getDailyAnswers(todayKey = getTodayKey()) {
   const selected = getDailyCategories(todayKey);
   const selectedSet = new Set<string>(selected);
 
-  return womenAnswerList.filter((answer) => selectedSet.has(answer.category));
+  return womenAnswerList.filter((answer) =>
+    getAnswerCategories(answer).some((category) => selectedSet.has(category))
+  );
 }

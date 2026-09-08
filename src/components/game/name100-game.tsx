@@ -11,6 +11,16 @@ import {
 } from '@/components/game/retry';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { Textarea } from '@/components/ui/textarea';
@@ -32,7 +42,6 @@ import {
   IconShare,
   IconTrophy,
 } from '@tabler/icons-react';
-import { Link } from '@tanstack/react-router';
 import type { FormEvent } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -46,6 +55,18 @@ const categoryStyles: Record<string, string> = {
   business: 'border-transparent bg-[#0891b2] text-white',
   activists: 'border-transparent bg-[#65a30d] text-white',
   other: 'border-transparent bg-[#64748b] text-white',
+};
+
+const categoryLabels: Record<string, string> = {
+  actresses: 'Acting',
+  musicians: 'Music',
+  athletes: 'Sports',
+  scientists: 'Science',
+  politicians: 'Public',
+  historical: 'History',
+  business: 'Business',
+  activists: 'Activism',
+  other: 'More',
 };
 
 const SESSION_RETRY_ATTEMPTS = 3;
@@ -106,6 +127,8 @@ type Name100GameProps = {
   activeHint?: string;
   idleHint?: string;
   missText?: string;
+  challengeTitle?: string;
+  subjectLabel?: string;
 };
 
 function readStoredGame(storageKey: string, storageCookie: string) {
@@ -196,6 +219,8 @@ export function Name100Game({
   activeHint = 'Keep going. Think by category.',
   idleHint = 'Press Enter after each name. Your timer starts on the first accepted guess.',
   missText = 'Not in the current answer list. Check the spelling or try another name.',
+  challengeTitle,
+  subjectLabel,
 }: Name100GameProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const deadlineRef = useRef<number | null>(null);
@@ -206,6 +231,7 @@ export function Name100Game({
   const sessionAbortRef = useRef<AbortController | null>(null);
   const scoreTurnstileRef = useRef<TurnstileWidgetHandle>(null);
   const commentTurnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const scoreSubmissionInFlightRef = useRef(false);
   const [gameState, setGameState] = useState<GameState>(() =>
     initGame(answers, { durationSeconds })
   );
@@ -226,6 +252,9 @@ export function Name100Game({
   const [commentMessage, setCommentMessage] = useState('');
   const [scoreSubmitStatus, setScoreSubmitStatus] = useState('');
   const [commentSubmitStatus, setCommentSubmitStatus] = useState('');
+  const [isScoreSubmitting, setIsScoreSubmitting] = useState(false);
+  const [isScoreSaved, setIsScoreSaved] = useState(false);
+  const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
   const [sessionToken, setSessionToken] = useState('');
   const [sessionExpiresAt, setSessionExpiresAt] = useState<number | null>(null);
   const [scoreTurnstileToken, setScoreTurnstileToken] = useState('');
@@ -235,6 +264,8 @@ export function Name100Game({
   const inputId = `name100-input-${storageKey}`;
   const playerNameId = `name100-player-${storageKey}`;
   const commentId = `name100-comment-${storageKey}`;
+  const missingAnswerNameId = `name100-missing-answer-${storageKey}`;
+  const missingAnswerModeId = `name100-missing-mode-${storageKey}`;
   const guessedKeys = useMemo(
     () =>
       new Set(
@@ -249,6 +280,8 @@ export function Name100Game({
         .slice(0, targetScore),
     [answers, guessedKeys, targetScore]
   );
+  const shareTitle = challengeTitle ?? getChallengeTitle(gameId);
+  const shareSubject = subjectLabel ?? getSubjectLabel(gameId);
   const loadCommunity = useCallback(async () => {
     setCommunityStatus('loading');
     try {
@@ -536,7 +569,12 @@ export function Name100Game({
     submitGuess(input);
   }
 
-  function resetGame() {
+  function resetGame(force = false) {
+    if (!force && gameState.score > 0 && !gameState.isGameOver) {
+      setIsRestartConfirmOpen(true);
+      return;
+    }
+
     const nextState = initGame(answers, { durationSeconds });
     deadlineRef.current = null;
     startedAtRef.current = null;
@@ -545,6 +583,7 @@ export function Name100Game({
     sessionAbortRef.current?.abort();
     sessionAbortRef.current = null;
     sessionRequestRef.current = null;
+    scoreSubmissionInFlightRef.current = false;
     setSessionToken('');
     setSessionExpiresAt(null);
     setScoreTurnstileToken('');
@@ -554,16 +593,27 @@ export function Name100Game({
     setMessage('');
     setLastRejectedGuess('');
     setScoreSubmitStatus('');
+    setIsScoreSubmitting(false);
+    setIsScoreSaved(false);
+    setIsRestartConfirmOpen(false);
     setIsStarted(false);
     clearStoredGame(storageKey, storageCookie);
     window.setTimeout(() => inputRef.current?.focus(), 0);
   }
 
-  async function shareGame() {
+  function requestResetGame() {
+    resetGame();
+  }
+
+  async function shareGame(resultMode: 'auto' | 'score' = 'auto') {
     const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches;
     await shareChallenge({
       score: gameState.score,
       targetScore,
+      durationSeconds,
+      challengeTitle: shareTitle,
+      subjectLabel: shareSubject,
+      resultMode: gameState.isGameOver ? 'score' : resultMode,
       href: location.href,
       shareNavigator: navigator,
       onMessage: setMessage,
@@ -578,7 +628,12 @@ export function Name100Game({
 
   async function submitScore(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (scoreSubmissionInFlightRef.current || isScoreSaved) return;
+
+    scoreSubmissionInFlightRef.current = true;
+    setIsScoreSubmitting(true);
     setScoreSubmitStatus('Saving...');
+    let saved = false;
     try {
       const cleanName = playerName.trim();
       if (!communitySubmissionConfigured) {
@@ -627,6 +682,8 @@ export function Name100Game({
       } catch {
         // Saving the score does not depend on local storage.
       }
+      saved = true;
+      setIsScoreSaved(true);
       setScoreSubmitStatus('Score saved to the leaderboard.');
       await loadCommunity();
     } catch (error) {
@@ -634,8 +691,12 @@ export function Name100Game({
         error instanceof Error ? error.message : 'Score could not be saved.'
       );
     } finally {
-      setScoreTurnstileToken('');
-      scoreTurnstileRef.current?.reset();
+      scoreSubmissionInFlightRef.current = false;
+      setIsScoreSubmitting(false);
+      if (!saved) {
+        setScoreTurnstileToken('');
+        scoreTurnstileRef.current?.reset();
+      }
     }
   }
 
@@ -715,7 +776,7 @@ export function Name100Game({
               variant="outline"
               size="icon"
               className="justify-self-end min-[360px]:justify-self-auto"
-              onClick={resetGame}
+              onClick={requestResetGame}
               aria-label="Restart game"
               title="Restart game"
             >
@@ -768,12 +829,38 @@ export function Name100Game({
           >
             <span>{message}</span>
             {lastRejectedGuess ? (
-              <Link
-                to="/contact"
-                className="ml-2 inline-flex font-bold text-primary hover:underline"
-              >
-                Report a missing answer
-              </Link>
+              <details className="mt-2 rounded-lg border border-border bg-card p-3 text-left">
+                <summary className="cursor-pointer text-sm font-bold text-primary">
+                  Report a missing answer
+                </summary>
+                <form className="mt-3 grid gap-3">
+                  <label
+                    htmlFor={missingAnswerNameId}
+                    className="grid gap-1 text-sm font-semibold"
+                  >
+                    Name
+                    <Input
+                      id={missingAnswerNameId}
+                      value={lastRejectedGuess}
+                      readOnly
+                    />
+                  </label>
+                  <label
+                    htmlFor={missingAnswerModeId}
+                    className="grid gap-1 text-sm font-semibold"
+                  >
+                    Mode
+                    <Input id={missingAnswerModeId} value={gameId} readOnly />
+                  </label>
+                  <Textarea
+                    placeholder="Optional: suggested category or source link"
+                    maxLength={280}
+                  />
+                  <Button type="button" variant="outline" size="sm">
+                    Send feedback
+                  </Button>
+                </form>
+              </details>
             ) : null}
           </div>
         ) : (
@@ -812,6 +899,11 @@ export function Name100Game({
             >
               {answer?.name ?? '-'}
             </span>
+            {answer ? (
+              <span className="shrink-0 rounded bg-white/20 px-1.5 py-0.5 text-[0.625rem] font-bold text-white">
+                {getCategoryLabel(answer)}
+              </span>
+            ) : null}
           </div>
         ))}
       </div>
@@ -1014,6 +1106,7 @@ export function Name100Game({
                       <Input
                         id={playerNameId}
                         value={playerName}
+                        disabled={isScoreSubmitting || isScoreSaved}
                         maxLength={24}
                         placeholder="Leaderboard name"
                         onChange={(event) => setPlayerName(event.target.value)}
@@ -1022,18 +1115,28 @@ export function Name100Game({
                     <Button
                       type="submit"
                       className="font-bold"
-                      disabled={!scoreTurnstileToken}
+                      disabled={
+                        !scoreTurnstileToken ||
+                        isScoreSubmitting ||
+                        isScoreSaved
+                      }
                     >
                       <IconSend data-icon="inline-start" />
-                      Save score
+                      {isScoreSubmitting
+                        ? 'Saving...'
+                        : isScoreSaved
+                          ? 'Score saved'
+                          : 'Save score'}
                     </Button>
                   </div>
-                  <TurnstileWidget
-                    ref={scoreTurnstileRef}
-                    siteKey={turnstileSiteKey}
-                    action="score"
-                    onToken={setScoreTurnstileToken}
-                  />
+                  {turnstileSiteKey && !isScoreSaved ? (
+                    <TurnstileWidget
+                      ref={scoreTurnstileRef}
+                      siteKey={turnstileSiteKey}
+                      action="score"
+                      onToken={setScoreTurnstileToken}
+                    />
+                  ) : null}
                 </form>
                 <p
                   className="mt-2 min-h-5 text-sm text-muted-foreground"
@@ -1052,14 +1155,18 @@ export function Name100Game({
               </div>
             </details>
             <div className="mt-4 flex flex-wrap gap-2">
-              <Button type="button" onClick={resetGame} className="font-bold">
+              <Button
+                type="button"
+                onClick={() => resetGame(true)}
+                className="font-bold"
+              >
                 <IconRefresh data-icon="inline-start" />
                 Play again
               </Button>
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => void shareGame()}
+                onClick={() => void shareGame('score')}
                 className="font-bold"
               >
                 <IconShare data-icon="inline-start" />
@@ -1069,6 +1176,44 @@ export function Name100Game({
           </CardContent>
         </Card>
       ) : null}
+
+      <AlertDialog
+        open={isRestartConfirmOpen}
+        onOpenChange={setIsRestartConfirmOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Restart and lose your {gameState.score} answers?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Your current round progress will be cleared.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Keep playing</AlertDialogCancel>
+            <AlertDialogAction onClick={() => resetGame(true)}>
+              Restart
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
+}
+
+function getChallengeTitle(gameId: string) {
+  if (gameId === 'men') return 'the Name 100 Men Challenge';
+  if (gameId.startsWith('daily:')) return "today's Name 100 Daily Challenge";
+  if (gameId.startsWith('category:')) return 'the Name 100 Category Challenge';
+  return 'the Name 100 Challenge';
+}
+
+function getSubjectLabel(gameId: string) {
+  if (gameId === 'men') return 'famous men';
+  return 'famous women';
+}
+
+function getCategoryLabel(answer: Answer) {
+  return categoryLabels[answer.category] ?? categoryLabels.other;
 }

@@ -3,6 +3,7 @@ export interface Answer {
   name: string;
   aliases: string[];
   category: string;
+  categories?: string[];
   hint?: string;
 }
 
@@ -70,6 +71,10 @@ export function checkAnswer(input: string, answers: Answer[]): Answer | null {
   );
 
   return fuzzyMatches.length === 1 ? fuzzyMatches[0] : null;
+}
+
+export function getAnswerCategories(answer: Answer): string[] {
+  return Array.from(new Set([answer.category, ...(answer.categories ?? [])]));
 }
 
 export function remainingTimeFromDeadline(
