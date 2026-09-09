@@ -20,7 +20,7 @@ export function normalizeInput(input: string): string {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s]/g, '')
+    .replace(/[^\p{L}\p{N}\s_]/gu, '')
     .replace(/\s+/g, ' ')
     .trim();
 }

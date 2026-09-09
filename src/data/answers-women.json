@@ -265,14 +265,14 @@
     "name": "Dua Lipa",
     "aliases": [],
     "category": "musicians",
-    "hint": "Singer, musician, songwriter, or recording artist"
+    "hint": "Singer and songwriter"
   },
   {
     "id": "olivia-rodrigo",
     "name": "Olivia Rodrigo",
     "aliases": [],
     "category": "musicians",
-    "hint": "Singer, musician, songwriter, or recording artist"
+    "hint": "Singer and songwriter"
   },
   {
     "id": "sza",
@@ -1308,7 +1308,7 @@
     "name": "Naomi Osaka",
     "aliases": [],
     "category": "athletes",
-    "hint": "Athlete or sports figure"
+    "hint": "Professional athlete"
   },
   {
     "id": "lindsey-vonn",
@@ -2348,7 +2348,7 @@
     "hint": "Activist, reformer, writer, or public intellectual"
   },
   {
-    "id": "wisawa-szymborska",
+    "id": "wisława-szymborska",
     "name": "Wisława Szymborska",
     "aliases": [],
     "category": "activists",
@@ -2968,105 +2968,105 @@
     "name": "Kalpana Chawla",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "laurel-clark",
     "name": "Laurel Clark",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "stephanie-wilson",
     "name": "Stephanie Wilson",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "barbara-morgan",
     "name": "Barbara Morgan",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "dorothy-metcalflindenburger",
     "name": "Dorothy Metcalf-Lindenburger",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "karen-nyberg",
     "name": "Karen Nyberg",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "tracy-caldwell-dyson",
     "name": "Tracy Caldwell Dyson",
     "aliases": ["tracy dyson"],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "shannon-walker",
     "name": "Shannon Walker",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "catherine-coleman",
     "name": "Catherine Coleman",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "sunita-williams",
     "name": "Sunita Williams",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "anne-mcclain",
     "name": "Anne McClain",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "christina-koch",
     "name": "Christina Koch",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "jessica-meir",
     "name": "Jessica Meir",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "jasmin-moghbeli",
     "name": "Jasmin Moghbeli",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "nicole-mann",
     "name": "Nicole Mann",
     "aliases": [],
     "category": "scientists",
-    "hint": "Scientist, inventor, mathematician, or engineer"
+    "hint": "Scientist, inventor, mathematician, engineer, or astronaut"
   },
   {
     "id": "oprah-winfrey",
@@ -3999,5 +3999,138 @@
     "aliases": ["Crystal Liu"],
     "category": "actresses",
     "hint": "Actress and singer"
+  },
+  {
+    "id": "chappell-roan",
+    "name": "Chappell Roan",
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer and songwriter"
+  },
+  {
+    "id": "charli-xcx",
+    "name": "Charli XCX",
+    "aliases": [],
+    "category": "musicians",
+    "hint": "Singer and songwriter"
+  },
+  {
+    "id": "caitlin-clark",
+    "name": "Caitlin Clark",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "alexia-putellas",
+    "name": "Alexia Putellas",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "zheng-qinwen",
+    "name": "Zheng Qinwen",
+    "aliases": ["Qinwen Zheng", "郑钦文"],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "sun-yingsha",
+    "name": "Sun Yingsha",
+    "aliases": ["Yingsha Sun", "孙颖莎"],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "jenna-ortega",
+    "name": "Jenna Ortega",
+    "aliases": [],
+    "category": "actresses",
+    "hint": "Film and television actress"
+  },
+  {
+    "id": "sydney-sweeney",
+    "name": "Sydney Sweeney",
+    "aliases": [],
+    "category": "actresses",
+    "hint": "Film and television actress"
+  },
+  {
+    "id": "angela-merkel",
+    "name": "Angela Merkel",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
+  },
+  {
+    "id": "jacinda-ardern",
+    "name": "Jacinda Ardern",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
+  },
+  {
+    "id": "iga-swiatek",
+    "name": "Iga Swiatek",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "aryna-sabalenka",
+    "name": "Aryna Sabalenka",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "aitana-bonmati",
+    "name": "Aitana Bonmati",
+    "aliases": [],
+    "category": "athletes",
+    "hint": "Professional athlete"
+  },
+  {
+    "id": "florence-pugh",
+    "name": "Florence Pugh",
+    "aliases": [],
+    "category": "actresses",
+    "hint": "Film and television actress"
+  },
+  {
+    "id": "anya-taylorjoy",
+    "name": "Anya Taylor-Joy",
+    "aliases": [],
+    "category": "actresses",
+    "hint": "Film and television actress"
+  },
+  {
+    "id": "sanna-marin",
+    "name": "Sanna Marin",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
+  },
+  {
+    "id": "julia-gillard",
+    "name": "Julia Gillard",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
+  },
+  {
+    "id": "ellen-johnson-sirleaf",
+    "name": "Ellen Johnson Sirleaf",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
+  },
+  {
+    "id": "benazir-bhutto",
+    "name": "Benazir Bhutto",
+    "aliases": [],
+    "category": "politicians",
+    "hint": "Political leader"
   }
 ]

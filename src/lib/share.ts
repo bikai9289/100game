@@ -15,6 +15,9 @@ type ShareChallengeOptions = {
   score: number;
   targetScore: number;
   durationSeconds?: number;
+  elapsedSeconds?: number;
+  challengeDate?: string;
+  categoryNames?: string[];
   challengeTitle?: string;
   subjectLabel?: string;
   resultMode?: 'auto' | 'invite' | 'score';
@@ -75,13 +78,16 @@ export async function shareChallenge({
   challengeTitle = 'the Name 100 Challenge',
   subjectLabel = 'famous women',
   resultMode = 'auto',
+  elapsedSeconds,
+  challengeDate,
+  categoryNames = [],
   href,
   shareNavigator,
   onMessage,
   preferNativeShare = false,
   logger,
 }: ShareChallengeOptions) {
-  const text = getShareText({
+  const baseText = getShareText({
     score,
     targetScore,
     durationSeconds,
@@ -89,6 +95,19 @@ export async function shareChallenge({
     subjectLabel,
     resultMode,
   });
+  const details = [
+    elapsedSeconds === undefined
+      ? ''
+      : `Time: ${Math.floor(elapsedSeconds / 60)
+          .toString()
+          .padStart(
+            2,
+            '0'
+          )}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`,
+    challengeDate ? `Date: ${challengeDate}` : '',
+    categoryNames.length ? `Categories: ${categoryNames.join(', ')}` : '',
+  ].filter(Boolean);
+  const text = `${baseText}${details.length ? ` ${details.join(' | ')}` : ''}`;
   const payload = {
     title: 'Name 100 Challenge',
     text,

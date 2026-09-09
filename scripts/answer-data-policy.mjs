@@ -29,6 +29,138 @@ export const womenCategoryCorrections = new Map([
 
 export const requiredWomenAnswers = [
   {
+    name: 'Chappell Roan',
+    aliases: [],
+    category: 'musicians',
+    hint: 'Singer and songwriter',
+  },
+  {
+    name: 'Charli XCX',
+    aliases: [],
+    category: 'musicians',
+    hint: 'Singer and songwriter',
+  },
+  {
+    name: 'Caitlin Clark',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Alexia Putellas',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Zheng Qinwen',
+    aliases: ['Qinwen Zheng', '郑钦文'],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Sun Yingsha',
+    aliases: ['Yingsha Sun', '孙颖莎'],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Jenna Ortega',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film and television actress',
+  },
+  {
+    name: 'Sydney Sweeney',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film and television actress',
+  },
+  {
+    name: 'Angela Merkel',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
+    name: 'Jacinda Ardern',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
+    name: 'Iga Swiatek',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Aryna Sabalenka',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Aitana Bonmati',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Naomi Osaka',
+    aliases: [],
+    category: 'athletes',
+    hint: 'Professional athlete',
+  },
+  {
+    name: 'Florence Pugh',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film and television actress',
+  },
+  {
+    name: 'Anya Taylor-Joy',
+    aliases: [],
+    category: 'actresses',
+    hint: 'Film and television actress',
+  },
+  {
+    name: 'Olivia Rodrigo',
+    aliases: [],
+    category: 'musicians',
+    hint: 'Singer and songwriter',
+  },
+  {
+    name: 'Dua Lipa',
+    aliases: [],
+    category: 'musicians',
+    hint: 'Singer and songwriter',
+  },
+  {
+    name: 'Sanna Marin',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
+    name: 'Julia Gillard',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
+    name: 'Ellen Johnson Sirleaf',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
+    name: 'Benazir Bhutto',
+    aliases: [],
+    category: 'politicians',
+    hint: 'Political leader',
+  },
+  {
     name: 'Michelle Obama',
     aliases: ['Michelle Robinson Obama'],
     category: 'politicians',
@@ -213,11 +345,14 @@ export function normalizeAnswerText(value) {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\w\s]/g, '')
+    .replace(/[^\p{L}\p{N}\s_]/gu, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
 export function isSafeAnswerAlias(value) {
-  return normalizeAnswerText(value).includes(' ');
+  return (
+    normalizeAnswerText(value).includes(' ') ||
+    /^[\p{Script=Han}]{2,}$/u.test(value)
+  );
 }

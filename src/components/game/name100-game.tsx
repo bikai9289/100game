@@ -35,6 +35,8 @@ import {
 } from '@/lib/gameEngine';
 import { shareChallenge, shouldPreferNativeShare } from '@/lib/share';
 import { cn } from '@/lib/utils';
+import { saveScoreCard } from '@/lib/score-card';
+import { categoryMeta, type CategorySlug } from '@/lib/name100-data';
 import {
   IconMessage,
   IconPlayerStop,
@@ -241,6 +243,9 @@ export function Name100Game({
   );
   const [input, setInput] = useState('');
   const [message, setMessage] = useState('');
+  const [shareStatus, setShareStatus] = useState('');
+  const [imageStatus, setImageStatus] = useState('');
+  const [isEndConfirmOpen, setIsEndConfirmOpen] = useState(false);
   const [lastRejectedGuess, setLastRejectedGuess] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [hasRestoredGame, setHasRestoredGame] = useState(false);
@@ -292,6 +297,12 @@ export function Name100Game({
     [answers, guessedKeys, targetScore]
   );
   const shareTitle = challengeTitle ?? getChallengeTitle(gameId);
+  const challengeDate = gameId.startsWith('daily:')
+    ? gameId.slice(6)
+    : undefined;
+  const categoryNames = categoryContext.map(
+    (category) => categoryMeta[category as CategorySlug]?.title ?? category
+  );
   const shareSubject = subjectLabel ?? getSubjectLabel(gameId);
   const resultState =
     gameState.score >= targetScore
@@ -664,6 +675,9 @@ export function Name100Game({
     setGameState(nextState);
     setInput('');
     setMessage('');
+    setShareStatus('');
+    setImageStatus('');
+    setIsEndConfirmOpen(false);
     setLastRejectedGuess('');
     setMissingAnswerNote('');
     setMissingAnswerStatus('');
@@ -682,7 +696,16 @@ export function Name100Game({
     resetGame();
   }
 
+  function requestEndRound() {
+    if (gameState.score > 0 && !gameState.isGameOver) {
+      setIsEndConfirmOpen(true);
+      return;
+    }
+    endRound();
+  }
+
   function endRound() {
+    setIsEndConfirmOpen(false);
     if (gameState.isGameOver) return;
     if (startedAtRef.current === null) {
       startedAtRef.current = Date.now();
@@ -694,6 +717,7 @@ export function Name100Game({
   }
 
   async function shareGame(resultMode: 'auto' | 'score' = 'auto') {
+    setShareStatus('');
     const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches;
     await shareChallenge({
       score: gameState.score,
@@ -701,10 +725,13 @@ export function Name100Game({
       durationSeconds,
       challengeTitle: shareTitle,
       subjectLabel: shareSubject,
+      elapsedSeconds,
+      challengeDate,
+      categoryNames,
       resultMode: gameState.isGameOver ? 'score' : resultMode,
       href: location.href,
       shareNavigator: navigator,
-      onMessage: setMessage,
+      onMessage: setShareStatus,
       preferNativeShare: shouldPreferNativeShare({
         coarsePointer,
         maxTouchPoints: navigator.maxTouchPoints,
@@ -875,7 +902,7 @@ export function Name100Game({
               variant="outline"
               size="sm"
               className="justify-self-end min-[520px]:justify-self-auto"
-              onClick={endRound}
+              onClick={requestEndRound}
               disabled={gameState.isGameOver}
               aria-label="End round and view score"
               title="End round and view score"
@@ -923,6 +950,9 @@ export function Name100Game({
           />
         </div>
 
+        {!gameState.isGameOver && (
+          <output className="mt-2 text-sm">{shareStatus}</output>
+        )}
         {gameState.isGameOver ? (
           <Card className="mt-3 rounded-lg border-2 border-primary/30 bg-card py-4 shadow-sm ring-0">
             <CardHeader>
@@ -977,8 +1007,34 @@ export function Name100Game({
                   <IconShare data-icon="inline-start" />
                   Share score
                 </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    try {
+                      saveScoreCard({
+                        score: gameState.score,
+                        targetScore,
+                        elapsedSeconds,
+                        title: shareTitle,
+                        date: challengeDate,
+                        categories: categoryNames,
+                        url: `${location.origin}${location.pathname}`,
+                      });
+                      setImageStatus('Score image download started.');
+                    } catch {
+                      setImageStatus(
+                        'Could not save the image. Please try again.'
+                      );
+                    }
+                  }}
+                >
+                  Save score image
+                </Button>
               </div>
 
+              <output className="mt-2 text-sm">{shareStatus}</output>
+              <output className="mt-2 text-sm">{imageStatus}</output>
               {communitySubmissionConfigured ? (
                 <>
                   <form
@@ -1358,6 +1414,24 @@ export function Name100Game({
         </section>
       </>
 
+      <AlertDialog
+        open={isEndConfirmOpen && !gameState.isGameOver}
+        onOpenChange={setIsEndConfirmOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>End this round?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Your current score will be final. The timer keeps running until
+              you confirm.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Keep playing</AlertDialogCancel>
+            <AlertDialogAction onClick={endRound}>End round</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       <AlertDialog
         open={isRestartConfirmOpen}
         onOpenChange={setIsRestartConfirmOpen}

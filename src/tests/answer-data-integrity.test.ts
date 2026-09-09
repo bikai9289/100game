@@ -114,7 +114,8 @@ describe('women answer data integrity', () => {
     for (const answer of answers) {
       for (const alias of answer.aliases) {
         assert.ok(
-          normalizeInput(alias).includes(' '),
+          normalizeInput(alias).includes(' ') ||
+            /^[\p{Script=Han}]{2,}$/u.test(alias),
           `${answer.name} has ambiguous single-word alias '${alias}'`
         );
       }
